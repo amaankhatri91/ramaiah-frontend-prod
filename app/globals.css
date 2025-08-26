@@ -1,0 +1,180 @@
+@import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap'); */
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --background: #0a0a0a; */
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: 'Manrope', Arial, Helvetica, sans-serif; */
+  font-family: "Manrope", Arial, Helvetica, sans-serif;
+}
+
+/* Works in WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E2EEFE;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(267deg, #00adef -49.54%, #d60f8c 110.23%);
+  border-radius: 10px;
+  border: 3px solid #E2EEFE;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(267deg, #d60f8c 0%, #00adef 100%);
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d60f8c 0%, #00adef 100%; /* Firefox doesn’t support gradient on thumb */
+}
+
+/* phone libary cutom css */
+.flag-dropdown {
+  border-top-left-radius: 26px !important;
+  border-bottom-left-radius: 26px !important;
+}
+.form-control{
+  border-radius: 26px !important;
+}
+
+
+.container {
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* .swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  top: -140px !important;
+  left: 44px !important;
+}
+.swiper-pagination-bullet {
+  height: 9px !important;
+  width: 9px !important;
+}
+
+.swiper-pagination {
+  position: relative !important;
+} */
+
+/* @media (max-width: 1024px) {
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    top: auto !important;
+    left: 0px !important;
+  }
+
+  .swiper-pagination-bullet {
+    background: linear-gradient(
+      267deg,
+      #00adef -49.54%,
+      #d60f8c 110.23%
+    ) !important;
+    height: 8px !important;
+    width: 8px !important;
+  }
+
+  .swiper-pagination {
+    position: absolute !important;
+  }
+} */
+
+.Text-color {
+  background: linear-gradient(to right, #00adef -49.54%, #d60f8c 110.23%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.Text-color2 {
+  background: linear-gradient(267deg, #00adef -49.54%, #d60f8c 110.23%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+
+/* bg-[linear-gradient(180deg,rgba(60,4,34,0)_0%,#1F0011_100%)] */
+.Background-color {
+  background: linear-gradient(267deg, #00adef -49.54%, #d60f8c 110.23%);
+}
+
+.Background-color2 {
+  background: linear-gradient(95deg, #fbfdff 0.79%, #e9f6ff 98.08%);
+}
+
+.carousel .control-dots .dot {
+  background: #007aff !important;
+}
+
+.carousel .slide {
+  text-align: start !important;
+}
+.control-arrow {
+  display: none;
+}
+
+.BoxShadow {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+@media (max-width: 1024px) {
+  .carousel .control-dots .dot{
+    display: none !important;
+  }
+}
+
+
+
+/* select-none  */
+.select-none {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+}
+
+.select-text {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
+
+/* Tailwind equivalent is added below */
+.no-vertical-scroll {
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+}
+
+ .control-dots{
+  padding-bottom: 108px !important;
+  left: 45px;
+}
