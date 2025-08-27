@@ -12,31 +12,31 @@ export const services = [
   {
     title: "Book Prime Clinic Appointments",
     subtitle: "(5 pm - 8 pm)",
-    icon: "/assets/book-appointment.svg",
+    icon: "/assets/book-ramaiah-prime.svg",
     link: "/",
   },
   {
     title: "Book Video Consultation",
     subtitle: "",
-    icon: "/assets/book-appointment.svg",
+    icon: "/assets/Book-Video-Consultation.svg",
     link: "https://msrmh.com/appointment/video_consultation.php",
   },
   {
     title: "Book Radiology Tests",
     subtitle: "",
-    icon: "/assets/book-appointment.svg",
+    icon: "/assets/book-radiology.svg",
     link: "/",
   },
   {
     title: "Book Home Lab Test Sample Collection",
     subtitle: "",
-    icon: "/assets/book-appointment.svg",
+    icon: "/assets/book-lab-tests.svg",
     link: "/",
   },
   {
     title: "Book Home Physiotherapy",
     subtitle: "",
-    icon: "/assets/book-appointment.svg",
+    icon: "/assets/Book-Home-Physiotherapy.svg",
     link: "/contact",
   },
 ];
