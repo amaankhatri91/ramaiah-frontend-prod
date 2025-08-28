@@ -12,6 +12,7 @@ import StoryAccreditations from "@/componets/CommonComponets/StoryAccreditations
 import ServiceGrid from "../ServiceGrid/ServiceGrid";
 import Choosespacialist from "../Choosespacialist/Choosespacialist";
 import Accreditations from "../Accreditations/Accreditations";
+import Ourjournyhome from "../Ourjournyhome/Ourjournyhome";
 
 const MainPage = () => {
   return (
@@ -46,15 +47,18 @@ const MainPage = () => {
       <div>
         <Accreditations />
       </div> */}
-      <div>
+      {/* <div>
         <ListenOur />
-      </div>
+      </div> */}
       {/* <div>
         <Review />
       </div>
       <div>
         <ExpertsSpeak />
       </div> */}
+      <div>
+        <Ourjournyhome />
+      </div>
     </div>
   );
 };
