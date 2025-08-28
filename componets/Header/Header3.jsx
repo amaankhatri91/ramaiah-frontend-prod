@@ -25,7 +25,7 @@ const Header3 = () => {
           </div>
           <div className="">
             <Image
-              src="/assets/header-thaumbnail.svg"
+              src="/assets/headermainlogo.svg"
               alt="header-thaumbnail"
               width={320}
               height={40}

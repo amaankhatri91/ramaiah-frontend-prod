@@ -88,16 +88,18 @@ const Header2 = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center w-full justify-between">
-          <Link
-            href="/"
-            className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] font-manrope ${
-              pathname === "/"
-                ? "Text-color font-bold"
-                : "text-[#3D3D3D] hover:text-[#e14b8b]"
-            }`}
-          >
-            Home
-          </Link>
+          {pathname !== "/" && (
+            <Link
+              href="/"
+              className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] font-manrope ${
+                pathname === "/"
+                  ? "Text-color font-bold"
+                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
+              }`}
+            >
+              Home
+            </Link>
+          )}
           {/* About Us with Dropdown */}
           <div
             className="relative"
@@ -345,9 +347,16 @@ const Header2 = () => {
               pathname === "/trending"
                 ? "Text-color font-bold"
                 : "text-[#3D3D3D] hover:text-[#e14b8b]"
-            }`}
+            } flex items-center gap-1`}
           >
-            #Trending
+            #What’s New
+            <Image
+              src="/assets/down-arrow.svg"
+              alt="#What’s New"
+              width={12}
+              height={7}
+              className="top-[1px] relative"
+            />
           </Link>
           <Link
             href="/contact"
@@ -355,9 +364,16 @@ const Header2 = () => {
               pathname === "/contact"
                 ? "Text-color font-bold"
                 : "text-[#3D3D3D] hover:text-[#e14b8b]"
-            }`}
+            } flex items-center gap-1`}
           >
             Contact Us
+            <Image
+              src="/assets/down-arrow.svg"
+              alt="Contact Us"
+              width={12}
+              height={7}
+              className="top-[1px] relative"
+            />
           </Link>
         </nav>
 
