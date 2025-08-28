@@ -22,16 +22,16 @@ const LegacyClinical = () => {
               ward rooms, etc. Which all come together to offer comprehensive
               medical services in more than 30 specialties.
             </p>
-            <div className="min-[1264px]:mt-5 mt-3 min-[1200px]:mb-[24px] min-[800px]:mb-[18px] mb-[14px]">
+            {/* <div className="min-[1264px]:mt-5 mt-3 min-[1200px]:mb-[24px] min-[800px]:mb-[18px] mb-[14px]">
               <button className="flex cursor-pointer items-center Background-color text-white px-6 py-2 rounded-full font-medium shadow hover:opacity-90 transition-all">
                 Book Appointment
                 <MdArrowOutward className="ml-[8px]" />
               </button>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Column - Video */}
-          <div className="min-[1200px]:h-[620px]">
+          <div className="min-[1200px]:h-[620px] min-[1200px]:mt-[16px] min-[800px]:mt-[14px] mt-[12px]">
             <video
               className="w-full h-full object-cover rounded-[30px]"
               src="https://www.w3schools.com/html/mov_bbb.mp4" 

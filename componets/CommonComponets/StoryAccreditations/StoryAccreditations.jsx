@@ -9,7 +9,7 @@ const stats = [
   { icon: "/assets/nursing-staff.svg", value: "600+", label: "Nursing Staff" },
   { icon: "/assets/patients.svg", value: "2.5M", label: "Patients Treated" },
   { icon: "/assets/procedures.svg", value: "1.5M", label: "Procedures" },
-  { icon: "/assets/about-hospital.svg", value: "5", label: "Centers Of Excellence" },
+  { icon: "/assets/Simplificationhomeison.svg", value: "5", label: "Of Excellence" },
   { icon: "/assets/specialities.svg", value: "30+", label: "Specialities" },
 ];
 
@@ -18,6 +18,8 @@ const accreditations = [
   { img: "/assets/AmericanHeartAssociation.svg", alt: "American Heart Association" },
   { img: "/assets/AmericanHeartAssociation.svg", alt: "American Stroke Association" },
   { img: "/assets/NABH.svg", alt: "NABH" },
+  { img: "/assets/rahiyaccordiongreen.svg", alt: "NABH" },
+  { img: "/assets/mcseventwo.svg", alt: "NABH" },
 ];
 
 export default function StoryAccreditations() {
@@ -26,7 +28,7 @@ export default function StoryAccreditations() {
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-[1200px]:gap-14 min-[800px]:gap-10 gap-6 items-start">
           {/* Left: Our Story */}
-          <div className="rounded-[24px] p-6 min-[800px]:p-8 Background-color2">
+          <div className="rounded-[24px] p-6 min-[800px]:p-8 bg-[linear-gradient(84deg,#F2D5CF_0%,#E2EEFE_100%)]">
             <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D] mb-6">
               Our <span className="Text-color2">Story</span>
             </h2>
@@ -45,7 +47,7 @@ export default function StoryAccreditations() {
                   />
                   <div>
                     <div className="min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] font-bold text-[#3D3D3D] leading-[1.2]">
-                      {item.value}
+                      {item.value} {item.label === "Of Excellence" ?  <span className="font-medium text-[16px] md:text-[18px]">Centers</span> : ""}
                     </div>
                     <div className="min-[1200px]:text-[14px] min-[800px]:text-[13px] text-[12px] text-[#616161] font-medium">
                       {item.label}
@@ -61,7 +63,7 @@ export default function StoryAccreditations() {
             <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D] mb-6">
               Our <span className="Text-color2">Accreditations</span> & Certifications
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 justify-items-start items-start">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 justify-items-center items-start">
               {accreditations.map((item, index) => (
                 <div key={index} className="flex items-center">
                   <Image
@@ -69,7 +71,7 @@ export default function StoryAccreditations() {
                     alt={item.alt}
                     width={120}
                     height={120}
-                    className="h-auto w-auto"
+                    className="w-[80px] h-[80px] md:w-[120px] md:h-[120px]"
                   />
                 </div>
               ))}
