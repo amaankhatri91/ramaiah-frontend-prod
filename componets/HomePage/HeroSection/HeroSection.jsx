@@ -14,7 +14,7 @@ const slides = [
     title: (
       <>
         Our Decades Of Legacy & Clinical Excellence Has
-        <span className="Text-color"> Touched Millions Of Lives</span> To Ensure
+        <span className="Text-color2"> Touched Millions Of Lives</span> To Ensure
       </>
     ),
     hashtag: "#LifeGetsBetter",
@@ -149,12 +149,12 @@ const HeroSection = () => {
                     <h2 className="text-[25px] min-[1080px]:text-[45px] min-[1507px]:text-[59px] font-bold text-[#3D3D3D] leading-tight">
                       {slide.title}
                     </h2>
-                    <p className="Text-color font-bold text-[20px] min-[1080px]:text-[40px] min-[1507px]:text-[45px] mt-4">
+                    <p className="Text-color2 font-bold text-[20px] min-[1080px]:text-[40px] min-[1507px]:text-[45px] mt-4">
                       {slide.hashtag}
                     </p>
-                    <button className="mt-6 text-[#FFFFFF] Background-color cursor-pointer px-6 py-3 rounded-full min-[1024px]:text-[16px] text-[14px] font-medium shadow hover:opacity-90 transition-all">
+                    {/* <button className="mt-6 text-[#FFFFFF] Background-color cursor-pointer px-6 py-3 rounded-full min-[1024px]:text-[16px] text-[14px] font-medium shadow hover:opacity-90 transition-all">
                       Book Appointment
-                    </button>
+                    </button> */}
                   </div>
 
                   {/* Right video preview */}
