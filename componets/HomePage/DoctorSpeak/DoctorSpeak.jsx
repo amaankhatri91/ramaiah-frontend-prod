@@ -40,7 +40,7 @@ const DoctorSpeak = () => {
     <div className="container ">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Enquire Now Form */}
-        <form
+        {/* <form
           onSubmit={formik.handleSubmit}
           style={{
             background: "linear-gradient(84deg, #F2D5CF 0%, #E2EEFE 100%)",
@@ -49,10 +49,10 @@ const DoctorSpeak = () => {
         >
           <h3 className="min-[1220px]:text-[32px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D] mb-4 text-center">
             Enquire Now
-          </h3>
+          </h3> */}
 
-          {/* Full Name */}
-          <label className="block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A] mb-1">
+        {/* Full Name */}
+        {/* <label className="block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A] mb-1">
             Full Name<span className="text-red-500">*</span>
           </label>
           <input
@@ -68,19 +68,19 @@ const DoctorSpeak = () => {
                 ? "border-red-500"
                 : "border-[#00ADEF]"
             } bg-[#FFFFFF] focus:outline-none`}
-          />
-          {(formik.touched.fullName || formik.submitCount > 0) &&
+          /> */}
+        {/* {(formik.touched.fullName || formik.submitCount > 0) &&
             formik.errors.fullName && (
               <div className="text-red-500 text-xs min-[800px]:-mt-6 -mt-4 min-[800px]:mb-[15px] mb-[10px]">
                 {formik.errors.fullName}
               </div>
-            )}
+            )} */}
 
-          {/* Speciality */}
-          <label className="block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A] mb-1">
+        {/* Speciality */}
+        {/* <label className="block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A] mb-1">
             Choose Speciality
-          </label>
-          <div className="relative w-full min-[800px]:mb-[28px] mb-[20px]">
+          </label> */}
+        {/* <div className="relative w-full min-[800px]:mb-[28px] mb-[20px]">
             <select
               name="speciality"
               onClick={handleSpecialityClick}
@@ -100,10 +100,10 @@ const DoctorSpeak = () => {
               <option value="">Please Select</option>
               <option value="cardiology">Cardiology</option>
               <option value="neurology">Neurology</option>
-            </select>
+            </select> */}
 
-            {/* Custom arrow */}
-            <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+        {/* Custom arrow */}
+        {/* <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
               <Image
                 src="/assets/down-arrow.svg"
                 alt="Arrow"
@@ -114,16 +114,16 @@ const DoctorSpeak = () => {
                 } min-[800px]:w-[16px] w-[10px] h-[9px]`}
               />
             </div>
-          </div>
-          {(formik.touched.speciality || formik.submitCount > 0) &&
+          </div> */}
+        {/* {(formik.touched.speciality || formik.submitCount > 0) &&
             formik.errors.speciality && (
               <div className="text-red-500 text-xs min-[800px]:-mt-6 -mt-4 min-[800px]:mb-[15px] mb-[10px]">
                 {formik.errors.speciality}
               </div>
-            )}
+            )} */}
 
-          {/* Specialist */}
-          <label className="block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A] mb-1">
+        {/* Specialist */}
+        {/* <label className="block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A] mb-1">
             Choose Specialist
           </label>
           <div className="relative w-full min-[800px]:mb-[28px] mb-[20px]">
@@ -165,10 +165,10 @@ const DoctorSpeak = () => {
               <div className="text-red-500 text-xs min-[800px]:-mt-6 -mt-4 min-[800px]:mb-[20px] mb-[15px]">
                 {formik.errors.specialist}
               </div>
-            )}
+            )} */}
 
-          {/* Buttons */}
-          <div className="flex flex-wrap gap-4 min-[500px]:gap-0 items-center justify-between">
+        {/* Buttons */}
+        {/* <div className="flex flex-wrap gap-4 min-[500px]:gap-0 items-center justify-between">
             <button
               type="submit"
               className=" text-[#FFFFFF] Background-color cursor-pointer px-6 py-3 rounded-full min-[1024px]:text-[16px] text-[14px] font-medium shadow hover:opacity-90 transition-all"
@@ -181,24 +181,49 @@ const DoctorSpeak = () => {
             >
               Request A Callback
             </button>
-          </div>
-        </form>
+          </div> */}
+        {/* </form> */}
 
         {/* Doctor Speak Section */}
         <div className="">
           {/* Header */}
           <div className="flex items-center justify-between min-[1200px]:mb-5 mb-4">
             <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[28px] text-[22px] font-bold text-[#3D3D3D]">
-              Doctor Speak
+              <span className="Text-color2">Doctor </span>Speak
             </h2>
+          </div>
+          {/* Video or Image Preview */}
+          <div className="text-end">
+            <video
+              src="https://www.w3schools.com/howto/rain.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+            />
             <Link
               href="#"
-              className="bg-[linear-gradient(267deg,#00ADEF_-49.54%,#D60F8C_110.23%)] bg-clip-text text-transparent min-[800px]:text-[16px] text-[14px] font-semibold mt-3 flex items-center"
+              className="inline-flex underline items-center gap-2 w-max mt-3 px-4 py-2 rounded-full text-[#3d3d3d] font-bold min-[800px]:text-[18px] text-[16px]"
             >
-              <span className="relative after:absolute after:left-0 min-[800px]:after:bottom-[2px] after:bottom-[1px] after:w-full after:h-[0.4px] after:bg-[linear-gradient(267deg,#00ADEF_-49.54%,#D60F8C_110.23%)] Text-color2">
-                View More
-              </span>
+              <span>View More</span>
+              <Image
+                src="/assets/down-arrow.svg"
+                alt="Right arrow"
+                width={16}
+                height={16}
+                className="rotate-[-90deg] min-[800px]:w-[16px] w-[12px] h-[12px]"
+              />
             </Link>
+          </div>
+        </div>
+        <div className="text-end">
+          {/* Header */}
+          <div className="flex items-center justify-between min-[1200px]:mb-5 mb-4">
+            <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[28px] text-[22px] font-bold text-[#3D3D3D]">
+              <span className="Text-color2">Patient </span>Speak
+            </h2>
+
           </div>
 
           {/* Video or Image Preview */}
@@ -211,6 +236,19 @@ const DoctorSpeak = () => {
               playsInline
               className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
             />
+            <Link
+              href="#"
+              className="inline-flex underline items-center gap-2 w-max mt-3 px-4 py-2 rounded-full text-[#3d3d3d] font-bold min-[800px]:text-[18px] text-[16px]"
+            >
+              <span>View More</span>
+              <Image
+                src="/assets/down-arrow.svg"
+                alt="Right arrow"
+                width={16}
+                height={16}
+                className="rotate-[-90deg] min-[800px]:w-[16px] w-[12px] h-[12px]"
+              />
+            </Link>
           </div>
         </div>
       </div>

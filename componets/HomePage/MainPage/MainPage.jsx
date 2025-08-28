@@ -10,6 +10,7 @@ import ExpertsSpeak from "../ExpertsSpeak/ExpertsSpeak";
 import DoctorSpeak from "../DoctorSpeak/DoctorSpeak";
 import Accreditations from "../Accreditations/Accreditations";
 import ServiceGrid from "../ServiceGrid/ServiceGrid";
+import Choosespacialist from "../Choosespacialist/Choosespacialist";
 
 const MainPage = () => {
   return (
@@ -22,6 +23,9 @@ const MainPage = () => {
       </div> */}
       <div className="lg:relative lg:top-[-76px] lg:mt-0 md:mt-[40px] mt-[25px]">
         <ServiceGrid />
+      </div>
+      <div>
+        <Choosespacialist />
       </div>
       <div className="lg:mt-0 md:mt-[40px] mt-[25px]">
         <DoctorSpeak />
