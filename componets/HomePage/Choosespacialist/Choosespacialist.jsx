@@ -71,6 +71,8 @@ const Choosespacialist = () => {
                 styles={selectStyles}
                 value={selectedSpeciality}
                 onChange={(opt) => setSelectedSpeciality(opt)}
+                instanceId="speciality-select"
+                inputId="speciality-select-input"
               />
             </div>
           </div>
@@ -87,6 +89,8 @@ const Choosespacialist = () => {
                 styles={selectStyles}
                 value={selectedSpecialist}
                 onChange={(opt) => setSelectedSpecialist(opt)}
+                instanceId="specialist-select"
+                inputId="specialist-select-input"
               />
             </div>
           </div>
