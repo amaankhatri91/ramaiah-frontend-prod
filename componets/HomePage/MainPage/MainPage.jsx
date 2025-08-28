@@ -8,9 +8,10 @@ import ListenOur from "../ListenToOur/ListenOur";
 import Review from "../Review/Review";
 import ExpertsSpeak from "../ExpertsSpeak/ExpertsSpeak";
 import DoctorSpeak from "../DoctorSpeak/DoctorSpeak";
-import Accreditations from "../Accreditations/Accreditations";
+import StoryAccreditations from "@/componets/CommonComponets/StoryAccreditations/StoryAccreditations";
 import ServiceGrid from "../ServiceGrid/ServiceGrid";
 import Choosespacialist from "../Choosespacialist/Choosespacialist";
+import Accreditations from "../Accreditations/Accreditations";
 
 const MainPage = () => {
   return (
@@ -31,26 +32,29 @@ const MainPage = () => {
         <DoctorSpeak />
       </div>
       <div>
-        <MeetExperts />
+        <StoryAccreditations />
       </div>
+      {/* <div>
+        <MeetExperts />
+      </div> */}
       <div>
         <LegacyClinical />
       </div>
-      <div>
+      {/* <div>
         <RamaiahMemorial />
       </div>
       <div>
         <Accreditations />
-      </div>
+      </div> */}
       <div>
         <ListenOur />
       </div>
-      <div>
+      {/* <div>
         <Review />
       </div>
       <div>
         <ExpertsSpeak />
-      </div>
+      </div> */}
     </div>
   );
 };

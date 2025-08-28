@@ -25,9 +25,9 @@ function DefaultSpecialities({ specialities }) {
         <SpecialitiesHeroSection slug={specialities.slug} />
       </div>
 
-      <div className="">
+      {/* <div className="">
         <Audio slug={specialities.slug} />
-      </div>
+      </div> */}
 
       <div className="min-[1200px]:mt-[40px] min-[800px]:mt-[30px] mt-[18px]">
         <Overview slug={specialities.slug} />

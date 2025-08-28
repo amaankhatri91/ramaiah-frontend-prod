@@ -25,9 +25,9 @@ const SpecialitiesHeroSection = ({ slug }) => {
                 <h2 className="min-[1480px]:text-[56px] min-[1200px]:text-[35px] min-[800px]:text-[26px] text-[22px] font-bold Text-color2">
                   {specialty.title}
                 </h2>
-                <button className="mt-5 text-[#FFFFFF] Background-color cursor-pointer px-6 py-3 rounded-full min-[1024px]:text-[16px] text-[14px] font-medium shadow hover:opacity-90 transition-all">
+                {/* <button className="mt-5 text-[#FFFFFF] Background-color cursor-pointer px-6 py-3 rounded-full min-[1024px]:text-[16px] text-[14px] font-medium shadow hover:opacity-90 transition-all">
                   Book Appointment
-                </button>
+                </button> */}
               </div>
             </div>
 

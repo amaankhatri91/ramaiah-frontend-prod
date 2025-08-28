@@ -1,6 +1,6 @@
 export const FeaturesData = [
   {
-    MainTitle: "Diseases Treated",
+    MainTitle: "Accidents & Emergencies Managed",
     slug: "accident-emergency",
     features: [
       { title: "Adult Congenital Heart Disease" },
@@ -16,7 +16,7 @@ export const FeaturesData = [
     ],
   },
   {
-    MainTitle: "Diseases Treated",
+    MainTitle: "Services And Facilities",
     slug: "anaesthesiology",
     features: [
       { title: "Video-Laryngoscopy" },
