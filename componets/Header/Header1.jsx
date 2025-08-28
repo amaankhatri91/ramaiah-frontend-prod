@@ -24,7 +24,7 @@ const Header1 = () => {
       }}
     >
       <div className="container">
-        <div className="grid grid-cols-1 min-[1024px]:grid-cols-[40%_60%] min-[1260px]:grid-cols-[40%_60%] items-center">
+        <div className="grid grid-cols-1 min-[1024px]:grid-cols-[45%_55%] min-[1260px]:grid-cols-[45%_55%] items-center">
           {/* Grid1 */}
           <div className="min-[720px]:flex enquiries-number">
             <div className="xl:py-[22px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
@@ -61,7 +61,7 @@ const Header1 = () => {
 
           {/* Grid3 */}
           <div className="flex min-[910px]:justify-between justify-center lg:justify-end">
-            <div className="flex items-center max-[1196px]:hidden">
+            <div className="flex items-center">
               <Image
                 src="/assets/affilliation.svg"
                 className="max-[1337px]:w-[200px]"

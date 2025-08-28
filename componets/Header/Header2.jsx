@@ -88,18 +88,14 @@ const Header2 = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center w-full justify-between">
-          {pathname !== "/" && (
-            <Link
-              href="/"
-              className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] font-manrope ${
-                pathname === "/"
-                  ? "Text-color font-bold"
-                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
-              }`}
-            >
-              Home
-            </Link>
-          )}
+          <Link
+            href="/"
+            className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] font-manrope ${
+              pathname === "/" ? "hidden" : "text-[#3D3D3D] hover:text-[#e14b8b]"
+            }`}
+          >
+            Home
+          </Link>
           {/* About Us with Dropdown */}
           <div
             className="relative"

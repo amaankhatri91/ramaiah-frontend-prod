@@ -27,13 +27,13 @@ const Header3 = () => {
             <Image
               src="/assets/headermainlogo.svg"
               alt="header-thaumbnail"
-              width={320}
-              height={40}
+              width={420}
+              height={60}
             //   className="w-[555px]"
             />
           </div>
           <div>
-            <h2 className="text-[42px] font-bold Text-color2">#LifeGetsBetter</h2>
+            <h2 className="min-[1200px]:text-[42px] text-[30px] font-bold Text-color2">#LifeGetsBetter</h2>
           </div>
         </div>
       </header>
