@@ -21,6 +21,10 @@ const Header2 = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [openCenterKey, setOpenCenterKey] = useState(null);
   const [openChildSlug, setOpenChildSlug] = useState(null);
+  const [openOtherSlug, setOpenOtherSlug] = useState(null);
+  const [openOtherChildSlug, setOpenOtherChildSlug] = useState(null);
+  const [openBroadSlug, setOpenBroadSlug] = useState(null);
+  const [openBroadChildSlug, setOpenBroadChildSlug] = useState(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -128,6 +132,60 @@ const Header2 = () => {
         { name: "Pancreas Clinic", slug: "pancreas-clinic" },
       ],
     },
+  ];
+
+  const otherSuperSpecialties = [
+    { name: "Endocrinology", slug: "endocrinology",  children: [
+      {
+        name: "Medical Oncology",
+        slug: "medical-oncology",
+        children: [
+          { name: "Chemotherapy", slug: "chemotherapy" },
+          { name: "Immunotherapy", slug: "immunotherapy" },
+          { name: "Targeted Therapy", slug: "targeted-therapy" },
+        ],
+      },
+      { name: "Surgical Oncology", slug: "surgical-oncology" },
+      { name: "Radiation Oncology", slug: "radiation-oncology" },
+    ], },
+    { name: "Neonatology", slug: "neonatology", children: [] },
+    { name: "Paediatric Surgery", slug: "paediatric-surgery", children: [] },
+    { name: "Vascular & Endovascular Surgery", slug: "vascular-endovascular-surgery", children: [] },
+    { name: "Rheumatology & Clinical Immunology", slug: "rheumatology-clinical-immunology", children: [] },
+    { name: "Ramaiah Center for Robotic Surgery", slug: "ramaiah-center-for-robotic-surgery", children: [] },
+    { name: "Plastic, Aesthetic & Reconstructive Sciences", slug: "plastic-surgery", children: [] },
+    { name: "Radio Diagnosis & Interventional Radiology", slug: "radio-diagnosis-interventional-radiology", children: [] },
+  ];
+
+  const broadSpecialties = [
+    { name: "Accident & Emergency", slug: "accident-emergency", children: [
+      {
+        name: "Medical Oncology",
+        slug: "medical-oncology",
+        children: [
+          { name: "Chemotherapy", slug: "chemotherapy" },
+          { name: "Immunotherapy", slug: "immunotherapy" },
+          { name: "Targeted Therapy", slug: "targeted-therapy" },
+        ],
+      },
+      { name: "Surgical Oncology", slug: "surgical-oncology" },
+      { name: "Radiation Oncology", slug: "radiation-oncology" },
+    ], },
+    { name: "Dental Surgery", slug: "dental-surgery", children: [] },
+    { name: "General Surgery", slug: "general-surgery", children: [] },
+    { name: "Paediatrics", slug: "paediatrics", children: [] },
+    { name: "Anaesthesiology", slug: "anaesthesiology", children: [] },
+    { name: "Dermatology & Cosmetology", slug: "dermatology-cosmetology", children: [] },
+    { name: "Obstetrics & Gynecology", slug: "obstetrics-gynecology", children: [] },
+    { name: "Pain and Palliative care", slug: "pain-palliative-care", children: [] },
+    { name: "Center For Rehabilitation", slug: "center-for-rehabilitation", children: [] },
+    { name: "ENT", slug: "ent", children: [] },
+    { name: "Ophthalmology", slug: "ophthalmology", children: [] },
+    { name: "Psychiatry", slug: "psychiatry", children: [] },
+    { name: "Critical Care Medicine", slug: "critical-care-medicine", children: [] },
+    { name: "General Medicine", slug: "general-medicine", children: [] },
+    { name: "Orthopaedics", slug: "orthopaedics", children: [] },
+    { name: "Pulmonary & Critical Care", slug: "pulmonary-critical-care", children: [] },
   ];
 
   return (
@@ -307,6 +365,174 @@ const Header2 = () => {
                                       {child.children.map((grand) => (
                                         <li key={grand.slug}>
                                           <Link href={`/specialities/${child.slug}/${grand.slug}`} className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => { setShowDropdown(false); setOpenCenterKey(null); setOpenChildSlug(null); }}>
+                                            {grand.name}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                <h4 className="text-[#3D3D3D] font-semibold mt-5 mb-3">Other Super Specialities</h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                  {otherSuperSpecialties.map((item) => (
+                    <div key={item.slug} className="relative">
+                      {item.children && item.children.length > 0 ? (
+                        <button
+                          type="button"
+                          className="w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]"
+                          onClick={() => setOpenOtherSlug((s) => (s === item.slug ? null : item.slug))}
+                        >
+                          <span className="flex items-center gap-2 flex-1 text-left">
+                            <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px]" />
+                            {item.name}
+                          </span>
+                          <Image src="/assets/down-arrow.svg" alt="toggle" width={12} height={7} className={`${openOtherSlug === item.slug ? "rotate-180" : ""}`} />
+                        </button>
+                      ) : (
+                        <Link
+                          href={`/specialities/${item.slug}`}
+                          style={{
+                            background:
+                              "var(--White-Ice-Line, linear-gradient(95deg, #FBFDFF 0.79%, #E9F6FF 98.08%))",
+                          }}
+                          className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center"
+                          onClick={() => setShowDropdown(false)}
+                        >
+                          <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px] mr-[4px]" />
+                          {item.name}
+                        </Link>
+                      )}
+                      {item.children && openOtherSlug === item.slug && (
+                        <div className="absolute left-0 right-0 top-full  rounded-[14px] bg-white shadow-xl border border-gray-200 p-3 z-10">
+                          <ul className="space-y-2">
+                            {item.children.map((child) => (
+                              <li key={child.slug} className="relative">
+                                <button
+                                  type="button"
+                                  className="w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]"
+                                  onClick={() => {
+                                    if (child.children && child.children.length > 0) {
+                                      setOpenOtherChildSlug((s) => (s === child.slug ? null : child.slug));
+                                    } else {
+                                      window.location.href = `/specialities/${child.slug}`;
+                                    }
+                                  }}
+                                >
+                                  <span className="flex items-center gap-2">
+                                    <span className="text-lg">›</span>
+                                    {child.name}
+                                  </span>
+                                  {child.children && (
+                                    openOtherChildSlug === child.slug ? <IoIosArrowDown /> : <IoIosArrowForward />
+                                  )}
+                                </button>
+                                {child.children && openOtherChildSlug === child.slug && (
+                                  <div className="mt-2 ml-6  p-2">
+                                    <ul className="space-y-1">
+                                      {child.children.map((grand) => (
+                                        <li key={grand.slug}>
+                                          <Link
+                                            href={`/specialities/${child.slug}/${grand.slug}`}
+                                            className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]"
+                                            onClick={() => {
+                                              setShowDropdown(false);
+                                              setOpenOtherSlug(null);
+                                              setOpenOtherChildSlug(null);
+                                            }}
+                                          >
+                                            {grand.name}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                <h4 className="text-[#3D3D3D] font-semibold mt-5 mb-3">Broad Specialities</h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                  {broadSpecialties.map((item) => (
+                    <div key={item.slug} className="relative">
+                      {item.children && item.children.length > 0 ? (
+                        <button
+                          type="button"
+                          className="w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]"
+                          onClick={() => setOpenBroadSlug((s) => (s === item.slug ? null : item.slug))}
+                        >
+                          <span className="flex items-center gap-2 flex-1 text-left">
+                            <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px]" />
+                            {item.name}
+                          </span>
+                          <Image src="/assets/down-arrow.svg" alt="toggle" width={12} height={7} className={`${openBroadSlug === item.slug ? "rotate-180" : ""}`} />
+                        </button>
+                      ) : (
+                        <Link
+                          href={`/specialities/${item.slug}`}
+                          style={{
+                            background:
+                              "var(--White-Ice-Line, linear-gradient(95deg, #FBFDFF 0.79%, #E9F6FF 98.08%))",
+                          }}
+                          className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center"
+                          onClick={() => setShowDropdown(false)}
+                        >
+                          <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px] mr-[4px]" />
+                          {item.name}
+                        </Link>
+                      )}
+                      {item.children && openBroadSlug === item.slug && (
+                        <div className="absolute left-0 right-0 top-full  rounded-[14px] bg-white shadow-xl border border-gray-200 p-3 z-10">
+                          <ul className="space-y-2">
+                            {item.children.map((child) => (
+                              <li key={child.slug} className="relative">
+                                <button
+                                  type="button"
+                                  className="w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]"
+                                  onClick={() => {
+                                    if (child.children && child.children.length > 0) {
+                                      setOpenBroadChildSlug((s) => (s === child.slug ? null : child.slug));
+                                    } else {
+                                      window.location.href = `/specialities/${child.slug}`;
+                                    }
+                                  }}
+                                >
+                                  <span className="flex items-center gap-2">
+                                    <span className="text-lg">›</span>
+                                    {child.name}
+                                  </span>
+                                  {child.children && (
+                                    openBroadChildSlug === child.slug ? <IoIosArrowDown /> : <IoIosArrowForward />
+                                  )}
+                                </button>
+                                {child.children && openBroadChildSlug === child.slug && (
+                                  <div className="mt-2 ml-6  p-2">
+                                    <ul className="space-y-1">
+                                      {child.children.map((grand) => (
+                                        <li key={grand.slug}>
+                                          <Link
+                                            href={`/specialities/${child.slug}/${grand.slug}`}
+                                            className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]"
+                                            onClick={() => {
+                                              setShowDropdown(false);
+                                              setOpenBroadSlug(null);
+                                              setOpenBroadChildSlug(null);
+                                            }}
+                                          >
                                             {grand.name}
                                           </Link>
                                         </li>
