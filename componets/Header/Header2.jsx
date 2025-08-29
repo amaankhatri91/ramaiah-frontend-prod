@@ -135,19 +135,7 @@ const Header2 = () => {
   ];
 
   const otherSuperSpecialties = [
-    { name: "Endocrinology", slug: "endocrinology",  children: [
-      {
-        name: "Medical Oncology",
-        slug: "medical-oncology",
-        children: [
-          { name: "Chemotherapy", slug: "chemotherapy" },
-          { name: "Immunotherapy", slug: "immunotherapy" },
-          { name: "Targeted Therapy", slug: "targeted-therapy" },
-        ],
-      },
-      { name: "Surgical Oncology", slug: "surgical-oncology" },
-      { name: "Radiation Oncology", slug: "radiation-oncology" },
-    ], },
+    { name: "Endocrinology", slug: "endocrinology",  children: []},
     { name: "Neonatology", slug: "neonatology", children: [] },
     { name: "Paediatric Surgery", slug: "paediatric-surgery", children: [] },
     { name: "Vascular & Endovascular Surgery", slug: "vascular-endovascular-surgery", children: [] },
@@ -158,19 +146,7 @@ const Header2 = () => {
   ];
 
   const broadSpecialties = [
-    { name: "Accident & Emergency", slug: "accident-emergency", children: [
-      {
-        name: "Medical Oncology",
-        slug: "medical-oncology",
-        children: [
-          { name: "Chemotherapy", slug: "chemotherapy" },
-          { name: "Immunotherapy", slug: "immunotherapy" },
-          { name: "Targeted Therapy", slug: "targeted-therapy" },
-        ],
-      },
-      { name: "Surgical Oncology", slug: "surgical-oncology" },
-      { name: "Radiation Oncology", slug: "radiation-oncology" },
-    ], },
+    { name: "Accident & Emergency", slug: "accident-emergency", children: [], },
     { name: "Dental Surgery", slug: "dental-surgery", children: [] },
     { name: "General Surgery", slug: "general-surgery", children: [] },
     { name: "Paediatrics", slug: "paediatrics", children: [] },
