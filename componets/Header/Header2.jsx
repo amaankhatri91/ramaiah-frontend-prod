@@ -19,6 +19,7 @@ const Header2 = () => {
   const [mobileCareersDropdownOpen, setMobileCareersDropdownOpen] =
     useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [openCenterKey, setOpenCenterKey] = useState(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -204,7 +205,62 @@ const Header2 = () => {
             </Link>
 
             {showDropdown && (
-              <div className="absolute cursor-pointer min-[1410px]:left-[380px] min-[1210px]:left-[300px] left-[270px]  min-[1400px]:max-h-[600px] max-h-[400px] overflow-auto transform -translate-x-1/2 top-[68px] w-[90vw] min-[1410px]:max-w-[75vw] max-w-[90vw] bg-white rounded-lg shadow-2xl border border-gray-200 p-6 z-50">
+              <div className="absolute cursor-pointer min-[1410px]:left-[380px] min-[1210px]:left-[300px] left-[270px]  min-[1400px]:max-h-[600px] max-h-[500px] overflow-auto transform -translate-x-1/2 top-[68px] w-[90vw] min-[1410px]:max-w-[75vw] max-w-[90vw] bg-white rounded-lg shadow-2xl border border-gray-200 p-6 z-50">
+                <h4 className="text-[#3D3D3D] font-semibold mb-3">Center of Excellence</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {[
+                    { key: "cardiac", label: "Ramaiah Institute of Cardiac Sciences", children: [
+                      { name: "Cardiology", slug: "cardiology" },
+                      { name: "Cardiothoracic Surgery", slug: "cardiothoracic-surgery" },
+                      { name: "Vascular & Endovascular Surgery", slug: "vascular-endovascular-surgery" },
+                    ]},
+                    { key: "onco", label: "Ramaiah Institute of Oncosciences", children: [
+                      { name: "Medical Oncology", slug: "medical-oncology" },
+                      { name: "Surgical Oncology", slug: "surgical-oncology" },
+                      { name: "Radiation Oncology", slug: "radiation-oncology" },
+                    ]},
+                    { key: "nephro-uro", label: "Ramaiah Institute of Nephro-Uro Sciences", children: [
+                      { name: "Nephrology", slug: "nephrology" },
+                      { name: "Urology", slug: "urology" },
+                    ]},
+                    { key: "neuro", label: "Ramaiah Institute of Neuro Sciences", children: [
+                      { name: "Neurology", slug: "neurology" },
+                      { name: "Neurosurgery", slug: "neurosurgery" },
+                      { name: "Neuroanesthesia & Neurocritical Care", slug: "neuroanesthesia-neurocritical-care" },
+                    ]},
+                    { key: "gastro", label: "Ramaiah Institute of Gastro Enteric Sciences", children: [
+                      { name: "Medical Gastroenterology", slug: "medical-gastroenterology" },
+                      { name: "Surgical Gastroenterology", slug: "surgical-gastroenterology" },
+                      { name: "Pancreas Clinic", slug: "pancreas-clinic" },
+                    ]},
+                  ].map((center) => (
+                    <div key={center.key} className="relative" onMouseEnter={() => setOpenCenterKey(center.key)} onMouseLeave={() => setOpenCenterKey((k) => (k === center.key ? null : k))}>
+                      <button type="button" aria-expanded={openCenterKey === center.key} className="w-full flex items-center justify-between px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]">
+                        <span className="flex items-center gap-2">
+                          <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px]" />
+                          {center.label}
+                        </span>
+                        <Image src="/assets/down-arrow.svg" alt="toggle" width={12} height={7} className={`${openCenterKey === center.key ? "rotate-180" : ""}`} />
+                      </button>
+                      {openCenterKey === center.key && (
+                        <div className="absolute left-0 right-0 mt-2 rounded-[14px] bg-white shadow-xl border border-gray-200 p-3">
+                          <ul className="space-y-2">
+                            {center.children.map((child) => (
+                              <li key={child.slug}>
+                                <Link href={`/specialities/${child.slug}`} className="flex items-center gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => { setShowDropdown(false); setOpenCenterKey(null); }}>
+                                  <span className="text-lg">›</span>
+                                  {child.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                <h4 className="text-[#3D3D3D] font-semibold mt-5 mb-3">All Specialities</h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   {medicalDepartments.map((dept) => (
                     <Link
@@ -214,10 +270,9 @@ const Header2 = () => {
                         background:
                           "var(--White-Ice-Line, linear-gradient(95deg, #FBFDFF 0.79%, #E9F6FF 98.08%))",
                       }}
-                      className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px]  bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors  items-center"
+                      className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center"
                       onClick={() => setShowDropdown(false)}
                     >
-                      {/* <IoIosArrowForward /> */}
                       <Image
                         src="/assets/arrow.svg"
                         alt="arrow"
