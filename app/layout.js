@@ -104,6 +104,7 @@ export default function RootLayout({ children }) {
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         className={manrope.variable}
+        suppressHydrationWarning={true}
       >
         {/* <div className="sticky top-0 z-50">
           <Header1 />
