@@ -5,7 +5,7 @@ import { medicalDepartments } from '../../ServiceData/ServiceData'
 import { OurExpertsData } from '../../ServiceData/OurExperts'
 import dynamic from 'next/dynamic'
 
-const AskExpertModal = dynamic(() => import('../../CommonComponets/AskExpertModal'), { ssr: false })
+const EnquiryModal = dynamic(() => import('../../CommonComponets/EnquiryModal'), { ssr: false })
 
 const Choosespacialist = () => {
   const specialityOptions = useMemo(() => 
@@ -28,6 +28,7 @@ const Choosespacialist = () => {
   const [selectedSpeciality, setSelectedSpeciality] = useState(null)
   const [selectedSpecialist, setSelectedSpecialist] = useState(null)
   const [isAskModalOpen, setIsAskModalOpen] = useState(false)
+  const [isCallbackOpen, setIsCallbackOpen] = useState(false)
 
   const selectStyles = {
     control: (base) => ({
@@ -61,7 +62,8 @@ const Choosespacialist = () => {
 
   return (
     <div className='container'>
-      <AskExpertModal isOpen={isAskModalOpen} onClose={() => setIsAskModalOpen(false)} />
+      <EnquiryModal variant="ask" isOpen={isAskModalOpen} onClose={() => setIsAskModalOpen(false)} />
+      <EnquiryModal variant="callback" isOpen={isCallbackOpen} onClose={() => setIsCallbackOpen(false)} />
       <div className='bg-gradient-to-br from-[#FBFDFF] to-[#E9F6FF] rounded-[32px] p-4 md:p-6 lg:p-8 shadow-sm mb-[37px]'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4'>
           {/* Choose Speciality */}
@@ -111,7 +113,7 @@ const Choosespacialist = () => {
           {/* Request A Callback */}
           <div className='sm:col-span-1'>
             <label className='block text-transparent mb-2 select-none'>.</label>
-            <button type='button' className='w-full rounded-full px-5 py-3 text-white Background-color focus:outline-none'>
+            <button type='button' onClick={() => setIsCallbackOpen(true)} className='w-full rounded-full px-5 py-3 text-white Background-color focus:outline-none'>
               <span className='text-[12px] sm:text-[14px] md:text-[14px] lg:text-[16px]] text-[#ffffff] font-semibold font-manrope'>Request A Callback</span>
             </button>
           </div>
