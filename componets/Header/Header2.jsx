@@ -277,7 +277,7 @@ const Header2 = () => {
           <div
             className="relative"
             onMouseEnter={() => setShowDropdown(true)}
-            onMouseLeave={() => setShowDropdown(false)}
+            // onMouseLeave={() => setShowDropdown(false)}
           >
             <Link href="/specialities" onClick={() => setShowDropdown(false)}>
               <button
@@ -309,8 +309,8 @@ const Header2 = () => {
                   {centersOfExcellence.map((center) => (
                     <div key={center.key} className="relative">
                       <button type="button" aria-expanded={openCenterKey === center.key} className="w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]" onClick={() => { setOpenCenterKey((k) => (k === center.key ? null : center.key)); setOpenChildSlug(null); }}>
-                        <span className="flex items-center gap-2 flex-1 text-left">
-                          <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px]" />
+                        <span className="flex gap-2 flex-1 text-left">
+                          <Image src="/assets/ramhaiyaison.svg"  alt="icon" width={18} height={18} className="w-[18px] h-[18px] min-[1200px]:mt-[3px]" />
                           {center.label}
                         </span>
                         <Image src="/assets/down-arrow.svg" alt="toggle" width={12} height={7} className={`${openCenterKey === center.key ? "rotate-180" : ""}`} />
@@ -367,8 +367,8 @@ const Header2 = () => {
                           className="w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]"
                           onClick={() => setOpenOtherSlug((s) => (s === item.slug ? null : item.slug))}
                         >
-                          <span className="flex items-center gap-2 flex-1 text-left">
-                            <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px]" />
+                          <span className="flex  gap-2 flex-1 text-left">
+                            <Image src="/assets/ramhaiyaison.svg" alt="icon" width={18} height={18} className="w-[18px] h-[18px] min-[1200px]:mt-[3px]" />
                             {item.name}
                           </span>
                           <Image src="/assets/down-arrow.svg" alt="toggle" width={12} height={7} className={`${openOtherSlug === item.slug ? "rotate-180" : ""}`} />
@@ -380,10 +380,10 @@ const Header2 = () => {
                             background:
                               "var(--White-Ice-Line, linear-gradient(95deg, #FBFDFF 0.79%, #E9F6FF 98.08%))",
                           }}
-                          className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center"
+                          className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors "
                           onClick={() => setShowDropdown(false)}
                         >
-                          <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px] mr-[4px]" />
+                          <Image src="/assets/ramhaiyaison.svg" alt="icon" width={18} height={18} className="w-[18px] h-[18px] mr-[4px] min-[1200px]:mt-[3px]" />
                           {item.name}
                         </Link>
                       )}
@@ -451,8 +451,8 @@ const Header2 = () => {
                           className="w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]"
                           onClick={() => setOpenBroadSlug((s) => (s === item.slug ? null : item.slug))}
                         >
-                          <span className="flex items-center gap-2 flex-1 text-left">
-                            <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px]" />
+                          <span className="flex gap-2 flex-1 text-left">
+                            <Image src="/assets/ramhaiyaison.svg" alt="icon" width={18} height={18} className="w-[18px] h-[18px] min-[1200px]:mt-[3px]" />
                             {item.name}
                           </span>
                           <Image src="/assets/down-arrow.svg" alt="toggle" width={12} height={7} className={`${openBroadSlug === item.slug ? "rotate-180" : ""}`} />
@@ -464,10 +464,10 @@ const Header2 = () => {
                             background:
                               "var(--White-Ice-Line, linear-gradient(95deg, #FBFDFF 0.79%, #E9F6FF 98.08%))",
                           }}
-                          className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center"
+                          className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors "
                           onClick={() => setShowDropdown(false)}
                         >
-                          <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px] mr-[4px]" />
+                          <Image src="/assets/ramhaiyaison.svg" alt="icon" width={18} height={18} className="w-[18px] h-[18px] mr-[4px] min-[1200px]:mt-[3px]" />
                           {item.name}
                         </Link>
                       )}
@@ -539,11 +539,11 @@ const Header2 = () => {
                       onClick={() => setShowDropdown(false)}
                     >
                       <Image
-                        src="/assets/arrow.svg"
-                        alt="arrow"
-                        width={14}
-                        height={8}
-                        className="w-[14px] h-[8px] mr-[4px]"
+                        src="/assets/ramhaiyaison.svg"
+                        alt="icon"
+                        width={18}
+                        height={18}
+                        className="w-[18px] h-[18px] mr-[4px] min-[1200px]:mt-[3px]"
                       />
                       {dept.name}
                     </Link>
