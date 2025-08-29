@@ -128,10 +128,11 @@ const supportServices = [
 ];
 
 const socialLinks = [
-  { icon: "/assets/facebook.svg.svg", alt: "Facebook", link: "#" },
-  { icon: "/assets/twitter.svg", alt: "Twitter", link: "#" },
-  { icon: "/assets/linkedin.svg", alt: "LinkedIn", link: "#" },
-  { icon: "/assets/instagram.svg", alt: "Instagram", link: "#" },
+  { icon: "/assets/facbookfoter.svg", alt: "Facebook", link: "#" },
+  { icon: "/assets/instafooter.svg", alt: "insta", link: "#" },
+  { icon: "/assets/linkdinfooter.svg", alt: "LinkedIn", link: "#" },
+  { icon: "/assets/twittwer.svg", alt: "twiter", link: "#" },
+  { icon: "/assets/youtube.svg", alt: "youtube", link: "#" },
 ];
 
 const Footer = () => {
