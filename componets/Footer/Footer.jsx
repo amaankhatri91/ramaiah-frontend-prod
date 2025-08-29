@@ -139,7 +139,7 @@ const Footer = () => {
     <div className="min-[1200px]:mt-[50px] mt-[30px] relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(60,4,34,0)_0%,#1F0011_100%)] opacity-75 z-0"></div>
       <footer className="w-full container text-white pt-10 pb-6 rounded-t-[40px] relative mt-10 ">
-        <div className=" grid lg:grid-cols-2 gap-10 relative z-10">
+        <div className=" grid lg:grid-cols-[30%_70%] gap-10 relative z-10">
           <div className="flex flex-col md:flex-row gap-10">
             {/* Left: Logo, Contact and Centers of Excellence */}
             <div className="min-w-[260px] flex flex-col gap-4">
@@ -218,6 +218,12 @@ const Footer = () => {
           </div>
 
           {/* Center: Quick Links */}
+        
+
+          </div>
+
+          {/* Right Half */}
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8 gap-[7px]">
           <div className="flex-1 min-w-[220px]">
             <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
               Quick Links
@@ -250,11 +256,6 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-
-          </div>
-
-          {/* Right Half */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               {/* <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
                 Clinical Services
