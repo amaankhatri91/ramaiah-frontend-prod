@@ -271,10 +271,10 @@ const Header2 = () => {
             {showDropdown && (
               <div className="absolute cursor-pointer min-[1410px]:left-[380px] min-[1210px]:left-[300px] left-[300px]  min-[1400px]:max-h-[600px] max-h-[500px] overflow-auto transform -translate-x-1/2 top-[68px] w-[90vw] min-[1410px]:max-w-[75vw] max-w-[90vw] bg-white rounded-lg shadow-2xl border border-gray-200 p-6 z-50">
                 <h4 className="text-[#3D3D3D] font-semibold mb-3">Center of Excellence</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch">
                   {centersOfExcellence.map((center) => (
                     <div key={center.key} className="relative">
-                      <button type="button" aria-expanded={openCenterKey === center.key} className="w-full flex items-center justify-between px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]" onClick={() => { setOpenCenterKey((k) => (k === center.key ? null : center.key)); setOpenChildSlug(null); }}>
+                      <button type="button" aria-expanded={openCenterKey === center.key} className="w-full h-full flex items-center justify-between px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]" onClick={() => { setOpenCenterKey((k) => (k === center.key ? null : center.key)); setOpenChildSlug(null); }}>
                         <span className="flex items-center gap-2">
                           <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px]" />
                           {center.label}
