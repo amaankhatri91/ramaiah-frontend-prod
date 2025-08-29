@@ -195,7 +195,7 @@ const DoctorSpeak = () => {
           {/* Video or Image Preview */}
           <div className="text-end">
             <video
-              src="https://www.w3schools.com/howto/rain.mp4"
+              src="https://www.w3schools.com/html/mov_bbb.mp4"
               autoPlay
               muted
               loop
@@ -229,7 +229,7 @@ const DoctorSpeak = () => {
           {/* Video or Image Preview */}
           <div className="">
             <video
-              src="https://www.w3schools.com/howto/rain.mp4"
+              src="https://www.w3schools.com/html/mov_bbb.mp4"
               autoPlay
               muted
               loop

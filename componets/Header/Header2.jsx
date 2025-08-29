@@ -20,6 +20,7 @@ const Header2 = () => {
     useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [openCenterKey, setOpenCenterKey] = useState(null);
+  const [openChildSlug, setOpenChildSlug] = useState(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -65,6 +66,12 @@ const Header2 = () => {
       }
     }
   }, [mobileMenuOpen, pathname]);
+
+  const medicalOncologyTopics = [
+    { label: "Chemotherapy", href: "/specialities/medical-oncology/chemotherapy" },
+    { label: "Immunotherapy", href: "/specialities/medical-oncology/immunotherapy" },
+    { label: "Targeted Therapy", href: "/specialities/medical-oncology/targeted-therapy" },
+  ];
 
   return (
     <header
@@ -205,7 +212,7 @@ const Header2 = () => {
             </Link>
 
             {showDropdown && (
-              <div className="absolute cursor-pointer min-[1410px]:left-[380px] min-[1210px]:left-[300px] left-[270px]  min-[1400px]:max-h-[600px] max-h-[500px] overflow-auto transform -translate-x-1/2 top-[68px] w-[90vw] min-[1410px]:max-w-[75vw] max-w-[90vw] bg-white rounded-lg shadow-2xl border border-gray-200 p-6 z-50">
+              <div className="absolute cursor-pointer min-[1410px]:left-[380px] min-[1210px]:left-[300px] left-[300px]  min-[1400px]:max-h-[600px] max-h-[500px] overflow-auto transform -translate-x-1/2 top-[68px] w-[90vw] min-[1410px]:max-w-[75vw] max-w-[90vw] bg-white rounded-lg shadow-2xl border border-gray-200 p-6 z-50">
                 <h4 className="text-[#3D3D3D] font-semibold mb-3">Center of Excellence</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                   {[
@@ -234,7 +241,7 @@ const Header2 = () => {
                       { name: "Pancreas Clinic", slug: "pancreas-clinic" },
                     ]},
                   ].map((center) => (
-                    <div key={center.key} className="relative" onMouseEnter={() => setOpenCenterKey(center.key)} onMouseLeave={() => setOpenCenterKey((k) => (k === center.key ? null : k))}>
+                    <div key={center.key} className="relative" onMouseEnter={() => setOpenCenterKey(center.key)} onMouseLeave={() => { setOpenCenterKey((k) => (k === center.key ? null : k)); setOpenChildSlug(null); }}>
                       <button type="button" aria-expanded={openCenterKey === center.key} className="w-full flex items-center justify-between px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]">
                         <span className="flex items-center gap-2">
                           <Image src="/assets/arrow.svg" alt="arrow" width={14} height={8} className="w-[14px] h-[8px]" />
@@ -246,11 +253,29 @@ const Header2 = () => {
                         <div className="absolute left-0 right-0 top-full  rounded-[14px] bg-white shadow-xl border border-gray-200 p-3 z-10">
                           <ul className="space-y-2">
                             {center.children.map((child) => (
-                              <li key={child.slug}>
-                                <Link href={`/specialities/${child.slug}`} className="flex items-center gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => { setShowDropdown(false); setOpenCenterKey(null); }}>
-                                  <span className="text-lg">›</span>
-                                  {child.name}
+                              <li key={child.slug} className="relative" onMouseEnter={() => setOpenChildSlug(child.slug)} onMouseLeave={() => setOpenChildSlug((s) => (s === child.slug ? null : s))}>
+                                <Link href={`/specialities/${child.slug}`} className="flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => { setShowDropdown(false); setOpenCenterKey(null); setOpenChildSlug(null); }}>
+                                  <span className="flex items-center gap-2">
+                                    <span className="text-lg">›</span>
+                                    {child.name}
+                                  </span>
+                                  {child.slug === "medical-oncology" && (
+                                    openChildSlug === "medical-oncology" ? <IoIosArrowDown /> : <IoIosArrowForward />
+                                  )}
                                 </Link>
+                                {child.slug === "medical-oncology" && openChildSlug === "medical-oncology" && (
+                                  <div className="mt-2 ml-6  p-2">
+                                    <ul className="space-y-1">
+                                      {medicalOncologyTopics.map((topic) => (
+                                        <li key={topic.href}>
+                                          <Link href={topic.href} className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => { setShowDropdown(false); setOpenCenterKey(null); setOpenChildSlug(null); }}>
+                                            {topic.label}
+                                          </Link>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
                               </li>
                             ))}
                           </ul>
