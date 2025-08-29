@@ -243,7 +243,7 @@ const Header2 = () => {
                         <Image src="/assets/down-arrow.svg" alt="toggle" width={12} height={7} className={`${openCenterKey === center.key ? "rotate-180" : ""}`} />
                       </button>
                       {openCenterKey === center.key && (
-                        <div className="absolute left-0 right-0 mt-2 rounded-[14px] bg-white shadow-xl border border-gray-200 p-3">
+                        <div className="absolute left-0 right-0 top-full  rounded-[14px] bg-white shadow-xl border border-gray-200 p-3 z-10">
                           <ul className="space-y-2">
                             {center.children.map((child) => (
                               <li key={child.slug}>
