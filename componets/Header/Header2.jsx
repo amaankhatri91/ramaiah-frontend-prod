@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { medicalDepartments } from "../ServiceData/ServiceData";
+import { centersOfExcellence } from "../ServiceData/CentersData";
 import { HiMenu, HiX } from "react-icons/hi";
 import Image from "next/image";
 import { IoIosArrowDown } from "react-icons/io";
@@ -71,101 +72,9 @@ const Header2 = () => {
     }
   }, [mobileMenuOpen, pathname]);
 
-  const centersOfExcellence = [
-    {
-      key: "cardiac",
-      label: "Ramaiah Institute of Cardiac Sciences",
-      slug: "cardiac-sciences",
-      children: [
-        {
-          name: "Cardiology",
-          slug: "cardiology",
-          children: [
-            { name: "Pacemaker Clinic", slug: "pacemaker-clinic" },
-            { name: "Arrhythmia Clinic", slug: "arrhythmia-clinic" },
-            { name: "Heart & Lungs Transplantation", slug: "heart-failure-clinic" },
-          ],
-        },
-        { name: "Cardiovascular & Thoracic Surgery", slug: "cardiothoracic-surgery" },
-        { name: "Vascular & Endovascular Surgery", slug: "vascular-endovascular-surgery" },
-      ],
-    },
-    {
-      key: "onco",
-      label: "Ramaiah Institute of Oncosciences",
-      slug: "ramaiah-institute-oncosciences",
-      children: [
-        {
-          name: "Medical Oncology",
-          slug: "medical-oncology",
-          // children: [
-          //   { name: "Chemotherapy", slug: "chemotherapy" },
-          //   { name: "Immunotherapy", slug: "immunotherapy" },
-          //   { name: "Targeted Therapy", slug: "targeted-therapy" },
-          // ],
-        },
-        { name: "Surgical Oncology", slug: "surgical-oncology" },
-        { name: "Radiation Oncology", slug: "radiation-oncology" },
-        { name: "Hemato—oncology & BMT", slug: "hemato—oncology" },
-        { name: "Nuclear Medicine", slug: "Nuclear-medicine" },
-      ],
-    },
-    {
-      key: "neuro",
-      label: "Ramaiah Institute of Neuro Sciences",
-      slug: "ramaiah-institute-neuro-sciences",
-      children: [
-        {
-          name: "Neurology", slug: "neurology",
-          children: [
-            { name: "Stroke Mana ement", slug: "stroke-mana-ement" },
-            { name: "Dementia Clinic", slug: "dementia-clinic" },
-            { name: "Epilepsy Clinic", slug: "epilepsy-clinic" },
-            { name: "Movement Disorders Clinic", slug: "movement-disorders-clinic" },
-          ],
-        },
-        {
-          name: "Neurosurgery", slug: "neurosurgery", children: [
-            { name: "Brain Tomers", slug: "brain-tomers" },
-            { name: "Epilepsy Surgery", slug: "epilepsy-surgery" },
-            { name: "Neurospine Surgery", slug: "neurospine-surgery" },
-            { name: "DBS Surgery for Parkinson' s Deases", slug: "dbs-surgery-for-Parkinson's-Deases" },
-          ],
-        },
-      ],
-    },
-    {
-      key: "nephro-uro",
-      label: "Ramaiah Institute of Nephro-Uro Sciences",
-      slug: "ramaiah-institute-nephro-uro-sciences",
-      children: [
-        { name: "Urology", slug: "urology" },
-        { name: "Andrology", slug: "andrology" },
-        { name: "Nephrology", slug: "nephrology" },
-        { name: "Kidney Transplantation", slug: "kidney-transplantation" },
-      ],
-    },
+  // centersOfExcellence imported from shared data
 
-    {
-      key: "gastro",
-      label: "Ramaiah Institute of Gastro Enteric Sciences",
-      slug: "ramaiah-institute-gastro-enteric-sciences",
-      children: [
-        { name: "Medical Gastroentrology", slug: "medical gastroentrology" },
-        { name: "Surgical Gastroentrology", slug: "surgical gastroentrology" },
-        { name: "Liver Transplantation", slug: "liver transplantation" },
-      ],
-    },
-  ];
-
-  // Default landing pages for main Center of Excellence tiles
-  const centerLandingSlugByKey = {
-    cardiac: "cardiology",
-    onco: "medical-oncology",
-    neuro: "neurology",
-    "nephro-uro": "urology",
-    gastro: "medical-gastroenterology",
-  };
+  // centerLandingSlugByKey no longer needed; main link uses center.slug
 
   const otherSuperSpecialties = [
     { name: "Endocrinology", slug: "endocrinology", children: [] },
