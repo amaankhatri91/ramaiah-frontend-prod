@@ -354,11 +354,7 @@ const Header2 = () => {
                   {centersOfExcellence.map((center) => (
                     <div key={center.key} className="relative" onMouseEnter={() => { setOpenCenterKey(center.key); setOpenChildSlug(null); }}>
                       <Link
-                        href={
-                          (centerLandingSlugByKey[center.key] || (center.children && center.children[0]?.slug))
-                            ? `/specialities/${centerLandingSlugByKey[center.key] || (center.children && center.children[0]?.slug)}`
-                            : `/specialities`
-                        }
+                        href={`/specialities/${center.slug}`}
                         className="cursor-pointer w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]"
                         onClick={() => setShowDropdown(false)}
                       >
@@ -374,7 +370,7 @@ const Header2 = () => {
                             {center.children.map((child) => (
                               <li key={child.slug} className="relative" onMouseEnter={() => { if (child.children && child.children.length > 0) { setOpenChildSlug(child.slug); } }}>
                                 <button type="button" className="cursor-pointer w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => {
-                                  window.location.href = `/specialities/${child.slug}`;
+                                  window.location.href = `/specialities/${center.slug}/${child.slug}`;
                                   setShowDropdown(false);
                                 }}>
                                   <span className="flex items-center gap-2">
@@ -389,7 +385,7 @@ const Header2 = () => {
                                     <ul className="space-y-1">
                                       {child.children.map((grand) => (
                                         <li key={grand.slug}>
-                                          <Link href={`/specialities/${child.slug}/${grand.slug}`} className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => { setShowDropdown(false); setOpenCenterKey(null); setOpenChildSlug(null); }}>
+                                          <Link href={`/specialities/${center.slug}/${child.slug}/${grand.slug}`} className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => { setShowDropdown(false); setOpenCenterKey(null); setOpenChildSlug(null); }}>
                                             {grand.name}
                                           </Link>
                                         </li>
