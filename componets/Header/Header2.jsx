@@ -85,7 +85,7 @@ const Header2 = () => {
             { name: "Heart & Lungs Transplantation", slug: "heart-failure-clinic" },
           ],
         },
-        { name: "Cardiovascular & Thoracic Surgery", slug: "Cardiovascular-thoracic-surgery" },
+        { name: "Cardiovascular & Thoracic Surgery", slug: "cardiothoracic-surgery" },
         { name: "Vascular & Endovascular Surgery", slug: "vascular-endovascular-surgery" },
       ],
     },
@@ -152,6 +152,15 @@ const Header2 = () => {
       ],
     },
   ];
+
+  // Default landing pages for main Center of Excellence tiles
+  const centerLandingSlugByKey = {
+    cardiac: "cardiology",
+    onco: "medical-oncology",
+    neuro: "neurology",
+    "nephro-uro": "urology",
+    gastro: "medical-gastroenterology",
+  };
 
   const otherSuperSpecialties = [
     { name: "Endocrinology", slug: "endocrinology", children: [] },
@@ -292,7 +301,16 @@ const Header2 = () => {
           {/* Our Specialities (existing dropdown) */}
           <div
             className="relative"
-            onMouseEnter={() => setShowDropdown(true)}
+            onMouseEnter={() => {
+              setShowDropdown(true);
+              // Do not auto-open any Center; wait for explicit hover
+              setOpenCenterKey(null);
+              setOpenChildSlug(null);
+              setOpenOtherSlug(null);
+              setOpenOtherChildSlug(null);
+              setOpenBroadSlug(null);
+              setOpenBroadChildSlug(null);
+            }}
             onMouseLeave={() => {
               setShowDropdown(false);
               setOpenCenterKey(null);
@@ -330,22 +348,29 @@ const Header2 = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch">
                   {centersOfExcellence.map((center) => (
                     <div key={center.key} className="relative" onMouseEnter={() => { setOpenCenterKey(center.key); setOpenChildSlug(null); }}>
-                      <button type="button" aria-expanded={openCenterKey === center.key} className="w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]">
+                      <Link
+                        href={
+                          (centerLandingSlugByKey[center.key] || (center.children && center.children[0]?.slug))
+                            ? `/specialities/${centerLandingSlugByKey[center.key] || (center.children && center.children[0]?.slug)}`
+                            : `/specialities`
+                        }
+                        className="cursor-pointer w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]"
+                        onClick={() => setShowDropdown(false)}
+                      >
                         <span className="flex gap-2 flex-1 text-left">
                           <Image src="/assets/ramhaiyaison.svg" alt="icon" width={18} height={18} className="w-[18px] h-[18px] min-[1200px]:mt-[3px]" />
                           {center.label}
                         </span>
                         <Image src="/assets/down-arrow.svg" alt="toggle" width={12} height={7} className={`${openCenterKey === center.key ? "rotate-180" : ""}`} />
-                      </button>
+                      </Link>
                       {openCenterKey === center.key && (
                         <div className="absolute left-0 right-0 top-full  rounded-[14px] bg-white shadow-xl border border-gray-200 p-3 z-10">
                           <ul className="space-y-2">
                             {center.children.map((child) => (
                               <li key={child.slug} className="relative" onMouseEnter={() => { if (child.children && child.children.length > 0) { setOpenChildSlug(child.slug); } }}>
-                                <button type="button" className="w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => {
-                                  if (!child.children || child.children.length === 0) {
-                                    window.location.href = `/specialities/${child.slug}`;
-                                  }
+                                <button type="button" className="cursor-pointer w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => {
+                                  window.location.href = `/specialities/${child.slug}`;
+                                  setShowDropdown(false);
                                 }}>
                                   <span className="flex items-center gap-2">
                                     {child.name}
@@ -413,7 +438,7 @@ const Header2 = () => {
                               <li key={child.slug} className="relative">
                                 <button
                                   type="button"
-                                  className="w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]"
+                                  className="cursor-pointer w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]"
                                   onClick={() => {
                                     if (child.children && child.children.length > 0) {
                                       setOpenOtherChildSlug((s) => (s === child.slug ? null : child.slug));
@@ -496,7 +521,7 @@ const Header2 = () => {
                               <li key={child.slug} className="relative">
                                 <button
                                   type="button"
-                                  className="w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]"
+                                  className="cursor-pointer w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]"
                                   onClick={() => {
                                     if (child.children && child.children.length > 0) {
                                       setOpenBroadChildSlug((s) => (s === child.slug ? null : child.slug));
