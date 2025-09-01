@@ -82,10 +82,10 @@ const Header2 = () => {
           children: [
             { name: "Pacemaker Clinic", slug: "pacemaker-clinic" },
             { name: "Arrhythmia Clinic", slug: "arrhythmia-clinic" },
-            { name: "Heart Failure Clinic", slug: "heart-failure-clinic" },
+            { name: "Heart & Lungs Transplantation", slug: "heart-failure-clinic" },
           ],
         },
-        { name: "Cardiothoracic Surgery", slug: "cardiothoracic-surgery" },
+        { name: "Cardiovascular & Thoracic Surgery", slug: "Cardiovascular-thoracic-surgery" },
         { name: "Vascular & Endovascular Surgery", slug: "vascular-endovascular-surgery" },
       ],
     },
@@ -96,46 +96,65 @@ const Header2 = () => {
         {
           name: "Medical Oncology",
           slug: "medical-oncology",
-          children: [
-            { name: "Chemotherapy", slug: "chemotherapy" },
-            { name: "Immunotherapy", slug: "immunotherapy" },
-            { name: "Targeted Therapy", slug: "targeted-therapy" },
-          ],
+          // children: [
+          //   { name: "Chemotherapy", slug: "chemotherapy" },
+          //   { name: "Immunotherapy", slug: "immunotherapy" },
+          //   { name: "Targeted Therapy", slug: "targeted-therapy" },
+          // ],
         },
         { name: "Surgical Oncology", slug: "surgical-oncology" },
         { name: "Radiation Oncology", slug: "radiation-oncology" },
-      ],
-    },
-    {
-      key: "nephro-uro",
-      label: "Ramaiah Institute of Nephro-Uro Sciences",
-      children: [
-        { name: "Nephrology", slug: "nephrology" },
-        { name: "Urology", slug: "urology" },
+        { name: "Hemato—oncology & BMT", slug: "hemato—oncology" },
+        { name: "Nuclear Medicine", slug: "Nuclear-medicine" },
       ],
     },
     {
       key: "neuro",
       label: "Ramaiah Institute of Neuro Sciences",
       children: [
-        { name: "Neurology", slug: "neurology" },
-        { name: "Neurosurgery", slug: "neurosurgery" },
-        { name: "Neuroanesthesia & Neurocritical Care", slug: "neuroanesthesia-neurocritical-care" },
+        {
+          name: "Neurology", slug: "neurology",
+          children: [
+            { name: "Stroke Mana ement", slug: "stroke-mana-ement" },
+            { name: "Dementia Clinic", slug: "dementia-clinic" },
+            { name: "Epilepsy Clinic", slug: "epilepsy-clinic" },
+            { name: "Movement Disorders Clinic", slug: "movement-disorders-clinic" },
+          ],
+        },
+        {
+          name: "Neurosurgery", slug: "neurosurgery", children: [
+            { name: "Brain Tomers", slug: "brain-tomers" },
+            { name: "Epilepsy Surgery", slug: "epilepsy-surgery" },
+            { name: "Neurospine Surgery", slug: "neurospine-surgery" },
+            { name: "DBS Surgery for Parkinson' s Deases", slug: "dbs-surgery-for-Parkinson's-Deases" },
+          ],
+        },
       ],
     },
+    {
+      key: "nephro-uro",
+      label: "Ramaiah Institute of Nephro-Uro Sciences",
+      children: [
+        { name: "Urology", slug: "urology" },
+        { name: "Andrology", slug: "andrology" },
+        { name: "Nephrology", slug: "nephrology" },
+        { name: "Kidney Transplantation", slug: "kidney-transplantation" },
+      ],
+    },
+
     {
       key: "gastro",
       label: "Ramaiah Institute of Gastro Enteric Sciences",
       children: [
-        { name: "Medical Gastroenterology", slug: "medical-gastroenterology" },
-        { name: "Surgical Gastroenterology", slug: "surgical-gastroenterology" },
-        { name: "Pancreas Clinic", slug: "pancreas-clinic" },
+        { name: "Medical Gastroentrology", slug: "medical gastroentrology" },
+        { name: "Surgical Gastroentrology", slug: "surgical gastroentrology" },
+        { name: "Liver Transplantation", slug: "liver transplantation" },
       ],
     },
   ];
 
   const otherSuperSpecialties = [
-    { name: "Endocrinology", slug: "endocrinology",  children: []},
+    { name: "Endocrinology", slug: "endocrinology", children: [] },
     { name: "Neonatology", slug: "neonatology", children: [] },
     { name: "Paediatric Surgery", slug: "paediatric-surgery", children: [] },
     { name: "Vascular & Endovascular Surgery", slug: "vascular-endovascular-surgery", children: [] },
@@ -169,7 +188,7 @@ const Header2 = () => {
       style={{
         background: "linear-gradient(84deg, #F2D5CF 0%, #E2EEFE 100%)",
       }}
-      //   className="sticky top-0 z-50"
+    //   className="sticky top-0 z-50"
     >
       <div className="container flex items-center justify-between min-[1024px]:h-18 h-20">
         {/* Logo */}
@@ -189,9 +208,8 @@ const Header2 = () => {
         <nav className="hidden lg:flex items-center w-full justify-between">
           <Link
             href="/"
-            className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] font-manrope ${
-              pathname === "/" ? "hidden" : "text-[#3D3D3D] hover:text-[#e14b8b]"
-            }`}
+            className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] font-manrope ${pathname === "/" ? "hidden" : "text-[#3D3D3D] hover:text-[#e14b8b]"
+              }`}
           >
             Home
           </Link>
@@ -203,11 +221,10 @@ const Header2 = () => {
           >
             <Link href="/about" onClick={() => setShowAboutDropdown(false)}>
               <button
-                className={`transition-colors cursor-pointer font-manrope focus:outline-none min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] py-[22px] rounded flex items-center gap-1 ${
-                  pathname === "/about"
-                    ? "Text-color font-bold"
-                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
-                }`}
+                className={`transition-colors cursor-pointer font-manrope focus:outline-none min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] py-[22px] rounded flex items-center gap-1 ${pathname === "/about"
+                  ? "Text-color font-bold"
+                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                  }`}
                 aria-haspopup="true"
                 aria-expanded={showAboutDropdown}
               >
@@ -217,9 +234,8 @@ const Header2 = () => {
                   alt="About Us"
                   width={12}
                   height={7}
-                  className={`transition-transform duration-200 top-[1px] relative ${
-                    showAboutDropdown ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform duration-200 top-[1px] relative ${showAboutDropdown ? "rotate-180" : ""
+                    }`}
                 />
               </button>
             </Link>
@@ -289,11 +305,10 @@ const Header2 = () => {
           >
             <Link href="/specialities" onClick={() => setShowDropdown(false)}>
               <button
-                className={`transition-colors cursor-pointer font-manrope focus:outline-none min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] py-[22px] rounded flex items-center gap-1 ${
-                  pathname && pathname.startsWith("/specialities")
-                    ? "Text-color font-bold"
-                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
-                }`}
+                className={`transition-colors cursor-pointer font-manrope focus:outline-none min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] py-[22px] rounded flex items-center gap-1 ${pathname && pathname.startsWith("/specialities")
+                  ? "Text-color font-bold"
+                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                  }`}
                 aria-haspopup="true"
                 aria-expanded={showDropdown}
               >
@@ -303,9 +318,8 @@ const Header2 = () => {
                   alt="Our Specialities"
                   width={12}
                   height={7}
-                  className={`transition-transform duration-200 top-[1px] relative ${
-                    showDropdown ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform duration-200 top-[1px] relative ${showDropdown ? "rotate-180" : ""
+                    }`}
                 />
               </button>
             </Link>
@@ -318,7 +332,7 @@ const Header2 = () => {
                     <div key={center.key} className="relative" onMouseEnter={() => { setOpenCenterKey(center.key); setOpenChildSlug(null); }}>
                       <button type="button" aria-expanded={openCenterKey === center.key} className="w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]">
                         <span className="flex gap-2 flex-1 text-left">
-                          <Image src="/assets/ramhaiyaison.svg"  alt="icon" width={18} height={18} className="w-[18px] h-[18px] min-[1200px]:mt-[3px]" />
+                          <Image src="/assets/ramhaiyaison.svg" alt="icon" width={18} height={18} className="w-[18px] h-[18px] min-[1200px]:mt-[3px]" />
                           {center.label}
                         </span>
                         <Image src="/assets/down-arrow.svg" alt="toggle" width={12} height={7} className={`${openCenterKey === center.key ? "rotate-180" : ""}`} />
@@ -334,7 +348,6 @@ const Header2 = () => {
                                   }
                                 }}>
                                   <span className="flex items-center gap-2">
-                                    <span className="text-lg">›</span>
                                     {child.name}
                                   </span>
                                   {child.children && (
@@ -410,7 +423,6 @@ const Header2 = () => {
                                   }}
                                 >
                                   <span className="flex items-center gap-2">
-                                    <span className="text-lg">›</span>
                                     {child.name}
                                   </span>
                                   {child.children && (
@@ -494,7 +506,6 @@ const Header2 = () => {
                                   }}
                                 >
                                   <span className="flex items-center gap-2">
-                                    <span className="text-lg">›</span>
                                     {child.name}
                                   </span>
                                   {child.children && (
@@ -560,11 +571,10 @@ const Header2 = () => {
           </div>
           <Link
             href="/international-patients"
-            className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] ${
-              pathname === "/international-patients"
-                ? "Text-color font-bold"
-                : "text-[#3D3D3D] hover:text-[#e14b8b]"
-            }`}
+            className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] ${pathname === "/international-patients"
+              ? "Text-color font-bold"
+              : "text-[#3D3D3D] hover:text-[#e14b8b]"
+              }`}
           >
             International Patient Care
           </Link>
@@ -577,11 +587,10 @@ const Header2 = () => {
           >
             <Link href="/careers" onClick={() => setShowCareersDropdown(false)}>
               <button
-                className={`transition-colors cursor-pointer font-manrope focus:outline-none min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] py-[22px] rounded flex items-center gap-1 ${
-                  pathname === "/careers"
-                    ? "Text-color font-bold"
-                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
-                }`}
+                className={`transition-colors cursor-pointer font-manrope focus:outline-none min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] py-[22px] rounded flex items-center gap-1 ${pathname === "/careers"
+                  ? "Text-color font-bold"
+                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                  }`}
                 aria-haspopup="true"
                 aria-expanded={showCareersDropdown}
               >
@@ -591,9 +600,8 @@ const Header2 = () => {
                   alt="Careers"
                   width={12}
                   height={7}
-                  className={`transition-transform duration-200 top-[1px] relative ${
-                    showCareersDropdown ? "rotate-180" : ""
-                  }`}
+                  className={`transition-transform duration-200 top-[1px] relative ${showCareersDropdown ? "rotate-180" : ""
+                    }`}
                 />
               </button>
             </Link>
@@ -665,11 +673,10 @@ const Header2 = () => {
           </div>
           <Link
             href="/trending"
-            className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] ${
-              pathname === "/trending"
-                ? "Text-color font-bold"
-                : "text-[#3D3D3D] hover:text-[#e14b8b]"
-            } flex items-center gap-1`}
+            className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] ${pathname === "/trending"
+              ? "Text-color font-bold"
+              : "text-[#3D3D3D] hover:text-[#e14b8b]"
+              } flex items-center gap-1`}
           >
             #What’s New
             <Image
@@ -682,11 +689,10 @@ const Header2 = () => {
           </Link>
           <Link
             href="/contact"
-            className={`py-[22px] min-[1190px]:pl-[16px] pl-[10px] min-[1190px]:text-[16px] text-[14px]  ${
-              pathname === "/contact"
-                ? "Text-color font-bold"
-                : "text-[#3D3D3D] hover:text-[#e14b8b]"
-            } flex items-center gap-1`}
+            className={`py-[22px] min-[1190px]:pl-[16px] pl-[10px] min-[1190px]:text-[16px] text-[14px]  ${pathname === "/contact"
+              ? "Text-color font-bold"
+              : "text-[#3D3D3D] hover:text-[#e14b8b]"
+              } flex items-center gap-1`}
           >
             Contact Us
             <Image
@@ -741,20 +747,19 @@ const Header2 = () => {
       {mobileMenuOpen && (
         <div
           className="fixed inset-0 z-40 top-[79px] overflow-y-auto lg:hidden bg-[#EEEEEE]"
-          //   style={{
-          //     background:
-          //       "var(--2nd-Logo, linear-gradient(267deg, #00ADEF -49.54%, #D60F8C 110.23%))",
-          //   }}
+        //   style={{
+        //     background:
+        //       "var(--2nd-Logo, linear-gradient(267deg, #00ADEF -49.54%, #D60F8C 110.23%))",
+        //   }}
         >
           <div className="">
             {/* Mobile Nav Links */}
             <Link
               href="/"
-              className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${
-                pathname === "/"
-                  ? "bg-[#e14b8b] text-white rounded"
-                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
-              }`}
+              className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname === "/"
+                ? "bg-[#e14b8b] text-white rounded"
+                : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
@@ -766,11 +771,10 @@ const Header2 = () => {
                 setMobileAboutDropdownOpen(!mobileAboutDropdownOpen);
                 setMobileDropdownOpen(false);
               }}
-              className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${
-                pathname && pathname.startsWith("/about")
-                  ? "bg-[#e14b8b] text-white rounded"
-                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
-              }`}
+              className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname && pathname.startsWith("/about")
+                ? "bg-[#e14b8b] text-white rounded"
+                : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                }`}
             >
               About Us{" "}
               {mobileAboutDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
@@ -780,11 +784,10 @@ const Header2 = () => {
               <div className="pl-4 pt-2 pb-2 bg-[#dad1c7]">
                 <Link
                   href="/about/about-group"
-                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${
-                    pathname === `/about/about-group`
-                      ? "bg-[#e14b8b] text-white rounded"
-                      : "text-[#3D3D3D] hover:text-[#e14b8b]"
-                  }`}
+                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/about/about-group`
+                    ? "bg-[#e14b8b] text-white rounded"
+                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                    }`}
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setMobileAboutDropdownOpen(false);
@@ -794,11 +797,10 @@ const Header2 = () => {
                 </Link>
                 <Link
                   href="/about/about-hospital"
-                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${
-                    pathname === `/about/about-hospital`
-                      ? "bg-[#e14b8b] text-white rounded"
-                      : "text-[#3D3D3D] hover:text-[#e14b8b]"
-                  }`}
+                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/about/about-hospital`
+                    ? "bg-[#e14b8b] text-white rounded"
+                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                    }`}
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setMobileAboutDropdownOpen(false);
@@ -808,11 +810,10 @@ const Header2 = () => {
                 </Link>
                 <Link
                   href="/about/media-events"
-                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${
-                    pathname === `/about/media-events`
-                      ? "bg-[#e14b8b] text-white rounded"
-                      : "text-[#3D3D3D] hover:text-[#e14b8b]"
-                  }`}
+                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/about/media-events`
+                    ? "bg-[#e14b8b] text-white rounded"
+                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                    }`}
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setMobileAboutDropdownOpen(false);
@@ -830,12 +831,11 @@ const Header2 = () => {
                 setMobileDropdownOpen(!mobileDropdownOpen);
                 setMobileAboutDropdownOpen(false);
               }}
-              className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${
-                pathname && pathname.startsWith("/specialities")
-                  ? "bg-[#e14b8b] text-white rounded"
-                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
-              }`}
-              //   className="w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px]"
+              className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname && pathname.startsWith("/specialities")
+                ? "bg-[#e14b8b] text-white rounded"
+                : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                }`}
+            //   className="w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px]"
             >
               Our Specialities{" "}
               {mobileDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
@@ -847,11 +847,10 @@ const Header2 = () => {
                   <Link
                     key={dept.slug}
                     href={`/specialities/${dept.slug}`}
-                    className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${
-                      pathname === `/specialities/${dept.slug}`
-                        ? "bg-[#e14b8b] text-white rounded"
-                        : "text-[#3D3D3D] hover:text-[#e14b8b]"
-                    }`}
+                    className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/specialities/${dept.slug}`
+                      ? "bg-[#e14b8b] text-white rounded"
+                      : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                      }`}
                     onClick={() => {
                       setMobileMenuOpen(false);
                       setMobileDropdownOpen(false);
@@ -865,11 +864,10 @@ const Header2 = () => {
 
             <Link
               href="/international-patients"
-              className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${
-                pathname === "/international-patients"
-                  ? "bg-[#e14b8b] text-white rounded"
-                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
-              }`}
+              className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname === "/international-patients"
+                ? "bg-[#e14b8b] text-white rounded"
+                : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               International Patient Care
@@ -881,11 +879,10 @@ const Header2 = () => {
                 setMobileAboutDropdownOpen(false);
                 setMobileDropdownOpen(false);
               }}
-              className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${
-                pathname && pathname.startsWith("/careers")
-                  ? "bg-[#e14b8b] text-white rounded"
-                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
-              }`}
+              className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname && pathname.startsWith("/careers")
+                ? "bg-[#e14b8b] text-white rounded"
+                : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                }`}
             >
               Careers{" "}
               {mobileCareersDropdownOpen ? (
@@ -898,11 +895,10 @@ const Header2 = () => {
               <div className="pl-4 pt-2 pb-2 bg-[#dad1c7]">
                 <Link
                   href="/careers/send-your-resume"
-                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${
-                    pathname === `/careers/send-your-resume`
-                      ? "bg-[#e14b8b] text-white rounded"
-                      : "text-[#3D3D3D] hover:text-[#e14b8b]"
-                  }`}
+                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/careers/send-your-resume`
+                    ? "bg-[#e14b8b] text-white rounded"
+                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                    }`}
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setMobileCareersDropdownOpen(false);
@@ -912,11 +908,10 @@ const Header2 = () => {
                 </Link>
                 <Link
                   href="/careers/work-with-us"
-                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${
-                    pathname === `/careers/work-with-us`
-                      ? "bg-[#e14b8b] text-white rounded"
-                      : "text-[#3D3D3D] hover:text-[#e14b8b]"
-                  }`}
+                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/careers/work-with-us`
+                    ? "bg-[#e14b8b] text-white rounded"
+                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                    }`}
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setMobileCareersDropdownOpen(false);
@@ -926,11 +921,10 @@ const Header2 = () => {
                 </Link>
                 <Link
                   href="/careers/advance-learning-center"
-                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${
-                    pathname === `/careers/advance-learning-center`
-                      ? "bg-[#e14b8b] text-white rounded"
-                      : "text-[#3D3D3D] hover:text-[#e14b8b]"
-                  }`}
+                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/careers/advance-learning-center`
+                    ? "bg-[#e14b8b] text-white rounded"
+                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                    }`}
                   onClick={() => {
                     setMobileMenuOpen(false);
                     setMobileCareersDropdownOpen(false);
@@ -955,22 +949,20 @@ const Header2 = () => {
             )}
             <Link
               href="/trending"
-              className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${
-                pathname === "/trending"
-                  ? "bg-[#e14b8b] text-white rounded"
-                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
-              }`}
+              className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname === "/trending"
+                ? "bg-[#e14b8b] text-white rounded"
+                : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               #Trending
             </Link>
             <Link
               href="/contact"
-              className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${
-                pathname === "/contact"
-                  ? "bg-[#e14b8b] text-white rounded"
-                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
-              }`}
+              className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname === "/contact"
+                ? "bg-[#e14b8b] text-white rounded"
+                : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                }`}
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact Us
