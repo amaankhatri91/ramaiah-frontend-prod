@@ -75,6 +75,7 @@ const Header2 = () => {
     {
       key: "cardiac",
       label: "Ramaiah Institute of Cardiac Sciences",
+      slug: "cardiac-sciences",
       children: [
         {
           name: "Cardiology",
@@ -92,6 +93,7 @@ const Header2 = () => {
     {
       key: "onco",
       label: "Ramaiah Institute of Oncosciences",
+      slug: "ramaiah-institute-oncosciences",
       children: [
         {
           name: "Medical Oncology",
@@ -111,6 +113,7 @@ const Header2 = () => {
     {
       key: "neuro",
       label: "Ramaiah Institute of Neuro Sciences",
+      slug: "ramaiah-institute-neuro-sciences",
       children: [
         {
           name: "Neurology", slug: "neurology",
@@ -134,6 +137,7 @@ const Header2 = () => {
     {
       key: "nephro-uro",
       label: "Ramaiah Institute of Nephro-Uro Sciences",
+      slug: "ramaiah-institute-nephro-uro-sciences",
       children: [
         { name: "Urology", slug: "urology" },
         { name: "Andrology", slug: "andrology" },
@@ -145,6 +149,7 @@ const Header2 = () => {
     {
       key: "gastro",
       label: "Ramaiah Institute of Gastro Enteric Sciences",
+      slug: "ramaiah-institute-gastro-enteric-sciences",
       children: [
         { name: "Medical Gastroentrology", slug: "medical gastroentrology" },
         { name: "Surgical Gastroentrology", slug: "surgical gastroentrology" },
