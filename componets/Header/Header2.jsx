@@ -277,7 +277,15 @@ const Header2 = () => {
           <div
             className="relative"
             onMouseEnter={() => setShowDropdown(true)}
-            // onMouseLeave={() => setShowDropdown(false)}
+            onMouseLeave={() => {
+              setShowDropdown(false);
+              setOpenCenterKey(null);
+              setOpenChildSlug(null);
+              setOpenOtherSlug(null);
+              setOpenOtherChildSlug(null);
+              setOpenBroadSlug(null);
+              setOpenBroadChildSlug(null);
+            }}
           >
             <Link href="/specialities" onClick={() => setShowDropdown(false)}>
               <button
@@ -307,8 +315,8 @@ const Header2 = () => {
                 <h4 className="text-[#3D3D3D] font-semibold mb-3">Center of Excellence</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch">
                   {centersOfExcellence.map((center) => (
-                    <div key={center.key} className="relative">
-                      <button type="button" aria-expanded={openCenterKey === center.key} className="w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]" onClick={() => { setOpenCenterKey((k) => (k === center.key ? null : center.key)); setOpenChildSlug(null); }}>
+                    <div key={center.key} className="relative" onMouseEnter={() => { setOpenCenterKey(center.key); setOpenChildSlug(null); }}>
+                      <button type="button" aria-expanded={openCenterKey === center.key} className="w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]">
                         <span className="flex gap-2 flex-1 text-left">
                           <Image src="/assets/ramhaiyaison.svg"  alt="icon" width={18} height={18} className="w-[18px] h-[18px] min-[1200px]:mt-[3px]" />
                           {center.label}
@@ -319,11 +327,9 @@ const Header2 = () => {
                         <div className="absolute left-0 right-0 top-full  rounded-[14px] bg-white shadow-xl border border-gray-200 p-3 z-10">
                           <ul className="space-y-2">
                             {center.children.map((child) => (
-                              <li key={child.slug} className="relative">
+                              <li key={child.slug} className="relative" onMouseEnter={() => { if (child.children && child.children.length > 0) { setOpenChildSlug(child.slug); } }}>
                                 <button type="button" className="w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => {
-                                  if (child.children && child.children.length > 0) {
-                                    setOpenChildSlug((s) => (s === child.slug ? null : child.slug));
-                                  } else {
+                                  if (!child.children || child.children.length === 0) {
                                     window.location.href = `/specialities/${child.slug}`;
                                   }
                                 }}>
