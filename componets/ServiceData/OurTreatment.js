@@ -1,5 +1,19 @@
 export const OurTreatments = [
   {
+    slug: "ramaiah-institute-oncosciences",
+    items: [
+      "Outpatient Services",
+      "Inpatient Wards",
+      "Daycare Chemotherapy Units",
+      "Radiation Therapy",
+      "Robotic & Laparoscopic Oncosurgery",
+      "Genetic Counselling",
+      "PET-CT",
+      "Laboratory",
+      "Pharmacy",
+    ],
+  },
+  {
     slug: "anaesthesiology",
     items: [
       "General Anaesthesia",

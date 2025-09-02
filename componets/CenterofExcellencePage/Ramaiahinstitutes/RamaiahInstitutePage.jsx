@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getCenterBySlug } from "@/componets/ServiceData/CentersData";
 import SpecialitiesHeroSection from "@/componets/SpecialitiesPage/HeroSection/SpecialitiesHeroSection";
 import Overview from '@/componets/SpecialitiesPage/Overview/Overview';
+import FacilitiesServices from '@/componets/SpecialitiesPage/FacilitiesServices/FacilitiesServices';
+import OurTreatment from '@/componets/SpecialitiesPage/OurTreatment/OurTreatment';
 
 function DefaultRamaiahInstitute({ center }) {
   return (
@@ -14,6 +16,12 @@ function DefaultRamaiahInstitute({ center }) {
       {/* )} */}
        <div className="min-[1200px]:mt-[40px] min-[800px]:mt-[30px] mt-[18px]">
         <Overview slug={center.slug} />
+      </div>
+      <div className="">
+        <FacilitiesServices slug={center.slug} />
+      </div>
+      <div className="">
+        <OurTreatment slug={center.slug} />
       </div>
     </div>
   )

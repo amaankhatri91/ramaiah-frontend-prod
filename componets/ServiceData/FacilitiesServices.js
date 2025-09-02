@@ -1,5 +1,16 @@
 export const FeaturesData = [
   {
+    MainTitle: "Our Specialities",
+    slug: "ramaiah-institute-oncosciences",
+    features: [
+      { title: "Medical Oncology" },
+      { title: "Surgical Oncology" },
+      { title: "Radiation Oncology" },
+      { title: "Hemato—oncology & BMT" },
+      { title: "Nuclear Medicine" },
+    ],
+  },
+  {
     MainTitle: "Accidents & Emergencies Managed",
     slug: "accident-emergency",
     features: [
