@@ -3,6 +3,7 @@ import SpecialitiesHeroSection from "@/componets/SpecialitiesPage/HeroSection/Sp
 import Overview from "@/componets/SpecialitiesPage/Overview/Overview";
 import FacilitiesServices from "@/componets/SpecialitiesPage/FacilitiesServices/FacilitiesServices";
 import OurTreatment from "@/componets/SpecialitiesPage/OurTreatment/OurTreatment";
+import OurExperts from "@/componets/SpecialitiesPage/OurExperts/OurExperts";
 
 export default async function TopicPage({ params }) {
   const { slug, topic } = await params;
@@ -36,7 +37,10 @@ export default async function TopicPage({ params }) {
       <div className="">
         <OurTreatment slug={firstchildtopic} />
       </div>
-
+      
+      <div>
+        <OurExperts slug={firstchildtopic} />
+      </div>
     </>
   );
 }
