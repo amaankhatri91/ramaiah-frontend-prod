@@ -11,6 +11,20 @@ export const FeaturesData = [
     ],
   },
   {
+    MainTitle: "Our Focus Areas",
+    slug: "ramaiah-institute-oncosciences/surgical-oncology",
+    features: [
+      { title: "Biopsy or Diagnostic Surgery" },
+      { title: "Debulking Surgery" },
+      { title: "Reconstructive Surgery" },
+      { title: "Curative Surgery" },
+      { title: "Preventive Surgery" },
+      { title: "Palliative Surgery" },
+      { title: "Staging Surgery" },
+      { title: "Supportive Surgery" },
+    ],
+  },
+  {
     MainTitle: "Accidents & Emergencies Managed",
     slug: "accident-emergency",
     features: [

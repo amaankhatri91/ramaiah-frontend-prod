@@ -29,15 +29,19 @@ export default async function TopicPage({ params }) {
         <SpecialitiesHeroSection slug={firstchildtopic} />
       </div>
       {/* )} */}
-      
+
       <div className="min-[1200px]:mt-[40px] min-[800px]:mt-[30px] mt-[18px]">
         <Overview slug={firstchildtopic} />
       </div>
+      
+      {firstchildtopic === "ramaiah-institute-oncosciences/surgical-oncology" && (
+        <FacilitiesServices slug={firstchildtopic} />
+      )}
 
       <div className="">
         <OurTreatment slug={firstchildtopic} />
       </div>
-      
+
       <div>
         <OurExperts slug={firstchildtopic} />
       </div>
