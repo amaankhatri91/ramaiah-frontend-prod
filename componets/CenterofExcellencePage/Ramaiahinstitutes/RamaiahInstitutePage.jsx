@@ -5,7 +5,10 @@ import { getCenterBySlug } from "@/componets/ServiceData/CentersData";
 function DefaultRamaiahInstitute({ center }) {
   return (
     <div className="">
-      <div className="">
+        <div className="">
+        <SpecialitiesHeroSection slug={center.slug} />
+      </div>
+      {/* <div className="">
         <h1 className="text-2xl font-semibold">{center.label}</h1>
       </div>
 
@@ -24,7 +27,8 @@ function DefaultRamaiahInstitute({ center }) {
             </div>
           ))}
         </div>
-      )}
+      )} */}
+      ssfsd
     </div>
   )
 }
