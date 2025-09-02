@@ -14,6 +14,73 @@ export const OurTreatments = [
     ],
   },
   {
+    slug: "ramaiah-institute-oncosciences/medical-oncology",
+    items: [
+      "Pediatric Oncology",
+      "Hemato Oncology",
+      "Solid Tumor Oncology",
+      "Chemotherapy",
+      "Immunotherapy ",
+      "Targeted Therapy",
+      "Bone Marrow Transplant (Autologous, Allogenic, Haplo-identical) ",
+      "CAR-T Cell Therapy ",
+      "Integrative Oncology / Palliative care",
+      "Benign Hematology",
+    ],
+  },
+  {
+    slug: "ramaiah-institute-oncosciences/surgical-oncology",
+    items: [
+      "Head & Neck Oncosurgery",
+      "Breast Oncosurgery ",
+      "Gastrointestinal Oncosurgery",
+      "Robotic Oncosurgery",
+      "Gynec Oncosurgery ",
+      "Thoracic Oncosurgery ",
+      "HPB Oncosurgery ",
+      "Laparoscopic Oncosurgery ",
+      "Ortho Oncosurgery ",
+      "CRS – HIPEC, PIPEC ",
+    ],
+  },
+  {
+    slug: "ramaiah-institute-oncosciences/radiation-oncology",
+    items: [
+      "Image Guided Radiotherapy (IGRT) ",
+      "Volumetric Modulated Arc Radiotherapy (VMAT)",
+      "Intensity Modulated Radiotherapy (IMRT) ",
+      "3-Dimensional Radiotherapy (3D-RT) ",
+      "Conventional / Palliative Therapy",
+      "Stereotactic Body Radiation Therapy",
+      "Total Body Irradiation ",
+      "Total Skin Electron Therapy",
+      "Intraoperative Radiation Therapy (IORT)",
+      "HDR Brachytherapy",
+      "Stereotactic Radiosurgery",
+    ],
+  },
+  {
+    slug: "ramaiah-institute-oncosciences/hemato-oncology",
+    items: [
+      "Autologous Stem Cell Transplant",
+      "Allogeneic Bone Marrow Transplantation",
+      "Haploidentical Bone Marrow Transplantation",
+      "Reduced Intensity Bone Marrow Transplantation",
+      "Haploidentical Stem Cell Transplantation",
+      "Umbilical Cord Blood (UCB) Allogeneic Bone Marrow Transplantation",
+      "CAR-T Cell Therapy for Hematological Malignancies",
+    ],
+  },
+  {
+    slug: "ramaiah-institute-oncosciences/nuclear-medicine",
+    items: [
+      "PET CT ",
+      "Gamma Camera ",
+      "Nuclear Therapies",
+    ],
+  },
+
+  {
     slug: "anaesthesiology",
     items: [
       "General Anaesthesia",

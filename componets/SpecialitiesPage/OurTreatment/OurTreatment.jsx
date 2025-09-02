@@ -44,6 +44,9 @@ const OurTreatment = ({ slug }) => {
               <h2 className="min-[1300px]:text-[48px] min-[800px]:text-[34px] text-[22px] font-bold min-[1200px]:mb-8 mb-4">
                 Our <span className="Text-color2 ">Treatment & Procedure</span>
               </h2>
+              {/* <h2 className="min-[1300px]:text-[48px] min-[800px]:text-[34px] text-[22px] font-bold min-[1200px]:mb-8 mb-4">
+               <span className="Text-color2 ">Services & Facilities</span>
+              </h2> */}
               {group.items.map((item, index) => (
                 <div key={index} className="flex pb-4">
                   <Image
