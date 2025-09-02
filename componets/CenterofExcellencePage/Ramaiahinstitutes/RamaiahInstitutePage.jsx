@@ -1,13 +1,16 @@
 import React from 'react'
 import { notFound } from "next/navigation";
 import { getCenterBySlug } from "@/componets/ServiceData/CentersData";
+import SpecialitiesHeroSection from "@/componets/SpecialitiesPage/HeroSection/SpecialitiesHeroSection";
 
 function DefaultRamaiahInstitute({ center }) {
   return (
     <div className="">
+        {center.slug === 'ramaiah-institute-oncosciences' && (
         <div className="">
-        <SpecialitiesHeroSection slug={center.slug} />
-      </div>
+          <SpecialitiesHeroSection slug={center.slug} />
+        </div>
+      )}
       {/* <div className="">
         <h1 className="text-2xl font-semibold">{center.label}</h1>
       </div>
@@ -28,14 +31,15 @@ function DefaultRamaiahInstitute({ center }) {
           ))}
         </div>
       )} */}
-      ssfsd
     </div>
   )
 }
 
 export default async function RamaiahInstitutePage({ params }) {
-  const { institute } = await params;
-  const center = getCenterBySlug(institute);
+  const { slug } =  params;
+  const center = getCenterBySlug(slug);
+  console.log("slug", slug);
+  console.log("center", center);
 
   if (!center) {
     notFound();

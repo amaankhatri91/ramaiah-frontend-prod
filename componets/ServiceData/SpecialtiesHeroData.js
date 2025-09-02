@@ -78,6 +78,43 @@ export const specialties = [
     bgImage: "/assets/Cardiothoracic-Surgery.svg",
     mainImage: "/assets/Cardiothoracic-Surgery.svg",
   },
+  // Institutes/Oncosciences and oncology topics
+  {
+    title: "Ramaiah Institute of Oncosciences",
+    slug: "ramaiah-institute-oncosciences",
+    bgImage: "/assets/Cardiothoracic-Surgery.svg",
+    mainImage: "/assets/Cardiothoracic-Surgery.svg",
+  },
+  {
+    title: "Medical Oncology",
+    slug: "medical-oncology",
+    bgImage: "/assets/Cardiothoracic-Surgery.svg",
+    mainImage: "/assets/Cardiothoracic-Surgery.svg",
+  },
+  {
+    title: "Surgical Oncology",
+    slug: "surgical-oncology",
+    bgImage: "/assets/Cardiothoracic-Surgery.svg",
+    mainImage: "/assets/Cardiothoracic-Surgery.svg",
+  },
+  {
+    title: "Radiation Oncology",
+    slug: "radiation-oncology",
+    bgImage: "/assets/Cardiothoracic-Surgery.svg",
+    mainImage: "/assets/Cardiothoracic-Surgery.svg",
+  },
+  {
+    title: "Hemato-Oncology",
+    slug: "hemato-oncology",
+    bgImage: "/assets/Cardiothoracic-Surgery.svg",
+    mainImage: "/assets/Cardiothoracic-Surgery.svg",
+  },
+  {
+    title: "Nuclear Medicine",
+    slug: "nuclear-medicine",
+    bgImage: "/assets/Cardiothoracic-Surgery.svg",
+    mainImage: "/assets/Cardiothoracic-Surgery.svg",
+  },
 ];
 
 export function getSpecialitiesHeroPage(slug) {

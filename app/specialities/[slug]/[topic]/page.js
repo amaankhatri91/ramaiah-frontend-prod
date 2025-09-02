@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-export default function TopicPage({ params }) {
-  const { slug, topic } = params;
+export default async function TopicPage({ params }) {
+  const { slug, topic } = await params;
   return (
     <main className="container py-8">
       <h1 className="text-2xl font-bold text-[#3D3D3D] mb-4">

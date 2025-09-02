@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getCenterBySlug } from '@/componets/ServiceData/CentersData'
+import SpecialitiesHeroSection from '@/componets/SpecialitiesPage/HeroSection/SpecialitiesHeroSection'
 
 export default function RamaiahinstitutestopicPage({ params }) {
   const { institute, topic } = params
@@ -21,6 +22,17 @@ export default function RamaiahinstitutestopicPage({ params }) {
 
   return (
     <main className="container py-8">
+      {center.slug === 'ramaiah-institute-oncosciences' && (
+        (topicItem.slug === 'medical-oncology' ||
+         topicItem.slug === 'surgical-oncology' ||
+         topicItem.slug === 'radiation-oncology' ||
+         topicItem.slug === 'hemato-oncology' ||
+         topicItem.slug === 'nuclear-medicine') && (
+          <div className="mb-6">
+            <SpecialitiesHeroSection slug={topicItem.slug} />
+          </div>
+        )
+      )}
       <h1 className="text-2xl font-bold text-[#3D3D3D] mb-4">
         {topicItem.name || topic.replace(/-/g, ' ')}
       </h1>
