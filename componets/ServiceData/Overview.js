@@ -1,6 +1,18 @@
 export const contentBlocks = [
   {
     title: "Overview",
+    slug: "ramaiah-institute-oncosciences",
+    paragraphs: [
+      "The Ramaiah Institute of Oncosciences, a Centers of Excellence at Ramaiah Memorial Hospital, is a state-of-the-art, ultramodern facility that prides itself in providing a most Comprehensive Cancer Care under one roof where a renowned team of expert clinicians comprising of medical oncologists, surgical oncologists, radiation oncologists, haemato-oncologists and nuclear medicine experts comes together to ensure complete cancer care from preventive to diagnostic, to therapeutic, to palliative and to rehabilitative perspective for all our patients.",
+      "The team of expert clinicians at the Ramaiah Institute of Oncosciences works towards preventing, diagnosing, and treating cancer by offering the most advanced and evidence-based treatment protocols and customized multi-modality therapies backed by advanced, cutting-edge medical technologies and world-class infrastructure. It merges the vital aspects of quality-of-life-oriented patient care goals through palliation, life prolongation, and cure by understanding cancer development, diagnosis, treatment, and prevention, thereby enabling the most appropriate conditions to fight and defeat cancers of all kinds.",
+      "Our oncologists coordinate a world-class multidisciplinary approach to take care of cancer patients by involving clinical genetics, psychology evaluation, and counseling along with a multi-pronged approach including modalities such as surgery, chemotherapy, immunotherapy, radiation therapy, nuclear medicine, palliative medicine, and rehabilitative medicine, thereby truly encompassing a most comprehensive cancer care practice to ensure the best possible clinical outcomes.",
+      "In collaboration with the University of Illinois, the Ramaiah Institute of Oncosciences has created a state-of-the-art Stem Cell and cellular Therapy unit at the Ramaiah Memorial Hospital, featuring the latest technology-driven aphesis machines, advanced lab equipment, a dedicated hematopathologist, and HEPA-filtered treatment rooms.",
+    ],
+    image: "/assets/Ourspecioverviewinstitue.svg",
+    alt: "Ramaiah Institute of Oncosciences signage",
+  },
+  {
+    title: "Overview",
     slug: "accident-emergency",
     paragraphs: [
       "An Emergency can arise any time of day or night affecting you or your loved ones. Our state-of-the-art Department of Emergency Medicine at Ramaiah Memorial hospital is geared up to serve you 24 x7 x 365. Our Emergency Department has designated triage, resuscitation bays and emergency observation unit which are all equipped with remote monitoring systems, resuscitation resources and ventilators. To address surgical and trauma emergencies within the golden hour, advanced minor and major operation theatres are available round the clock. An important component of our team is the fleet of basic and advanced ambulances managed by trained paramedics.",

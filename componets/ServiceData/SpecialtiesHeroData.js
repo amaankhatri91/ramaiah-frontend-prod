@@ -82,8 +82,8 @@ export const specialties = [
   {
     title: "Ramaiah Institute of Oncosciences",
     slug: "ramaiah-institute-oncosciences",
-    bgImage: "/assets/Cardiothoracic-Surgery.svg",
-    mainImage: "/assets/Cardiothoracic-Surgery.svg",
+    bgImage: "/assets/RamaiahInstituteofOncosciences.svg",
+    mainImage: "/assets/RamaiahInstituteofOncosciences.svg",
   },
   {
     title: "Medical Oncology",

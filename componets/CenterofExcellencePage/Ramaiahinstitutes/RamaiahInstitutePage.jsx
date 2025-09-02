@@ -2,35 +2,19 @@ import React from 'react'
 import { notFound } from "next/navigation";
 import { getCenterBySlug } from "@/componets/ServiceData/CentersData";
 import SpecialitiesHeroSection from "@/componets/SpecialitiesPage/HeroSection/SpecialitiesHeroSection";
+import Overview from '@/componets/SpecialitiesPage/Overview/Overview';
 
 function DefaultRamaiahInstitute({ center }) {
   return (
     <div className="">
-        {center.slug === 'ramaiah-institute-oncosciences' && (
+        {/* {center.slug === 'ramaiah-institute-oncosciences' && ( */}
         <div className="">
           <SpecialitiesHeroSection slug={center.slug} />
         </div>
-      )}
-      {/* <div className="">
-        <h1 className="text-2xl font-semibold">{center.label}</h1>
+      {/* )} */}
+       <div className="min-[1200px]:mt-[40px] min-[800px]:mt-[30px] mt-[18px]">
+        <Overview slug={center.slug} />
       </div>
-
-      {Array.isArray(center.children) && center.children.length > 0 && (
-        <div className="mt-6 space-y-4">
-          {center.children.map((child) => (
-            <div key={child.slug} className="">
-              <h2 className="text-xl font-medium">{child.name || child.label}</h2>
-              {Array.isArray(child.children) && child.children.length > 0 && (
-                <ul className="list-disc list-inside mt-2 space-y-1">
-                  {child.children.map((sub) => (
-                    <li key={sub.slug}>{sub.name}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
-      )} */}
     </div>
   )
 }
