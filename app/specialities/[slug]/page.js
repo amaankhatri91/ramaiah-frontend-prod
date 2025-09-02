@@ -78,27 +78,17 @@ export default function page({ params }) {
   if (center) {
     return (
       <main className="container py-8">
-        <h1 className="text-2xl font-bold text-[#3D3D3D] mb-4">{center.label}</h1>
-        <p className="text-[rgb(61,61,61)] mb-6">Explore departments and services under {center.label}.</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {center.children.map((child) => (
-            <div key={child.slug} className="rounded-[12px] border border-gray-200 p-4">
-              <h2 className="text-xl font-semibold text-[#3D3D3D] mb-2">{child.name}</h2>
-              <Link href={`/specialities/${center.slug}/${child.slug}`} className="text-[#e14b8b] hover:underline">Go to {child.name}</Link>
-              {child.children && child.children.length > 0 && (
-                <ul className="mt-3 list-disc pl-5">
-                  {child.children.map((grand) => (
-                    <li key={grand.slug}>
-                      <Link href={`/specialities/${center.slug}/${child.slug}/${grand.slug}`} className="text-[#3D3D3D] hover:text-[#e14b8b]">
-                        {grand.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-        </div>
+        <h1 className="text-2xl font-bold text-[#3D3D3D] mb-4">
+          {slug.replace(/-/g, " ")}
+        </h1>
+
+        <p className="text-[rgb(61,61,61)] mb-6">
+          This is the <b>{slug.replace(/-/g, " ")}</b> speciality page.
+        </p>
+
+        <Link href="/specialities" className="text-[#e14b8b] hover:underline">
+          Back to Specialities
+        </Link>
       </main>
     );
   }
