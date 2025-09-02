@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SpecialitiesHeroSection from "@/componets/SpecialitiesPage/HeroSection/SpecialitiesHeroSection";
+import Overview from "@/componets/SpecialitiesPage/Overview/Overview";
 
 export default async function TopicPage({ params }) {
   const { slug, topic } = await params;
@@ -25,6 +26,10 @@ export default async function TopicPage({ params }) {
         <SpecialitiesHeroSection slug={firstchildtopic} />
       </div>
       {/* )} */}
+      
+      <div className="min-[1200px]:mt-[40px] min-[800px]:mt-[30px] mt-[18px]">
+        <Overview slug={firstchildtopic} />
+      </div>
 
     </>
   );

@@ -13,6 +13,62 @@ export const contentBlocks = [
   },
   {
     title: "Overview",
+    slug: "ramaiah-institute-oncosciences/medical-oncology",
+    paragraphs: [
+      "The Department of Medical Oncology functions under the Ramaiah Institute of Oncosciences and is a super specialty in cancer care that deals with adult and pediatric solid tumors and hematological malignancies. Typically, Medical Oncology is the primary mode of treatment for cancers involving blood and lymphatic organs and a majority of childhood cancers.",
+      "The Department is adept in providing services in Chemotherapy, Pediatric Oncology, Haemato-Oncology, benign hematology, Bone Marrow Transplantation, CAR-T Cell Therapy, Immunotherapy, Hormonal Therapy, and Targeted Therapy to treat cancer efficiently and effectively with highly credible expertise to ensure the best possible clinical outcome.",
+      "Medical Oncology also provides services through its bone marrow transplant unit, which specializes in all kinds of BMTs, including autologous (own stem cells) transplants, unrelated donor transplants (allogeneic BMT), kin-related or matched transplants, and partially matched transplants (haplo-identical BMT). ",
+      "Chimeric antigen receptor (CAR) T-cell Therapy is used by Medical / Hemato-Oncologists to treat certain types of blood cancers. It is a type of Immunotherapy wherein the T-lymphocytes or T-cells are turned into efficient modes of cancer fighters for the body. In this therapy, Hemato-Oncologists introduce a new type of gene into the T-cells to change and help the cells detect and kill the cancerous cells. ",
+    ],
+    image: "/assets/Droverviewim.svg",
+    alt: "Ramaiah Institute of Medical Oncology",
+  },
+  {
+    title: "Overview",
+    slug: "ramaiah-institute-oncosciences/surgical-oncology",
+    paragraphs: [
+      "The Department of Surgical Oncology under the Ramaiah Institute of Oncosciences at the Ramaiah Memorial Hospital focuses on utilizing surgical solutions to diagnose, stage, treat, and manage certain cancers.",
+      " The right candidate for cancer surgery is dependent on the type, size, grade, stage, and location of the tumor, along with factors such as comorbidities, age of the patient, and physical fitness. The team works with a multi-disciplinary team of physicians and clinicians to combine surgery and other required therapeutic procedures as part of a patient’s comprehensive cancer treatment plan. ",
+      "The commonly treated cancer types using surgical oncology include Bone Cancer, Brain Cancer, Breast Cancer, Colorectal Cancer, Neuroendocrine Cancer, Gall Bladder Cancer, Gastric or Stomach Cancer, Gynecologic Cancer, Head and neck Cancer, Kidney Cancer, Liver Cancer, Lung Cancer, Melanomas and skin Cancer, Pancreatic Cancer, Prostate Cancer, Sarcomas, Spinal Cancer, and Thyroid Cancer. ",
+    ],
+    image: "/assets/surgicaloverviewDr.svg",
+    alt: "Ramaiah Institute of Medical Oncology",
+  },
+  {
+    title: "Overview",
+    slug: "ramaiah-institute-oncosciences/radiation-oncology",
+    paragraphs: [
+      "The Department of Radiation Oncology under the Ramaiah Institute of Oncosciences aims to provide high-quality radiation therapy for our patients' comprehensive cancer care. Our doctors have specialized training in performing radiation treatment for people with cancer and those with certain non-cancerous (benign) conditions. ",
+      "We follow an evidence-based approach and use state-of-the-art high-end equipment, such as TrueBeam LINAC teletherapy machine, Brachytherapy, and Intraoperative Radiation Therapy (IORT) machines, to deliver our treatment. This specialized expertise and a multidisciplinary tumor board decision ensure precision treatment and enhanced clinical outcomes.",
+      "Intra-operative radiotherapy (IORT) at Ramaiah Institute of Oncosciences is one of the first in Asia, with the first patient being treated in 2024. This technology's special and unique feature involves delivering large doses of ionizing radiation to the tumor/tumor bed. In contrast, the tumor site is still exposed during surgery. The significant ",
+    ],
+    image: "/assets/radiationoncaoverviewDr.svg",
+    alt: "Ramaiah Institute of Medical Oncology",
+  },
+  {
+    title: "Overview",
+    slug: "ramaiah-institute-oncosciences/hemato-oncology",
+    paragraphs: [
+      "The Ramaiah Institute of Oncosciences also has one of India's most advanced Bone Marrow Transplantation (BMT) units. It is a state-of-the-art facility with BMT Suites, an exclusive Haemato-pathology lab, and a world-class stem cell lab. Conditions like Multiple Myeloma, Leukaemia, Lymphomas, Aplastic Anemia, Immune Deficiency Disorders, Childhood Leukemia, and certain Pediatric Cancers are a few of the common ailments that can be treated with bone marrow transplants at the unit. ",
+      "We are dedicated to delivering exceptional care and expertise in performing Bone Marrow Transplants for patients with autoimmune disorders. The specialized team of hemato-oncologists and other medical professionals utilizes advanced techniques and state-of-the-art technology to ensure the highest treatment and patient safety standards. ",
+      "The team of experts focuses on conditions such as Multiple Sclerosis (MS), Refractory Rheumatoid Arthritis (RRA), and Systemic Lupus Erythematosus (SLE), especially after relapses from other standard treatments, to ensure our patients are involved in a supportive hospital stay of three to four weeks, where patients can feel confident and reassured in the expert care they will receive. ",
+      "Bone Marrow Transplants for auto-immune disorders are a new kind of treatment for which we have gained expertise in the last few years. This has increased treatment accessibility for more patients with such disorders, enabling them to benefit significantly from this innovative therapy. ",
+    ],
+    image: "/assets/hematooncoverview.svg",
+    alt: "Ramaiah Institute of Medical Oncology",
+  },
+  {
+    title: "Overview",
+    slug: "ramaiah-institute-oncosciences/nuclear-medicine",
+    paragraphs: [
+      "Nuclear Medicine Therapy is an alternative approach used by Oncologists to treat cancers with or after other treatment options like chemotherapy or surgery. It involves using radioactive drugs that help destroy cancer cells. Nuclear Medicine Therapy is considered a treatment option for prostate cancer, thyroid cancer, neuroendocrine tumors, meningiomas, and lymphoma.",
+      " At Ramaiah Institute of Oncosciences’ Nuclear Medicine Department, we have cutting-edge and technologically advanced GAMMA Camera and PET-CT Scan facilities. ",
+    ],
+    image: "/assets/nuclearoverview.svg",
+    alt: "Ramaiah Institute of Medical Oncology",
+  },
+  {
+    title: "Overview",
     slug: "accident-emergency",
     paragraphs: [
       "An Emergency can arise any time of day or night affecting you or your loved ones. Our state-of-the-art Department of Emergency Medicine at Ramaiah Memorial hospital is geared up to serve you 24 x7 x 365. Our Emergency Department has designated triage, resuscitation bays and emergency observation unit which are all equipped with remote monitoring systems, resuscitation resources and ventilators. To address surgical and trauma emergencies within the golden hour, advanced minor and major operation theatres are available round the clock. An important component of our team is the fleet of basic and advanced ambulances managed by trained paramedics.",
