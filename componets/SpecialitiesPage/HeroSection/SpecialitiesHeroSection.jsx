@@ -6,6 +6,7 @@ import React from "react";
 
 const SpecialitiesHeroSection = ({ slug }) => {
   if (!slug) return null;
+  console.log("slug", slug);
 
   const specialty = specialties.find((s) => s.slug === slug);
   if (!specialty) return null;

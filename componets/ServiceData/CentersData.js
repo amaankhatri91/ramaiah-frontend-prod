@@ -25,7 +25,7 @@ export const centersOfExcellence = [
       { name: "Medical Oncology", slug: "medical-oncology" },
       { name: "Surgical Oncology", slug: "surgical-oncology" },
       { name: "Radiation Oncology", slug: "radiation-oncology" },
-      { name: "Hemato—oncology & BMT", slug: "hemato—oncology" },
+      { name: "Hemato—oncology & BMT", slug: "hemato-oncology" },
       { name: "Nuclear Medicine", slug: "nuclear-medicine" },
     ],
   },

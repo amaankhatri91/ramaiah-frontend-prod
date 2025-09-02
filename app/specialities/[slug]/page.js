@@ -92,14 +92,14 @@ export default async function page({ params }) {
       //   </Link>
       // </main>
 
-       <div>
-      <RamaiahInstitutePage params={params} />
-     </div>
+      <div>
+        <RamaiahInstitutePage params={params} />
+      </div>
 
-      
+
     );
   }
- 
+
   // Unknown slug; show generic not-found message in a lightweight way to avoid the hard 404 screen
   return (
     <main className="container py-8">
