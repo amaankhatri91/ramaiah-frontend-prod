@@ -121,46 +121,6 @@ const EnquiryModal = ({ isOpen, onClose, variant = "ask" }) => {
             )}
           </div>
 
-          {variant === "callback" && (
-            <div>
-              <label className="mb-1 block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A]">
-                Hospital Name<span className="text-red-500">*</span>
-              </label>
-              <div className="relative w-full">
-                <select
-                  name="hospital"
-                  value={formik.values.hospital}
-                  onChange={formik.handleChange}
-                  onClick={() => setIsHospitalOpen(!isHospitalOpen)}
-                  onBlur={(e) => { setIsHospitalOpen(false); formik.handleBlur(e) }}
-                  className={`w-full p-3 pr-10 rounded-[26px] border ${
-                    (formik.touched.hospital || formik.submitCount > 0) && formik.errors.hospital
-                      ? "border-red-500"
-                      : "border-[#00ADEF]"
-                  } bg-[#FFFFFF] text-[#3A3A3A] focus:outline-none appearance-none`}
-                >
-                  {HOSPITAL_OPTIONS.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
-                  <Image
-                    src="/assets/down-arrow.svg"
-                    alt="Arrow"
-                    width={16}
-                    height={16}
-                    className={`transition-transform duration-300 ease-in-out ${isHospitalOpen ? "rotate-180" : ""} min-[800px]:w-[16px] w-[10px] h-[9px]`}
-                  />
-                </div>
-              </div>
-              {(formik.touched.hospital || formik.submitCount > 0) && formik.errors.hospital && (
-                <div className="mt-1 text-xs text-red-500">{formik.errors.hospital}</div>
-              )}
-            </div>
-          )}
-
           <div>
             <label className="mb-1 block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A]">
               Message

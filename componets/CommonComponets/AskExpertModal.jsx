@@ -1,9 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import Image from "next/image";
 
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Full Name is required"),
@@ -15,6 +16,7 @@ const validationSchema = Yup.object({
 });
 
 const AskExpertModal = ({ isOpen, onClose }) => {
+  const [isHospitalOpen, setIsHospitalOpen] = useState(false)
   const formik = useFormik({
     initialValues: { fullName: "", phone: "", email: "", message: "" },
     validationSchema,
@@ -27,6 +29,11 @@ const AskExpertModal = ({ isOpen, onClose }) => {
   });
 
   if (!isOpen) return null;
+  const HOSPITAL_OPTIONS = [
+    { value: "", label: "Enter your Specialty" },
+    { value: "ramaiah", label: "Ramaiah Memorial Hospital" },
+    { value: "ramaiahheart", label: "Ramaiah Institute of Cardiac Sciences" },
+  ];
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">
@@ -56,11 +63,10 @@ const AskExpertModal = ({ isOpen, onClose }) => {
               onBlur={formik.handleBlur}
               value={formik.values.fullName}
               placeholder="Please enter your full name"
-              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none ${
-                (formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName
+              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none ${(formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName
                   ? "border-red-500"
                   : "border-[#00ADEF]"
-              }`}
+                }`}
             />
             {(formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName && (
               <div className="mt-1 text-xs text-red-500">{formik.errors.fullName}</div>
@@ -68,26 +74,26 @@ const AskExpertModal = ({ isOpen, onClose }) => {
           </div>
 
           <div>
-                  <label className="block text-gray-700 font-medium mb-1">
-                    Phone Number <span className="text-red-500">*</span>
-                  </label>
-                  <PhoneInput
-                    country={"in"}
-                    value={formik.values.phone}
-                    onChange={(phone) => formik.setFieldValue("phone", phone)}
-                    onBlur={() => formik.setFieldTouched("phone", true)}
-                    inputProps={{
-                      name: "phone",
-                      required: true,
-                    }}
-                    inputClass="!w-full"
-                  />
-                  {formik.touched.phone && formik.errors.phone && (
-                    <div className="text-red-500 text-xs mt-1">
-                      {formik.errors.phone}
-                    </div>
-                  )}
-                </div>
+            <label className="block text-gray-700 font-medium mb-1">
+              Phone Number <span className="text-red-500">*</span>
+            </label>
+            <PhoneInput
+              country={"in"}
+              value={formik.values.phone}
+              onChange={(phone) => formik.setFieldValue("phone", phone)}
+              onBlur={() => formik.setFieldTouched("phone", true)}
+              inputProps={{
+                name: "phone",
+                required: true,
+              }}
+              inputClass="!w-full"
+            />
+            {formik.touched.phone && formik.errors.phone && (
+              <div className="text-red-500 text-xs mt-1">
+                {formik.errors.phone}
+              </div>
+            )}
+          </div>
 
           <div>
             <label className="mb-1 block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A]">
@@ -100,14 +106,71 @@ const AskExpertModal = ({ isOpen, onClose }) => {
               onBlur={formik.handleBlur}
               value={formik.values.email}
               placeholder="mail@someemail.com"
+              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none ${(formik.touched.email || formik.submitCount > 0) && formik.errors.email
+                  ? "border-red-500"
+                  : "border-[#00ADEF]"
+                }`}
+            />
+            {(formik.touched.email || formik.submitCount > 0) && formik.errors.email && (
+              <div className="mt-1 text-xs text-red-500">{formik.errors.email}</div>
+            )}
+          </div>
+          <div>
+            <label className="mb-1 block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A]">
+              Specialty<span className="text-red-500">*</span>
+            </label>
+            <div className="relative w-full">
+              <select
+                name="hospital"
+                value={formik.values.hospital}
+                onChange={formik.handleChange}
+                onClick={() => setIsHospitalOpen(!isHospitalOpen)}
+                onBlur={(e) => { setIsHospitalOpen(false); formik.handleBlur(e) }}
+                className={`w-full p-3 pr-10 rounded-[26px] border ${(formik.touched.hospital || formik.submitCount > 0) && formik.errors.hospital
+                    ? "border-red-500"
+                    : "border-[#00ADEF]"
+                  } bg-[#FFFFFF] text-[#3A3A3A] focus:outline-none appearance-none`}
+              >
+                {HOSPITAL_OPTIONS.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+                <Image
+                  src="/assets/down-arrow.svg"
+                  alt="Arrow"
+                  width={16}
+                  height={16}
+                  className={`transition-transform duration-300 ease-in-out ${isHospitalOpen ? "rotate-180" : ""} min-[800px]:w-[16px] w-[10px] h-[9px]`}
+                />
+              </div>
+            </div>
+            {(formik.touched.hospital || formik.submitCount > 0) && formik.errors.hospital && (
+              <div className="mt-1 text-xs text-red-500">{formik.errors.hospital}</div>
+            )}
+          </div>
+
+          <div>
+            <label className="mb-1 block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A]">
+            Expert Name<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="fullName"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.fullName}
+              placeholder="Please enter your full name"
               className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none ${
-                (formik.touched.email || formik.submitCount > 0) && formik.errors.email
+                (formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName
                   ? "border-red-500"
                   : "border-[#00ADEF]"
               }`}
             />
-            {(formik.touched.email || formik.submitCount > 0) && formik.errors.email && (
-              <div className="mt-1 text-xs text-red-500">{formik.errors.email}</div>
+            {(formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName && (
+              <div className="mt-1 text-xs text-red-500">{formik.errors.fullName}</div>
             )}
           </div>
 
