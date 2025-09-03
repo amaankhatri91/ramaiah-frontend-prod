@@ -3,7 +3,7 @@ export const OurExpertsData = [
     slug: "ramaiah-institute-oncosciences",
     Oncosciences: [
       {
-        holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D] ml-[16px] ">Medical Oncology</span>,
+        holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D]  ">Medical Oncology</span>,
         Doctor: [
           {
             name: "DR. SANTHOSH DEVADAS",
@@ -45,37 +45,8 @@ export const OurExpertsData = [
         ],
       },
       {
-        holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D] ml-[16px] ">Surgical Oncology</span>,
+        holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D]  ">Surgical Oncology</span>,
         Doctor: [
-          {
-            name: "DR. SANTHOSH DEVADAS",
-            designation: "Consultant And Head Of Department",
-            specialty: "Medical Oncology",
-            qualification: "HOD & Consultant – Department of Medical Oncology & Chief – Bone Marrow Transplant; DM (Medical Oncology), MD (Internal Medicine)",
-            image: "/assets/medical-oncologyone.svg",
-            slug: "ramaiah-institute-oncosciences",
-          },
-          {
-            name: "DR. VINAYAK MAKA",
-            designation: "Consultant",
-            specialty: "Medical Oncology",
-            qualification: "Consultant – Medical Oncology; MBBS, MD (General Medicine), DM (Medical Oncology); ESMO Certification in Medical Oncology; Clinical Fellowship in Haematology and BMT, Singapore",
-            image: "/assets/medical-oncologysecndr.svg",
-          },
-          {
-            name: "DR. RASMI PALASSERY",
-            designation: "Consultant",
-            specialty: "Medical Oncology",
-            qualification: "Consultant – Medical Oncology; MBBS, MD (Pediatrics); Fellowship in Pediatric Hematology/Oncology; American Board of Pediatrics Certified",
-            image: "/assets/medical-oncologythirddr.svg",
-          },
-          {
-            name: "DR. NISHIL GOWDA",
-            designation: "Consultant",
-            specialty: "Medical Oncology",
-            qualification: "Consultant – Medical Oncology; MBBS; MD (Internal Medicine); DM (Medical Oncology); ESMO Certified",
-            image: "/assets/medical-oncologyfortthdr.svg",
-          },
           {
             name: "Dr. Harish K",
             designation: "Consultant And Head Of Department",
@@ -84,8 +55,90 @@ export const OurExpertsData = [
             image: "/assets/SurgicalOncologydr.svg",
             slug: "ramaiah-institute-oncosciences/surgical-oncology",
           },
+          {
+            name: "DR. ARAVIND S KAPALI",
+            designation: "Consultant",
+            specialty: "Surgical Oncology",
+            qualification: "Consultant – Surgical Oncologist; M.S.; M.Ch.; DNB; MRCS (Edi); MAMS",
+            image: "/assets/SurgicalOncologydrone.svg",
+          },
+          {
+            name: "DR. DEEPAK RAMRAJ",
+            designation: "Consultant",
+            specialty: "Surgical Oncology",
+            qualification: "Consultant – Surgical Oncologist; MBBS; MS; MCh (Surgical Oncology); DNB (Surgical Oncology); FMASO (Minimal Invasive and Robotic Surgery)",
+            image: "/assets/SurgicalOncologysec.svg",
+          }
         ],
-      }
+      },
+      {
+        holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D]  ">Radiation Oncology</span>,
+        Doctor: [
+          {
+            name: "DR. ARUL PONNI T. R.",
+            designation: "Consultant And Head Of Department",
+            specialty: "Radiation Oncology",
+            qualification: "HOD – Radiation Oncology; BSc; MBBS; MD (Radiation Oncology); FIACA (USA)",
+            image: "/assets/radiationdr.svg",
+            slug: "ramaiah-institute-oncosciences/radiation-oncology",
+          },
+          {
+            name: "DR. JANAKI M. G.",
+            designation: "Consultant",
+            specialty: "Radiation Oncology",
+            qualification: "Consultant - MBBS MD Radiation Oncology DNB Radiation Oncology",
+            image: "/assets/radiationdrsec.svg",
+          },
+          {
+            name: "DR. MOHAN KUMAR S.",
+            designation: "Consultant",
+            specialty: "Radiation Oncology",
+            qualification: "Consultant - MBBS MD Radiation Oncology UICC Master Course Ersmus University Master Course In Research",
+            image: "/assets/radiationthirddr.svg",
+          },
+          {
+            name: "DR. LITHIKA LAVANYA M.",
+            designation: "Consultant",
+            specialty: "Radiation Oncology",
+            qualification: "MBBS MD DNB Radiation Oncology.RGUHS Certified Fellowship In Advance Techniques In Radiation Oncology. IAPC Certified Course In Essentials Of Palliative Care",
+            image: "/assets/radiationforthdr.svg",
+          },
+        ],
+      },
+      {
+        holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D]  ">Hemato-Oncology & Bone Marrow Transplantations</span>,
+        Doctor: [
+          {
+            name: "DR. SANTHOSH DEVADAS",
+            designation: "Consultant And Head Of Department",
+            specialty: "Hemato-Oncology & Bone Marrow Transplantations",
+            qualification: "HOD & Consultant — Department Of Medical Oncology & Chief — Bone Marrow Transplant DM (Medical Oncology). MD (Internal Medicine)",
+            image: "/assets/medical-oncologyone.svg",
+            slug: "ramaiah-institute-oncosciences/hemato-oncology",
+          },
+    
+          {
+            name: "DR. RASMI PALASSERY",
+            designation: "Consultant",
+            specialty: "Hemato-Oncology & Bone Marrow Transplantations",
+            qualification: "Consultant - Medical Oncology MBBS, MD Pediatrics, Fellowship In Pediatric Hematology/OncoLogy. American Board Of Pediatrics Certified",
+            image: "/assets/medical-oncologythirddr.svg",
+          },
+        ],
+      },
+      {
+        holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D]  ">Nuclear Medicine Therapy</span>,
+        Doctor: [
+          {
+            name: "Dr. Zaeba N.",
+            designation: "Consultant And Head Of Department",
+            specialty: "Nuclear Medicine Therapy",
+            qualification: "Consultant  - Nuclear Medicine MBBS, MD (Nuclear Medicine)",
+            image: "/assets/zareendr.svg",
+            slug: "ramaiah-institute-oncosciences/nuclear-medicine",
+          },
+        ],
+      },
     ]
   },
 
