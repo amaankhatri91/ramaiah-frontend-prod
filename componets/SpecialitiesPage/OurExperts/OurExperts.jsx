@@ -4,9 +4,11 @@ import {
   getOurExpertsPage,
   OurExpertsData,
 } from "@/componets/ServiceData/OurExperts";
+// "use client";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import BookAppointmentModal from "@/componets/CommonComponets/BookAppointmentModal";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, A11y } from "swiper/modules";
@@ -47,6 +49,8 @@ const OurExperts = ({ slug  }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, [experts]);
   
+
+  const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
 
   return (
     <div className="container bg-white select-none pt-[30px] sm:pt-[40px] xl:pt-[60px]">
@@ -103,19 +107,20 @@ const OurExperts = ({ slug  }) => {
                                 <p>{expert.qualification}</p>
                               </div>
 
-                              <div className="mt-auto pt-5 flex items-center justify-between gap-8">
-                                <Link
-                                  href="#"
-                                  className="relative bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] bg-clip-text text-transparent text-[14px] font-semibold"
+                              <div className="cursor-pointer mt-auto pt-5 flex items-center justify-between gap-8">
+                                <button
+                                  type="button"
+                                  onClick={() => setIsAppointmentOpen(true)}
+                                  className="cursor-pointer relative bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] bg-clip-text text-transparent text-[14px] font-semibold"
                                 >
-                                  <div className="relative inline-flex flex-col items-start">
-                                    <span className="Text-color2">Book Appointment</span>
+                                  <div className="relative inline-flex flex-col items-start cursor-pointer">
+                                    <span className="cursor-pointer Text-color2">Book Appointment</span>
                                     <div className="w-full h-[1px] bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] absolute bottom-0" />
                                   </div>
-                                </Link>
+                                </button>
                                 <Link
                                   href="#"
-                                  className="relative bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] bg-clip-text text-transparent text-[14px] font-semibold"
+                                  className="cursor-pointer relative bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] bg-clip-text text-transparent text-[14px] font-semibold"
                                 >
                                   <div className="relative inline-flex flex-col items-start">
                                     <span className="Text-color2">View Profile</span>
@@ -185,15 +190,16 @@ const OurExperts = ({ slug  }) => {
                               </div>
 
                               <div className="mt-auto pt-5 flex items-center justify-between gap-8">
-                                <Link
-                                  href="#"
+                                <button
+                                  type="button"
+                                  onClick={() => setIsAppointmentOpen(true)}
                                   className="relative bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] bg-clip-text text-transparent text-[14px] font-semibold"
                                 >
                                   <div className="relative inline-flex flex-col items-start">
                                     <span className="Text-color2">Book Appointment</span>
                                     <div className="w-full h-[1px] bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] absolute bottom-0" />
                                   </div>
-                                </Link>
+                                </button>
                                 <Link
                                   href="#"
                                   className="relative bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] bg-clip-text text-transparent text-[14px] font-semibold"
@@ -216,6 +222,7 @@ const OurExperts = ({ slug  }) => {
           );
         })()
       )}
+      <BookAppointmentModal isOpen={isAppointmentOpen} onClose={() => setIsAppointmentOpen(false)} />
     </div>
   );
 };
