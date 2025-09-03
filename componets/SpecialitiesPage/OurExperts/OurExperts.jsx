@@ -99,23 +99,24 @@ const OurExperts = ({ slug  }) => {
                         <p>{expert.qualification}</p>
                       </div>
 
-                      {/* Read More */}
-                      <div className="mt-auto pt-5">
+                      {/* Actions */}
+                      <div className="mt-auto pt-5 flex items-center justify-between gap-8">
                         <Link
                           href="#"
-                          className="relative bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] bg-clip-text text-transparent text-[14px] font-semibold flex items-center justify-center"
+                          className="relative bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] bg-clip-text text-transparent text-[14px] font-semibold"
                         >
-                          <div className="relative flex flex-col items-start">
-                            <span className="Text-color2">Read More</span>
+                          <div className="relative inline-flex flex-col items-start">
+                            <span className="Text-color2">Book Appointment</span>
                             <div className="w-full h-[1px] bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] absolute bottom-0" />
                           </div>
-                          <div className="ml-1">
-                            <Image
-                              src="/assets/up-arrow.svg"
-                              alt="up-arrow"
-                              width={18}
-                              height={18}
-                            />
+                        </Link>
+                        <Link
+                          href="#"
+                          className="relative bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] bg-clip-text text-transparent text-[14px] font-semibold"
+                        >
+                          <div className="relative inline-flex flex-col items-start">
+                            <span className="Text-color2">View Profile</span>
+                            <div className="w-full h-[1px] bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] absolute bottom-0" />
                           </div>
                         </Link>
                       </div>
