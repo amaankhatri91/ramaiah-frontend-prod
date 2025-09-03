@@ -1,6 +1,9 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import BookRadiologyTestsModal from "@/componets/CommonComponets/BookRadiologyTestsModal";
+import BookHomeSampleCollectionModal from "@/componets/CommonComponets/BookHomeSampleCollectionModal";
 
 export const services = [
   {
@@ -28,13 +31,13 @@ export const services = [
     link: "/",
   },
   {
-    title: "Book Home Lab Test Sample Collection",
+    title: "Book Home Sample Collection",
     subtitle: "",
     icon: "/assets/book-lab-tests.svg",
     link: "/",
   },
   {
-    title: "Book Home Physiotherapy",
+    title: "Book Health Check",
     subtitle: "",
     icon: "/assets/Book-Home-Physiotherapy.svg",
     link: "/contact",
@@ -42,11 +45,27 @@ export const services = [
 ];
 
 const ServiceGrid = () => {
+  const [isRadiologyOpen, setIsRadiologyOpen] = useState(false);
+  const [isHomeCollectionOpen, setIsHomeCollectionOpen] = useState(false);
+
+  const handleServiceClick = (serviceTitle, e) => {
+    if (serviceTitle === "Book Radiology Tests") {
+      e?.preventDefault?.();
+      setIsRadiologyOpen(true);
+      return;
+    }
+    if (serviceTitle === "Book Home Sample Collection") {
+      e?.preventDefault?.();
+      setIsHomeCollectionOpen(true);
+      return;
+    }
+  };
+
   return (
     <div className="container">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
         {services.map((service, index) => (
-          <Link href={service.link} key={index} className="h-full">
+          <Link href={service.link} key={index} className="h-full" onClick={(e) => handleServiceClick(service.title, e)}>
             <div className="bg-white rounded-xl shadow-sm p-4 text-center hover:shadow-md transition cursor-pointer h-full">
               <Image
                 src={service.icon}
@@ -63,6 +82,15 @@ const ServiceGrid = () => {
           </Link>
         ))}
       </div>
+
+      <BookRadiologyTestsModal
+        isOpen={isRadiologyOpen}
+        onClose={() => setIsRadiologyOpen(false)}
+      />
+      <BookHomeSampleCollectionModal
+        isOpen={isHomeCollectionOpen}
+        onClose={() => setIsHomeCollectionOpen(false)}
+      />
     </div>
   );
 };
