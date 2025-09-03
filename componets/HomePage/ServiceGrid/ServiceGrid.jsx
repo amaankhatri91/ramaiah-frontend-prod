@@ -13,13 +13,13 @@ export const services = [
     title: "Book Prime Clinic Appointments",
     subtitle: "(5 pm - 8 pm)",
     icon: "/assets/book-ramaiah-prime.svg",
-    link: "/",
+    link: "https://msrmh.com/appointment/booking.php",
   },
   {
     title: "Book Video Consultation",
     subtitle: "",
     icon: "/assets/Book-Video-Consultation.svg",
-    link: "https://msrmh.com/appointment/video_consultation.php",
+    link: "https://msrmh.com/appointment/booking.php",
   },
   {
     title: "Book Radiology Tests",
