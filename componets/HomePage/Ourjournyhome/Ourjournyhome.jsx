@@ -47,7 +47,7 @@ const Ourjournyhome = ({ slug }) => {
                 <div className="md:col-span-5 md:order-2 order-1 w-full">
                     <div className="relative w-full h-[350px] sm:h-[450px] md:h-[600px]">
                         <Image
-                            src="/assets/ourstoryhomesection.svg"
+                            src="/assets/sardarrahmaih.svg"
                             alt="Our journy home"
                             fill
                             className="object-cover rounded-[40px] shadow-md"
