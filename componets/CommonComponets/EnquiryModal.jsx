@@ -23,7 +23,7 @@ const getValidationSchema = (variant) =>
       variant === "callback"
         ? Yup.string().required("Please select a hospital")
         : Yup.string().nullable(),
-    message: Yup.string().max(500, "Max 500 characters"),
+    message: Yup.string().max(300, "Max 300 characters"),
   });
 
 const EnquiryModal = ({ isOpen, onClose, variant = "ask" }) => {
@@ -132,8 +132,12 @@ const EnquiryModal = ({ isOpen, onClose, variant = "ask" }) => {
               onBlur={formik.handleBlur}
               value={formik.values.message}
               placeholder="Add description here..."
+              maxLength={300}
               className="w-full rounded-[20px] border border-[#00ADEF] p-3 bg-white focus:outline-none"
             />
+             <div className="font-manrope font-medium text-[12px] text-[#3A3A3A] mt-1 text-right">
+              {`You have ${Math.max(0, 300 - (formik.values.message?.length || 0))} characters remaining`}
+            </div>
           </div>
 
           <div className="pt-2 text-center">
