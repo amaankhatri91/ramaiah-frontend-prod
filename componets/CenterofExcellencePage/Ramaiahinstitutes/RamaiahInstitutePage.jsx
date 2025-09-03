@@ -5,6 +5,7 @@ import SpecialitiesHeroSection from "@/componets/SpecialitiesPage/HeroSection/Sp
 import Overview from '@/componets/SpecialitiesPage/Overview/Overview';
 import FacilitiesServices from '@/componets/SpecialitiesPage/FacilitiesServices/FacilitiesServices';
 import OurTreatment from '@/componets/SpecialitiesPage/OurTreatment/OurTreatment';
+import OurExperts from '@/componets/SpecialitiesPage/OurExperts/OurExperts';
 
 function DefaultRamaiahInstitute({ center }) {
   return (
@@ -22,6 +23,9 @@ function DefaultRamaiahInstitute({ center }) {
       </div>
       <div className="">
         <OurTreatment slug={center.slug} />
+      </div>
+      <div className="">
+        <OurExperts slug={center.slug} />
       </div>
     </div>
   )

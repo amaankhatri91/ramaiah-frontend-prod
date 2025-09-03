@@ -1,6 +1,97 @@
 export const OurExpertsData = [
   {
+    slug: "ramaiah-institute-oncosciences",
+    Oncosciences: [
+      {
+        holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D] ml-[16px] ">Medical Oncology</span>,
+        Doctor: [
+          {
+            name: "DR. SANTHOSH DEVADAS",
+            designation: "Consultant And Head Of Department",
+            specialty: "Medical Oncology",
+            qualification: "HOD & Consultant – Department of Medical Oncology & Chief – Bone Marrow Transplant; DM (Medical Oncology), MD (Internal Medicine)",
+            image: "/assets/medical-oncologyone.svg",
+            slug: "ramaiah-institute-oncosciences",
+          },
+          {
+            name: "DR. VINAYAK MAKA",
+            designation: "Consultant",
+            specialty: "Medical Oncology",
+            qualification: "Consultant – Medical Oncology; MBBS, MD (General Medicine), DM (Medical Oncology); ESMO Certification in Medical Oncology; Clinical Fellowship in Haematology and BMT, Singapore",
+            image: "/assets/medical-oncologysecndr.svg",
+          },
+          {
+            name: "DR. RASMI PALASSERY",
+            designation: "Consultant",
+            specialty: "Medical Oncology",
+            qualification: "Consultant – Medical Oncology; MBBS, MD (Pediatrics); Fellowship in Pediatric Hematology/Oncology; American Board of Pediatrics Certified",
+            image: "/assets/medical-oncologythirddr.svg",
+          },
+          {
+            name: "DR. NISHIL GOWDA",
+            designation: "Consultant",
+            specialty: "Medical Oncology",
+            qualification: "Consultant – Medical Oncology; MBBS; MD (Internal Medicine); DM (Medical Oncology); ESMO Certified",
+            image: "/assets/medical-oncologyfortthdr.svg",
+          },
+          {
+            name: "Dr. Harish K",
+            designation: "Consultant And Head Of Department",
+            specialty: "Surgical Oncology",
+            qualification: "Director – Ramaiah Institute of Oncosciences; HOD & Consultant – Surgical Oncologist; M.S.; M.Ch.; FAIS; FICS; FRCS (Glas); FAMS",
+            image: "/assets/SurgicalOncologydr.svg",
+            slug: "ramaiah-institute-oncosciences/surgical-oncology",
+          },
+        ],
+      },
+      {
+        holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D] ml-[16px] ">Surgical Oncology</span>,
+        Doctor: [
+          {
+            name: "DR. SANTHOSH DEVADAS",
+            designation: "Consultant And Head Of Department",
+            specialty: "Medical Oncology",
+            qualification: "HOD & Consultant – Department of Medical Oncology & Chief – Bone Marrow Transplant; DM (Medical Oncology), MD (Internal Medicine)",
+            image: "/assets/medical-oncologyone.svg",
+            slug: "ramaiah-institute-oncosciences",
+          },
+          {
+            name: "DR. VINAYAK MAKA",
+            designation: "Consultant",
+            specialty: "Medical Oncology",
+            qualification: "Consultant – Medical Oncology; MBBS, MD (General Medicine), DM (Medical Oncology); ESMO Certification in Medical Oncology; Clinical Fellowship in Haematology and BMT, Singapore",
+            image: "/assets/medical-oncologysecndr.svg",
+          },
+          {
+            name: "DR. RASMI PALASSERY",
+            designation: "Consultant",
+            specialty: "Medical Oncology",
+            qualification: "Consultant – Medical Oncology; MBBS, MD (Pediatrics); Fellowship in Pediatric Hematology/Oncology; American Board of Pediatrics Certified",
+            image: "/assets/medical-oncologythirddr.svg",
+          },
+          {
+            name: "DR. NISHIL GOWDA",
+            designation: "Consultant",
+            specialty: "Medical Oncology",
+            qualification: "Consultant – Medical Oncology; MBBS; MD (Internal Medicine); DM (Medical Oncology); ESMO Certified",
+            image: "/assets/medical-oncologyfortthdr.svg",
+          },
+          {
+            name: "Dr. Harish K",
+            designation: "Consultant And Head Of Department",
+            specialty: "Surgical Oncology",
+            qualification: "Director – Ramaiah Institute of Oncosciences; HOD & Consultant – Surgical Oncologist; M.S.; M.Ch.; FAIS; FICS; FRCS (Glas); FAMS",
+            image: "/assets/SurgicalOncologydr.svg",
+            slug: "ramaiah-institute-oncosciences/surgical-oncology",
+          },
+        ],
+      }
+    ]
+  },
+
+  {
     slug: "ramaiah-institute-oncosciences/medical-oncology",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. SANTHOSH DEVADAS",
@@ -35,6 +126,7 @@ export const OurExpertsData = [
   },
   {
     slug: "ramaiah-institute-oncosciences/surgical-oncology",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "Dr. Harish K",
@@ -62,6 +154,7 @@ export const OurExpertsData = [
   },
   {
     slug: "ramaiah-institute-oncosciences/radiation-oncology",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. ARUL PONNI T. R.",
@@ -97,6 +190,7 @@ export const OurExpertsData = [
 
   {
     slug: "ramaiah-institute-oncosciences/hemato-oncology",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. SANTHOSH DEVADAS",
@@ -106,7 +200,7 @@ export const OurExpertsData = [
         image: "/assets/medical-oncologyone.svg",
         slug: "ramaiah-institute-oncosciences/hemato-oncology",
       },
-      
+
       {
         name: "DR. RASMI PALASSERY",
         designation: "Consultant",
@@ -119,6 +213,7 @@ export const OurExpertsData = [
 
   {
     slug: "ramaiah-institute-oncosciences/nuclear-medicine",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "Dr. Zaeba N.",
@@ -134,6 +229,7 @@ export const OurExpertsData = [
 
   {
     slug: "accident-emergency",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. GEETHA C R",
@@ -175,6 +271,7 @@ export const OurExpertsData = [
   },
   {
     slug: "specialities",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. GEETHA C R",
@@ -223,6 +320,7 @@ export const OurExpertsData = [
   },
   {
     slug: "anaesthesiology",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. SNEHA K",
@@ -242,6 +340,7 @@ export const OurExpertsData = [
   },
   {
     slug: "cardiology",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. VINAY KUMAR BAHL",
@@ -278,6 +377,7 @@ export const OurExpertsData = [
   },
   {
     slug: "critical-care-medicine",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. DEEPAK. T. S",
@@ -316,6 +416,7 @@ export const OurExpertsData = [
   },
   {
     slug: "cardiothoracic-surgery",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. GURU POLICE PATEL",
@@ -361,6 +462,7 @@ export const OurExpertsData = [
   },
   {
     slug: "dental-surgery",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. RENU KHARBANDA",
@@ -398,6 +500,7 @@ export const OurExpertsData = [
   },
   {
     slug: "dermatology-cosmetology",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. RENU KHARBANDA",
@@ -436,6 +539,7 @@ export const OurExpertsData = [
   },
   {
     slug: "endocrinology",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. RENU KHARBANDA",
@@ -474,6 +578,7 @@ export const OurExpertsData = [
   },
   {
     slug: "general-medicine",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. RENU KHARBANDA",
@@ -512,6 +617,7 @@ export const OurExpertsData = [
   },
   {
     slug: "general-surgery",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. RENU KHARBANDA",
@@ -550,6 +656,7 @@ export const OurExpertsData = [
   },
   {
     slug: "ent",
+    holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
         name: "DR. RENU KHARBANDA",
@@ -586,6 +693,7 @@ export const OurExpertsData = [
       },
     ],
   },
+
 ];
 
 export function getOurExpertsPage(slug) {
