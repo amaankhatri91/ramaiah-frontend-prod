@@ -1,6 +1,7 @@
 export const OurTreatments = [
   {
     slug: "ramaiah-institute-oncosciences",
+    title: "Services & Facilities",
     items: [
       "Outpatient Services",
       "Inpatient Wards",
@@ -15,6 +16,7 @@ export const OurTreatments = [
   },
   {
     slug: "ramaiah-institute-oncosciences/medical-oncology",
+    title: "Services & Facilities",
     items: [
       "Pediatric Oncology",
       "Hemato Oncology",
@@ -30,6 +32,7 @@ export const OurTreatments = [
   },
   {
     slug: "ramaiah-institute-oncosciences/surgical-oncology",
+    title: "Services & Facilities",
     items: [
       "Head & Neck Oncosurgery",
       "Breast Oncosurgery ",
@@ -45,6 +48,7 @@ export const OurTreatments = [
   },
   {
     slug: "ramaiah-institute-oncosciences/radiation-oncology",
+    title: "Services & Facilities",
     items: [
       "Image Guided Radiotherapy (IGRT) ",
       "Volumetric Modulated Arc Radiotherapy (VMAT)",
@@ -61,6 +65,7 @@ export const OurTreatments = [
   },
   {
     slug: "ramaiah-institute-oncosciences/hemato-oncology",
+    title: "Services & Facilities",
     items: [
       "Autologous Stem Cell Transplant",
       "Allogeneic Bone Marrow Transplantation",
@@ -73,6 +78,7 @@ export const OurTreatments = [
   },
   {
     slug: "ramaiah-institute-oncosciences/nuclear-medicine",
+    title: "Services & Facilities",
     items: [
       "PET CT ",
       "Gamma Camera ",
@@ -82,6 +88,7 @@ export const OurTreatments = [
 
   {
     slug: "anaesthesiology",
+    title: "Our Treatment & Procedure",
     items: [
       "General Anaesthesia",
       "Regional Anesthesia",
@@ -101,6 +108,7 @@ export const OurTreatments = [
   },
   {
     slug: "cardiology",
+    title: "Our Treatment & Procedure",
     items: [
       "Non Invasive Lad – 2D transthoracic and transesophageal echo, DSE, STE, Contrast Echo",
       "Interventional Cardiology – Cardiac catheterization, angioplasty, complex hybrid intervention procedures (CHIP) including rotablation, IVL; intracoronary physiology and imaging, high risk protected PCI including Impella based procedures",
@@ -114,6 +122,7 @@ export const OurTreatments = [
   },
   {
     slug: "center-for-rehabilitation",
+    title: "Our Treatment & Procedure",
     items: [
       "Back pain",
       "Neck pain",
@@ -130,6 +139,7 @@ export const OurTreatments = [
   },
   {
     slug: "cardiothoracic-surgery",
+    title: "Our Treatment & Procedure",
     items: [
       "MICS-Minimal Invasive Cardiac Surgery",
       "Valve Repair/ Preplacements",
@@ -142,6 +152,7 @@ export const OurTreatments = [
   },
   {
     slug: "dental-surgery",
+    title: "Our Treatment & Procedure",
     items: [
       "Stainless Steel Crowns",
       "Glass Ionomer Fillings with Light Cure",
@@ -161,6 +172,7 @@ export const OurTreatments = [
   },
   {
     slug: "dermatology-cosmetology",
+    title: "Our Treatment & Procedure",
     items: [
       "Simple bed side diagnostic procedures like Grams stain, Tzanck smear, skin scrapings, Koh mount, Nail scraping/ clippings and Dark field microscopy.",
       "Electrocautery and Radiofrequency ablation",
@@ -181,6 +193,7 @@ export const OurTreatments = [
   },
   {
     slug: "endocrinology",
+    title: "Our Treatment & Procedure",
     items: [
       "Type 1 Diabetes mellitus",
       "Type 2 Diabetes mellitus",
@@ -197,6 +210,7 @@ export const OurTreatments = [
   },
   {
     slug: "ent",
+    title: "Our Treatment & Procedure",
     items: [
       "Type 1 Diabetes mellitus",
       "Type 2 Diabetes mellitus",
@@ -213,6 +227,7 @@ export const OurTreatments = [
   },
   {
     slug: "general-medicine",
+    title: "Our Treatment & Procedure",
     items: [
       "Parenteral and oral antimicrobials like antibiotics, antimalarials, anti helminthic, antivirals and anti fungal agents. COVID treatment of all categories of severity",
       "Oral antidiabetic agents, insulin, thyroxine, antihypertensives, heart failure treatment",
@@ -225,6 +240,7 @@ export const OurTreatments = [
   },
   {
     slug: "general-surgery",
+    title: "Our Treatment & Procedure",
     items: [
       "Parenteral and oral antimicrobials like antibiotics, antimalarials, anti helminthic, antivirals and anti fungal agents. COVID treatment of all categories of severity",
       "Oral antidiabetic agents, insulin, thyroxine, antihypertensives, heart failure treatment",

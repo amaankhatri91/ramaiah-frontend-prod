@@ -104,13 +104,13 @@ export const specialties = [
     mainImage: "/assets/radiation oncology.svg",
   },
   {
-    title: "Hemato-Oncology",
+    title: "Hemato-Oncology & Bone Marrow Transplantations",
     slug: "ramaiah-institute-oncosciences/hemato-oncology",
     bgImage: "/assets/Hemato-Oncology & Bone Marrow Transplantations.svg",
     mainImage: "/assets/Hemato-Oncology & Bone Marrow Transplantations.svg",
   },
   {
-    title: "Nuclear Medicine",
+    title: "Nuclear Medicine Therapy",
     slug: "ramaiah-institute-oncosciences/nuclear-medicine",
     bgImage: "/assets/Nuclear Medicine Therapy.svg",
     mainImage: "/assets/Nuclear Medicine Therapy.svg",

@@ -42,7 +42,8 @@ const OurTreatment = ({ slug }) => {
             {/* Treatment List - 60% */}
             <div className="md:col-span-3 flex flex-col justify-center">
               <h2 className="min-[1300px]:text-[48px] min-[800px]:text-[34px] text-[22px] font-bold min-[1200px]:mb-8 mb-4">
-                Our <span className="Text-color2 ">Treatment & Procedure</span>
+                {/* Our <span className="Text-color2 ">Treatment & Procedure</span> */}
+               <span className="Text-color2 ">{group.title}</span>
               </h2>
               {/* <h2 className="min-[1300px]:text-[48px] min-[800px]:text-[34px] text-[22px] font-bold min-[1200px]:mb-8 mb-4">
                <span className="Text-color2 ">Services & Facilities</span>
