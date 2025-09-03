@@ -10,6 +10,17 @@ export const textWithImageBlocks = [
     image: "/assets/surgicalsecoverview.svg",
     alt: "Surgical oncology team in operating room",
   },
+  {
+    slug: "ramaiah-institute-oncosciences/radiation-oncology",
+    title: "Rradiation-oncology",
+    paragraphs: [
+      "Recently, it has emerged as an attractive treatment option for early breast cancer as well as selected locally advanced breast cancer, the main advantage being the ability to reduce the duration of external radiation. The waiting period following surgery to enable post-operative recovery, the surgical scar to heal, and the prolonged external beam radiation treatment of 4-6 weeks following surgery are avoided, forming added benefits of IORT. In the same sitting during surgery, the radiation treatment is completed. Sometimes, it is combined with EBRT based on the stage and diagnosis.",
+      "IORT has added to the armamentarium of the radiation technologies available at Ramaiah Memorial Hospital, which already includes LINAC-TRUEBEAM-EDGE and ELEKTA-AGILITY for external radiation therapy and SAGINOVA for brachytherapy. ",
+"It is used in a wide variety of sites such as breast cancer, locally advanced and recurrent rectal cancer, retroperitoneal sarcomas, soft tissue sarcomas, pancreatic cancer, gynaecologic and genito-urinary and recurrent malignancies.",
+    ],
+    image: "/assets/radiationoivervisecond.svg",
+    alt: "Radiation-oncology team in operating room",
+  },
 ];
 
 export function getTextWithImageBlock(slug) {
