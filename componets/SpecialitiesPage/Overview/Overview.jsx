@@ -6,6 +6,12 @@ const Overview = ({ slug }) => {
   const block = contentBlocks.find((b) => b.slug === slug);
 
   if (!block) return null;
+  const advantages = [
+    "Performed along with surgery so that anesthesia is used only one time.",
+    "The typical structures are pushed away from the tumor bed so that the dose to these areas is reduced, and in turn, the duration of external radiation is reduced",
+    "IORT has opportunities for dose escalation beyond EBRT dose and re-irradiation in recurrent cancers where EBRT may not be possible",
+    "Since it is a low-energy X-ray (50kV), the exposure to the staff is almost nil and requires minimal shielding"
+  ];
 
   return (
     <div className="container bg-[radial-gradient(247.77%_202.26%_at_46.45%_-32.32%,#FFF_33.84%,#EEF9FF_97.64%)] shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-[25px] rounded-[40px]">
@@ -39,6 +45,26 @@ const Overview = ({ slug }) => {
           </div>
         </div>
       </div>
+      {
+        slug === "ramaiah-institute-oncosciences/radiation-oncology" && (
+          <div>
+            <span className="min-[1200px]:text-[27px] min-[800px]:text-[22px] text-[17px] font-bold text-[#3D3D3D]">"Advantages of IORT"</span>
+            {advantages.map((text, idx) => (
+              <div key={idx} className="flex items-center min-[1200px]:mt-[32px] min-[800px]:mt-[24px] mt-[10px]">
+                <Image
+                  src="/assets/dots.svg"
+                  alt=""
+                  width={24}
+                  height={24}
+                  className="min-[1200px]:h-6 min-[800px]:h-5 h-4 min-[1200px]:w-6 min-[800px]:w-5 w-4"
+                />
+                <p className="ml-3 min-[1200px]:text-[18px] min-[800px]:text-[15px] text-[13px] text-[#3A3A3A]">
+                  {text}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
     </div>
   );
 };

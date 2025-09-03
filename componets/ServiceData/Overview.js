@@ -41,6 +41,19 @@ export const contentBlocks = [
       "The Department of Radiation Oncology under the Ramaiah Institute of Oncosciences aims to provide high-quality radiation therapy for our patients' comprehensive cancer care. Our doctors have specialized training in performing radiation treatment for people with cancer and those with certain non-cancerous (benign) conditions. ",
       "We follow an evidence-based approach and use state-of-the-art high-end equipment, such as TrueBeam LINAC teletherapy machine, Brachytherapy, and Intraoperative Radiation Therapy (IORT) machines, to deliver our treatment. This specialized expertise and a multidisciplinary tumor board decision ensure precision treatment and enhanced clinical outcomes.",
       "Intra-operative radiotherapy (IORT) at Ramaiah Institute of Oncosciences is one of the first in Asia, with the first patient being treated in 2024. This technology's special and unique feature involves delivering large doses of ionizing radiation to the tumor/tumor bed. In contrast, the tumor site is still exposed during surgery. The significant ",
+      
+            // <div className="flex items-center min-[1200px]:mt-[32px] min-[800px]:mt-[24px] mt-[10px]">
+            //   <Image
+            //     src="/assets/dots.svg"
+            //     alt=""
+            //     width={24}
+            //     height={24}
+            //     className="min-[1200px]:h-6 min-[800px]:h-5 h-4 min-[1200px]:w-6 min-[800px]:w-5 w-4"
+            //   />
+            //   <p className="ml-3 min-[1200px]:text-[18px] min-[800px]:text-[15px] text-[13px] text-[#3A3A3A]">
+            //     {item.title}
+            //   </p>
+            // </div>
     ],
     image: "/assets/radiationoncaoverviewDr.svg",
     alt: "Ramaiah Institute of Medical Oncology",
