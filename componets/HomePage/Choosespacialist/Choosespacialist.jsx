@@ -6,6 +6,7 @@ import { OurExpertsData } from '../../ServiceData/OurExperts'
 import dynamic from 'next/dynamic'
 
 const EnquiryModal = dynamic(() => import('../../CommonComponets/EnquiryModal'), { ssr: false })
+const AskExpertModal = dynamic(() => import('../../CommonComponets/AskExpertModal'), { ssr: false })
 
 const Choosespacialist = () => {
   const specialityOptions = useMemo(() => 
@@ -62,7 +63,7 @@ const Choosespacialist = () => {
 
   return (
     <div className='container'>
-      <EnquiryModal variant="ask" isOpen={isAskModalOpen} onClose={() => setIsAskModalOpen(false)} />
+      <AskExpertModal isOpen={isAskModalOpen} onClose={() => setIsAskModalOpen(false)} />
       <EnquiryModal variant="callback" isOpen={isCallbackOpen} onClose={() => setIsCallbackOpen(false)} />
       <div className='bg-gradient-to-br from-[#FBFDFF] to-[#E9F6FF] rounded-[32px] p-4 md:p-6 lg:p-8 shadow-sm mb-[37px]'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4'>
