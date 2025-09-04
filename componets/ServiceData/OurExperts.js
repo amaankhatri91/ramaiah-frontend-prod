@@ -831,3 +831,75 @@ export const OurExpertsData = [
 export function getOurExpertsPage(slug) {
   return OurExpertsData.find((dept) => dept.slug === slug);
 }
+
+// Flattens all doctors across all sections and assigns a stable globalId
+// based on the in-file order. This avoids modifying existing data.
+function buildFlattenedDoctors() {
+  const flattened = [];
+  let counter = 1;
+
+  for (const dept of OurExpertsData) {
+    // Case 1: nested sections under Oncosciences
+    if (Array.isArray(dept.Oncosciences)) {
+      for (const section of dept.Oncosciences) {
+        const doctors = Array.isArray(section.Doctor) ? section.Doctor : [];
+        for (const d of doctors) {
+          flattened.push({
+            globalId: counter++,
+            deptSlug: dept.slug,
+            sectionTitle: section.holisticTitle,
+            doctor: d,
+          });
+        }
+      }
+    }
+
+    // Case 2: flat Doctor array at dept level
+    if (Array.isArray(dept.Doctor)) {
+      for (const d of dept.Doctor) {
+        flattened.push({
+          globalId: counter++,
+          deptSlug: dept.slug,
+          sectionTitle: dept.holisticTitle,
+          doctor: d,
+        });
+      }
+    }
+  }
+
+  return flattened;
+}
+
+let __cachedFlattenedDoctors = null;
+function getFlattenedDoctorsCached() {
+  if (!__cachedFlattenedDoctors) {
+    __cachedFlattenedDoctors = buildFlattenedDoctors();
+  }
+  return __cachedFlattenedDoctors;
+}
+
+export function getDoctorByGlobalId(id) {
+  const numericId = Number(id);
+  return getFlattenedDoctorsCached().find((e) => e.globalId === numericId) || null;
+}
+
+export function getDoctorGlobalIdByName(name) {
+  const entry = getFlattenedDoctorsCached().find((e) => e.doctor?.name === name);
+  return entry ? entry.globalId : null;
+}
+
+export function getAllDoctorsFlattened() {
+  return getFlattenedDoctorsCached().map((e) => ({
+    globalId: e.globalId,
+    deptSlug: e.deptSlug,
+    sectionTitle: e.sectionTitle,
+    ...e.doctor,
+  }));
+}
+
+// Find the first doctor entry by the doctor's own id in the data arrays
+export function getDoctorById(id) {
+  const numericId = Number(id);
+  const all = getFlattenedDoctorsCached();
+  return all.find((e) => Number(e.doctor?.id) === numericId) || null;
+}

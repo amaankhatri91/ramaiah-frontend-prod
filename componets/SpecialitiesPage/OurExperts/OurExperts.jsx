@@ -119,7 +119,7 @@ const OurExperts = ({ slug  }) => {
                                   </div>
                                 </button>
                                 <Link
-                                  href="#"
+                                  href={`/doctor-detail/${expert.id}`}
                                   className="cursor-pointer relative bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] bg-clip-text text-transparent text-[14px] font-semibold"
                                 >
                                   <div className="relative inline-flex flex-col items-start">
@@ -201,7 +201,7 @@ const OurExperts = ({ slug  }) => {
                                   </div>
                                 </button>
                                 <Link
-                                  href="#"
+                                  href={`/doctor-detail/${expert.id}`}
                                   className="relative bg-gradient-to-r from-[#00ADEF] to-[#D60F8C] bg-clip-text text-transparent text-[14px] font-semibold"
                                 >
                                   <div className="relative inline-flex flex-col items-start">
