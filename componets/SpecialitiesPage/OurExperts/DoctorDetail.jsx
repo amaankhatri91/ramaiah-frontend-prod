@@ -9,6 +9,7 @@ import DoctorFellowships from "./DoctorFellowships";
 import DoctorAwardsAccomplishment from "./DoctorAwardsAccomplishment";
 import DoctorExperience from "./DoctorExperience";
 import DoctorMembership from "./DoctorMembership";
+import DoctorExpetsblog from "./DoctorExpetsblog";
 
 export default function DoctorDetail({ doctorEntry }) {
   if (!doctorEntry) return null;
@@ -39,6 +40,9 @@ export default function DoctorDetail({ doctorEntry }) {
       </div>
       <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]">
         <DoctorMembership doctorEntry={doctorEntry} />
+      </div>
+      <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]">
+        <DoctorExpetsblog doctorEntry={doctorEntry} />
       </div>
     </div>
   );
