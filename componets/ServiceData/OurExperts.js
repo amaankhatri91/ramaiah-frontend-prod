@@ -20,6 +20,12 @@ export const OurExpertsData = [
               "His extensive publication record includes numerous articles and research papers in renowned medical journals, covering topics from hematologic malignancies and stem cell transplants to treatment regimens and clinical outcomes. Notable presentations include international conferences such as ASH, ASCO, and ESMO, showcasing his expertise on issues like acute leukemia, multiple myeloma, and stem cell transplant strategies.",
               "Dr. Santhosh is actively involved in education and has delivered faculty lectures and workshops on advanced medical topics, including nutrition management in stem cell transplantation and radiotherapy. His commitment to the field is evident through his dedication to research, teaching, and advancing clinical practices in oncology and transplant medicine."
             ],
+            expertise: [
+              'Management of various types of cancer, including solid tumors and hematologic malignancies',
+              'Stem cell and bone marrow transplants for treatment of Blood Cancers and Auto-Immune Diseases',
+              'Involvement in clinical studies and research for advanced treatment protocols',
+              'Proficiency in specialized techniques related to stem cell transplantation and related oncology care',
+            ],
           },
           {
             id: 2,
