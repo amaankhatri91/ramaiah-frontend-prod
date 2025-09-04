@@ -1,5 +1,14 @@
 export const FeaturesData = [
   {
+    MainTitle: "Education & Training",
+    slug: "ramaiah-institute-oncosciences", // Doctor's slug
+    features: [
+      { title: "MBBS from K.S. Hegde Medical Academy, Mangalore (April 2005)." },
+      { title: "MD (3-year Residency) in Internal Medicine from St. John’s Medical College, Bangalore (April 2009)." },
+      { title: "DM (3-year Fellowship) in Medical Oncology from Tata Memorial Hospital, Mumbai (June 2014)." },
+    ],
+  },
+  {
     MainTitle: "Our Specialities",
     slug: "ramaiah-institute-oncosciences",
     features: [
