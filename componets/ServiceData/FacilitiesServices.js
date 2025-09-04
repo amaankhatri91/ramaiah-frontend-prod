@@ -1,7 +1,7 @@
 export const FeaturesData = [
   {
     MainTitle: "Education & Training",
-    slug: "ramaiah-institute-oncosciences", // Doctor's slug
+    slug: "doctor-detail",
     features: [
       { title: "MBBS from K.S. Hegde Medical Academy, Mangalore (April 2005)." },
       { title: "MD (3-year Residency) in Internal Medicine from St. John’s Medical College, Bangalore (April 2009)." },

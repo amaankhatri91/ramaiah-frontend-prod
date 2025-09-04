@@ -9,13 +9,16 @@ import FacilitiesServices from "../FacilitiesServices/FacilitiesServices";
 export default function DoctorDetail({ doctorEntry }) {
   if (!doctorEntry) return null;
   console.log("doctorEntry", doctorEntry);
+  const doctorDetailSlug = doctorEntry?.doctor?.id
+    ? `doctor-detail`
+    : (doctorEntry?.doctor?.slug || doctorEntry?.deptSlug);
   return (
-    <div className="flex flex-col gap-10">
+    <div className="">
       <DoctorHeroSection doctorEntry={doctorEntry} />
       <DoctorOverview doctorEntry={doctorEntry} />
       <DoctorExpertice doctorEntry={doctorEntry} />
       <div className="">
-        <FacilitiesServices slug={doctorEntry?.doctor?.slug || doctorEntry?.deptSlug} />
+        <FacilitiesServices slug={doctorDetailSlug} />
       </div>
     </div>
   );
