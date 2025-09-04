@@ -6,6 +6,7 @@ export const OurExpertsData = [
         holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D]  ">Medical Oncology</span>,
         Doctor: [
           {
+            id: 1,
             name: "DR. SANTHOSH DEVADAS",
             designation: "Consultant And Head Of Department",
             specialty: "Medical Oncology",
@@ -14,6 +15,7 @@ export const OurExpertsData = [
             slug: "ramaiah-institute-oncosciences",
           },
           {
+            id: 2,
             name: "DR. VINAYAK MAKA",
             designation: "Consultant",
             specialty: "Medical Oncology",
@@ -21,6 +23,7 @@ export const OurExpertsData = [
             image: "/assets/medical-oncologysecndr.svg",
           },
           {
+            id: 3,
             name: "DR. RASMI PALASSERY",
             designation: "Consultant",
             specialty: "Medical Oncology",
@@ -28,6 +31,7 @@ export const OurExpertsData = [
             image: "/assets/medical-oncologythirddr.svg",
           },
           {
+            id: 4,
             name: "DR. NISHIL GOWDA",
             designation: "Consultant",
             specialty: "Medical Oncology",
@@ -35,6 +39,7 @@ export const OurExpertsData = [
             image: "/assets/medical-oncologyfortthdr.svg",
           },
           {
+            id: 5,
             name: "Dr. Harish K",
             designation: "Consultant And Head Of Department",
             specialty: "Surgical Oncology",
@@ -48,6 +53,7 @@ export const OurExpertsData = [
         holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D]  ">Surgical Oncology</span>,
         Doctor: [
           {
+            id: 1,
             name: "Dr. Harish K",
             designation: "Consultant And Head Of Department",
             specialty: "Surgical Oncology",
@@ -56,6 +62,7 @@ export const OurExpertsData = [
             slug: "ramaiah-institute-oncosciences/surgical-oncology",
           },
           {
+            id: 2,
             name: "DR. ARAVIND S KAPALI",
             designation: "Consultant",
             specialty: "Surgical Oncology",
@@ -63,6 +70,7 @@ export const OurExpertsData = [
             image: "/assets/SurgicalOncologydrone.svg",
           },
           {
+            id: 3,
             name: "DR. DEEPAK RAMRAJ",
             designation: "Consultant",
             specialty: "Surgical Oncology",
@@ -75,6 +83,7 @@ export const OurExpertsData = [
         holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D]  ">Radiation Oncology</span>,
         Doctor: [
           {
+            id: 1,
             name: "DR. ARUL PONNI T. R.",
             designation: "Consultant And Head Of Department",
             specialty: "Radiation Oncology",
@@ -83,6 +92,7 @@ export const OurExpertsData = [
             slug: "ramaiah-institute-oncosciences/radiation-oncology",
           },
           {
+            id: 2,
             name: "DR. JANAKI M. G.",
             designation: "Consultant",
             specialty: "Radiation Oncology",
@@ -90,6 +100,7 @@ export const OurExpertsData = [
             image: "/assets/radiationdrsec.svg",
           },
           {
+            id: 3,
             name: "DR. MOHAN KUMAR S.",
             designation: "Consultant",
             specialty: "Radiation Oncology",
@@ -97,6 +108,7 @@ export const OurExpertsData = [
             image: "/assets/radiationthirddr.svg",
           },
           {
+            id: 4,
             name: "DR. LITHIKA LAVANYA M.",
             designation: "Consultant",
             specialty: "Radiation Oncology",
@@ -109,6 +121,7 @@ export const OurExpertsData = [
         holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D]  ">Hemato-Oncology & Bone Marrow Transplantations</span>,
         Doctor: [
           {
+            id: 1,
             name: "DR. SANTHOSH DEVADAS",
             designation: "Consultant And Head Of Department",
             specialty: "Hemato-Oncology & Bone Marrow Transplantations",
@@ -118,6 +131,7 @@ export const OurExpertsData = [
           },
     
           {
+            id: 2,
             name: "DR. RASMI PALASSERY",
             designation: "Consultant",
             specialty: "Hemato-Oncology & Bone Marrow Transplantations",
@@ -130,6 +144,7 @@ export const OurExpertsData = [
         holisticTitle: <span className="min-[1220px]:text-[30px] min-[800px]:text-[25] text-[18px] font-bold text-[#3D3D3D]  ">Nuclear Medicine Therapy</span>,
         Doctor: [
           {
+            id: 1,
             name: "Dr. Zaeba N.",
             designation: "Consultant And Head Of Department",
             specialty: "Nuclear Medicine Therapy",
@@ -147,6 +162,7 @@ export const OurExpertsData = [
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
+        id: 1,
         name: "DR. SANTHOSH DEVADAS",
         designation: "Consultant And Head Of Department",
         specialty: "Medical Oncology",
@@ -155,6 +171,7 @@ export const OurExpertsData = [
         slug: "ramaiah-institute-oncosciences/medical-oncology",
       },
       {
+        id: 2,
         name: "DR. VINAYAK MAKA",
         designation: "Consultant",
         specialty: "Medical Oncology",
@@ -162,6 +179,7 @@ export const OurExpertsData = [
         image: "/assets/medical-oncologysecndr.svg",
       },
       {
+        id: 3,
         name: "DR. RASMI PALASSERY",
         designation: "Consultant",
         specialty: "Medical Oncology",
@@ -169,6 +187,7 @@ export const OurExpertsData = [
         image: "/assets/medical-oncologythirddr.svg",
       },
       {
+        id: 4,
         name: "DR. NISHIL GOWDA",
         designation: "Consultant",
         specialty: "Medical Oncology",
@@ -182,6 +201,7 @@ export const OurExpertsData = [
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
+        id: 1,
         name: "Dr. Harish K",
         designation: "Consultant And Head Of Department",
         specialty: "Surgical Oncology",
@@ -190,6 +210,7 @@ export const OurExpertsData = [
         slug: "ramaiah-institute-oncosciences/surgical-oncology",
       },
       {
+        id: 2,
         name: "DR. ARAVIND S KAPALI",
         designation: "Consultant",
         specialty: "Surgical Oncology",
@@ -197,6 +218,7 @@ export const OurExpertsData = [
         image: "/assets/SurgicalOncologydrone.svg",
       },
       {
+        id: 3,
         name: "DR. DEEPAK RAMRAJ",
         designation: "Consultant",
         specialty: "Surgical Oncology",
@@ -210,6 +232,7 @@ export const OurExpertsData = [
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
+        id: 1,
         name: "DR. ARUL PONNI T. R.",
         designation: "Consultant And Head Of Department",
         specialty: "Radiation Oncology",
@@ -218,6 +241,7 @@ export const OurExpertsData = [
         slug: "ramaiah-institute-oncosciences/radiation-oncology",
       },
       {
+        id: 2,
         name: "DR. JANAKI M. G.",
         designation: "Consultant",
         specialty: "Radiation Oncology",
@@ -225,6 +249,7 @@ export const OurExpertsData = [
         image: "/assets/radiationdrsec.svg",
       },
       {
+        id: 3,
         name: "DR. MOHAN KUMAR S.",
         designation: "Consultant",
         specialty: "Radiation Oncology",
@@ -232,6 +257,7 @@ export const OurExpertsData = [
         image: "/assets/radiationthirddr.svg",
       },
       {
+        id: 4,
         name: "DR. LITHIKA LAVANYA M.",
         designation: "Consultant",
         specialty: "Radiation Oncology",
@@ -246,6 +272,7 @@ export const OurExpertsData = [
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
+        id: 1,
         name: "DR. SANTHOSH DEVADAS",
         designation: "Consultant And Head Of Department",
         specialty: "Hemato-Oncology & Bone Marrow Transplantations",
@@ -255,6 +282,7 @@ export const OurExpertsData = [
       },
 
       {
+        id: 2,
         name: "DR. RASMI PALASSERY",
         designation: "Consultant",
         specialty: "Hemato-Oncology & Bone Marrow Transplantations",
@@ -269,6 +297,7 @@ export const OurExpertsData = [
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
+        id: 1,
         name: "Dr. Zaeba N.",
         designation: "Consultant And Head Of Department",
         specialty: "Nuclear Medicine Therapy",
@@ -285,6 +314,7 @@ export const OurExpertsData = [
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
+        id: 1,
         name: "DR. GEETHA C R",
         designation: "Consultant And Head Of Department",
         specialty: "Anesthesiology",
@@ -293,6 +323,7 @@ export const OurExpertsData = [
         slug: "accident-emergency",
       },
       {
+        id: 2,
         name: "DR. TEJESH C A",
         designation: "Consultant",
         specialty: "Anesthesiology",
@@ -300,6 +331,7 @@ export const OurExpertsData = [
         image: "/assets/dr2.svg",
       },
       {
+        id: 3,
         name: "DR. YATISH B",
         designation: "Consultant",
         specialty: " Consultant Anesthesiology",
@@ -307,6 +339,7 @@ export const OurExpertsData = [
         image: "/assets/dr3.svg",
       },
       {
+        id: 4,
         name: "DR. PRATHIMA P T",
         designation: "Consultant",
         specialty: "Consultant Anesthesiology",
@@ -314,6 +347,7 @@ export const OurExpertsData = [
         image: "/assets/dr4.svg",
       },
       {
+        id: 5,
         name: "DR. RAMA S",
         designation: "Director — Cardiac Sciences ",
         specialty: "Director — Cardiac Sciences Anesthesiology",
@@ -327,6 +361,7 @@ export const OurExpertsData = [
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
+        id: 1,
         name: "DR. GEETHA C R",
         designation: "Consultant And Head Of Department",
         specialty: "Anesthesiology",
@@ -335,6 +370,7 @@ export const OurExpertsData = [
         slug: "accident-emergency",
       },
       {
+        id: 2,
         name: "DR. TEJESH C A",
         designation: "Consultant",
         specialty: "Anesthesiology",
@@ -342,6 +378,7 @@ export const OurExpertsData = [
         image: "/assets/dr2.svg",
       },
       {
+        id: 3,
         name: "DR. YATISH B",
         designation: "Consultant",
         specialty: "Anesthesiology",
@@ -349,6 +386,7 @@ export const OurExpertsData = [
         image: "/assets/dr3.svg",
       },
       {
+        id: 4,
         name: "DR. PRATHIMA P T",
         designation: "Consultant",
         specialty: "Anesthesiology",
@@ -356,6 +394,7 @@ export const OurExpertsData = [
         image: "/assets/dr4.svg",
       },
       {
+        id: 5,
         name: "DR. RAMA Sr",
         designation: "Director — Cardiac Sciences ",
         specialty: "Anesthesiology",
@@ -363,6 +402,7 @@ export const OurExpertsData = [
         image: "/assets/dr3.svg",
       },
       {
+        id: 6,
         name: "DR. RAMA S",
         designation: "Director — Cardiac Sciences ",
         specialty: "Anesthesiology",
@@ -376,6 +416,7 @@ export const OurExpertsData = [
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
+        id: 1,
         name: "DR. SNEHA K",
         designation: "Consultant",
         specialty: "Anesthesiology",
@@ -383,6 +424,7 @@ export const OurExpertsData = [
         image: "/assets/dr1.svg",
       },
       {
+        id: 2,
         name: "DR. ARUN T",
         designation: "Consultant",
         specialty: "Anesthesiology",
@@ -396,6 +438,7 @@ export const OurExpertsData = [
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
+        id: 1,
         name: "DR. VINAY KUMAR BAHL",
         designation: "Cardiology",
         specialty: "Cardiology",
@@ -404,6 +447,7 @@ export const OurExpertsData = [
         image: "/assets/dr1.svg",
       },
       {
+        id: 2,
         name: "DR. PRAKASH V S",
         designation: "Cardiology",
         qualification: "HOD & Consultant Cardiology DM Cardiology",
@@ -412,6 +456,7 @@ export const OurExpertsData = [
         image: "/assets/dr4.svg",
       },
       {
+        id: 3,
         name: "DR. ANUPAMA V HEGDE",
         designation: "Cardiology",
         qualification: "Consultant DNB Cardiology",
@@ -420,6 +465,7 @@ export const OurExpertsData = [
         image: "/assets/dr4.svg",
       },
       {
+        id: 4,
         name: "DR. VARSHA RAKSHITHA P",
         qualification: "DM Cardiology. Fellowship In EP",
         specialty: "Cardiology",
@@ -433,6 +479,7 @@ export const OurExpertsData = [
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
       {
+        id: 1,
         name: "DR. DEEPAK. T. S",
         designation: "",
         specialty: "",
@@ -441,14 +488,16 @@ export const OurExpertsData = [
         image: "/assets/dr1.svg",
       },
       {
+        id: 2,
         name: "DR. NARAYANA SWAMY CHETTY",
         qualification: "Critical Care Medicine MBBS, MD,FICM",
         designation: "",
         specialty: "",
         // qualification: "",
         image: "/assets/dr4.svg",
-      },
+      },  
       {
+        id: 3,
         name: "DR. NARAYANA SWAMY CHETTY",
         qualification:
           "Critical Care Medicine Consultant DNB (INTERNAL MEDICINE). IDCCM. FNB CRITICAL CARE , IDICM. CCIDC, MRM (ISCCM) AMS (EACCME)",
@@ -457,7 +506,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      { 
+        id: 4,
         name: "DR. NARAYANA SWAMY CHETTY",
         qualification: "Critical Care Medicine MBBS. MD. DNB. FICM, FNB",
         designation: "",
@@ -471,7 +521,8 @@ export const OurExpertsData = [
     slug: "cardiothoracic-surgery",
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
-      {
+      {   
+        id: 1,
         name: "DR. GURU POLICE PATEL",
         designation: "Consultant Cardiac",
         specialty: "Anesthesiology",
@@ -479,7 +530,8 @@ export const OurExpertsData = [
           "Consultant Cardiac Anaesthesiologist DM Cardiac Anaesthesia",
         image: "/assets/dr1.svg",
       },
-      {
+      { 
+        id: 2,
         name: "DR. NARAYANA SWAMY CHETTY",
         qualification:
           "Senior And Chief Consultant Cardiothoracic Surgeon MBBS. MS (General Surgery Residency), M. Ch. (Master Chirurgic Cardiovascular And Thoracic Surgery)",
@@ -487,7 +539,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 3,
         name: "DR. NARAYANA SWAMY CHETTY",
         qualification:
           "Senior And Chief Consultant Cardiothoracic Surgeon MBBS. MS (General Surgery Residency), M. Ch. (Master Chirurgic Cardiovascular And Thoracic Surgery)",
@@ -495,7 +548,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 4,
         name: "DR. NARAYANA SWAMY CHETTY",
         qualification:
           "Senior And Chief Consultant Cardiothoracic Surgeon MBBS. MS (General Surgery Residency), M. Ch. (Master Chirurgic Cardiovascular And Thoracic Surgery)",
@@ -503,7 +557,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 5,
         name: "DR. NARAYANA SWAMY CHETTY",
         qualification:
           "Senior And Chief Consultant Cardiothoracic Surgeon MBBS. MS (General Surgery Residency), M. Ch. (Master Chirurgic Cardiovascular And Thoracic Surgery)",
@@ -517,14 +572,16 @@ export const OurExpertsData = [
     slug: "dental-surgery",
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
-      {
+      {   
+        id: 1,
         name: "DR. RENU KHARBANDA",
         designation: "",
         specialty: "Dental Surgery",
         qualification: "Head Of Dental Department",
         image: "/assets/dr1.svg",
       },
-      {
+      {   
+        id: 2,
         name: "DR. A. S. MADHURA",
         qualification: "Consultant Periodontist BDS MDS",
         designation: "",
@@ -532,7 +589,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 3,
         name: "DR. AMI-ILYA V. RAI",
         qualification: "Consultant Endodontist BDS. MDS",
         designation: "",
@@ -540,7 +598,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 4,
         name: "DR. O. P. KHARBANDA",
         qualification:
           "Director - Cleft Lip And Palate, Orthodontist, Senior Consultant MDS (Lucknow), M Orth RCS (Edinburgh). FDS RCS(Edinburgh) Hon. FDS RCS (England).MMED(Dundee)",
@@ -555,7 +614,8 @@ export const OurExpertsData = [
     slug: "dermatology-cosmetology",
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
-      {
+      {   
+        id: 1,
         name: "DR. RENU KHARBANDA",
         designation: "",
         specialty: "Dental Surgery",
@@ -563,7 +623,8 @@ export const OurExpertsData = [
           "Dermatology &Amp; Cosmetology HOD & Consultant MBBS, MD",
         image: "/assets/dr1.svg",
       },
-      {
+      {   
+        id: 2,
         name: "DR. A. S. MADHURA",
         qualification: "Dermatology &Amp; Cosmetology Consultant MBBS, MD. DNB",
         designation: "",
@@ -571,7 +632,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 3,
         name: "DR. AMI-ILYA V. RAI",
         qualification:
           "Dermatology &Amp; Cosmetology Consultant MBBS, MD. DNB. MNAMS",
@@ -580,7 +642,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 4,
         name: "DR. O. P. KHARBANDA",
         qualification: "Dermatology &Amp; Cosmetology Consultant MBBS. MD",
         designation: "",
@@ -594,7 +657,8 @@ export const OurExpertsData = [
     slug: "endocrinology",
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
-      {
+      {   
+        id: 1,
         name: "DR. RENU KHARBANDA",
         designation: "",
         specialty: "Dental Surgery",
@@ -602,7 +666,8 @@ export const OurExpertsData = [
           "Dermatology &Amp; Cosmetology HOD & Consultant MBBS, MD",
         image: "/assets/dr1.svg",
       },
-      {
+      {   
+        id: 2,
         name: "DR. A. S. MADHURA",
         qualification: "Dermatology &Amp; Cosmetology Consultant MBBS, MD. DNB",
         designation: "",
@@ -610,7 +675,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+        {   
+        id: 3,
         name: "DR. AMI-ILYA V. RAI",
         qualification:
           "Dermatology &Amp; Cosmetology Consultant MBBS, MD. DNB. MNAMS",
@@ -619,7 +685,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 4,
         name: "DR. O. P. KHARBANDA",
         qualification: "Dermatology &Amp; Cosmetology Consultant MBBS. MD",
         designation: "",
@@ -633,7 +700,8 @@ export const OurExpertsData = [
     slug: "general-medicine",
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
-      {
+      {   
+        id: 1,
         name: "DR. RENU KHARBANDA",
         designation: "",
         specialty: "Dental Surgery",
@@ -641,7 +709,8 @@ export const OurExpertsData = [
           "Dermatology &Amp; Cosmetology HOD & Consultant MBBS, MD",
         image: "/assets/dr1.svg",
       },
-      {
+      {   
+        id: 2,
         name: "DR. A. S. MADHURA",
         qualification: "Dermatology &Amp; Cosmetology Consultant MBBS, MD. DNB",
         designation: "",
@@ -649,7 +718,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 3,
         name: "DR. AMI-ILYA V. RAI",
         qualification:
           "Dermatology &Amp; Cosmetology Consultant MBBS, MD. DNB. MNAMS",
@@ -658,7 +728,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 4,
         name: "DR. O. P. KHARBANDA",
         qualification: "Dermatology &Amp; Cosmetology Consultant MBBS. MD",
         designation: "",
@@ -672,7 +743,8 @@ export const OurExpertsData = [
     slug: "general-surgery",
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
-      {
+      {   
+        id: 1,
         name: "DR. RENU KHARBANDA",
         designation: "",
         specialty: "Dental Surgery",
@@ -680,7 +752,8 @@ export const OurExpertsData = [
           "Dermatology &Amp; Cosmetology HOD & Consultant MBBS, MD",
         image: "/assets/dr1.svg",
       },
-      {
+      {   
+        id: 2,
         name: "DR. A. S. MADHURA",
         qualification: "Dermatology &Amp; Cosmetology Consultant MBBS, MD. DNB",
         designation: "",
@@ -688,7 +761,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+          {   
+        id: 3,
         name: "DR. AMI-ILYA V. RAI",
         qualification:
           "Dermatology &Amp; Cosmetology Consultant MBBS, MD. DNB. MNAMS",
@@ -697,7 +771,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 4,
         name: "DR. O. P. KHARBANDA",
         qualification: "Dermatology &Amp; Cosmetology Consultant MBBS. MD",
         designation: "",
@@ -711,7 +786,8 @@ export const OurExpertsData = [
     slug: "ent",
     holisticTitle: "We believe in a holistic approach, and our goal is to create a haven that spreads compassion, warmth, congeniality & care not merely treat ailments.",
     Doctor: [
-      {
+      {   
+        id: 1,
         name: "DR. RENU KHARBANDA",
         designation: "",
         specialty: "Dental Surgery",
@@ -719,7 +795,8 @@ export const OurExpertsData = [
           "Dermatology &Amp; Cosmetology HOD & Consultant MBBS, MD",
         image: "/assets/dr1.svg",
       },
-      {
+      {   
+        id: 2,
         name: "DR. A. S. MADHURA",
         qualification: "Dermatology &Amp; Cosmetology Consultant MBBS, MD. DNB",
         designation: "",
@@ -727,7 +804,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 3,
         name: "DR. AMI-ILYA V. RAI",
         qualification:
           "Dermatology &Amp; Cosmetology Consultant MBBS, MD. DNB. MNAMS",
@@ -736,7 +814,8 @@ export const OurExpertsData = [
         // qualification: "",
         image: "/assets/dr4.svg",
       },
-      {
+      {   
+        id: 4,
         name: "DR. O. P. KHARBANDA",
         qualification: "Dermatology &Amp; Cosmetology Consultant MBBS. MD",
         designation: "",
