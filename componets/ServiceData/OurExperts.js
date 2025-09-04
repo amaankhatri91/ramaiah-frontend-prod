@@ -13,6 +13,13 @@ export const OurExpertsData = [
             qualification: "HOD & Consultant – Department of Medical Oncology & Chief – Bone Marrow Transplant; DM (Medical Oncology), MD (Internal Medicine)",
             image: "/assets/medical-oncologyone.svg",
             slug: "ramaiah-institute-oncosciences",
+            overviewParagraphs: [
+              "Dr. Santhosh Kumar Devadas, HOD & Consultant – Department of Medical Oncology at Ramaiah Institute of Oncosciences, Ramaiah Memorial Hospital, is an accomplished medical professional specializing in Medical Oncology and Bone Marrow Transplant. With a career spanning over 15 years, Dr. Santhosh has held various academic and clinical positions, including serving as an Associate and Assistant Professor in the same field.",
+              "He completed his advanced training in Medical Oncology (DM) at Tata Memorial Hospital, Mumbai, and his Internal Medicine residency (MD) at St. John’s Medical College, Bangalore. His early medical education culminated in earning his MBBS from K.S. Hegde Medical Academy, Mangalore.",
+              "Dr. Devadas has received numerous accolades for his work, such as being awarded the Research Excellence Award by Ramaiah Medical College and elected a Member of the National Academy of Medical Sciences, New Delhi. He has also been honored with fellowships like the ESMO Travelling Fellowship and ACORD Fellowship, contributing significantly to his specialization in hematology and oncology.",
+              "His extensive publication record includes numerous articles and research papers in renowned medical journals, covering topics from hematologic malignancies and stem cell transplants to treatment regimens and clinical outcomes. Notable presentations include international conferences such as ASH, ASCO, and ESMO, showcasing his expertise on issues like acute leukemia, multiple myeloma, and stem cell transplant strategies.",
+              "Dr. Santhosh is actively involved in education and has delivered faculty lectures and workshops on advanced medical topics, including nutrition management in stem cell transplantation and radiotherapy. His commitment to the field is evident through his dedication to research, teaching, and advancing clinical practices in oncology and transplant medicine."
+            ],
           },
           {
             id: 2,
