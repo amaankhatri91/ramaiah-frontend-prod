@@ -19,8 +19,12 @@ const chunkArray = (arr, size) => {
   return result;
 };
 
-const DoctorExpetsblog = () => {
-  const slides = [
+const DoctorExpetsblog = ({ doctorEntry }) => {
+  const slidesFromData = Array.isArray(doctorEntry?.doctor?.blogs)
+    ? doctorEntry.doctor.blogs
+    : null;
+
+  const slides = slidesFromData || [
     // your slides here...
     {
       date: "01-05-2025",

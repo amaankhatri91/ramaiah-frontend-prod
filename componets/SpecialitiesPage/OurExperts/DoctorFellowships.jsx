@@ -2,8 +2,8 @@ import Image from 'next/image'
 import React from 'react'
 
 const DoctorFellowships = ({ doctorEntry }) => {
-  const expertiseFromData = Array.isArray(doctorEntry?.doctor?.expertise)
-    ? doctorEntry.doctor.expertise.filter(Boolean)
+  const fellowshipsFromData = Array.isArray(doctorEntry?.doctor?.fellowships)
+    ? doctorEntry.doctor.fellowships.filter(Boolean)
     : [];
 
   const fallbackExpertise = [
@@ -14,7 +14,7 @@ const DoctorFellowships = ({ doctorEntry }) => {
     'Research Training: Participation in clinical research training, focusing on developing and implementing innovative cancer treatment protocols.'
   ];
 
-  const items = (expertiseFromData.length ? expertiseFromData : fallbackExpertise).slice(0, 5);
+  const items = (fellowshipsFromData.length ? fellowshipsFromData : fallbackExpertise).slice(0, 5);
 
   return (
     <div className="container md:col-span-3 flex flex-col justify-center">
