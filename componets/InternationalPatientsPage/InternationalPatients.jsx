@@ -19,9 +19,9 @@ const InternationalPatients = () => {
           MainVideo="https://www.w3schools.com/howto/rain.mp4"
         />
       </div>
-      <div>
+      {/* <div>
         <Audio slug="international-patients" />
-      </div>
+      </div> */}
       <div className="min-[1200px]:mt-[50px] min-[800px]:mt-[30px] mt-[18px]">
         <InternationalPatientServices />
       </div>
