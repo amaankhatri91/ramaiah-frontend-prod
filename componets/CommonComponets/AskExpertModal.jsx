@@ -36,9 +36,9 @@ const AskExpertModal = ({ isOpen, onClose }) => {
   ];
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60" onClick={onClose}></div>
-      <div className="relative mx-4 w-full max-w-[560px] rounded-[20px] bg-white p-6 md:p-8 shadow-xl">
+      <div className="relative w-full max-w-[560px] max-h-[90vh] overflow-y-auto rounded-[20px] bg-white p-6 md:p-8 shadow-xl">
         <button
           type="button"
           aria-label="Close"
