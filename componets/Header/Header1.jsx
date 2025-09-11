@@ -2,10 +2,21 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { useServices } from "../../lib/hooks";
+import { fetchSiteSettings } from "../../lib/slices/servicesSlice";
 
 const Header1 = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { siteSettings, loading, dispatch } = useServices();
+  
   console.log("isSearchOpen", isSearchOpen);
+
+  // Fetch site settings on component mount
+  useEffect(() => {
+    if (!siteSettings) {
+      dispatch(fetchSiteSettings());
+    }
+  }, [siteSettings, dispatch]);
 
   useEffect(() => {
     if (!isSearchOpen) return;
@@ -15,6 +26,16 @@ const Header1 = () => {
       document.body.style.overflow = originalOverflow;
     };
   }, [isSearchOpen]);
+
+  // Get header1 data with fallbacks
+  const headerData = siteSettings?.header1 || {
+    generalEnquiries: { label: "General Enquiries :", number: "+91 80 6215 3300" },
+    emergencyNumber: { label: "Emergency Number :", number: "+91 80 6215 3400" },
+    preBookAppointments: { label: "Pre-Book Your Appointments :", number: "1800 123 1133" },
+    affiliationImage: "/assets/affilliation.svg",
+    searchIcon: "/assets/search.svg.svg",
+    emergencyIcon: "/assets/Simplification.svg"
+  };
 
   return (
     <header
@@ -30,30 +51,30 @@ const Header1 = () => {
             <div className="xl:py-[22px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
               <div className="min-[910px]:py-[6px] border-r-[1px] border-[#3D3D3D] mr-[12px] max-[910px]:border-none">
                 <p className="min-[1260px]:text-[12px] font-manrope text-[10px] text-[#3D3D3D] font-semibold">
-                  General Enquiries :
+                  {headerData.generalEnquiries.label}
                 </p>
                 <p className="min-[1260px]:text-[12px] text-[10px] text-[#3D3D3D] font-extrabold mr-[12px]">
-                  +91 80 6215 3300
+                  {headerData.generalEnquiries.number}
                 </p>
               </div>
             </div>
             <div className="xl:py-[22px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
               <div className="py-[6px] border-r-[1px] border-[#3D3D3D] mr-[12px] max-[910px]:border-none">
                 <p className="min-[1260px]:text-[12px] text-[10px] text-[#3D3D3D] font-semibold mr-[6px]">
-                  Emergency Number :
+                  {headerData.emergencyNumber.label}
                 </p>
                 <p className="min-[1260px]:text-[12px] text-[10px] text-[#3D3D3D] font-extrabold mr-[12px]">
-                  +91 80 6215 3400
+                  {headerData.emergencyNumber.number}
                 </p>
               </div>
             </div>
             <div className="xl:py-[22px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
               <div className="py-[6px]">
                 <p className="min-[1260px]:text-[12px] text-[10px] text-[#3D3D3D] font-semibold">
-                  Pre-Book Your Appointments :
+                  {headerData.preBookAppointments.label}
                 </p>
                 <p className="min-[1260px]:text-[12px] text-[10px] text-[#3D3D3D] font-extrabold">
-                  1800 123 1133
+                  {headerData.preBookAppointments.number}
                 </p>
               </div>
             </div>
@@ -63,9 +84,9 @@ const Header1 = () => {
           <div className="flex min-[910px]:justify-between justify-center lg:justify-end">
             <div className="flex items-center">
               <Image
-                src="/assets/affilliation.svg"
+                src={headerData.affiliationImage}
                 className="max-[1337px]:w-[200px]"
-                alt="search"
+                alt="affiliation"
                 width={290}
                 height={50}
               />
@@ -78,7 +99,7 @@ const Header1 = () => {
                 className="ml-[17px] cursor-pointer"
               >
                 <Image
-                  src="/assets/search.svg.svg"
+                  src={headerData.searchIcon}
                   alt="search"
                   width={32}
                   height={32}
@@ -86,11 +107,11 @@ const Header1 = () => {
               </button>
             </div>
             <div className="flex items-center max-[1024px]:hidden">
-              <a href="tel:+918062153400" aria-label="Emergency Call">
+              <a href={`tel:${headerData.emergencyNumber.number.replace(/\s/g, '')}`} aria-label="Emergency Call">
                 <Image
-                  src="/assets/Simplification.svg"
+                  src={headerData.emergencyIcon}
                   className="ml-[24px]"
-                  alt="Simplification"
+                  alt="Emergency"
                   width={32}
                   height={32}
                 />
