@@ -70,7 +70,7 @@ const Header3 = () => {
             {accreditations.map((item, index) => (
               <Image
                 key={index}
-                src={item.img}
+                src={`${imageUrl}${item.img}`}
                 alt={item.alt}
                 width={64}
                 height={64}

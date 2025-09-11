@@ -37,6 +37,10 @@ const Header1 = () => {
     emergencyIcon: "/assets/Simplification.svg"
   };
 
+  
+  const imageUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://e8f4a6d7c916.ngrok-free.app';
+  console.log("imageUrl", `${imageUrl}${headerData.affiliationImage}`);
+
   return (
     <header
       className="max-[1024px]:hidden"
@@ -84,7 +88,7 @@ const Header1 = () => {
           <div className="flex min-[910px]:justify-between justify-center lg:justify-end">
             <div className="flex items-center">
               <Image
-                src={headerData.affiliationImage}
+                src={`${imageUrl}${headerData.affiliationImage}`}
                 className="max-[1337px]:w-[200px]"
                 alt="affiliation"
                 width={290}
@@ -99,7 +103,7 @@ const Header1 = () => {
                 className="ml-[17px] cursor-pointer"
               >
                 <Image
-                  src={headerData.searchIcon}
+                  src={`${imageUrl}${headerData.searchIcon}`}
                   alt="search"
                   width={32}
                   height={32}
@@ -109,7 +113,7 @@ const Header1 = () => {
             <div className="flex items-center max-[1024px]:hidden">
               <a href={`tel:${headerData.emergencyNumber.number.replace(/\s/g, '')}`} aria-label="Emergency Call">
                 <Image
-                  src={headerData.emergencyIcon}
+                  src={`${imageUrl}${headerData.emergencyIcon}`}
                   className="ml-[24px]"
                   alt="Emergency"
                   width={32}
