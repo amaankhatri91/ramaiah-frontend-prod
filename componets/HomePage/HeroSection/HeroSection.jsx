@@ -8,6 +8,8 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useHeroSection } from "@/lib/hooks";
+import { fetchHeroSection } from "@/lib/slices/heroSectionSlice";
 
 const slides = [
   {
@@ -48,6 +50,13 @@ const HeroSection = () => {
   }, []);
 
   const [isMobiles, setIsMobiles] = useState(false);
+  const { data, loading, error, dispatch } = useHeroSection();
+
+  useEffect(() => {
+    dispatch(fetchHeroSection());
+  }, [dispatch]);
+
+  console.log("Hero section data:", data);
 
   useEffect(() => {
     const handleResize = () => {

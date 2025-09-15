@@ -38,7 +38,7 @@ const Header1 = () => {
   };
 
   
-  const imageUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://e8f4a6d7c916.ngrok-free.app';
+  const imageUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
   console.log("imageUrl", `${imageUrl}${headerData.affiliationImage}`);
 
   return (

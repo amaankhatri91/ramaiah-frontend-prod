@@ -35,6 +35,11 @@ const TestApiPage = () => {
     <div className="container mx-auto p-8">
       <h1 className="text-2xl font-bold mb-4">Testing Site Settings API</h1>
       
+      <div className="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded mb-4">
+        <p><strong>API Base URL:</strong> {process.env.NEXT_PUBLIC_API_BASE_URL || 'Not defined'}</p>
+        <p><strong>Environment:</strong> {process.env.NODE_ENV || 'development'}</p>
+      </div>
+      
       <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
         <p>✅ API Integration Successful!</p>
       </div>

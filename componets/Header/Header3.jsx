@@ -34,7 +34,7 @@ const Header3 = () => {
     { img: "/assets/mcseventwo.svg", alt: "NABL" },
   ];
 
-  const imageUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://e8f4a6d7c916.ngrok-free.app';
+  const imageUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
   console.log("imageUrl", `${imageUrl}${headerData.logo}`);
   // Use API certifications if available, otherwise use default
   const accreditations = headerData.certifications.length > 0 
