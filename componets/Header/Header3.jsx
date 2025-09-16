@@ -34,8 +34,8 @@ const Header3 = () => {
     { img: "/assets/mcseventwo.svg", alt: "NABL" },
   ];
 
-  const imageUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-  console.log("imageUrl", `${imageUrl}${headerData.logo}`);
+  const imageUrl = process.env.NEXT_PUBLIC_IMAGE_URL;
+  console.log("imageUrl=>>>>>>>>>>>>>>", `${imageUrl}${headerData.logo}`);
   // Use API certifications if available, otherwise use default
   const accreditations = headerData.certifications.length > 0 
     ? headerData.certifications.map((cert, index) => ({

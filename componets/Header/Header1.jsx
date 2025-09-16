@@ -38,8 +38,9 @@ const Header1 = () => {
   };
 
   
-  const imageUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-  console.log("imageUrl", `${imageUrl}${headerData.affiliationImage}`);
+  
+  const imageUrl = process.env.NEXT_PUBLIC_IMAGE_URL;
+  console.log("imageUrl=>>>>>>>>>>>>>>", `${imageUrl}${headerData.searchIcon}`);
 
   return (
     <header
