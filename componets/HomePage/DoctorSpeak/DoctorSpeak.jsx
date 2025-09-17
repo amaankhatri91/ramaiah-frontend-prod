@@ -4,10 +4,27 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 import Image from "next/image";
+import { useHomePage } from "@/lib/hooks";
 
 const DoctorSpeak = () => {
   const [isSpecialityOpen, setIsSpecialityOpen] = useState(false);
   const [isSpecialistOpen, setIsSpecialistOpen] = useState(false);
+  const { data } = useHomePage();
+
+  // Extract Testimonials section data from API response
+  const testimonialsSection = data?.data?.sections?.find(section => section.section_type === "testimonials");
+  const contentBlocks = testimonialsSection?.content_blocks || [];
+  
+  // Sort content blocks by display_order
+  const sortedContentBlocks = [...contentBlocks].sort((a, b) => a.display_order - b.display_order);
+  
+  // Get Doctor Speak and Patient Speak data
+  const doctorSpeakBlock = sortedContentBlocks.find(block => block.title === "Doctor Speak");
+  const patientSpeakBlock = sortedContentBlocks.find(block => block.title === "Patient Speak");
+  
+  // Get media files
+  const doctorSpeakVideo = doctorSpeakBlock?.media_files?.[0];
+  const patientSpeakVideo = patientSpeakBlock?.media_files?.[0];
 
   const validationSchema = Yup.object({
     fullName: Yup.string().required("Full Name is required"),
@@ -194,14 +211,25 @@ const DoctorSpeak = () => {
           </div>
           {/* Video or Image Preview */}
           <div className="text-end">
-            <video
-              src="https://www.w3schools.com/html/mov_bbb.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
-            />
+            {doctorSpeakVideo ? (
+              <video
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${doctorSpeakVideo.file_url}`}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+              />
+            ) : (
+              <video
+                src="https://www.w3schools.com/html/mov_bbb.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+              />
+            )}
             <Link
               href="#"
               className="inline-flex underline items-center gap-2 w-max mt-3 px-4 py-2 rounded-full text-[#3d3d3d] font-bold min-[800px]:text-[18px] text-[16px]"
@@ -228,14 +256,25 @@ const DoctorSpeak = () => {
 
           {/* Video or Image Preview */}
           <div className="">
-            <video
-              src="https://www.w3schools.com/html/mov_bbb.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
-            />
+            {patientSpeakVideo ? (
+              <video
+                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${patientSpeakVideo.file_url}`}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+              />
+            ) : (
+              <video
+                src="https://www.w3schools.com/html/mov_bbb.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+              />
+            )}
             <Link
               href="#"
               className="inline-flex underline items-center gap-2 w-max mt-3 px-4 py-2 rounded-full text-[#3d3d3d] font-bold min-[800px]:text-[18px] text-[16px]"

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import HeroSection from "../HeroSection/HeroSection";
 import Appointment from "../Appointment/Appointment";
 import MeetExperts from "../MeetExperts/MeetExperts";
@@ -13,8 +15,16 @@ import ServiceGrid from "../ServiceGrid/ServiceGrid";
 import Choosespacialist from "../Choosespacialist/Choosespacialist";
 import Accreditations from "../Accreditations/Accreditations";
 import Ourjournyhome from "../Ourjournyhome/Ourjournyhome";
+import { useHomePage } from "@/lib/hooks";
+import { fetchHomePage } from "@/lib/slices/homePageSlice";
 
 const MainPage = () => {
+  const { dispatch } = useHomePage();
+
+  useEffect(() => {
+    // Fetch home page data when component mounts
+    dispatch(fetchHomePage());
+  }, [dispatch]);
   return (
     <div>
       <div>

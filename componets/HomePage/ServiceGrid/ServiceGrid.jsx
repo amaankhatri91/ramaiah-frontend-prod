@@ -4,17 +4,19 @@ import Link from "next/link";
 import React, { useState } from "react";
 import BookRadiologyTestsModal from "@/componets/CommonComponets/BookRadiologyTestsModal";
 import BookHomeSampleCollectionModal from "@/componets/CommonComponets/BookHomeSampleCollectionModal";
+import { useHomePage } from "@/lib/hooks";
 
-export const services = [
+// Fallback services in case API data is not available
+const fallbackServices = [
   {
-    title: "Book OPD Appointments",
-    subtitle: "(9 am - 5 pm)",
+    title: "Book OPD Appointment",
+    // subtitle: "(9 am - 5 pm)",
     icon: "/assets/book-appointment.svg",
     link: "https://msrmh.com/appointment/booking.php",
   },
   {
     title: "Book Prime Clinic Appointments",
-    subtitle: "(5 pm - 8 pm)",
+    // subtitle: "(5 pm - 8 pm)",
     icon: "/assets/book-ramaiah-prime.svg",
     link: "https://msrmh.com/appointment/booking.php",
   },
@@ -47,6 +49,30 @@ export const services = [
 const ServiceGrid = () => {
   const [isRadiologyOpen, setIsRadiologyOpen] = useState(false);
   const [isHomeCollectionOpen, setIsHomeCollectionOpen] = useState(false);
+  const { data } = useHomePage();
+
+  // Extract Quick Actions section data from API response
+  const quickActionsSection = data?.data?.sections?.find(section => section.section_type === "cta");
+  const contentBlocks = quickActionsSection?.content_blocks || [];
+  
+  // Sort content blocks by display_order
+  const sortedContentBlocks = [...contentBlocks].sort((a, b) => a.display_order - b.display_order);
+  
+  // Create services array from API data
+  const services = sortedContentBlocks.map((block, index) => {
+    const mediaFile = block.media_files?.[0];
+    const fallbackService = fallbackServices[index] || fallbackServices[0];
+    
+    return {
+      title: block.title || fallbackService.title,
+      subtitle: block.subtitle || fallbackService.subtitle,
+      icon: mediaFile ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${mediaFile.file_url}` : fallbackService.icon,
+      link: block.content || fallbackService.link,
+    };
+  });
+
+  // Use fallback services if no API data is available
+  const displayServices = services.length > 0 ? services : fallbackServices;
 
   const handleServiceClick = (serviceTitle, e) => {
     if (serviceTitle === "Book Radiology Tests") {
@@ -64,7 +90,7 @@ const ServiceGrid = () => {
   return (
     <div className="container">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
-        {services.map((service, index) => (
+        {displayServices.map((service, index) => (
           <Link href={service.link} key={index} className="h-full" onClick={(e) => handleServiceClick(service.title, e)}>
             <div className="bg-white rounded-xl shadow-sm p-4 text-center hover:shadow-md transition cursor-pointer h-full">
               <Image
