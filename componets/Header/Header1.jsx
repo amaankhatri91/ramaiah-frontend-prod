@@ -1,12 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useServices } from "../../lib/hooks";
 import { fetchSiteSettings } from "../../lib/slices/servicesSlice";
 
+// Default fallback data - this ensures consistent rendering
+const defaultHeaderData = {
+  generalEnquiries: { label: "General Enquiries :", number: "+91 80 6215 3300" },
+  emergencyNumber: { label: "Emergency Number :", number: "+91 80 6215 3400" },
+  preBookAppointments: { label: "Pre-Book Your Appointments :", number: "1800 123 1133" },
+  affiliationImage: "/assets/affilliation.svg"
+};
+
 const Header1 = () => {
   const { siteSettings, loading, dispatch } = useServices();
+  const [isClient, setIsClient] = useState(false);
+
+  // Track client-side hydration
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Fetch site settings on component mount
   useEffect(() => {
@@ -15,13 +29,9 @@ const Header1 = () => {
     }
   }, [siteSettings, dispatch]);
 
-  // Get header1 data with fallbacks
-  const headerData = siteSettings?.header1 || {
-    generalEnquiries: { label: "General Enquiries :", number: "+91 80 6215 3300" },
-    emergencyNumber: { label: "Emergency Number :", number: "+91 80 6215 3400" },
-    preBookAppointments: { label: "Pre-Book Your Appointments :", number: "1800 123 1133" },
-    affiliationImage: "/assets/affilliation.svg"
-  };
+  // Use default data during SSR and initial client render to prevent hydration mismatch
+  // Only use API data after client-side hydration is complete
+  const headerData = (isClient && siteSettings?.header1) ? siteSettings.header1 : defaultHeaderData;
 
   
   

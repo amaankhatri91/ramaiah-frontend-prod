@@ -980,7 +980,7 @@ const Header2 = () => {
         >
           <div className="container flex justify-end">
             <div
-              className="mt-[47vh] w-[90%] max-w-[620px] cursor-pointer"
+              className="mt-[2vh] w-[90%] max-w-[620px] cursor-pointer"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="rounded-[20px] bg-white p-6 shadow-2xl ">

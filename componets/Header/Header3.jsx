@@ -2,12 +2,26 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useServices } from "../../lib/hooks";
 import { fetchSiteSettings } from "../../lib/slices/servicesSlice";
 
+// Default fallback data - this ensures consistent rendering
+const defaultHeader3Data = {
+  logo: "/assets/logo.svg",
+  siteName: "Ramaiah Memorial Hospital",
+  siteTagline: "#LifeGetsBetter",
+  certifications: []
+};
+
 const Header3 = () => {
   const { siteSettings, dispatch } = useServices();
+  const [isClient, setIsClient] = useState(false);
+
+  // Track client-side hydration
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Fetch site settings on component mount
   useEffect(() => {
@@ -16,13 +30,9 @@ const Header3 = () => {
     }
   }, [siteSettings, dispatch]);
 
-  // Get header3 data with fallbacks
-  const headerData = siteSettings?.header3 || {
-    logo: "/assets/logo.svg",
-    siteName: "Ramaiah Memorial Hospital",
-    siteTagline: "#LifeGetsBetter",
-    certifications: []
-  };
+  // Use default data during SSR and initial client render to prevent hydration mismatch
+  // Only use API data after client-side hydration is complete
+  const headerData = (isClient && siteSettings?.header3) ? siteSettings.header3 : defaultHeader3Data;
 
   // Default accreditations as fallback
   const defaultAccreditations = [
