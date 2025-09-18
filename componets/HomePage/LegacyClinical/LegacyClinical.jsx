@@ -27,7 +27,7 @@ const LegacyClinical = () => {
   return (
     <div className="min-[1300px]:pt-[100px] min-[800px]:pt-[50px] pt-[30px]">
       <div className="flex items-center justify-center container">
-        <div className="">
+        <div className="w-full">
           <div className="flex flex-col justify-center">
             <h2 className="min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[22px] font-bold leading-tight">
               <span className="Text-color">{legacySection?.title }</span>

@@ -14,10 +14,13 @@ const Header2 = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showCareersDropdown, setShowCareersDropdown] = useState(false);
+  const [showWhatsNewDropdown, setShowWhatsNewDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const [mobileAboutDropdownOpen, setMobileAboutDropdownOpen] = useState(false);
   const [mobileCareersDropdownOpen, setMobileCareersDropdownOpen] =
+    useState(false);
+  const [mobileWhatsNewDropdownOpen, setMobileWhatsNewDropdownOpen] =
     useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [openCenterKey, setOpenCenterKey] = useState(null);
@@ -64,10 +67,17 @@ const Header2 = () => {
         setMobileCareersDropdownOpen(true);
         setMobileAboutDropdownOpen(false);
         setMobileDropdownOpen(false);
+        setMobileWhatsNewDropdownOpen(false);
+      } else if (pathname.startsWith("/trending") || pathname.startsWith("/about/media-events")) {
+        setMobileWhatsNewDropdownOpen(true);
+        setMobileAboutDropdownOpen(false);
+        setMobileDropdownOpen(false);
+        setMobileCareersDropdownOpen(false);
       } else {
         setMobileAboutDropdownOpen(false);
         setMobileDropdownOpen(false);
         setMobileCareersDropdownOpen(false);
+        setMobileWhatsNewDropdownOpen(false);
       }
     }
   }, [mobileMenuOpen, pathname]);
@@ -163,48 +173,27 @@ const Header2 = () => {
               </button>
             </Link>
             {showAboutDropdown && (
-              <div className="absolute cursor-pointer min-[1410px]:left-[570px] min-[1210px]:left-[470px] left-[400px]  min-[1500px]:max-h-[600px] max-h-[450px] overflow-auto transform -translate-x-1/2 top-[68px] w-[90vw] min-[1410px]:max-w-[70vw] max-w-[85vw] bg-white rounded-lg shadow-2xl border border-gray-200 p-6 z-50">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+              <div className="absolute left-0 top-[68px] w-[200px] bg-gray-100 rounded-lg shadow-lg border border-gray-200 z-50">
+                <div className="py-2">
                   <Link
                     href="/about/about-group"
-                    className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)]  hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center"
+                    className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-200 transition-colors"
                     onClick={() => setShowAboutDropdown(false)}
                   >
-                    <Image
-                      src="/assets/AboutGroup.svg"
-                      alt="arrow"
-                      width={34}
-                      height={34}
-                      className="w-[34px] h-[34px] mr-[4px]"
-                    />
                     About Group
                   </Link>
                   <Link
                     href="/about/about-hospital"
-                    className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center"
+                    className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-200 transition-colors"
                     onClick={() => setShowAboutDropdown(false)}
                   >
-                    <Image
-                      src="/assets/AboutHospital.svg"
-                      alt="arrow"
-                      width={34}
-                      height={34}
-                      className="w-[34px] h-[34px] mr-[4px]"
-                    />
                     About Hospital
                   </Link>
                   <Link
                     href="/about/media-events"
-                    className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center"
+                    className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-200 transition-colors"
                     onClick={() => setShowAboutDropdown(false)}
                   >
-                    <Image
-                      src="/assets/Media&Events.svg"
-                      alt="arrow"
-                      width={34}
-                      height={34}
-                      className="w-[34px] h-[34px] mr-[4px]"
-                    />
                     Media & Events
                   </Link>
                 </div>
@@ -541,48 +530,27 @@ const Header2 = () => {
               </button>
             </Link>
             {showCareersDropdown && (
-              <div className="absolute cursor-pointer min-[1410px]:left-[-220px] left-[-124px] min-[1500px]:max-h-[600px] max-h-[450px] overflow-auto transform -translate-x-1/2 top-[68px] w-[90vw] min-[1410px]:max-w-[70vw] max-w-[78vw] bg-white rounded-lg shadow-2xl border border-gray-200 p-6 z-50">
-                <div className="grid grid-cols-2 md:grid-cols-2 gap-2">
+              <div className="absolute left-0 top-[68px] w-[280px] bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                <div className="py-2">
                   <Link
                     href="/careers/send-your-resume"
-                    className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center"
+                    className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-100 transition-colors"
                     onClick={() => setShowCareersDropdown(false)}
                   >
-                    <Image
-                      src="/assets/SendYourResume.svg"
-                      alt="icon"
-                      width={34}
-                      height={34}
-                      className="w-[34px] h-[34px] mr-[4px]"
-                    />
                     Send Your Resume
                   </Link>
                   <Link
                     href="/careers/work-with-us"
-                    className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center"
+                    className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-100 transition-colors"
                     onClick={() => setShowCareersDropdown(false)}
                   >
-                    <Image
-                      src="/assets/WorkWithUS.svg"
-                      alt="icon"
-                      width={34}
-                      height={34}
-                      className="w-[34px] h-[34px] mr-[4px]"
-                    />
-                    Work With Us
+                    Work With US
                   </Link>
                   <Link
                     href="/careers/advance-learning-center"
-                    className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center"
+                    className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-100 transition-colors"
                     onClick={() => setShowCareersDropdown(false)}
                   >
-                    <Image
-                      src="/assets/FellowshipProgramme.svg"
-                      alt="icon"
-                      width={34}
-                      height={34}
-                      className="w-[34px] h-[34px] mr-[4px]"
-                    />
                     Advance Learning Center (ALC)
                   </Link>
                   <button
@@ -591,37 +559,76 @@ const Header2 = () => {
                         "/assets/Fellowship-Brochure-Final.pdf";
                       setShowCareersDropdown(false);
                     }}
-                    className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] transition-colors items-center w-full text-left"
+                    className="block w-full text-left px-4 py-3 text-[#3D3D3D] hover:bg-gray-100 transition-colors"
                   >
-                    <Image
-                      src="/assets/ALC.svg"
-                      alt="icon"
-                      width={34}
-                      height={34}
-                      className="w-[34px] h-[34px] mr-[4px]"
-                    />
                     Fellowship Programme
                   </button>
                 </div>
               </div>
             )}
           </div>
-          <Link
-            href="/trending"
-            className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] ${pathname === "/trending"
-              ? "Text-color font-bold"
-              : "text-[#3D3D3D] hover:text-[#e14b8b]"
-              } flex items-center gap-1`}
+          {/* What's New with Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setShowWhatsNewDropdown(true)}
+            onMouseLeave={() => setShowWhatsNewDropdown(false)}
           >
-            #What’s New
-            <Image
-              src="/assets/down-arrow.svg"
-              alt="#What’s New"
-              width={12}
-              height={7}
-              className="top-[1px] relative"
-            />
-          </Link>
+            <Link href="/trending" onClick={() => setShowWhatsNewDropdown(false)}>
+              <button
+                className={`transition-colors cursor-pointer font-manrope focus:outline-none min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] py-[22px] rounded flex items-center gap-1 ${pathname === "/trending"
+                  ? "Text-color font-bold"
+                  : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                  }`}
+                aria-haspopup="true"
+                aria-expanded={showWhatsNewDropdown}
+              >
+                #What's New
+                <Image
+                  src="/assets/down-arrow.svg"
+                  alt="#What's New"
+                  width={12}
+                  height={7}
+                  className={`transition-transform duration-200 top-[1px] relative ${showWhatsNewDropdown ? "rotate-180" : ""
+                    }`}
+                />
+              </button>
+            </Link>
+            {showWhatsNewDropdown && (
+              <div className="absolute left-0 top-[68px] w-[200px] bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                <div className="py-2">
+
+                  <Link
+                    href="#"
+                    className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-200 transition-colors"
+                    onClick={() => setShowWhatsNewDropdown(false)}
+                  >
+                    RMH Events
+                  </Link>
+                  <Link
+                    href="#"
+                    className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-200 transition-colors"
+                    onClick={() => setShowWhatsNewDropdown(false)}
+                  >
+                    Press Releases
+                  </Link>
+                  <Link
+                    href="/about/media-events"
+                    className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-200 transition-colors"
+                    onClick={() => setShowWhatsNewDropdown(false)}
+                  >
+                    Media Gallery
+                  </Link>
+                  <Link
+                    href="/trending"
+                    className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-200 transition-colors"
+                    onClick={() => setShowWhatsNewDropdown(false)}
+                  >
+                    Blogs
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
           <Link
             href="/contact"
             className={`py-[22px] min-[1190px]:pl-[16px] pl-[10px] min-[1190px]:text-[16px] text-[14px]  ${pathname === "/contact"
@@ -638,37 +645,28 @@ const Header2 = () => {
               className="top-[1px] relative"
             />
           </Link>
-        </nav>
-
-        {/* Mobile Menu Toggle */}
-        <div className="lg:hidden flex items-center">
+          {/* Search Icon */}
           <button
             onClick={() => setIsSearchOpen(true)}
             aria-label="Open search"
+            className="py-[22px] min-[1190px]:pl-[16px] pl-[10px] flex items-center cursor-pointer"
           >
             <Image
               src="/assets/search.svg.svg"
-              className="mr-[17px]"
               alt="search"
               width={32}
               height={32}
             />
           </button>
-          <button>
-            <a href="tel:+918062153400" aria-label="Emergency Call">
-              <Image
-                src="/assets/Simplification.svg"
-                className=" mr-[17px]"
-                alt="Simplification"
-                width={32}
-                height={32}
-              />
-            </a>
-          </button>
+        </nav>
+
+        {/* Mobile Menu Toggle */}
+        <div className="lg:hidden flex items-center">
           <button
             onClick={() => {
               setMobileMenuOpen(!mobileMenuOpen);
               setMobileDropdownOpen(false);
+              setMobileWhatsNewDropdownOpen(false);
             }}
             className="text-[#3D3D3D] focus:outline-none"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -705,6 +703,7 @@ const Header2 = () => {
               onClick={() => {
                 setMobileAboutDropdownOpen(!mobileAboutDropdownOpen);
                 setMobileDropdownOpen(false);
+                setMobileWhatsNewDropdownOpen(false);
               }}
               className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname && pathname.startsWith("/about")
                 ? "bg-[#e14b8b] text-white rounded"
@@ -765,6 +764,7 @@ const Header2 = () => {
               onClick={() => {
                 setMobileDropdownOpen(!mobileDropdownOpen);
                 setMobileAboutDropdownOpen(false);
+                setMobileWhatsNewDropdownOpen(false);
               }}
               className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname && pathname.startsWith("/specialities")
                 ? "bg-[#e14b8b] text-white rounded"
@@ -813,6 +813,7 @@ const Header2 = () => {
                 setMobileCareersDropdownOpen(!mobileCareersDropdownOpen);
                 setMobileAboutDropdownOpen(false);
                 setMobileDropdownOpen(false);
+                setMobileWhatsNewDropdownOpen(false);
               }}
               className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname && pathname.startsWith("/careers")
                 ? "bg-[#e14b8b] text-white rounded"
@@ -882,16 +883,78 @@ const Header2 = () => {
                 </button>
               </div>
             )}
-            <Link
-              href="/trending"
-              className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname === "/trending"
+            {/* Mobile What's New Dropdown */}
+            <button
+              onClick={() => {
+                setMobileWhatsNewDropdownOpen(!mobileWhatsNewDropdownOpen);
+                setMobileAboutDropdownOpen(false);
+                setMobileDropdownOpen(false);
+                setMobileCareersDropdownOpen(false);
+              }}
+              className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname && pathname.startsWith("/trending")
                 ? "bg-[#e14b8b] text-white rounded"
                 : "text-[#3D3D3D] hover:text-[#e14b8b]"
                 }`}
-              onClick={() => setMobileMenuOpen(false)}
             >
-              #Trending
-            </Link>
+              #What's New{" "}
+              {mobileWhatsNewDropdownOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
+            </button>
+            {mobileWhatsNewDropdownOpen && (
+              <div className="pl-4 pt-2 pb-2 bg-[#dad1c7]">
+                <Link
+                  href="/trending"
+                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/trending`
+                    ? "bg-[#e14b8b] text-white rounded"
+                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                    }`}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setMobileWhatsNewDropdownOpen(false);
+                  }}
+                >
+                  Blogs
+                </Link>
+                <Link
+                  href="/trending"
+                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/trending`
+                    ? "bg-[#e14b8b] text-white rounded"
+                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                    }`}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setMobileWhatsNewDropdownOpen(false);
+                  }}
+                >
+                  RMH Events
+                </Link>
+                <Link
+                  href="/trending"
+                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/trending`
+                    ? "bg-[#e14b8b] text-white rounded"
+                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                    }`}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setMobileWhatsNewDropdownOpen(false);
+                  }}
+                >
+                  Press Releases
+                </Link>
+                <Link
+                  href="/about/media-events"
+                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/about/media-events`
+                    ? "bg-[#e14b8b] text-white rounded"
+                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                    }`}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    setMobileWhatsNewDropdownOpen(false);
+                  }}
+                >
+                  Media Gallery
+                </Link>
+              </div>
+            )}
             <Link
               href="/contact"
               className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${pathname === "/contact"
@@ -917,7 +980,7 @@ const Header2 = () => {
         >
           <div className="container flex justify-end">
             <div
-              className="mt-[16vh] w-[90%] max-w-[620px] "
+              className="mt-[47vh] w-[90%] max-w-[620px] cursor-pointer"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="rounded-[20px] bg-white p-6 shadow-2xl ">
