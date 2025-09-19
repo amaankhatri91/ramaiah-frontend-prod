@@ -189,13 +189,6 @@ const Header2 = () => {
                   >
                     About Hospital
                   </Link>
-                  <Link
-                    href="/about/media-events"
-                    className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-200 transition-colors"
-                    onClick={() => setShowAboutDropdown(false)}
-                  >
-                    Media & Events
-                  </Link>
                 </div>
               </div>
             )}
@@ -741,19 +734,6 @@ const Header2 = () => {
                   }}
                 >
                   About Hospital
-                </Link>
-                <Link
-                  href="/about/media-events"
-                  className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${pathname === `/about/media-events`
-                    ? "bg-[#e14b8b] text-white rounded"
-                    : "text-[#3D3D3D] hover:text-[#e14b8b]"
-                    }`}
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setMobileAboutDropdownOpen(false);
-                  }}
-                >
-                  Media & Events
                 </Link>
               </div>
             )}
