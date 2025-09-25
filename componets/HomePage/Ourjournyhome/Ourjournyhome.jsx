@@ -38,7 +38,7 @@ const Ourjournyhome = ({ slug }) => {
                     <p
                         className="text-[#414049] min-[1200px]:text-[16px] min-[800px]:text-[14px] font-medium text-[13px]"
                     >
-                        {mainContentBlock?.content || fallbackContent}
+                        {journeySection?.content_blocks[1]?.content }
                     </p>
 
                 </div>
@@ -47,7 +47,10 @@ const Ourjournyhome = ({ slug }) => {
                 <div className="md:col-span-5 md:order-2 order-1 w-full">
                     <div className="relative w-full h-[350px] sm:h-[450px] md:h-[600px]">
                         <Image
-                            src={imageFile ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${imageFile.file_url}` : fallbackImage}
+                            src={journeySection?.content_blocks[2]?.media_files?.[0]?.file_url ? 
+                                `${process.env.NEXT_PUBLIC_IMAGE_URL || ''}${journeySection.content_blocks[2].media_files[0].file_url}` : 
+                                fallbackImage
+                            }
                             alt="Our journy home"
                             fill
                             className="object-cover rounded-[40px] shadow-md"

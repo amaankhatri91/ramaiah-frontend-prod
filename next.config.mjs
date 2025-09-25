@@ -2,6 +2,7 @@
 const nextConfig = {
     env: {
         NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
+        NEXT_PUBLIC_IMAGE_URL: process.env.NEXT_PUBLIC_IMAGE_URL,
       },
     images: {
         remotePatterns: [
@@ -13,7 +14,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'unconcertable-armandina-nonimaginarily.ngrok-free.dev',
+                hostname: '604e9aab9f49.ngrok-free.app',
                 port: '',
                 pathname: '/**',
             },
