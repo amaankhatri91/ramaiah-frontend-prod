@@ -28,6 +28,20 @@ const Header2 = () => {
   // Get menu items from API data
   const menuItems = navigationData?.data?.[0]?.items || [];
 
+  // Helper function to generate URL from navigation item
+  const generateUrl = (item) => {
+    // If item has a page object with slug, use it
+    if (item.page && item.page.slug) {
+      return `/${item.page.slug}`;
+    }
+    // Otherwise, use the item's slug
+    if (item.slug) {
+      return `/${item.slug}`;
+    }
+    // Fallback to empty string for items without URLs
+    return '';
+  };
+
   // Helper function to handle menu item clicks
   const handleMenuItemClick = (item) => {
     if (item.children && item.children.length > 0) {
@@ -39,8 +53,9 @@ const Header2 = () => {
       }));
     } else {
       // Navigate to URL for items without children
-      if (item.url) {
-        window.location.href = item.url;
+      const url = generateUrl(item);
+      if (url) {
+        window.location.href = url;
       }
     }
   };
@@ -76,7 +91,7 @@ const Header2 = () => {
             setOpenBroadChildSlug(null);
           }}
         >
-          <Link href={item.url} onClick={() => setOpenMenuItems(prev => ({ ...prev, [item.id]: false }))}>
+          <Link href={generateUrl(item)} onClick={() => setOpenMenuItems(prev => ({ ...prev, [item.id]: false }))}>
             <button
               className={`transition-colors cursor-pointer font-manrope focus:outline-none min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] py-[22px] rounded flex items-center gap-1 ${
                 pathname && pathname.startsWith("/specialities") ? "Text-color font-bold" : "text-[#3D3D3D] hover:text-[#e14b8b]"
@@ -116,7 +131,7 @@ const Header2 = () => {
           >
             <button
               className={`transition-colors cursor-pointer font-manrope focus:outline-none min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] py-[22px] rounded flex items-center gap-1 ${
-                pathname === item.url ? "Text-color font-bold" : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                pathname === generateUrl(item) ? "Text-color font-bold" : "text-[#3D3D3D] hover:text-[#e14b8b]"
               }`}
               aria-haspopup="true"
               aria-expanded={isOpen}
@@ -143,9 +158,9 @@ const Header2 = () => {
         return (
           <Link
             key={item.id}
-            href={item.url}
+            href={generateUrl(item)}
             className={`py-[22px] min-[1190px]:px-[16px] px-[10px] min-[1190px]:text-[16px] text-[14px] ${
-              pathname === item.url ? "Text-color font-bold" : "text-[#3D3D3D] hover:text-[#e14b8b]"
+              pathname === generateUrl(item) ? "Text-color font-bold" : "text-[#3D3D3D] hover:text-[#e14b8b]"
             }`}
           >
             {item.title}
@@ -178,7 +193,7 @@ const Header2 = () => {
         return (
           <Link
             key={item.id}
-            href={item.url}
+            href={generateUrl(item)}
             className="block px-4 py-3 text-[#3D3D3D] hover:bg-gray-100 transition-colors"
           >
             {item.title}
@@ -205,7 +220,7 @@ const Header2 = () => {
                 {section.children.map((center) => (
                   <div key={center.id} className="relative" onMouseEnter={() => { setOpenCenterKey(center.id); setOpenChildSlug(null); }}>
                     <Link
-                      href={center.url}
+                      href={generateUrl(center)}
                       className="cursor-pointer w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]"
                       onClick={() => setOpenMenuItems(prev => ({ ...prev, [section.id]: false }))}
                     >
@@ -221,7 +236,10 @@ const Header2 = () => {
                           {center.children.map((child) => (
                             <li key={child.id} className="relative" onMouseEnter={() => { if (child.children && child.children.length > 0) { setOpenChildSlug(child.id); } }}>
                               <button type="button" className="cursor-pointer w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => {
-                                window.location.href = child.url;
+                                const url = generateUrl(child);
+                                if (url) {
+                                  window.location.href = url;
+                                }
                                 setOpenMenuItems(prev => ({ ...prev, [section.id]: false }));
                               }}>
                                 <span className="flex items-center gap-2">
@@ -236,7 +254,7 @@ const Header2 = () => {
                                   <ul className="space-y-1">
                                     {child.children.map((grand) => (
                                       <li key={grand.id}>
-                                        <Link href={grand.url} className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => { setOpenMenuItems(prev => ({ ...prev, [section.id]: false })); setOpenCenterKey(null); setOpenChildSlug(null); }}>
+                                        <Link href={generateUrl(grand)} className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => { setOpenMenuItems(prev => ({ ...prev, [section.id]: false })); setOpenCenterKey(null); setOpenChildSlug(null); }}>
                                           {grand.title}
                                         </Link>
                                       </li>
@@ -286,7 +304,7 @@ const Header2 = () => {
                       </button>
                     ) : (
                       <Link
-                        href={item.url}
+                        href={generateUrl(item)}
                         style={{
                           background: "var(--White-Ice-Line, linear-gradient(95deg, #FBFDFF 0.79%, #E9F6FF 98.08%))",
                         }}
@@ -311,7 +329,10 @@ const Header2 = () => {
                                   if (child.children && child.children.length > 0) {
                                     setOpenOtherChildSlug((s) => (s === child.id ? null : child.id));
                                   } else {
-                                    window.location.href = child.url;
+                                    const url = generateUrl(child);
+                                    if (url) {
+                                      window.location.href = url;
+                                    }
                                   }
                                 }}
                               >
@@ -328,7 +349,7 @@ const Header2 = () => {
                                     {child.children.map((grand) => (
                                       <li key={grand.id}>
                                         <Link
-                                          href={grand.url}
+                                          href={generateUrl(grand)}
                                           className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]"
                                           onClick={() => {
                                             setOpenMenuItems(prev => ({ ...prev, [section.id]: false }));
@@ -362,7 +383,10 @@ const Header2 = () => {
                                   if (child.children && child.children.length > 0) {
                                     setOpenBroadChildSlug((s) => (s === child.id ? null : child.id));
                                   } else {
-                                    window.location.href = child.url;
+                                    const url = generateUrl(child);
+                                    if (url) {
+                                      window.location.href = url;
+                                    }
                                   }
                                 }}
                               >
@@ -379,7 +403,7 @@ const Header2 = () => {
                                     {child.children.map((grand) => (
                                       <li key={grand.id}>
                                         <Link
-                                          href={grand.url}
+                                          href={generateUrl(grand)}
                                           className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]"
                                           onClick={() => {
                                             setOpenMenuItems(prev => ({ ...prev, [section.id]: false }));
@@ -449,7 +473,7 @@ const Header2 = () => {
                 }));
               }}
               className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${
-                pathname === item.url ? "bg-[#e14b8b] text-white rounded" : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                pathname === generateUrl(item) ? "bg-[#e14b8b] text-white rounded" : "text-[#3D3D3D] hover:text-[#e14b8b]"
               }`}
             >
               {item.title} {isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
@@ -465,9 +489,9 @@ const Header2 = () => {
         return (
           <Link
             key={item.id}
-            href={item.url}
+            href={generateUrl(item)}
             className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${
-              pathname === item.url ? "bg-[#e14b8b] text-white rounded" : "text-[#3D3D3D] hover:text-[#e14b8b]"
+              pathname === generateUrl(item) ? "bg-[#e14b8b] text-white rounded" : "text-[#3D3D3D] hover:text-[#e14b8b]"
             }`}
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -487,7 +511,7 @@ const Header2 = () => {
                 }));
               }}
               className={`w-full flex items-center gap-1 text-left py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${
-                pathname === item.url ? "bg-[#e14b8b] text-white rounded" : "text-[#3D3D3D] hover:text-[#e14b8b]"
+                pathname === generateUrl(item) ? "bg-[#e14b8b] text-white rounded" : "text-[#3D3D3D] hover:text-[#e14b8b]"
               }`}
             >
               {item.title} {isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
@@ -503,9 +527,9 @@ const Header2 = () => {
         return (
           <Link
             key={item.id}
-            href={item.url}
+            href={generateUrl(item)}
             className={`block py-1 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] text-sm ${
-              pathname === item.url ? "bg-[#e14b8b] text-white rounded" : "text-[#3D3D3D] hover:text-[#e14b8b]"
+              pathname === generateUrl(item) ? "bg-[#e14b8b] text-white rounded" : "text-[#3D3D3D] hover:text-[#e14b8b]"
             }`}
             onClick={() => setMobileMenuOpen(false)}
           >

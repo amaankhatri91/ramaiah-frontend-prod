@@ -81,7 +81,7 @@ export default function StoryAccreditations() {
           <div className="rounded-[24px] p-6 min-[800px]:p-8 bg-[linear-gradient(84deg,#F2D5CF_0%,#E2EEFE_100%)]">
             <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D] mb-6">
               {/* {ourStorySection?.name || "Our"}  */}
-              <span className="Text-color2">{ourStorySection?.name || "Story"}</span>
+              <span className="Text-color2">{ourStorySection?.content_blocks[0]?.title || "Our Story"}</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {displayStats.map((item, index) => (

@@ -13,7 +13,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'bc1d9cf21ea9.ngrok-free.app',
+                hostname: 'unconcertable-armandina-nonimaginarily.ngrok-free.dev',
                 port: '',
                 pathname: '/**',
             },
