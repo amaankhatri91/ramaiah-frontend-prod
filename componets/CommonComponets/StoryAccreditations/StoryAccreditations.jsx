@@ -35,16 +35,26 @@ export default function StoryAccreditations() {
   // Sort content blocks by display_order
   const sortedStoryContentBlocks = [...storyContentBlocks].sort((a, b) => a.display_order - b.display_order);
   
-  // Create stats array from API data
-  const stats = sortedStoryContentBlocks.map((block, index) => {
+  // Find text block for title (block_type: "text")
+  const textBlock = sortedStoryContentBlocks.find(block => block.block_type === "text");
+  
+  // Filter only statistic blocks for the grid (block_type: "statistic")
+  const statisticBlocks = sortedStoryContentBlocks.filter(block => block.block_type === "statistic");
+  
+  // Create stats array from API data (only statistic blocks)
+  const stats = statisticBlocks.map((block, index) => {
     const mediaFile = block.media_files?.[0];
     const fallbackStat = fallbackStats[index] || fallbackStats[0];
+    
+    // Get statistic_text from the statistics array
+    const statisticData = block.statistics?.[0];
+    const statisticText = statisticData?.statistic_text || block.title || fallbackStat.label;
     
     return {
       title: block.title || fallbackStat.label,
       value: block.content || fallbackStat.value,
       icon: mediaFile ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${mediaFile.file_url}` : fallbackStat.icon,
-      label: block.title || fallbackStat.label,
+      label: statisticText,
     };
   });
 
@@ -58,8 +68,14 @@ export default function StoryAccreditations() {
   // Sort accreditations content blocks by display_order
   const sortedAccreditationsContentBlocks = [...accreditationsContentBlocks].sort((a, b) => a.display_order - b.display_order);
   
-  // Create accreditations array from API data
-  const accreditations = sortedAccreditationsContentBlocks.map((block, index) => {
+  // Find text block for title (block_type: "text")
+  const accreditationsTextBlock = sortedAccreditationsContentBlocks.find(block => block.block_type === "text");
+  
+  // Filter only image blocks for the grid (block_type: "image")
+  const imageBlocks = sortedAccreditationsContentBlocks.filter(block => block.block_type === "image");
+  
+  // Create accreditations array from API data (only image blocks)
+  const accreditations = imageBlocks.map((block, index) => {
     const mediaFile = block.media_files?.[0];
     const fallbackAccreditation = fallbackAccreditations[index] || fallbackAccreditations[0];
     
@@ -81,7 +97,7 @@ export default function StoryAccreditations() {
           <div className="rounded-[24px] p-6 min-[800px]:p-8 bg-[linear-gradient(84deg,#F2D5CF_0%,#E2EEFE_100%)]">
             <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D] mb-6">
               {/* {ourStorySection?.name || "Our"}  */}
-              <span className="Text-color2">{ourStorySection?.content_blocks[0]?.title || "Our Story"}</span>
+              <span className="Text-color2">{textBlock?.title || "Our Story"}</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {displayStats.map((item, index) => (
@@ -113,7 +129,7 @@ export default function StoryAccreditations() {
           <div>
             <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D] mb-6">
               {/* {accreditationsSection?.title }  */}
-              <span className="Text-color2">{accreditationsSection?.title }</span>
+              <span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span>
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 justify-items-center items-start">
               {displayAccreditations.map((item, index) => (

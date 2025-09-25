@@ -28,7 +28,7 @@ const Ourjournyhome = ({ slug }) => {
         <div className="container min-[1300px]:pt-[100px] min-[800px]:pt-[50px] pt-[30px]">
             <div className="min-[1200px]:py-[20px] min-[800px]:py-[15px] py-[10px]">
                 <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[25px] text-[22px] font-bold text-[#3D3D3D]">
-                {journeySection?.title || fallbackTitle}
+                {journeySection?.content_blocks[0]?.title}
                 </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8 gap-4">

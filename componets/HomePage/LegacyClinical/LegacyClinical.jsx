@@ -30,10 +30,10 @@ const LegacyClinical = () => {
         <div className="w-full">
           <div className="flex flex-col justify-center">
             <h2 className="min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[22px] font-bold leading-tight">
-              <span className="Text-color">{legacySection?.title }</span>
+              <span className="Text-color">{legacySection?.content_blocks[0]?.title }</span>
             </h2>
             <p className="mt-[20px] text-[#3D3D3D] min-[1200px]:text-[16px] text-[13px] font-normal leading-relaxed">
-              {mainContentBlock?.content || fallbackContent}
+              {legacySection?.content_blocks[1]?.content}
             </p>
             {/* <div className="min-[1264px]:mt-5 mt-3 min-[1200px]:mb-[24px] min-[800px]:mb-[18px] mb-[14px]">
               <button className="flex cursor-pointer items-center Background-color text-white px-6 py-2 rounded-full font-medium shadow hover:opacity-90 transition-all">
@@ -47,7 +47,7 @@ const LegacyClinical = () => {
           <div className="min-[1200px]:h-[620px] min-[1200px]:mt-[16px] min-[800px]:mt-[14px] mt-[12px]">
             <video
               className="w-full h-full object-cover rounded-[30px]"
-              src={videoFile ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${videoFile.file_url}` : fallbackVideo}
+              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${legacySection?.content_blocks[2]?.media_files?.[0]?.file_url}`}
               autoPlay
               loop
               muted
