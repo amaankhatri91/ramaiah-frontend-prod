@@ -51,7 +51,7 @@ const Ourjournyhome = ({ slug }) => {
                                 `${process.env.NEXT_PUBLIC_IMAGE_URL || ''}${journeySection.content_blocks[2].media_files[0].file_url}` : 
                                 fallbackImage
                             }
-                            alt="Our journy home"
+                            alt={journeySection?.content_blocks[2]?.media_files?.[0]?.alt_text || "Our journey home"}
                             fill
                             className="object-cover rounded-[40px] shadow-md"
                         />

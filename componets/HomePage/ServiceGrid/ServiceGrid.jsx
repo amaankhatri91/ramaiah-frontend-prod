@@ -68,6 +68,7 @@ const ServiceGrid = () => {
       subtitle: block.subtitle || fallbackService.subtitle,
       icon: mediaFile ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${mediaFile.file_url}` : fallbackService.icon,
       link: block.content || fallbackService.link,
+      altText: mediaFile?.alt_text || block.title || fallbackService.title,
     };
   });
 
@@ -95,7 +96,7 @@ const ServiceGrid = () => {
             <div className="bg-white rounded-xl shadow-sm p-4 text-center hover:shadow-md transition cursor-pointer h-full">
               <Image
                 src={service.icon}
-                alt={service.title}
+                alt={service.altText || service.title}
                 width={64}
                 height={64}
                 className="mx-auto mb-4 h-[64px] w-[64px]"

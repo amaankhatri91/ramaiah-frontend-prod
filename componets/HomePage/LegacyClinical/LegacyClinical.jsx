@@ -52,6 +52,7 @@ const LegacyClinical = () => {
               loop
               muted
               playsInline
+              aria-label={legacySection?.content_blocks[2]?.media_files?.[0]?.alt_text || "Legacy & Clinical Excellence video"}
             />
           </div>
         </div>

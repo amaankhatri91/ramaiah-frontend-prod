@@ -33,6 +33,15 @@ const Header3 = () => {
   // Use default data during SSR and initial client render to prevent hydration mismatch
   // Only use API data after client-side hydration is complete
   const headerData = (isClient && siteSettings?.header3) ? siteSettings.header3 : defaultHeader3Data;
+  
+  // Get dynamic alt text from API settings
+  const getAltText = (settingKey) => {
+    if (isClient && siteSettings?.rawSettings) {
+      const setting = siteSettings.rawSettings.find(s => s.setting_key === settingKey);
+      return setting ? setting.setting_key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : "Image";
+    }
+    return "Image";
+  };
 
   // Default accreditations as fallback
   const defaultAccreditations = [
@@ -48,10 +57,13 @@ const Header3 = () => {
   console.log("imageUrl=>>>>>>>>>>>>>>", `${imageUrl}${headerData.logo}`);
   // Use API certifications if available, otherwise use default
   const accreditations = headerData.certifications.length > 0 
-    ? headerData.certifications.map((cert, index) => ({
-        img: cert,
-        alt: `Certification ${index + 1}`
-      }))
+    ? headerData.certifications.map((cert, index) => {
+        const settingKey = `certification_${['one', 'two', 'three', 'four', 'five', 'six'][index]}`;
+        return {
+          img: cert,
+          alt: getAltText(settingKey)
+        };
+      })
     : defaultAccreditations;
 
   console.log("headerData", headerData);
@@ -69,7 +81,7 @@ const Header3 = () => {
             <Link href="/">
               <Image
                 src={`${imageUrl}${headerData.logo}`}
-                alt="Ramaiah Memorial Hospital"
+                alt={getAltText("site_logo")}
                 className="min-[1200px]:w-[170px] h-[70px]"
                 width={197}
                 height={70}

@@ -179,6 +179,7 @@ const HeroSection = () => {
                 loop
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover z-0"
+                aria-label={sortedBannerImages[0]?.alt_text || "Hero background video"}
               >
                 <source src={slide.background} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -186,7 +187,7 @@ const HeroSection = () => {
             ) : (
               <Image
                 src={isMobile ? slide.image2 : slide.image}
-                alt={`Slide ${index + 1}`}
+                alt={sortedBannerImages[index]?.alt_text || `Slide ${index + 1}`}
                 width={1440}
                 height={600}
                 //   layout="fill"
@@ -226,6 +227,7 @@ const HeroSection = () => {
                         loop
                         playsInline
                         className="w-full h-auto lg:h-[550px] object-cover rounded-[32px] border-[14px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] border-[#cdcdcd]"
+                        aria-label={videoFile?.alt_text || "Small banner video"}
                         // controls={false}
                       >
                         <source src={slide.smallBannerImage} type="video/mp4" />

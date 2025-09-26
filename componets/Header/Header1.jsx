@@ -10,7 +10,8 @@ const defaultHeaderData = {
   generalEnquiries: { label: "General Enquiries :", number: "+91 80 6215 3300" },
   emergencyNumber: { label: "Emergency Number :", number: "+91 80 6215 3400" },
   preBookAppointments: { label: "Pre-Book Your Appointments :", number: "1800 123 1133" },
-  affiliationImage: "/assets/affilliation.svg"
+  affiliationImage: "/assets/affilliation.svg",
+  affiliationAlt: "In affiliation with"
 };
 
 const Header1 = () => {
@@ -32,6 +33,15 @@ const Header1 = () => {
   // Use default data during SSR and initial client render to prevent hydration mismatch
   // Only use API data after client-side hydration is complete
   const headerData = (isClient && siteSettings?.header1) ? siteSettings.header1 : defaultHeaderData;
+  
+  // Get dynamic alt text from API settings
+  const getAltText = (settingKey) => {
+    if (isClient && siteSettings?.rawSettings) {
+      const setting = siteSettings.rawSettings.find(s => s.setting_key === settingKey);
+      return setting ? setting.setting_key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : defaultHeaderData.affiliationAlt;
+    }
+    return defaultHeaderData.affiliationAlt;
+  };
 
   
   
@@ -86,7 +96,7 @@ const Header1 = () => {
               <Image
                 src={`${imageUrl}${headerData.affiliationImage}`}
                 className="max-[1337px]:w-[200px]"
-                alt="affiliation"
+                alt={getAltText("in_affiliation_with")}
                 width={290}
                 height={50}
               />

@@ -219,6 +219,7 @@ const DoctorSpeak = () => {
                 loop
                 playsInline
                 className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+                aria-label={doctorSpeakVideo.alt_text || "Doctor Speak video"}
               />
             ) : (
               <video
@@ -228,6 +229,7 @@ const DoctorSpeak = () => {
                 loop
                 playsInline
                 className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+                aria-label="Doctor Speak video"
               />
             )}
             <Link
@@ -264,6 +266,7 @@ const DoctorSpeak = () => {
                 loop
                 playsInline
                 className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+                aria-label={patientSpeakVideo.alt_text || "Patient Speak video"}
               />
             ) : (
               <video
@@ -273,6 +276,7 @@ const DoctorSpeak = () => {
                 loop
                 playsInline
                 className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+                aria-label="Patient Speak video"
               />
             )}
             <Link

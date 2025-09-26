@@ -55,6 +55,7 @@ export default function StoryAccreditations() {
       value: block.content || fallbackStat.value,
       icon: mediaFile ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${mediaFile.file_url}` : fallbackStat.icon,
       label: statisticText,
+      altText: mediaFile?.alt_text || statisticText || fallbackStat.label,
     };
   });
 
@@ -83,7 +84,7 @@ export default function StoryAccreditations() {
       title: block.title || fallbackAccreditation.alt,
       content: block.content || "",
       img: mediaFile ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${mediaFile.file_url}` : fallbackAccreditation.img,
-      alt: block.title || fallbackAccreditation.alt,
+      alt: mediaFile?.alt_text || block.title || fallbackAccreditation.alt,
     };
   });
 
@@ -107,7 +108,7 @@ export default function StoryAccreditations() {
                 >
                   <Image
                     src={item.icon}
-                    alt={item.label}
+                    alt={item.altText || item.label}
                     width={40}
                     height={40}
                     className="min-[800px]:w-[40px] w-[32px] min-[800px]:h-[40px] h-[32px]"
