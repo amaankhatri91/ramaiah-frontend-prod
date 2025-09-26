@@ -3,7 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 // import Header1 from "@/componets/Header/Header1";
 // import Header2 from "@/componets/Header/Header2";
-import Footer from "@/componets/Footer/Footer";
+import FooterWrapper from "@/componets/Footer/FooterWrapper";
 import CopyRight from "@/componets/Footer/CopyRight";
 import MainHeader from "@/componets/Header/MainHeader";
 import { Providers } from "@/lib/providers";
@@ -115,7 +115,7 @@ export default function RootLayout({ children }) {
           <MainHeader />
           {children}
           <div className="bg-[linear-gradient(90deg,#179BE4_0%,#D60F8C_100%),linear-gradient(180deg,rgba(60,4,34,0)_0%,#1F0011_100%)] min-[800px]:rounded-tl-[64px] min-[800px]:rounded-tr-[64px]">
-            <Footer />
+            <FooterWrapper />
             <CopyRight />
           </div>
         </Providers>

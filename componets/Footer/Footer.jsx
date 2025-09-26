@@ -1,6 +1,10 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useFooter } from "../../lib/hooks";
+import { fetchFooterData } from "../../lib/slices/footerSlice";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
@@ -136,6 +140,31 @@ const socialLinks = [
 ];
 
 const Footer = () => {
+  const { footerData, loading, error, dispatch } = useFooter();
+
+  useEffect(() => {
+    // Fetch footer data when component mounts
+    dispatch(fetchFooterData());
+  }, [dispatch]);
+
+  // Log the API data to console
+  useEffect(() => {
+    if (footerData) {
+      console.log('Footer API Data:', footerData);
+      console.log('Footer API Data Structure:', JSON.stringify(footerData, null, 2));
+    }
+  }, [footerData]);
+
+  // Log loading and error states
+  useEffect(() => {
+    if (loading) {
+      console.log('Footer API Loading...');
+    }
+    if (error) {
+      console.error('Footer API Error:', error);
+    }
+  }, [loading, error]);
+
   return (
     <div className="min-[1200px]:mt-[50px] mt-[30px] relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(60,4,34,0)_0%,#1F0011_100%)] opacity-75 z-0"></div>
@@ -352,7 +381,7 @@ const Footer = () => {
           </div>
 
         </div>
-        
+      
       </footer>
     </div>
   );
