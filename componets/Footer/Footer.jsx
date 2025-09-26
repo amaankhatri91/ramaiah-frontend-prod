@@ -184,128 +184,132 @@ const Footer = () => {
   return (
     <div className="min-[1200px]:mt-[50px] mt-[30px] relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(60,4,34,0)_0%,#1F0011_100%)] opacity-75 z-0"></div>
-      <footer className="w-full container text-white pt-10 pb-6 rounded-t-[40px] relative mt-10 ">
-        <div className=" grid lg:grid-cols-[30%_70%] gap-10 relative z-10">
-          <div className="flex flex-col md:flex-row gap-10">
-            {/* Left: Logo, Contact and Centers of Excellence */}
-            <div className="min-w-[260px] flex flex-col gap-4">
-              {/* Logo */}
-              <div className="flex items-center gap-3 mb-2 cursor-pointer">
-                {logoContent?.url ? (
-                  <Image
-                    src={getImageUrl(logoContent.url)}
-                    alt="Ramaiah Logo"
-                    width={204}
-                    height={85}
-                    className="w-[204px] h-[80px]"
-                  />
-                ) : (
-                  <Image
-                    src="/assets/footer.png"
-                    alt="Ramaiah Logo"
-                    width={204}
-                    height={85}
-                    className="w-[204px] h-[80px]"
-                  />
-                )}
-              </div>
-              
-              {/* Address */}
-              <div className="text-sm leading-relaxed">
-                {addressContent?.content || "New BEL Rd, M S Ramaiah Nagar, MSRIT Post, Bengaluru, Karnataka 560054"}
-              </div>
-              
-              {/* Email */}
-              <div className="flex items-center gap-2 mt-2">
+      <footer className="w-full container text-white pt-10 pb-6 rounded-t-[40px] relative mt-10">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 relative z-10">
+          
+          {/* Column 1: Contact Info & Centers of Excellence */}
+          <div className="flex flex-col gap-6">
+            {/* Logo */}
+            <div className="flex items-center gap-3 mb-2 cursor-pointer">
+              {logoContent?.url ? (
                 <Image
-                  src="/assets/envelope1.svg"
-                  alt="email"
-                  width={18}
-                  height={18}
-                  className="h-[18px] w-[18px]"
+                  src={getImageUrl(logoContent.url)}
+                  alt="Ramaiah Logo"
+                  width={204}
+                  height={85}
+                  className="w-[204px] h-[80px]"
                 />
-                {emailContent?.content ? (
-                  <a href={`mailto:${emailContent.content}`} className="hover:no-underline">
-                    {emailContent.content}
-                  </a>
-                ) : (
-                  <a href="mailto:contact@msrmh.com" className="hover:no-underline">
-                    contact@msrmh.com
-                  </a>
-                )}
-              </div>
-              
-              {/* Phone */}
-              <div className="flex items-center gap-2">
+              ) : (
                 <Image
-                  src="/assets/phone-call1.svg"
-                  alt="phone"
-                  width={18}
-                  height={18}
-                  className="h-[18px] w-[18px]"
+                  src="/assets/footer.png"
+                  alt="Ramaiah Logo"
+                  width={204}
+                  height={85}
+                  className="w-[204px] h-[80px]"
                 />
-                {mobileContent?.content ? (
-                  <a href={`tel:${mobileContent.content}`} className="hover:no-underline">
-                    {mobileContent.content}
-                  </a>
-                ) : (
-                  <a href="tel:+918062153400" className="hover:no-underline">
-                    +91 80 6215 3400
-                  </a>
-                )}
-              </div>
-              
-              {/* Social Links */}
-              <div className="flex gap-3 mt-3">
-                {socialLinks.map((social, i) => (
-                  <Link
-                    key={i}
-                    href="#"
-                    aria-label={social.alt}
-                    className="no-underline hover:no-underline"
-                  >
-                    <div className="h-[50px] w-[50px] bg-white rounded-full flex items-center justify-center">
-                      <Image
-                        src={getImageUrl(social.url)}
-                        alt={social.alt}
-                        width={50}
-                        height={50}
-                        className="h-[24px] w-[24px]"
-                      />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-
-              {/* Centers of Excellence */}
-              {centersCategory?.contents && centersCategory.contents.length > 0 && (
-                <div className="mt-6">
-                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
-                    {centersCategory.name}
-                  </h3>
-                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                    {centersCategory.contents.map((content, i) => (
-                      <li key={i}>
-                        {renderContent(content, i)}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               )}
             </div>
+            
+            {/* Hospital Name */}
+            <div className="text-white font-medium text-lg">
+              RAMAIAH Memorial Hospital
+            </div>
+            
+            {/* Address */}
+            <div className="text-sm leading-relaxed text-white">
+              {addressContent?.content || "New BEL Road, M S Ramaiah Nagar, MSRIT Post, Bengaluru, Karnataka 560054"}
+            </div>
+            
+            {/* Email */}
+            <div className="flex items-center gap-2">
+              <Image
+                src="/assets/envelope1.svg"
+                alt="email"
+                width={18}
+                height={18}
+                className="h-[18px] w-[18px]"
+              />
+              {emailContent?.content ? (
+                <a href={`mailto:${emailContent.content}`} className="hover:no-underline text-white">
+                  {emailContent.content}
+                </a>
+              ) : (
+                <a href="mailto:contact@msrmh.com" className="hover:no-underline text-white">
+                  contact@msrmh.com
+                </a>
+              )}
+            </div>
+            
+            {/* Phone */}
+            <div className="flex items-center gap-2">
+              <Image
+                src="/assets/phone-call1.svg"
+                alt="phone"
+                width={18}
+                height={18}
+                className="h-[18px] w-[18px]"
+              />
+              {mobileContent?.content ? (
+                <a href={`tel:${mobileContent.content}`} className="hover:no-underline text-white">
+                  {mobileContent.content}
+                </a>
+              ) : (
+                <a href="tel:+918062153400" className="hover:no-underline text-white">
+                  +91 80 6215 3400
+                </a>
+              )}
+            </div>
+            
+            {/* Social Links */}
+            <div className="flex gap-3">
+              {socialLinks.map((social, i) => (
+                <Link
+                  key={i}
+                  href="#"
+                  aria-label={social.alt}
+                  className="no-underline hover:no-underline"
+                >
+                  <div className="h-[50px] w-[50px] bg-white rounded-full flex items-center justify-center">
+                    <Image
+                      src={getImageUrl(social.url)}
+                      alt={social.alt}
+                      width={50}
+                      height={50}
+                      className="h-[24px] w-[24px]"
+                    />
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* Centers of Excellence */}
+            {centersCategory?.contents && centersCategory.contents.length > 0 && (
+              <div className="mt-4">
+                <h3 className="font-medium text-lg mb-3 text-white">
+                  {centersCategory.name}
+                </h3>
+                <ul className="space-y-2 text-sm font-medium">
+                  {centersCategory.contents.map((content, i) => (
+                    <li key={i} className="text-white">
+                      {renderContent(content, i)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
 
-          {/* Right Half - Dynamic Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8 gap-[7px]">
-            {/* Quick Links Column */}
+          {/* Column 2: Quick Links & Clinical Services */}
+          <div className="flex flex-col gap-6">
+            {/* Quick Links */}
             {quickLinksCategory?.contents && quickLinksCategory.contents.length > 0 && (
-              <div className="flex-1 min-w-[220px]">
-                <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
+              <div>
+                <h3 className="font-medium text-lg mb-3 text-white">
                   {quickLinksCategory.name}
                 </h3>
-                <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
+                <ul className="space-y-2 text-sm font-medium">
                   {quickLinksCategory.contents.map((content, i) => (
-                    <li key={i}>
+                    <li key={i} className="text-white">
                       {renderContent(content, i)}
                     </li>
                   ))}
@@ -313,15 +317,79 @@ const Footer = () => {
               </div>
             )}
 
-            {/* Clinical Services Column */}
+            {/* Clinical Services */}
             {clinicalServicesCategory?.contents && clinicalServicesCategory.contents.length > 0 && (
-              <div className="flex-1 min-w-[220px]">
-                <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
+              <div>
+                <h3 className="font-medium text-lg mb-3 text-white">
                   {clinicalServicesCategory.name}
                 </h3>
-                <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                  {clinicalServicesCategory.contents.map((content, i) => (
-                    <li key={i}>
+                <ul className="space-y-2 text-sm font-medium">
+                  {clinicalServicesCategory.contents.slice(0, 26).map((content, i) => (
+                    <li key={i} className="text-white">
+                      {renderContent(content, i)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {/* Column 3: Remaining Clinical Services & Diagnostic Services */}
+          <div className="flex flex-col gap-6">
+            {/* Remaining Clinical Services (after first 19) */}
+            {clinicalServicesCategory?.contents && clinicalServicesCategory.contents.length > 26 && (
+              <div>
+                <ul className="space-y-2 text-sm font-medium">
+                  {clinicalServicesCategory.contents.slice(26).map((content, i) => (
+                    <li key={i + 26} className="text-white">
+                      {renderContent(content, i + 26)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Diagnostic Services */}
+            {diagnosticServicesCategory?.contents && diagnosticServicesCategory.contents.length > 0 && (
+              <div>
+                <h3 className="font-medium text-lg mb-3 text-white">
+                  {diagnosticServicesCategory.name}
+                </h3>
+                <ul className="space-y-2 text-sm font-medium">
+                  {diagnosticServicesCategory.contents.slice(0, 19).map((content, i) => (
+                    <li key={i} className="text-white">
+                      {renderContent(content, i)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {/* Column 4: Remaining Diagnostic Services, Laboratory, Transfusion, Allied & Support Services */}
+          <div className="flex flex-col gap-6">
+            {/* Remaining Diagnostic Services (after first 20) */}
+            {diagnosticServicesCategory?.contents && diagnosticServicesCategory.contents.length > 19 && (
+              <div>
+                <ul className="space-y-2 text-sm font-medium">
+                  {diagnosticServicesCategory.contents.slice(19).map((content, i) => (
+                    <li key={i + 19} className="text-white">
+                      {renderContent(content, i + 19)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Laboratory Services */}
+            {laboratoryServicesCategory?.contents && laboratoryServicesCategory.contents.length > 0 && (
+              <div>
+                <h3 className="font-medium text-lg mb-3 text-white">
+                  {laboratoryServicesCategory.name}
+                </h3>
+                <ul className="space-y-2 text-sm font-medium">
+                  {laboratoryServicesCategory.contents.map((content, i) => (
+                    <li key={i} className="text-white">
                       {renderContent(content, i)}
                     </li>
                   ))}
@@ -329,88 +397,53 @@ const Footer = () => {
               </div>
             )}
 
-            {/* Additional Services Column */}
-            <div>
-              {/* Diagnostic Services */}
-              {diagnosticServicesCategory?.contents && diagnosticServicesCategory.contents.length > 0 && (
-                <>
-                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
-                    {diagnosticServicesCategory.name}
-                  </h3>
-                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                    {diagnosticServicesCategory.contents.map((content, i) => (
-                      <li key={i}>
-                        {renderContent(content, i)}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
+            {/* Transfusion Services */}
+            {transfusionServicesCategory?.contents && transfusionServicesCategory.contents.length > 0 && (
+              <div>
+                <h3 className="font-medium text-lg mb-3 text-white">
+                  {transfusionServicesCategory.name}
+                </h3>
+                <ul className="space-y-2 text-sm font-medium">
+                  {transfusionServicesCategory.contents.map((content, i) => (
+                    <li key={i} className="text-white">
+                      {renderContent(content, i)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-              {/* Laboratory Services */}
-              {laboratoryServicesCategory?.contents && laboratoryServicesCategory.contents.length > 0 && (
-                <>
-                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
-                    {laboratoryServicesCategory.name}
-                  </h3>
-                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                    {laboratoryServicesCategory.contents.map((content, i) => (
-                      <li key={i}>
-                        {renderContent(content, i)}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
+            {/* Allied Clinical Services */}
+            {alliedServicesCategory?.contents && alliedServicesCategory.contents.length > 0 && (
+              <div>
+                <h3 className="font-medium text-lg mb-3 text-white">
+                  {alliedServicesCategory.name}
+                </h3>
+                <ul className="space-y-2 text-sm font-medium">
+                  {alliedServicesCategory.contents.map((content, i) => (
+                    <li key={i} className="text-white">
+                      {renderContent(content, i)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-              {/* Transfusion Services */}
-              {transfusionServicesCategory?.contents && transfusionServicesCategory.contents.length > 0 && (
-                <>
-                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
-                    {transfusionServicesCategory.name}
-                  </h3>
-                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                    {transfusionServicesCategory.contents.map((content, i) => (
-                      <li key={i}>
-                        {renderContent(content, i)}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {/* Allied Clinical Services */}
-              {alliedServicesCategory?.contents && alliedServicesCategory.contents.length > 0 && (
-                <>
-                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
-                    {alliedServicesCategory.name}
-                  </h3>
-                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                    {alliedServicesCategory.contents.map((content, i) => (
-                      <li key={i}>
-                        {renderContent(content, i)}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-
-              {/* Support Services */}
-              {supportServicesCategory?.contents && supportServicesCategory.contents.length > 0 && (
-                <>
-                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
-                    {supportServicesCategory.name}
-                  </h3>
-                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                    {supportServicesCategory.contents.map((content, i) => (
-                      <li key={i}>
-                        {renderContent(content, i)}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-            </div>
+            {/* Support Services */}
+            {supportServicesCategory?.contents && supportServicesCategory.contents.length > 0 && (
+              <div>
+                <h3 className="font-medium text-lg mb-3 text-white">
+                  {supportServicesCategory.name}
+                </h3>
+                <ul className="space-y-2 text-sm font-medium">
+                  {supportServicesCategory.contents.map((content, i) => (
+                    <li key={i} className="text-white">
+                      {renderContent(content, i)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </footer>
