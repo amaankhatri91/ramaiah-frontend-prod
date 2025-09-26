@@ -6,138 +6,94 @@ import Image from "next/image";
 import { useFooter } from "../../lib/hooks";
 import { fetchFooterData } from "../../lib/slices/footerSlice";
 
-const quickLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Media & Events", href: "/media-events" },
-  { label: "Specialities", href: "/specialities" },
-  { label: "International Care", href: "/international-care" },
-  { label: "Career", href: "/career" },
-  { label: "Contact Us", href: "/contact" },
-  { label: "Blogs", href: "/blogs" },
-];
 
-const ClinicalServices = [
-  { label: "Anesthesiology", href: "#" },
-  { label: "Cardiology & Interventional Cardiology", href: "#" },
-  { label: "Cardio-Thoracic Surgery", href: "#" },
-  { label: "Critical Care", href: "#" },
-  { label: "Dental and Maxillo Facial Surgery", href: "#" },
-  { label: "Dermatology and Venereology", href: "#" },
-  { label: "Emergency Medicine", href: "#" },
-  { label: "Endocrinology", href: "#" },
-  { label: "General Medicine", href: "#" },
-  { label: "General Surgery", href: "#" },
-  { label: "Medical Gastroenterology", href: "#" },
-  { label: "Medical Oncology", href: "#" },
-  { label: "Neonatology", href: "#" },
-  { label: "Nephrology including Dialysis", href: "#" },
-  { label: "Neurology", href: "#" },
-  { label: "Neurosurgery", href: "#" },
-  { label: "Nuclear Medicine", href: "#" },
-  { label: "Obstetrics and Gynecology", href: "#" },
-  { label: "Ophthalmology", href: "#" },
-  { label: "Otorhinolaryngology", href: "#" },
-  { label: "Orthopedic Surgery including Joint Replacement Surgery", href: "#" },
-  { label: "Pediatrics", href: "#" },
-  { label: "Pediatric Rheumatology", href: "#" },
-  { label: "Pediatric Nephrology", href: "#" },
-  { label: "Pediatric Surgery", href: "#" },
-  { label: "Plastic and Reconstructive Surgery", href: "#" },
-];
+// Helper function to get content by title from a category
+const getContentByTitle = (contents, title) => {
+  return contents?.find(content => content.title === title);
+};
 
-const ClinicalServicesMore = [
-  { label: "Pulmonary and Critical Care Medicine", href: "#" },
-  { label: "Psychiatry (Only OPD)", href: "#" },
-  { label: "Rheumatology", href: "#" },
-  { label: "Radiology & Interventional Radiology", href: "#" },
-  { label: "Robotic Surgery", href: "#" },
-  { label: "Radiotherapy", href: "#" },
-  { label: "Respiratory Medicine", href: "#" },
-  { label: "Sports Medicine", href: "#" },
-  { label: "Surgical Gastroenterology", href: "#" },
-  { label: "Surgical Oncology", href: "#" },
-  { label: "Transplant Services (Bone Marrow, Liver, Kidney, Heart)", href: "#" },
-  { label: "Urology", href: "#" },
-  { label: "Vascular Surgery", href: "#" },
-];
+// Helper function to get full image URL
+const getImageUrl = (url) => {
+  if (!url) return null;
+  // If URL starts with http, it's already a full URL
+  if (url.startsWith('http')) return url;
+  // Otherwise, prepend the API base URL
+  const API_BASE_URL = process.env.NEXT_PUBLIC_IMAGE_URL;
+  return API_BASE_URL ? `${API_BASE_URL}${url}` : url;
+};
 
-const centersOfExcellence = [
-  { label: "Ramaiah Institute of Cardiac Sciences", href: "#" },
-  { label: "Ramaiah Institute of Oncosciences", href: "#" },
-  { label: "Ramaiah Institute of Nephro-Uro Sciences", href: "#" },
-  { label: "Ramaiah Institute of Neuro Sciences", href: "#" },
-  { label: "Ramaiah Institute of Gastro Enteric Sciences", href: "#" },
-];
+// Helper function to get all social media links
+const getSocialLinks = (contents) => {
+  if (!contents || !Array.isArray(contents)) return [];
+  
+  const socialTitles = ['facebook', 'instagram', 'linkedin', 'x social icon', 'youtube'];
+  return socialTitles.map(title => {
+    const content = getContentByTitle(contents, title);
+    return content ? {
+      title: title,
+      url: content.url,
+      alt: title
+    } : null;
+  }).filter(Boolean);
+};
 
-const diagnosticServices = [
-  { label: "2D ECHO", href: "#" },
-  { label: "Audiometry", href: "#" },
-  { label: "Bone Densitometry", href: "#" },
-  { label: "CT Scan (64-Slice & 128-Slice)", href: "#" },
-  { label: "CT Angio (128-Slice)", href: "#" },
-  { label: "Cath Lab", href: "#" },
-  { label: "CPAP Titration Study", href: "#" },
-  { label: "Complete and Limited Polysomnography (Sleep Study)", href: "#" },
-  { label: "DLCO (Diffusion Lung Carbon Monoxide)", href: "#" },
-  { label: "Doppler", href: "#" },
-  { label: "EEG/Video EEG (Electroencephalogram)", href: "#" },
-  { label: "EMG (Electromyography)", href: "#" },
-  { label: "EP (Electrophysiology)", href: "#" },
-  { label: "Endobronchial Ultrasound (EBUS)", href: "#" },
-  { label: "Fiber Optic Bronchoscopy", href: "#" },
-  { label: "Gamma Camera", href: "#" },
-  { label: "Holter Monitoring", href: "#" },
-  { label: "Head Up Tilt Table Test (HUTT)", href: "#" },
-  { label: "LINAC", href: "#" },
-  { label: "Lithotripsy", href: "#" },
-  { label: "Mammography", href: "#" },
-  { label: "MRI (Magnetic Resonance Imaging, 1.5 & 3 Tesla)", href: "#" },
-  { label: "Nerve Conduction Study", href: "#" },
-  { label: "PET Scan", href: "#" },
-  { label: "Pulmonary Function Test", href: "#" },
-  { label: "Spirometry", href: "#" },
-  { label: "Tread Mill Testing", href: "#" },
-  { label: "Thoracoscopy", href: "#" },
-  { label: "Ultrasound", href: "#" },
-  { label: "Urodynamic Studies", href: "#" },
-  { label: "Uroflowmetry", href: "#" },
-  { label: "X-Ray", href: "#" },
-];
+// Helper function to render content based on type
+const renderContent = (content, index) => {
+  if (!content) return null;
 
-const laboratoryServices = [
-  { label: "Clinical Pathology", href: "#" },
-  { label: "Clinical Bio-Chemistry", href: "#" },
-  { label: "Clinical Microbiology and Serology", href: "#" },
-  { label: "Cytopathology", href: "#" },
-  { label: "Hematology & Flow Cytometry", href: "#" },
-  { label: "Histopathology", href: "#" },
-  { label: "Immuno Hematology", href: "#" },
-  { label: "Molecular Biology", href: "#" },
-];
+  // If it has a URL (image), render as image
+  if (content.url) {
+    const imageUrl = getImageUrl(content.url);
+    return (
+      <Image
+        key={index}
+        src={imageUrl}
+        alt={content.title || 'Footer image'}
+        width={50}
+        height={50}
+        className="h-[24px] w-[24px]"
+      />
+    );
+  }
 
-const transfusionServices = [
-  { label: "Blood Bank", href: "#" },
-  { label: "Blood Transfusion Services", href: "#" },
-];
+  // If it has content (text), render as text
+  if (content.content) {
+    // Handle special cases for contact info
+    if (content.title === 'email') {
+      return (
+        <a key={index} href={`mailto:${content.content}`} className="hover:no-underline">
+          {content.content}
+        </a>
+      );
+    }
+    
+    if (content.title === 'mobile') {
+      return (
+        <a key={index} href={`tel:${content.content}`} className="hover:no-underline">
+          {content.content}
+        </a>
+      );
+    }
 
-const alliedClinicalServices = [
-  { label: "Psychology & Counselling", href: "#" },
-  { label: "Physiotherapy & Rehabilitation", href: "#" },
-  { label: "Dietetics & Nutrition", href: "#" },
-  { label: "Speech and Language Therapy", href: "#" },
-];
+    // Handle links with slugs
+    if (content.slug) {
+      return (
+        <Link key={index} href={`/${content.slug}`} className="hover:no-underline flex items-center gap-1">
+          <span className="text-lg">›</span> {content.content}
+        </Link>
+      );
+    }
 
-const supportServices = [
-  { label: "Ambulance", href: "#" },
-];
+    // Regular text content
+    return (
+      <span key={index} className="flex items-center gap-1">
+        <span className="text-lg">›</span> {content.content}
+      </span>
+    );
+  }
 
-const socialLinks = [
-  { icon: "/assets/facbookfoter.svg", alt: "Facebook", link: "#" },
-  { icon: "/assets/instafooter.svg", alt: "insta", link: "#" },
-  { icon: "/assets/linkdinfooter.svg", alt: "LinkedIn", link: "#" },
-  { icon: "/assets/twittwer.svg", alt: "twiter", link: "#" },
-  { icon: "/assets/youtube.svg", alt: "youtube", link: "#" },
-];
+  return null;
+};
 
 const Footer = () => {
   const { footerData, loading, error, dispatch } = useFooter();
@@ -165,6 +121,66 @@ const Footer = () => {
     }
   }, [loading, error]);
 
+  // Show loading state
+  if (loading) {
+    return (
+      <div className="min-[1200px]:mt-[50px] mt-[30px] relative overflow-hidden">
+        <div className="w-full container text-white pt-10 pb-6 rounded-t-[40px] relative mt-10">
+          <div className="flex justify-center items-center h-32">
+            <div className="text-lg">Loading footer...</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <div className="min-[1200px]:mt-[50px] mt-[30px] relative overflow-hidden">
+        <div className="w-full container text-white pt-10 pb-6 rounded-t-[40px] relative mt-10">
+          <div className="flex justify-center items-center h-32">
+            <div className="text-lg text-red-400">Error loading footer: {error}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // If no data, show fallback
+  if (!footerData?.data) {
+    return (
+      <div className="min-[1200px]:mt-[50px] mt-[30px] relative overflow-hidden">
+        <div className="w-full container text-white pt-10 pb-6 rounded-t-[40px] relative mt-10">
+          <div className="flex justify-center items-center h-32">
+            <div className="text-lg">No footer data available</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Get categories from API data
+  const categories = footerData.data;
+  
+  // Find specific categories
+  const contactInfoCategory = categories.find(cat => cat.name === "Contact Info & Social Links");
+  const centersCategory = categories.find(cat => cat.name === "RMH Centers of Excellence");
+  const quickLinksCategory = categories.find(cat => cat.name === "Quick Links");
+  const clinicalServicesCategory = categories.find(cat => cat.name === "Clinical Services");
+  const diagnosticServicesCategory = categories.find(cat => cat.name === "Diagnostic Services");
+  const laboratoryServicesCategory = categories.find(cat => cat.name === "Laboratory Services");
+  const transfusionServicesCategory = categories.find(cat => cat.name === "Transfusion Services");
+  const alliedServicesCategory = categories.find(cat => cat.name === "Allied Clinical Services");
+  const supportServicesCategory = categories.find(cat => cat.name === "Support Services");
+
+  // Get contact info
+  const logoContent = getContentByTitle(contactInfoCategory?.contents, 'logo');
+  const addressContent = getContentByTitle(contactInfoCategory?.contents, 'address');
+  const emailContent = getContentByTitle(contactInfoCategory?.contents, 'email');
+  const mobileContent = getContentByTitle(contactInfoCategory?.contents, 'mobile');
+  const socialLinks = getSocialLinks(contactInfoCategory?.contents);
+
   return (
     <div className="min-[1200px]:mt-[50px] mt-[30px] relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(60,4,34,0)_0%,#1F0011_100%)] opacity-75 z-0"></div>
@@ -173,215 +189,230 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row gap-10">
             {/* Left: Logo, Contact and Centers of Excellence */}
             <div className="min-w-[260px] flex flex-col gap-4">
-            <div className="flex items-center gap-3 mb-2 cursor-pointer">
-              <Image
-                src="/assets/footer.png"
-                alt="Ramaiah Logo"
-                width={204}
-                height={85}
-                className="w-[204px] h-[80px]"
-              />
-            </div>
-            <div className="text-sm leading-relaxed">
-              New BEL Rd, M S Ramaiah Nagar, MSRIT Post, Bengaluru, Karnataka
-              560054
-            </div>
-            <div className="flex items-center gap-2 mt-2">
-              <Image
-                src="/assets/envelope1.svg"
-                alt="email"
-                width={18}
-                height={18}
-                className="h-[18px] w-[18px]"
-              />
-              <a href="mailto:contact@msrmh.com" className="">
-                contact@msrmh.com
-              </a>
-            </div>
-            <div className="flex items-center gap-2">
-              <Image
-                src="/assets/phone-call1.svg"
-                alt="phone"
-                width={18}
-                height={18}
-                className="h-[18px] w-[18px]"
-              />
-              <a href="tel:+918062153400" className="">
-                +91 80 6215 3400
-              </a>
-            </div>
-            <div className="flex gap-3 mt-3">
-              {socialLinks.map((s, i) => (
-                <Link
-                  key={i}
-                  href={s.link}
-                  aria-label={s.alt}
-                  className="no-underline hover:no-underline"
-                >
-                  <div className="h-[50px] w-[50px] bg-white rounded-full flex items-center justify-center">
-                    <Image
-                      src={s.icon}
-                      alt={s.alt}
-                      width={50}
-                      height={50}
-                      className="h-[24px] w-[24px] "
-                    />
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            <div className="mt-6">
-              <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
-                RMH Centers of Excellence
-              </h3>
-              <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                {centersOfExcellence.map((link, i) => (
-                  <li key={i}>
-                    <Link href={link.href} className="hover:no-underline flex items-center gap-1">
-                      <span className="text-lg">›</span> {link.label}
-                    </Link>
-                  </li>
+              {/* Logo */}
+              <div className="flex items-center gap-3 mb-2 cursor-pointer">
+                {logoContent?.url ? (
+                  <Image
+                    src={getImageUrl(logoContent.url)}
+                    alt="Ramaiah Logo"
+                    width={204}
+                    height={85}
+                    className="w-[204px] h-[80px]"
+                  />
+                ) : (
+                  <Image
+                    src="/assets/footer.png"
+                    alt="Ramaiah Logo"
+                    width={204}
+                    height={85}
+                    className="w-[204px] h-[80px]"
+                  />
+                )}
+              </div>
+              
+              {/* Address */}
+              <div className="text-sm leading-relaxed">
+                {addressContent?.content || "New BEL Rd, M S Ramaiah Nagar, MSRIT Post, Bengaluru, Karnataka 560054"}
+              </div>
+              
+              {/* Email */}
+              <div className="flex items-center gap-2 mt-2">
+                <Image
+                  src="/assets/envelope1.svg"
+                  alt="email"
+                  width={18}
+                  height={18}
+                  className="h-[18px] w-[18px]"
+                />
+                {emailContent?.content ? (
+                  <a href={`mailto:${emailContent.content}`} className="hover:no-underline">
+                    {emailContent.content}
+                  </a>
+                ) : (
+                  <a href="mailto:contact@msrmh.com" className="hover:no-underline">
+                    contact@msrmh.com
+                  </a>
+                )}
+              </div>
+              
+              {/* Phone */}
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/assets/phone-call1.svg"
+                  alt="phone"
+                  width={18}
+                  height={18}
+                  className="h-[18px] w-[18px]"
+                />
+                {mobileContent?.content ? (
+                  <a href={`tel:${mobileContent.content}`} className="hover:no-underline">
+                    {mobileContent.content}
+                  </a>
+                ) : (
+                  <a href="tel:+918062153400" className="hover:no-underline">
+                    +91 80 6215 3400
+                  </a>
+                )}
+              </div>
+              
+              {/* Social Links */}
+              <div className="flex gap-3 mt-3">
+                {socialLinks.map((social, i) => (
+                  <Link
+                    key={i}
+                    href="#"
+                    aria-label={social.alt}
+                    className="no-underline hover:no-underline"
+                  >
+                    <div className="h-[50px] w-[50px] bg-white rounded-full flex items-center justify-center">
+                      <Image
+                        src={getImageUrl(social.url)}
+                        alt={social.alt}
+                        width={50}
+                        height={50}
+                        className="h-[24px] w-[24px]"
+                      />
+                    </div>
+                  </Link>
                 ))}
-              </ul>
+              </div>
+
+              {/* Centers of Excellence */}
+              {centersCategory?.contents && centersCategory.contents.length > 0 && (
+                <div className="mt-6">
+                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
+                    {centersCategory.name}
+                  </h3>
+                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
+                    {centersCategory.contents.map((content, i) => (
+                      <li key={i}>
+                        {renderContent(content, i)}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Center: Quick Links */}
-        
-
-          </div>
-
-          {/* Right Half */}
+          {/* Right Half - Dynamic Columns */}
           <div className="grid grid-cols-1 md:grid-cols-3 md:gap-8 gap-[7px]">
-          <div className="flex-1 min-w-[220px]">
-            <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
-              Quick Links
-            </h3>
-            <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-              {quickLinks.map((link, i) => (
-                <li key={i}>
-                  <Link
-                    href={link.href}
-                    className="hover:no-underline flex items-center gap-1"
-                  >
-                    <span className="text-lg">›</span> {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-4">
-            Clinical Services
-            </h3>
-            <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-              {ClinicalServices.map((link, i) => (
-                <li key={i}>
-                  <Link
-                    href={link.href}
-                    className="hover:no-underline flex items-center gap-1"
-                  >
-                    <span className="text-lg">›</span> {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-            <div>
-              {/* <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
-                Clinical Services
-              </h3> */}
-              <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                {ClinicalServicesMore.map((link, i) => (
-                  <li key={i}>
-                    <Link href={link.href} className="hover:no-underline flex items-center gap-1">
-                      <span className="text-lg">›</span> {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-
-              <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
-                Diagnostic Services
-              </h3>
-              <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                {diagnosticServices.slice(0, 19).map((link, i) => (
-                  <li key={i}>
-                    <Link href={link.href} className="hover:no-underline flex items-center gap-1">
-                      <span className="text-lg">›</span> {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <div className="min-[1200px]:pt-[30px]">
+            {/* Quick Links Column */}
+            {quickLinksCategory?.contents && quickLinksCategory.contents.length > 0 && (
+              <div className="flex-1 min-w-[220px]">
+                <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
+                  {quickLinksCategory.name}
+                </h3>
                 <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                  {diagnosticServices.slice(19).map((link, i) => (
+                  {quickLinksCategory.contents.map((content, i) => (
                     <li key={i}>
-                      <Link href={link.href} className="hover:no-underline flex items-center gap-1">
-                        <span className="text-lg">›</span> {link.label}
-                      </Link>
+                      {renderContent(content, i)}
                     </li>
                   ))}
                 </ul>
               </div>
+            )}
 
-              <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
-                Laboratory Services
-              </h3>
-              <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                {laboratoryServices.map((link, i) => (
-                  <li key={i}>
-                    <Link href={link.href} className="hover:no-underline flex items-center gap-1">
-                      <span className="text-lg">›</span> {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            {/* Clinical Services Column */}
+            {clinicalServicesCategory?.contents && clinicalServicesCategory.contents.length > 0 && (
+              <div className="flex-1 min-w-[220px]">
+                <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
+                  {clinicalServicesCategory.name}
+                </h3>
+                <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
+                  {clinicalServicesCategory.contents.map((content, i) => (
+                    <li key={i}>
+                      {renderContent(content, i)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-              <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
-                Transfusion Services
-              </h3>
-              <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                {transfusionServices.map((link, i) => (
-                  <li key={i}>
-                    <Link href={link.href} className="hover:no-underline flex items-center gap-1">
-                      <span className="text-lg">›</span> {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+            {/* Additional Services Column */}
+            <div>
+              {/* Diagnostic Services */}
+              {diagnosticServicesCategory?.contents && diagnosticServicesCategory.contents.length > 0 && (
+                <>
+                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3">
+                    {diagnosticServicesCategory.name}
+                  </h3>
+                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
+                    {diagnosticServicesCategory.contents.map((content, i) => (
+                      <li key={i}>
+                        {renderContent(content, i)}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
 
-              <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
-                Allied Clinical Services
-              </h3>
-              <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                {alliedClinicalServices.map((link, i) => (
-                  <li key={i}>
-                    <Link href={link.href} className="hover:no-underline flex items-center gap-1">
-                      <span className="text-lg">›</span> {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              {/* Laboratory Services */}
+              {laboratoryServicesCategory?.contents && laboratoryServicesCategory.contents.length > 0 && (
+                <>
+                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
+                    {laboratoryServicesCategory.name}
+                  </h3>
+                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
+                    {laboratoryServicesCategory.contents.map((content, i) => (
+                      <li key={i}>
+                        {renderContent(content, i)}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
 
-              <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
-                Support Services
-              </h3>
-              <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
-                {supportServices.map((link, i) => (
-                  <li key={i}>
-                    <Link href={link.href} className="hover:no-underline flex items-center gap-1">
-                      <span className="text-lg">›</span> {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              {/* Transfusion Services */}
+              {transfusionServicesCategory?.contents && transfusionServicesCategory.contents.length > 0 && (
+                <>
+                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
+                    {transfusionServicesCategory.name}
+                  </h3>
+                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
+                    {transfusionServicesCategory.contents.map((content, i) => (
+                      <li key={i}>
+                        {renderContent(content, i)}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {/* Allied Clinical Services */}
+              {alliedServicesCategory?.contents && alliedServicesCategory.contents.length > 0 && (
+                <>
+                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
+                    {alliedServicesCategory.name}
+                  </h3>
+                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
+                    {alliedServicesCategory.contents.map((content, i) => (
+                      <li key={i}>
+                        {renderContent(content, i)}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {/* Support Services */}
+              {supportServicesCategory?.contents && supportServicesCategory.contents.length > 0 && (
+                <>
+                  <h3 className="font-medium min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] mb-3 mt-5">
+                    {supportServicesCategory.name}
+                  </h3>
+                  <ul className="space-y-2 min-[1200px]:text-[14px] text-[13px] font-medium">
+                    {supportServicesCategory.contents.map((content, i) => (
+                      <li key={i}>
+                        {renderContent(content, i)}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
           </div>
-
         </div>
-      
       </footer>
     </div>
   );

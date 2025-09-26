@@ -7,15 +7,17 @@ import Appointment from "@/componets/HomePage/Appointment/Appointment";
 import MainPage from "@/componets/HomePage/MainPage/MainPage";
 
 export const metadata = {
-  title: 'Medical Center - Comprehensive Healthcare Services',
+  title: 'Best Hospital in Bangalore | Ramaiah Memorial Hospital',
   description:
-    'World-class hospital offering comprehensive healthcare services across multiple specialities. Book appointments with expert doctors and access patient-centered care.',
-  alternates: { canonical: '/' },
+    'Experience top-notch medical care at Ramaiah Memorial Hospital, your choice for the best hospital in Bangalore. Trust in our commitment to your well-being.',
+  alternates: { canonical: 'https://msrmh.com/' },
   openGraph: {
-    title: 'Medical Center - Comprehensive Healthcare Services',
+    locale: 'en_US',
+    title: 'Speciality Hospital Bangalore - Ramaiah Memorial Hospital',
     description:
-      'World-class hospital offering comprehensive healthcare services across multiple specialities.',
-    url: '/',
+      'Experience top-tier medical services at Ramaiah Memorial Hospital, your dedicated specialty hospital Bangalore, delivering compassionate and specialized healthcare.',
+    url: 'https://msrmh.com/',
+    siteName: 'MS Ramaiah Memorial Hospital',
     type: 'website',
     images: [
       { url: '/assets/Footer.png', width: 1200, height: 630, alt: 'Medical Center' }
@@ -23,10 +25,15 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Medical Center - Comprehensive Healthcare Services',
+    title: 'Super Speciality Hospital in Bangalore - Ramaiah Memorial Hospital',
     description:
-      'World-class hospital offering comprehensive healthcare services across multiple specialities.',
+      'Experience the world-class medical care at Ramaiah Memorial Hospital, committed to excellence as the best super specialty hospital in Bangalore.',
+    site: '@MSRMHOfficial',
     images: ['/assets/Footer.png']
+  },
+  other: {
+    'article:publisher': 'https://www.facebook.com/MSRamaiahMemorialHospital',
+    'article:modified_time': '2025-09-16T10:41:15+00:00'
   }
 }
 
