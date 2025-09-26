@@ -30,6 +30,11 @@ const Header2 = () => {
 
   // Helper function to generate URL from navigation item
   const generateUrl = (item) => {
+    // Special case for home menu - always return root path
+    if (item.title === "Home" || item.slug === "home" || (item.page && item.page.slug === "home")) {
+      return "/";
+    }
+    
     // If item has a page object with slug, use it
     if (item.page && item.page.slug) {
       return `/${item.page.slug}`;
