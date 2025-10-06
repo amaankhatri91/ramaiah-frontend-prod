@@ -14,7 +14,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'claud-chubbier-tonelessly.ngrok-free.dev',
+                hostname: '202d685476f2.ngrok-free.app',
                 port: '',
                 pathname: '/**',
             },
