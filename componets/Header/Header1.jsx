@@ -51,7 +51,7 @@ const Header1 = () => {
     <header
       className="max-[1024px]:hidden" 
       style={{
-        background: "linear-gradient(267deg, rgba(0, 173, 239, 0.1) -49.54%, rgba(214, 15, 140, 0.1) 110.23%)",
+        background: "linear-gradient(267deg, rgba(0, 173, 239, 0.1) -49.54%, rgba(214, 15, 140, 0.1) 110.23%), #ffffff",
       }}
     >
       <div className="container">
