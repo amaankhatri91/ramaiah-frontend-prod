@@ -14,7 +14,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: '202d685476f2.ngrok-free.app',
+                hostname: 'ramaiah-cms.onrender.com',
                 port: '',
                 pathname: '/**',
             },
