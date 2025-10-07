@@ -550,7 +550,7 @@ const Header2 = () => {
   return (
     <header
       style={{
-        background: "linear-gradient(84deg, #F2D5CF 0%, #E2EEFE 100%)",
+        background: "linear-gradient(90deg, #E4D5D7 0%, #E3ECF9 100%)",
       }}
     //   className="sticky top-0 z-50"
     >

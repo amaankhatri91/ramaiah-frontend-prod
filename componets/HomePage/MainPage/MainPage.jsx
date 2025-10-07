@@ -36,7 +36,7 @@ const MainPage = () => {
       <div className="lg:relative lg:top-[-76px] lg:mt-0 md:mt-[40px] mt-[25px]">
         <ServiceGrid />
       </div>
-      <div>
+      <div className="lg:mt-0 md:mt-[40px] mt-[25px]">
         <Choosespacialist />
       </div>
       <div className="lg:mt-0 md:mt-[40px] mt-[25px]">
