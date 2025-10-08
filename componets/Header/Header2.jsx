@@ -589,7 +589,7 @@ const Header2 = () => {
             className="py-[22px] min-[1190px]:pl-[16px] pl-[10px] flex items-center cursor-pointer"
           >
             <Image
-              src="/assets/search.svg.svg"
+              src="/assets/Search.svg"
               alt="search"
               width={32}
               height={32}

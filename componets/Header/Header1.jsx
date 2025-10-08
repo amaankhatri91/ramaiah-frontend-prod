@@ -45,7 +45,8 @@ const Header1 = () => {
 
   
   
-  const imageUrl = process.env.NEXT_PUBLIC_IMAGE_URL;
+  console.log(headerData.affiliationImage ,"imageUrlnew");
+  
 
   return (
     <header
@@ -94,7 +95,7 @@ const Header1 = () => {
           <div className="flex min-[910px]:justify-between justify-center lg:justify-end">
             <div className="flex items-center">
               <Image
-                src={`${imageUrl}${headerData.affiliationImage}`}
+                src={headerData.affiliationImage}
                 className="max-[1337px]:w-[200px]"
                 alt={getAltText("in_affiliation_with")}
                 width={290}

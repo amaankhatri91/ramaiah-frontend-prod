@@ -53,7 +53,7 @@ export default function StoryAccreditations() {
     return {
       title: block.title || fallbackStat.label,
       value: block.content || fallbackStat.value,
-      icon: mediaFile ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${mediaFile.file_url}` : fallbackStat.icon,
+      icon: mediaFile ? mediaFile.file_url : fallbackStat.icon,
       label: statisticText,
       altText: mediaFile?.alt_text || statisticText || fallbackStat.label,
     };
@@ -83,13 +83,14 @@ export default function StoryAccreditations() {
     return {
       title: block.title || fallbackAccreditation.alt,
       content: block.content || "",
-      img: mediaFile ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${mediaFile.file_url}` : fallbackAccreditation.img,
+      img: mediaFile ? mediaFile.file_url : fallbackAccreditation.img,
       alt: mediaFile?.alt_text || block.title || fallbackAccreditation.alt,
     };
   });
 
   // Use fallback accreditations if no API data is available
   const displayAccreditations = accreditations.length > 0 ? accreditations : fallbackAccreditations;
+  console.log("displayAccreditations", accreditations);
   return (
     <section className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[25px]">
       <div className="container">

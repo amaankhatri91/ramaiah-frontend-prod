@@ -213,7 +213,7 @@ const DoctorSpeak = () => {
           <div className="text-end">
             {doctorSpeakVideo ? (
               <video
-                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${doctorSpeakVideo.file_url}`}
+                src={doctorSpeakVideo.file_url}
                 autoPlay
                 muted
                 loop
@@ -260,7 +260,7 @@ const DoctorSpeak = () => {
           <div className="">
             {patientSpeakVideo ? (
               <video
-                src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${patientSpeakVideo.file_url}`}
+                src={patientSpeakVideo.file_url}
                 autoPlay
                 muted
                 loop

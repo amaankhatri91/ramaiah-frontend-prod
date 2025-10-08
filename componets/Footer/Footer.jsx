@@ -17,9 +17,8 @@ const getImageUrl = (url) => {
   if (!url) return null;
   // If URL starts with http, it's already a full URL
   if (url.startsWith('http')) return url;
-  // Otherwise, prepend the API base URL
-  const API_BASE_URL = process.env.NEXT_PUBLIC_IMAGE_URL;
-  return API_BASE_URL ? `${API_BASE_URL}${url}` : url;
+  // Return the URL as is
+  return url;
 };
 
 // Helper function to get all social media links

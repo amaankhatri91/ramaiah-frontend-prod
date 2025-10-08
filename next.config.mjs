@@ -2,7 +2,7 @@
 const nextConfig = {
     env: {
         NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
-        NEXT_PUBLIC_IMAGE_URL: process.env.NEXT_PUBLIC_IMAGE_URL,
+        // NEXT_PUBLIC_IMAGE_URL: process.env.NEXT_PUBLIC_IMAGE_URL,
       },
     images: {
         remotePatterns: [
@@ -14,7 +14,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'ramaiah-cms.onrender.com',
+                hostname: 'res.cloudinary.com',
                 port: '',
                 pathname: '/**',
             },

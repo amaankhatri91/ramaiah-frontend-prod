@@ -34,6 +34,23 @@ const Header3 = () => {
   // Only use API data after client-side hydration is complete
   const headerData = (isClient && siteSettings?.header3) ? siteSettings.header3 : defaultHeader3Data;
   
+  // Validate and sanitize URLs to prevent "Invalid URL" errors
+  const isValidUrl = (url) => {
+    if (!url || typeof url !== 'string') return false;
+    try {
+      // For relative URLs (starting with /), they are valid
+      if (url.startsWith('/')) return true;
+      // For absolute URLs, validate them
+      new URL(url);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+  
+  // Ensure logo URL is valid
+  const safeLogoUrl = isValidUrl(headerData.logo) ? headerData.logo : defaultHeader3Data.logo;
+  
   // Get dynamic alt text from API settings
   const getAltText = (settingKey) => {
     if (isClient && siteSettings?.rawSettings) {
@@ -53,20 +70,28 @@ const Header3 = () => {
     { img: "/assets/mcseventwo.svg", alt: "NABL" },
   ];
 
-  const imageUrl = process.env.NEXT_PUBLIC_IMAGE_URL;
-  console.log("imageUrl=>>>>>>>>>>>>>>", `${imageUrl}${headerData.logo}`);
   // Use API certifications if available, otherwise use default
   const accreditations = headerData.certifications.length > 0 
     ? headerData.certifications.map((cert, index) => {
         const settingKey = `certification_${['one', 'two', 'three', 'four', 'five', 'six'][index]}`;
+        // Validate certification URL and fallback to default if invalid
+        const safeCertUrl = isValidUrl(cert) ? cert : defaultAccreditations[index]?.img || "/assets/logo.svg";
         return {
-          img: cert,
+          img: safeCertUrl,
           alt: getAltText(settingKey)
         };
       })
     : defaultAccreditations;
 
-  console.log("headerData", headerData);
+  // Debug logging for troubleshooting (after all variables are declared)
+  useEffect(() => {
+    if (isClient && siteSettings) {
+      console.log('Header3 - siteSettings:', siteSettings);
+      console.log('Header3 - headerData:', headerData);
+      console.log('Header3 - safeLogoUrl:', safeLogoUrl);
+      console.log('Header3 - accreditations:', accreditations);
+    }
+  }, [isClient, siteSettings, headerData, safeLogoUrl, accreditations]);
 
   return (
     <div>
@@ -76,27 +101,37 @@ const Header3 = () => {
           background: "linear-gradient(90deg, #E4D5D7 0%, #E3ECF9 100%)",
         }}
       >
-        <div className="container flex justify-between items-center">
+        <div className="container flex justify-between items-center !pt-[2px]">
           <div className="">
             <Link href="/">
               <Image
-                src={`${imageUrl}${headerData.logo}`}
+                src={safeLogoUrl}
                 alt={getAltText("site_logo")}
                 className="min-[1200px]:w-[170px] h-[70px]"
                 width={197}
                 height={70}
+                onError={(e) => {
+                  console.error(`Failed to load logo: ${safeLogoUrl}`, e);
+                  // Fallback to default logo on error
+                  e.target.src = "/assets/logo.svg";
+                }}
               />
             </Link>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             {accreditations.map((item, index) => (
               <Image
                 key={index}
-                src={`${imageUrl}${item.img}`}
+                src={item.img}
                 alt={item.alt}
-                width={64}
-                height={64}
+                width={70}
+                height={70}
                 className="w-16 h-16"
+                onError={(e) => {
+                  console.error(`Failed to load image: ${item.img}`, e);
+                  // Fallback to default image on error
+                  e.target.src = "/assets/logo.svg";
+                }}
               />
             ))}
           </div>

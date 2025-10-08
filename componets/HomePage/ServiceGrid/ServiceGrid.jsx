@@ -66,7 +66,7 @@ const ServiceGrid = () => {
     return {
       title: block.title || fallbackService.title,
       subtitle: block.subtitle || fallbackService.subtitle,
-      icon: mediaFile ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${mediaFile.file_url}` : fallbackService.icon,
+      icon: mediaFile ? mediaFile.file_url : fallbackService.icon,
       link: block.content || fallbackService.link,
       altText: mediaFile?.alt_text || block.title || fallbackService.title,
     };

@@ -45,8 +45,22 @@ const HeroSection = () => {
   const sortedBannerImages = [...bannerImages].sort((a, b) => a.display_order - b.display_order);
   console.log("Sorted banner images:", sortedBannerImages);
 
+  // URL validation function
+  const isValidUrl = (url) => {
+    if (!url || typeof url !== 'string') return false;
+    try {
+      // For relative URLs (starting with /), they are valid
+      if (url.startsWith('/')) return true;
+      // For absolute URLs, validate them
+      new URL(url);
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
   // Create slides array from API data
-  const videoUrl = videoFile ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${videoFile.file_url}` : null;
+  const videoUrl = videoFile ? videoFile.file_url : null;
   console.log("Constructed video URL:", videoUrl);
   
   const slides = [
@@ -54,20 +68,20 @@ const HeroSection = () => {
     {
       title: headlineBlock?.content || "Our Decades Of Legacy & Clinical Excellence Has Touched Millions Of Lives To Ensure",
       hashtag: subtitleBlock?.content || "#LifeGetsBetter",
-      background: sortedBannerImages[0] ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${sortedBannerImages[0].file_url}` : "https://www.w3schools.com/howto/rain.mp4",
-      smallBannerImage: videoUrl,
+      background: sortedBannerImages[0] && isValidUrl(sortedBannerImages[0].file_url) ? sortedBannerImages[0].file_url : "https://www.w3schools.com/howto/rain.mp4",
+      smallBannerImage: videoUrl && isValidUrl(videoUrl) ? videoUrl : null,
       type: "video",
     },
     // Second slider: Use second image (id: 3) as background
     {
-      image: sortedBannerImages[1] ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${sortedBannerImages[1].file_url}` : "/assets/CLIP1.png",
-      image2: sortedBannerImages[1] ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${sortedBannerImages[1].file_url}` : "/assets/1440pxCLIP1.png",
+      image: sortedBannerImages[1] && isValidUrl(sortedBannerImages[1].file_url) ? sortedBannerImages[1].file_url : "/assets/CLIP1.png",
+      image2: sortedBannerImages[1] && isValidUrl(sortedBannerImages[1].file_url) ? sortedBannerImages[1].file_url : "/assets/1440pxCLIP1.png",
       type: "image",
     },
     // Third slider: Use third image (id: 4) as background
     {
-      image: sortedBannerImages[2] ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${sortedBannerImages[2].file_url}` : "/assets/CLIP2.png",
-      image2: sortedBannerImages[2] ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${sortedBannerImages[2].file_url}` : "/assets/1440pxCLIP2.png",
+      image: sortedBannerImages[2] && isValidUrl(sortedBannerImages[2].file_url) ? sortedBannerImages[2].file_url : "/assets/CLIP2.png",
+      image2: sortedBannerImages[2] && isValidUrl(sortedBannerImages[2].file_url) ? sortedBannerImages[2].file_url : "/assets/1440pxCLIP2.png",
       type: "image",
     }
   ];
@@ -194,6 +208,11 @@ const HeroSection = () => {
                 //   objectFit="cover"
                 className="z-0 w-full h-full"
                 priority
+                onError={(e) => {
+                  console.error(`Failed to load image: ${isMobile ? slide.image2 : slide.image}`, e);
+                  // Fallback to default image on error
+                  e.target.src = "/assets/CLIP1.png";
+                }}
               />
             )}
 

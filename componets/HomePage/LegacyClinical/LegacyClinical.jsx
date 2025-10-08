@@ -47,7 +47,7 @@ const LegacyClinical = () => {
           <div className="min-[1200px]:h-[620px] min-[1200px]:mt-[16px] min-[800px]:mt-[14px] mt-[12px]">
             <video
               className="w-full h-full object-cover rounded-[30px]"
-              src={`${process.env.NEXT_PUBLIC_IMAGE_URL}${legacySection?.content_blocks[2]?.media_files?.[0]?.file_url}`}
+              src={legacySection?.content_blocks[2]?.media_files?.[0]?.file_url}
               autoPlay
               loop
               muted
