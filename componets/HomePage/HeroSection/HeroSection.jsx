@@ -238,14 +238,14 @@ const HeroSection = () => {
                   {/* Right video preview */}
                   {console.log("slide.smallBannerImage:", slide.smallBannerImage)}
                   
-                  <div className="w-full lg:w-1/2 mt-8 lg:mt-0 ">
+                  <div className="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-end">
                     {slide.smallBannerImage ? (
                       <video
                         autoPlay
                         muted
                         loop
                         playsInline
-                        className="w-full h-auto lg:h-[550px] object-cover rounded-[32px] border-[14px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] border-[#cdcdcd]"
+                        className="lg:w-[562px] w-full h-auto lg:h-[550px] object-cover rounded-[32px] border-[14px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] border-[#cdcdcd]"
                         aria-label={videoFile?.alt_text || "Small banner video"}
                         // controls={false}
                       >
