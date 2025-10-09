@@ -96,29 +96,29 @@ export default function StoryAccreditations() {
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-[1200px]:gap-14 min-[800px]:gap-10 gap-6 items-start">
           {/* Left: Our Story */}
-          <div className="rounded-[24px] p-6 min-[800px]:p-8 bg-[linear-gradient(84deg,#F2D5CF_0%,#E2EEFE_100%)]">
-            <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D] mb-6">
+          <div className="rounded-[40px] p-6 min-[800px]:p-8 bg-[linear-gradient(84deg,rgba(242,213,207,0.5)_0%,rgba(226,238,254,0.5)_100%)]">
+            <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[35px] text-[22px] font-bold text-[#3D3D3D] mb-6">
               {/* {ourStorySection?.name || "Our"}  */}
               <span className="Text-color2">{textBlock?.title || "Our Story"}</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {displayStats.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-3 bg-white rounded-[18px] p-4 BoxShadow"
+                  className="flex items-center gap-3 bg-white rounded-[24px] p-4 BoxShadow"
                 >
                   <Image
                     src={item.icon}
                     alt={item.altText || item.label}
                     width={40}
                     height={40}
-                    className="min-[800px]:w-[40px] w-[32px] min-[800px]:h-[40px] h-[32px]"
+                    className="min-[800px]:w-[50px] w-[32px] min-[800px]:h-[50px] h-[32px]"
                   />
                   <div>
-                    <div className="min-[1200px]:text-[22px] min-[800px]:text-[18px] text-[16px] font-bold text-[#3D3D3D] leading-[1.2]">
+                    <div className="min-[1200px]:text-[30px] min-[800px]:text-[20px] text-[16px] font-bold text-[#3D3D3D] leading-[1.2]">
                       {item.value} {item.label === "Of Excellence" ?  <span className="font-medium text-[16px] md:text-[18px]">Centers</span> : ""}
                     </div>
-                    <div className="min-[1200px]:text-[14px] min-[800px]:text-[13px] text-[12px] text-[#616161] font-medium">
+                    <div className="min-[1200px]:text-[18px] min-[800px]:text-[15px] text-[12px] text-[#616161] font-medium">
                       {item.label}
                     </div>
                   </div>
@@ -129,11 +129,11 @@ export default function StoryAccreditations() {
 
           {/* Right: Accreditations & Certifications */}
           <div>
-            <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D] mb-6">
+            <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D] lg:w-[370px] w-full mb-6">
               {/* {accreditationsSection?.title }  */}
               <span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span>
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 justify-items-center items-start">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:gap-10 gap-5 justify-items-center items-start min-[1200px]:mt-[40px] ">
               {displayAccreditations.map((item, index) => (
                 <div key={index} className="flex items-center">
                   <Image
@@ -141,7 +141,7 @@ export default function StoryAccreditations() {
                     alt={item.alt}
                     width={120}
                     height={120}
-                    className="w-[80px] h-[80px] md:w-[120px] md:h-[120px]"
+                    className="w-[80px] h-[80px] md:w-[140px] md:h-[140px]"
                   />
                 </div>
               ))}

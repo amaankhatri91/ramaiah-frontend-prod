@@ -209,15 +209,13 @@ const Footer = () => {
               )}
             </div>
             
-            {/* Hospital Name */}
-            <div className="text-white font-medium text-lg">
-              RAMAIAH Memorial Hospital
-            </div>
-            
             {/* Address */}
-            <div className="text-sm leading-relaxed text-white">
+            <div className="text-white font-medium text-lg">
+           
               {addressContent?.content || "New BEL Road, M S Ramaiah Nagar, MSRIT Post, Bengaluru, Karnataka 560054"}
             </div>
+            
+          
             
             {/* Email */}
             <div className="flex items-center gap-2">
