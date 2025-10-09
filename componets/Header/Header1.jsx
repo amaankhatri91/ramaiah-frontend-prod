@@ -56,35 +56,35 @@ const Header1 = () => {
       }}
     >
       <div className="container">
-        <div className="grid grid-cols-1 min-[1024px]:grid-cols-[45%_55%] min-[1260px]:grid-cols-[45%_55%] items-center">
+        <div className="grid grid-cols-1 min-[1024px]:grid-cols-[60%_40%] min-[1260px]:grid-cols-[60%_40%] items-center">
           {/* Grid1 */}
           <div className="min-[720px]:flex enquiries-number">
-            <div className="xl:py-[22px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
+            <div className="xl:py-[16px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
               <div className="min-[910px]:py-[6px] border-r-[1px] border-[#3D3D3D] mr-[12px] max-[910px]:border-none">
-                <p className="min-[1260px]:text-[12px] font-manrope text-[10px] text-[#3D3D3D] font-semibold">
+                <p className="min-[1260px]:text-[14px] font-manrope text-[12px] text-[#3D3D3D] mr-[12px] font-bold">
                   {headerData.generalEnquiries.label}
                 </p>
-                <p className="min-[1260px]:text-[12px] text-[10px] text-[#3D3D3D] font-extrabold mr-[12px]">
+                <p className="min-[1260px]:text-[14px] text-[10px] text-[#3D3D3D] font-extrabold mr-[12px]">
                   {headerData.generalEnquiries.number}
                 </p>
               </div>
             </div>
-            <div className="xl:py-[22px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
+            <div className="xl:py-[16px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
               <div className="py-[6px] border-r-[1px] border-[#3D3D3D] mr-[12px] max-[910px]:border-none">
-                <p className="min-[1260px]:text-[12px] text-[10px] text-[#3D3D3D] font-semibold mr-[6px]">
+                <p className="min-[1260px]:text-[14px] text-[12px] text-[#3D3D3D] font-bold mr-[12px]">
                   {headerData.emergencyNumber.label}
                 </p>
-                <p className="min-[1260px]:text-[12px] text-[10px] text-[#3D3D3D] font-extrabold mr-[12px]">
+                <p className="min-[1260px]:text-[14px] text-[12px] text-[#3D3D3D] font-extrabold mr-[12px]">
                   {headerData.emergencyNumber.number}
                 </p>
               </div>
             </div>
-            <div className="xl:py-[22px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
+            <div className="xl:py-[16px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
               <div className="py-[6px]">
-                <p className="min-[1260px]:text-[12px] text-[10px] text-[#3D3D3D] font-semibold">
+                <p className="min-[1260px]:text-[14px] text-[12px] text-[#3D3D3D] font-bold">
                   {headerData.preBookAppointments.label}
                 </p>
-                <p className="min-[1260px]:text-[12px] text-[10px] text-[#3D3D3D] font-extrabold">
+                <p className="min-[1260px]:text-[14px] text-[12px] text-[#3D3D3D] font-extrabold">
                   {headerData.preBookAppointments.number}
                 </p>
               </div>
