@@ -97,7 +97,7 @@ export default function StoryAccreditations() {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-[1200px]:gap-14 min-[800px]:gap-10 gap-6 items-start">
           {/* Left: Our Story */}
           <div className="rounded-[40px] p-6 min-[800px]:p-8 bg-[linear-gradient(84deg,rgba(242,213,207,0.5)_0%,rgba(226,238,254,0.5)_100%)]">
-            <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[35px] text-[22px] font-bold text-[#3D3D3D] mb-6">
+            <h2 className="min-[1200px]:text-[72px] min-[800px]:text-[35px] text-[22px] font-bold text-[#3D3D3D] mb-6">
               {/* {ourStorySection?.name || "Our"}  */}
               <span className="Text-color2">{textBlock?.title || "Our Story"}</span>
             </h2>
@@ -129,7 +129,7 @@ export default function StoryAccreditations() {
 
           {/* Right: Accreditations & Certifications */}
           <div>
-            <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D] lg:w-[370px] w-full mb-6">
+            <h2 className="min-[1200px]:text-[72px] leading-[80px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D] lg:w-[571px] w-full mb-6">
               {/* {accreditationsSection?.title }  */}
               <span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span>
             </h2>

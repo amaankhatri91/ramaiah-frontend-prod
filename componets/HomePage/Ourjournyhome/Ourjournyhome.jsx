@@ -26,15 +26,18 @@ const Ourjournyhome = ({ slug }) => {
 
     return (
         <div className="container min-[1300px]:pt-[100px] min-[800px]:pt-[50px] pt-[30px]">
-            <div className="min-[1200px]:py-[20px] min-[800px]:py-[15px] py-[10px]">
+            {/* <div className="min-[1200px]:py-[20px] min-[800px]:py-[15px] py-[10px]">
                 <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[25px] text-[22px] font-bold text-[#3D3D3D]">
                 {journeySection?.content_blocks[0]?.title}
                 </h2>
-            </div>
+            </div> */}
             <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8 gap-4">
                 {/* Text Content with Scroll */}
+                
                 <div className="md:col-span-7 md:order-1 order-2  pr-4  space-y-4 Background-color2 rounded-[30px] p-[15px] md:p-[30px] w-full md:h-[600px] md:overflow-y-auto">
-
+                <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[25px] text-[22px] font-bold text-[#3D3D3D]">
+                {journeySection?.content_blocks[0]?.title}
+                </h2>
                     <p
                         className="text-[#414049] min-[1200px]:text-[16px] min-[800px]:text-[14px] font-medium text-[13px]"
                     >
