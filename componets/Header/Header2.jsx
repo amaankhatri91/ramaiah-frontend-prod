@@ -25,8 +25,13 @@ const Header2 = () => {
   const [openBroadChildSlug, setOpenBroadChildSlug] = useState(null);
   const pathname = usePathname();
 
-  // Get menu items from API data
-  const menuItems = navigationData?.data?.[0]?.items || [];
+  // Get menu items from API data and filter out Home menu
+  const allMenuItems = navigationData?.data?.[0]?.items || [];
+  const menuItems = allMenuItems.filter(item => 
+    item.title !== "Home" && 
+    item.slug !== "home" && 
+    !(item.page && item.page.slug === "home")
+  );
 
   // Helper function to generate URL from navigation item
   const generateUrl = (item) => {

@@ -118,7 +118,7 @@ const Header3 = () => {
               />
             </Link>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center min-[1200px]:gap-5 gap-3">
             {accreditations.map((item, index) => (
               <Image
                 key={index}
@@ -126,7 +126,7 @@ const Header3 = () => {
                 alt={item.alt}
                 width={70}
                 height={70}
-                className="w-16 h-16"
+                className={`${index === 1 || index === 2 ? 'h-20 min-[1200px]:w-20 w-16' : 'h-16 min-[1200px]:w-16 w-16'}`}
                 onError={(e) => {
                   console.error(`Failed to load image: ${item.img}`, e);
                   // Fallback to default image on error
