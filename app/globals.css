@@ -131,7 +131,12 @@ body {
 }
 
 .carousel .control-dots .dot {
-  background: #007aff !important;
+  background: white !important;
+  opacity: 10 !important;
+}
+
+.carousel .control-dots .dot.selected {
+  background: linear-gradient(267deg, #00adef -49.54%, #d60f8c 110.23%) !important;
 }
 
 .carousel .slide {

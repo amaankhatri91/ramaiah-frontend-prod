@@ -107,7 +107,7 @@ const Choosespacialist = () => {
           <div className='sm:col-span-1'>
             <label className='block text-transparent mb-2 select-none'>.</label>
             <button type='button' onClick={() => setIsAskModalOpen(true)} className='cursor-pointer w-full rounded-full px-5 py-3 text-white Background-color focus:outline-none'>
-              <span className='text-[12px] sm:text-[14px] md:text-[14px] lg:text-[16px]] text-[#ffffff] font-semibold font-manrope'>Ask Our Expert</span>
+              <span className='text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px]] text-[#ffffff] font-semibold font-manrope'>Ask Our Expert</span>
             </button>
           </div>
 
@@ -115,7 +115,7 @@ const Choosespacialist = () => {
           <div className='sm:col-span-1'>
             <label className='block text-transparent mb-2 select-none'>.</label>
             <button type='button' onClick={() => setIsCallbackOpen(true)} className='cursor-pointer w-full rounded-full px-5 py-3 text-white Background-color focus:outline-none'>
-              <span className='text-[12px] sm:text-[14px] md:text-[14px] lg:text-[16px]] text-[#ffffff] font-semibold font-manrope'>Request A Callback</span>
+              <span className='text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px]] text-[#ffffff] font-semibold font-manrope'>Request A Callback</span>
             </button>
           </div>
         </div>
