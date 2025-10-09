@@ -107,7 +107,7 @@ const Header3 = () => {
               <Image
                 src={safeLogoUrl}
                 alt={getAltText("site_logo")}
-                className="min-[1200px]:w-[170px] h-[70px]"
+                className="min-[1200px]:w-[199px] h-[70px]"
                 width={197}
                 height={70}
                 onError={(e) => {
