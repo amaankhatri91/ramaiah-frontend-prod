@@ -253,6 +253,7 @@ const Header2 = () => {
                                 setOpenMenuItems(prev => ({ ...prev, [section.id]: false }));
                               }}>
                                 <span className="flex items-center gap-2">
+                                  <Image src="/assets/ramhaiyaison.svg" alt="icon" width={16} height={16} className="w-[16px] h-[16px]" />
                                   {child.title}
                                 </span>
                                 {child.children && (
@@ -264,7 +265,8 @@ const Header2 = () => {
                                   <ul className="space-y-1">
                                     {child.children.map((grand) => (
                                       <li key={grand.id}>
-                                        <Link href={generateUrl(grand)} className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => { setOpenMenuItems(prev => ({ ...prev, [section.id]: false })); setOpenCenterKey(null); setOpenChildSlug(null); }}>
+                                        <Link href={generateUrl(grand)} className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D] flex items-center gap-2" onClick={() => { setOpenMenuItems(prev => ({ ...prev, [section.id]: false })); setOpenCenterKey(null); setOpenChildSlug(null); }}>
+                                          <Image src="/assets/ramhaiyaison.svg" alt="icon" width={14} height={14} className="w-[14px] h-[14px]" />
                                           {grand.title}
                                         </Link>
                                       </li>
@@ -347,6 +349,7 @@ const Header2 = () => {
                                 }}
                               >
                                 <span className="flex items-center gap-2">
+                                  <Image src="/assets/ramhaiyaison.svg" alt="icon" width={16} height={16} className="w-[16px] h-[16px]" />
                                   {child.title}
                                 </span>
                                 {child.children && (
@@ -360,13 +363,14 @@ const Header2 = () => {
                                       <li key={grand.id}>
                                         <Link
                                           href={generateUrl(grand)}
-                                          className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]"
+                                          className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D] flex items-center gap-2"
                                           onClick={() => {
                                             setOpenMenuItems(prev => ({ ...prev, [section.id]: false }));
                                             setOpenOtherSlug(null);
                                             setOpenOtherChildSlug(null);
                                           }}
                                         >
+                                          <Image src="/assets/ramhaiyaison.svg" alt="icon" width={14} height={14} className="w-[14px] h-[14px]" />
                                           {grand.title}
                                         </Link>
                                       </li>
@@ -401,6 +405,7 @@ const Header2 = () => {
                                 }}
                               >
                                 <span className="flex items-center gap-2">
+                                  <Image src="/assets/ramhaiyaison.svg" alt="icon" width={16} height={16} className="w-[16px] h-[16px]" />
                                   {child.title}
                                 </span>
                                 {child.children && (
@@ -414,13 +419,14 @@ const Header2 = () => {
                                       <li key={grand.id}>
                                         <Link
                                           href={generateUrl(grand)}
-                                          className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D]"
+                                          className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D] flex items-center gap-2"
                                           onClick={() => {
                                             setOpenMenuItems(prev => ({ ...prev, [section.id]: false }));
                                             setOpenBroadSlug(null);
                                             setOpenBroadChildSlug(null);
                                           }}
                                         >
+                                          <Image src="/assets/ramhaiyaison.svg" alt="icon" width={14} height={14} className="w-[14px] h-[14px]" />
                                           {grand.title}
                                         </Link>
                                       </li>
