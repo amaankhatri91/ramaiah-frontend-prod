@@ -91,15 +91,15 @@ const Header2 = () => {
             setOpenBroadSlug(null);
             setOpenBroadChildSlug(null);
           }}
-          // onMouseLeave={() => {
-          //   setOpenMenuItems(prev => ({ ...prev, [item.id]: false }));
-          //   setOpenCenterKey(null);
-          //   setOpenChildSlug(null);
-          //   setOpenOtherSlug(null);
-          //   setOpenOtherChildSlug(null);
-          //   setOpenBroadSlug(null);
-          //   setOpenBroadChildSlug(null);
-          // }}
+          onMouseLeave={() => {
+            setOpenMenuItems(prev => ({ ...prev, [item.id]: false }));
+            setOpenCenterKey(null);
+            setOpenChildSlug(null);
+            setOpenOtherSlug(null);
+            setOpenOtherChildSlug(null);
+            setOpenBroadSlug(null);
+            setOpenBroadChildSlug(null);
+          }}
         >
           <Link href={generateUrl(item)} onClick={() => setOpenMenuItems(prev => ({ ...prev, [item.id]: false }))}>
             <button
