@@ -91,15 +91,15 @@ const Header2 = () => {
             setOpenBroadSlug(null);
             setOpenBroadChildSlug(null);
           }}
-          onMouseLeave={() => {
-            setOpenMenuItems(prev => ({ ...prev, [item.id]: false }));
-            setOpenCenterKey(null);
-            setOpenChildSlug(null);
-            setOpenOtherSlug(null);
-            setOpenOtherChildSlug(null);
-            setOpenBroadSlug(null);
-            setOpenBroadChildSlug(null);
-          }}
+          // onMouseLeave={() => {
+          //   setOpenMenuItems(prev => ({ ...prev, [item.id]: false }));
+          //   setOpenCenterKey(null);
+          //   setOpenChildSlug(null);
+          //   setOpenOtherSlug(null);
+          //   setOpenOtherChildSlug(null);
+          //   setOpenBroadSlug(null);
+          //   setOpenBroadChildSlug(null);
+          // }}
         >
           <Link href={generateUrl(item)} onClick={() => setOpenMenuItems(prev => ({ ...prev, [item.id]: false }))}>
             <button
@@ -121,7 +121,7 @@ const Header2 = () => {
           </Link>
 
           {isOpen && (
-            <div className="absolute cursor-pointer min-[1410px]:left-[520px] min-[1310px]:left-[470px] left-[400px] min-[1400px]:max-h-[600px] max-h-[500px] overflow-auto transform -translate-x-1/2 top-[68px] w-[90vw] min-[1410px]:max-w-[75vw] max-w-[80vw] bg-white rounded-lg shadow-2xl border border-gray-200 p-6 z-50">
+            <div className="absolute cursor-pointer min-[1410px]:left-[520px] min-[1310px]:left-[470px] left-[400px] min-[1400px]:max-h-[600px] max-h-[500px] overflow-auto transform -translate-x-1/2 top-[68px] w-[90vw] min-[1410px]:max-w-[75vw] max-w-[80vw] bg-white rounded-[20px] shadow-2xl border border-gray-200 p-6 z-50">
               {renderSpecialtiesMenu(item.children)}
             </div>
           )}
@@ -231,7 +231,7 @@ const Header2 = () => {
                   <div key={center.id} className="relative" onMouseEnter={() => { setOpenCenterKey(center.id); setOpenChildSlug(null); }}>
                     <Link
                       href={generateUrl(center)}
-                      className="cursor-pointer w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px] "
+                      className="cursor-pointer w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]  font-medium"
                       onClick={() => setOpenMenuItems(prev => ({ ...prev, [section.id]: false }))}
                     >
                       <span className="flex gap-2 flex-1 text-left">
@@ -241,7 +241,7 @@ const Header2 = () => {
                       <Image src="/assets/down-arrow.svg" alt="toggle" width={12} height={7} className={`${openCenterKey === center.id ? "rotate-180" : ""}`} />
                     </Link>
                     {openCenterKey === center.id && center.children && center.children.length > 0 && (
-                      <div className="absolute left-0 right-0 top-full rounded-[14px] bg-white shadow-xl border border-gray-200 p-3 z-10">
+                      <div className="absolute left-0 right-0 top-full rounded-[14px] bg-white shadow-xl border border-gray-200 p-3 z-10 font-medium">
                         <ul className="space-y-2">
                           {center.children.map((child) => (
                             <li key={child.id} className="relative" onMouseEnter={() => { if (child.children && child.children.length > 0) { setOpenChildSlug(child.id); } }}>
@@ -318,7 +318,7 @@ const Header2 = () => {
                         style={{
                           background: "var(--White-Ice-Line, linear-gradient(95deg, #FBFDFF 0.79%, #E9F6FF 98.08%))",
                         }}
-                        className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]  transition-colors"
+                        className="flex px-3 py-[14px] text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]  transition-colors font-medium"
                         onClick={() => setOpenMenuItems(prev => ({ ...prev, [section.id]: false }))}
                       >
                         <Image src="/assets/ramhaiyaison.svg" alt="icon" width={18} height={18} className="w-[18px] h-[18px] mr-[4px] min-[1200px]:mt-[3px]" />
@@ -328,7 +328,7 @@ const Header2 = () => {
                     
                     {/* Render nested dropdowns for Other Super Specialties */}
                     {section.title === "Other Super Specialties" && item.children && openOtherSlug === item.id && (
-                      <div className="absolute left-0 right-0 top-full rounded-[14px] bg-white shadow-xl border border-gray-200 p-3 z-10">
+                      <div className="absolute left-0 right-0 top-full rounded-[14px] bg-white shadow-xl border border-gray-200 p-3 z-10 font-medium">
                         <ul className="space-y-2">
                           {item.children.map((child) => (
                             <li key={child.id} className="relative">
