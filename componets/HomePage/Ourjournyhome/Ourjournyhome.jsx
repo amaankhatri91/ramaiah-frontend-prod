@@ -38,11 +38,17 @@ const Ourjournyhome = ({ slug }) => {
                 <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[25px] text-[22px] font-bold Text-color2">
                 {journeySection?.content_blocks[0]?.title}
                 </h2>
-                    <p
+                    {/* <p
                         className="text-[#414049] min-[1200px]:text-[16px] min-[800px]:text-[14px] font-medium text-[13px]"
                     >
                         {journeySection?.content_blocks[1]?.content }
-                    </p>
+                    </p> */}
+                    <div
+                        className="text-[#414049] min-[1200px]:text-[16px] min-[800px]:text-[14px] font-medium text-[13px] space-y-4"
+                        dangerouslySetInnerHTML={{ 
+                            __html: journeySection?.content_blocks[1]?.content || '' 
+                        }}
+                    />
 
                 </div>
 
