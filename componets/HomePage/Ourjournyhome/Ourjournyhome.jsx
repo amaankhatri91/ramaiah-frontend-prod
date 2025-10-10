@@ -35,7 +35,7 @@ const Ourjournyhome = ({ slug }) => {
                 {/* Text Content with Scroll */}
                 
                 <div className="md:col-span-7 md:order-1 order-2  pr-4  space-y-4 Background-color2 rounded-[30px] p-[15px] md:p-[30px] w-full md:h-[600px] md:overflow-y-auto">
-                <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[25px] text-[22px] font-bold text-[#3D3D3D]">
+                <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[25px] text-[22px] font-bold Text-color2">
                 {journeySection?.content_blocks[0]?.title}
                 </h2>
                     <p
