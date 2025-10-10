@@ -240,20 +240,20 @@ const HeroSection = () => {
                   
                   <div className="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-end">
                     {slide.smallBannerImage ? (
-                      <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="lg:w-[562px] w-full h-auto lg:h-[550px] object-cover rounded-[32px] border-[14px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] border-[#cdcdcd]"
-                        aria-label={videoFile?.alt_text || "Small banner video"}
-                        // controls={false}
-                      >
-                        <source src={slide.smallBannerImage} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
+                        <video
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                        className="lg:w-[562px] w-full h-auto lg:h-[550px] object-cover rounded-[32px] border-[14px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] border-[#ffffff]"
+                          aria-label={videoFile?.alt_text || "Small banner video"}
+                          // controls={false}
+                        >
+                          <source src={slide.smallBannerImage} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
                     ) : (
-                      <div className="w-full h-auto lg:h-[550px] rounded-[32px] border-[14px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] border-[#cdcdcd] flex items-center justify-center">
+                      <div className="w-full h-auto lg:h-[550px] rounded-[32px] border-[14px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] border-[#ffffff] flex items-center justify-center">
                         <p className="text-gray-500">No video available</p>
                       </div>
                     )}
