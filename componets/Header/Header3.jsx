@@ -96,9 +96,9 @@ const Header3 = () => {
   return (
     <div>
       <header
-        className="max-[1024px]:hidden"
+        className="max-[1024px]:hidden py-0.5"
         style={{
-          background: "linear-gradient(90deg, #E4D5D7 0%, #E3ECF9 100%)",
+          background: "linear-gradient(90deg, #F3DDDA 0%, #E7F0FE 100%)",
         }}
       >
         <div className="container flex justify-between items-center !pt-[2px]">
