@@ -101,9 +101,9 @@ const ServiceGrid = () => {
                 height={64}
                 className="mx-auto mb-4 h-[64px] w-[64px]"
               />
-              <h3 className="text-[#3D3D3D] min-[800px]:text-[14px] text-[13px] font-semibold">{service.title}</h3>
+              <h3 className="text-[#3D3D3D] min-[800px]:text-[16px] text-[14px] font-semibold">{service.title}</h3>
               {service.subtitle && (
-                <p className="min-[800px]:text-[14px] text-[13px] font-semibold text-[#777] mt-1">{service.subtitle}</p>
+                <p className="min-[800px]:text-[16px] text-[14px] font-semibold text-[#777] mt-1">{service.subtitle}</p>
               )}
             </div>
           </Link>
