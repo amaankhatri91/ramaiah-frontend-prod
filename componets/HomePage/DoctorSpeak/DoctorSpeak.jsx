@@ -238,8 +238,8 @@ const DoctorSpeak = () => {
         {/* Doctor Speak Section */}
         <div className="">
           {/* Header */}
-          <div className="flex items-center justify-between min-[1200px]:mb-5 mb-4">
-            <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[28px] text-[22px] font-bold text-[#3D3D3D]">
+          <div className="flex items-center md:justify-between justify-center min-[1200px]:mb-5 mb-4 ">
+            <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[28px] text-[22px] font-bold text-[#3D3D3D] ">
               <span className="Text-color2">Doctor </span>Speak
             </h2>
           </div>
@@ -257,7 +257,7 @@ const DoctorSpeak = () => {
                   muted
                   loop
                   playsInline
-                  className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+                  className="w-full lg:h-[434px] md:h-[450px] sm:h-[420px] object-cover rounded-[30px]"
                   aria-label={doctorSpeakVideo.alt_text || "Doctor Speak video"}
                 />
                 {!isDoctorVideoPlaying && (
@@ -307,7 +307,7 @@ const DoctorSpeak = () => {
                   muted
                   loop
                   playsInline
-                  className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+                  className="w-full lg:h-[434px] md:h-[450px] sm:h-[420px] object-cover rounded-[30px]"
                   aria-label="Doctor Speak video"
                 />
                 {!isDoctorVideoPlaying && (
@@ -363,7 +363,7 @@ const DoctorSpeak = () => {
         </div>
         <div className="text-end">
           {/* Header */}
-          <div className="flex items-center justify-between min-[1200px]:mb-5 mb-4">
+          <div className="flex items-center md:justify-between justify-center min-[1200px]:mb-5 mb-4">
             <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[28px] text-[22px] font-bold text-[#3D3D3D]">
               <span className="Text-color2">Patient </span>Speak
             </h2>
@@ -384,7 +384,7 @@ const DoctorSpeak = () => {
                   muted
                   loop
                   playsInline
-                  className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+                  className="w-full lg:h-[434px] md:h-[450px] sm:h-[420px] object-cover rounded-[30px]"
                   aria-label={patientSpeakVideo.alt_text || "Patient Speak video"}
                 />
                 {!isPatientVideoPlaying && (
@@ -434,7 +434,7 @@ const DoctorSpeak = () => {
                   muted
                   loop
                   playsInline
-                  className="w-full min-[1200px]:h-[400px] min-[800px]:h-[350px] h-[300px] object-cover rounded-[30px]"
+                  className="w-full lg:h-[434px] md:h-[450px] sm:h-[420px] object-cover rounded-[30px]"
                   aria-label="Patient Speak video"
                 />
                 {!isPatientVideoPlaying && (

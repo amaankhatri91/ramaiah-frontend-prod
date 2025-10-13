@@ -184,7 +184,7 @@ const Footer = () => {
     <div className="min-[1200px]:mt-[50px] mt-[30px] relative overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(60,4,34,0)_0%,#1F0011_100%)] opacity-75 z-0"></div>
       <footer className="w-full container text-white pt-10 pb-6 rounded-t-[40px] relative mt-10">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-4 lg:gap-8 gap-1 relative z-10">
           
           {/* Column 1: Contact Info & Centers of Excellence */}
           <div className="flex flex-col gap-6">
@@ -258,7 +258,7 @@ const Footer = () => {
             </div>
             
             {/* Social Links */}
-            <div className="flex gap-3">
+            <div className="flex gap-3 flex-wrap">
               {socialLinks.map((social, i) => (
                 <Link
                   key={i}

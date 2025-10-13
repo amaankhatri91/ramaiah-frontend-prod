@@ -97,7 +97,7 @@ export default function StoryAccreditations() {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-[1200px]:gap-14 min-[800px]:gap-10 gap-6 items-start">
           {/* Left: Our Story */}
           <div className="rounded-[40px] p-6 min-[800px]:p-8 bg-[linear-gradient(84deg,rgba(242,213,207,0.5)_0%,rgba(226,238,254,0.5)_100%)]">
-            <h2 className="min-[1286px]:text-[72px] min-[800px]:text-[50px] text-[22px] font-bold text-[#3D3D3D] mb-6">
+            <h2 className="min-[1286px]:text-[72px] min-[800px]:text-[50px] text-[22px] font-bold text-[#3D3D3D] mb-6 md:text-left text-center">
               {/* {ourStorySection?.name || "Our"}  */}
               <span className="Text-color2">{textBlock?.title || "Our Story"}</span>
             </h2>
@@ -112,13 +112,13 @@ export default function StoryAccreditations() {
                     alt={item.altText || item.label}
                     width={40}
                     height={40}
-                    className="min-[800px]:w-[50px] w-[32px] min-[800px]:h-[50px] h-[32px]"
+                    className="min-[800px]:w-[50px] w-[50px] min-[800px]:h-[50px] h-[50px]"
                   />
                   <div>
-                    <div className="min-[1200px]:text-[30px] min-[800px]:text-[20px] text-[16px] font-bold text-[#3D3D3D] leading-[1.2]">
+                    <div className="min-[1200px]:text-[30px] min-[800px]:text-[25px] text-[25px] font-bold text-[#3D3D3D] leading-[1.2]">
                       {item.value} {item.label === "Of Excellence" ?  <span className="font-medium text-[16px] md:text-[18px]">Centers</span> : ""}
                     </div>
-                    <div className="min-[1200px]:text-[18px] min-[800px]:text-[15px] text-[12px] text-[#616161] font-medium">
+                    <div className="min-[1200px]:text-[18px] min-[800px]:text-[16px] text-[15px] text-[#616161] font-medium">
                       {item.label}
                     </div>
                   </div>
@@ -129,7 +129,7 @@ export default function StoryAccreditations() {
 
           {/* Right: Accreditations & Certifications */}
           <div>
-            <h2 className="min-[1286px]:text-[72px] min-[1200px]:leading-[80px] min-[800px]:text-[50px] text-[22px] font-bold text-[#3D3D3D] min-[1560px]:w-[82%] min-[1200px]:w-[100%] min-[1460px]:w-[88%] w-full mb-6">
+            <h2 className="min-[1286px]:text-[72px] min-[1200px]:leading-[80px] min-[800px]:text-[50px] text-[22px] font-bold text-[#3D3D3D] min-[1560px]:w-[82%] min-[1200px]:w-[100%] min-[1460px]:w-[88%] w-full mb-6 md:text-left text-center">
               {/* {accreditationsSection?.title }  */}
               <span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span>
             </h2>

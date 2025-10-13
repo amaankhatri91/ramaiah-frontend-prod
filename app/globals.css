@@ -27,30 +27,63 @@ body {
   font-family: "Manrope", Arial, Helvetica, sans-serif;
 }
 
+/* Global Scrollbar Styling - Applied to all elements */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #D2E2FA #E2EEFE;
+}
+
 /* Works in WebKit browsers (Chrome, Safari, Edge) */
-::-webkit-scrollbar {
-  width: 1px;
-  height: 1px;
+/* ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
   background: #E2EEFE;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-image: linear-gradient(267deg, #00adef -49.54%, #d60f8c 110.23%);
   border-radius: 10px;
-  border: 3px solid #E2EEFE;
+  border: 2px solid #E2EEFE;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-image: linear-gradient(267deg, #d60f8c 0%, #00adef 100%);
+  background-image: linear-gradient(267deg, #D2E2FA 0%, #00adef 100%);
+} */
+
+/* Apply to all scrollable elements */
+html, body, div, section, article, aside, nav, main, header, footer {
+  scrollbar-width: thin;
+  scrollbar-color: #D2E2FA #E2EEFE;
 }
 
-/* Firefox scrollbar styling */
-* {
+/* Specific scrollable containers */
+.scrollable-container {
   scrollbar-width: thin;
-  scrollbar-color: #d60f8c 0%, #00adef 100%; /* Firefox doesn’t support gradient on thumb */
+  scrollbar-color: #D2E2FA #E2EEFE;
+}
+
+.scrollable-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: #E2EEFE;
+  border-radius: 10px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(267deg, #00adef -49.54%, #D2E2FA 110.23%);
+  border-radius: 10px;
+  border: 2px solid #E2EEFE;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(267deg, #D2E2FA 0%, #00adef 100%);
 }
 
 /* phone libary cutom css */
@@ -182,4 +215,8 @@ body {
  .control-dots{
   padding-bottom: 108px !important;
   left: 45px;
+}
+
+.css-8akrpk css-1x5d1af-placeholder{
+  font-weight: 500 !important;
 }

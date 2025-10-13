@@ -69,7 +69,7 @@ const Choosespacialist = () => {
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4'>
           {/* Choose Speciality */}
           <div>
-            <label className='block text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]] text-[#3A3A3A] font-medium font-manrope mb-2'>Choose Speciality</label>
+            <label className='block text-[16px] sm:text-[16px] md:text-[16px] lg:text-[18px] text-[#3A3A3A] font-medium font-manrope mb-2'>Choose Speciality</label>
             <div className='w-full rounded-full px-5 py-2 text-white Background-color'>
               <Select
                 aria-label='Choose Specialty'
@@ -81,13 +81,14 @@ const Choosespacialist = () => {
                 onChange={(opt) => setSelectedSpeciality(opt)}
                 instanceId="speciality-select"
                 inputId="speciality-select-input"
+                className='text-center lg:text-left'
               />
             </div>
           </div>
 
           {/* Choose Specialist */}
           <div>
-            <label className='block text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]] text-[#3A3A3A] font-medium font-manrope mb-2'>Choose Specialist</label>
+            <label className='block text-[16px] sm:text-[16px] md:text-[16px] lg:text-[18px] text-[#3A3A3A] font-medium font-manrope mb-2'>Choose Specialist</label>
             <div className='w-full rounded-full px-5 py-2 text-white Background-color'>
               <Select
                 aria-label='Choose Specialist'
@@ -99,6 +100,7 @@ const Choosespacialist = () => {
                 onChange={(opt) => setSelectedSpecialist(opt)}
                 instanceId="specialist-select"
                 inputId="specialist-select-input"
+                className='text-center lg:text-left'
               />
             </div>
           </div>
@@ -107,7 +109,7 @@ const Choosespacialist = () => {
           <div className='sm:col-span-1'>
             <label className='block text-transparent mb-2 select-none'>.</label>
             <button type='button' onClick={() => setIsAskModalOpen(true)} className='cursor-pointer w-full rounded-full px-5 py-3 text-white Background-color focus:outline-none'>
-              <span className='text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px]] text-[#ffffff] font-medium font-manrope'>Ask Our Expert</span>
+              <span className='text-[16px] sm:text-[16px] md:text-[16px] lg:text-[16px]] text-[#ffffff] font-medium font-manrope'>Ask Our Expert</span>
             </button>
           </div>
 
@@ -115,7 +117,7 @@ const Choosespacialist = () => {
           <div className='sm:col-span-1'>
             <label className='block text-transparent mb-2 select-none'>.</label>
             <button type='button' onClick={() => setIsCallbackOpen(true)} className='cursor-pointer w-full rounded-full px-5 py-3 text-white Background-color focus:outline-none'>
-              <span className='text-[12px] sm:text-[14px] md:text-[16px] lg:text-[16px]] text-[#ffffff] font-medium font-manrope'>Request A Callback</span>
+              <span className='text-[16px] sm:text-[16px] md:text-[16px] lg:text-[16px]] text-[#ffffff] font-medium font-manrope'>Request A Callback</span>
             </button>
           </div>
         </div>

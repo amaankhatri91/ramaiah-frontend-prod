@@ -238,7 +238,7 @@ const HeroSection = () => {
                   {/* Right video preview */}
                   {console.log("slide.smallBannerImage:", slide.smallBannerImage)}
                   
-                  <div className="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-end">
+                  <div className="w-full lg:w-1/2 mt-0 lg:mt-8 flex justify-end mb-[30px]">
                     {slide.smallBannerImage ? (
                         <video
                           autoPlay
