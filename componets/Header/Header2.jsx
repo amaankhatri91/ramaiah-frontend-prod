@@ -156,7 +156,7 @@ const Header2 = () => {
               />
             </button>
             {isOpen && (
-              <div className="absolute left-0 top-[68px] w-[280px] bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+              <div className="absolute left-0 top-[68px] w-[280px] bg-white rounded-[15px] shadow-lg border border-gray-200 z-50">
                 <div className="py-2">
                   {item.children.map(child => renderMenuItem(child, 2))}
                 </div>
@@ -488,7 +488,7 @@ const Header2 = () => {
                   [item.id]: !prev[item.id]
                 }));
               }}
-              className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${
+              className={`w-full flex items-center gap-1 text-left py-4 text-[#3D3D3D] min-[874px]:px-[53px] min-[638px]:px-[45px] font-medium min-[489px]:px-[35px] px-[22px] ${
                 pathname === generateUrl(item) ? "bg-[#e14b8b] text-white rounded" : "text-[#3D3D3D] hover:text-[#e14b8b]"
               }`}
             >
@@ -506,7 +506,7 @@ const Header2 = () => {
           <Link
             key={item.id}
             href={generateUrl(item)}
-            className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] px-[22px] ${
+            className={`block py-4 min-[874px]:px-[53px] min-[638px]:px-[45px] min-[489px]:px-[35px] font-medium px-[22px] ${
               pathname === generateUrl(item) ? "bg-[#e14b8b] text-white rounded" : "text-[#3D3D3D] hover:text-[#e14b8b]"
             }`}
             onClick={() => setMobileMenuOpen(false)}
@@ -662,7 +662,7 @@ const Header2 = () => {
         >
           <div className="container flex justify-end">
             <div
-              className="mt-[2vh] w-[90%] max-w-[620px] cursor-pointer"
+              className="mt-[32vh] w-[90%] max-w-[620px] cursor-pointer"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="rounded-[20px] bg-white p-6 shadow-2xl ">

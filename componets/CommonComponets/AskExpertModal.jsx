@@ -38,7 +38,7 @@ const AskExpertModal = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60" onClick={onClose}></div>
-      <div className="relative w-full max-w-[560px] max-h-[90vh] overflow-y-auto rounded-[20px] bg-white p-6 md:p-8 shadow-xl">
+      <div className="relative w-full max-w-[560px] max-h-[90vh] overflow-y-auto rounded-[40px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] p-6 md:p-8 shadow-xl">
         <button
           type="button"
           aria-label="Close"
@@ -86,7 +86,7 @@ const AskExpertModal = ({ isOpen, onClose }) => {
                 name: "phone",
                 required: true,
               }}
-              inputClass="!w-full"
+              inputClass="!w-full h-[48px]"
             />
             {formik.touched.phone && formik.errors.phone && (
               <div className="text-red-500 text-xs mt-1">

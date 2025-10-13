@@ -46,7 +46,7 @@ const EnquiryModal = ({ isOpen, onClose, variant = "ask" }) => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">
       <div className="absolute inset-0 bg-black/60" onClick={onClose}></div>
-      <div className="relative mx-4 w-full max-w-[560px] rounded-[20px] bg-white p-6 md:p-8 shadow-xl">
+      <div className="relative mx-4 w-full max-w-[560px] rounded-[40px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] p-6 md:p-8 shadow-xl">
         <button
           type="button"
           aria-label="Close"
@@ -92,7 +92,7 @@ const EnquiryModal = ({ isOpen, onClose, variant = "ask" }) => {
               onChange={(phone) => formik.setFieldValue("phone", phone)}
               onBlur={() => formik.setFieldTouched("phone", true)}
               inputProps={{ name: "phone", required: true }}
-              inputClass="!w-full"
+              inputClass="!w-full h-[48px]"
             />
             {formik.touched.phone && formik.errors.phone && (
               <div className="text-red-500 text-xs mt-1">{formik.errors.phone}</div>
