@@ -56,11 +56,11 @@ const Ourjournyhome = ({ slug }) => {
                 <div className="lg:col-span-4 md:col-span-5 md:order-2 order-1 w-full">
                     <div className="relative w-full h-[450px] sm:h-[450px] md:h-[634px]">
                         <Image
-                            // src={journeySection?.content_blocks[2]?.media_files?.[0]?.file_url ? 
-                            //     journeySection.content_blocks[2].media_files[0].file_url : 
-                            //     fallbackImage
-                            // }
-                            src={fallbackImage}
+                            src={journeySection?.content_blocks[2]?.media_files?.[0]?.file_url ? 
+                                journeySection.content_blocks[2].media_files[0].file_url : 
+                                fallbackImage
+                            }
+                            // src={fallbackImage}
                             alt={journeySection?.content_blocks[2]?.media_files?.[0]?.alt_text || "Our journey home"}
                             fill
                             className="object-cover rounded-[40px] shadow-md"
