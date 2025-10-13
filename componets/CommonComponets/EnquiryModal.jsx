@@ -71,10 +71,10 @@ const EnquiryModal = ({ isOpen, onClose, variant = "ask" }) => {
               onBlur={formik.handleBlur}
               value={formik.values.fullName}
               placeholder="Please enter your full name"
-              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none ${
+              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none focus:border-[#305FC2] ${
                 (formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName
                   ? "border-red-500"
-                  : "border-[#00ADEF]"
+                  : "border-[#DDC7E7]"
               }`}
             />
             {(formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName && (
@@ -92,7 +92,7 @@ const EnquiryModal = ({ isOpen, onClose, variant = "ask" }) => {
               onChange={(phone) => formik.setFieldValue("phone", phone)}
               onBlur={() => formik.setFieldTouched("phone", true)}
               inputProps={{ name: "phone", required: true }}
-              inputClass="!w-full h-[48px]"
+              inputClass="!w-full !h-[50px]"
             />
             {formik.touched.phone && formik.errors.phone && (
               <div className="text-red-500 text-xs mt-1">{formik.errors.phone}</div>
@@ -110,10 +110,10 @@ const EnquiryModal = ({ isOpen, onClose, variant = "ask" }) => {
               onBlur={formik.handleBlur}
               value={formik.values.email}
               placeholder="mail@someemail.com"
-              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none ${
+              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none focus:border-[#305FC2] ${
                 (formik.touched.email || formik.submitCount > 0) && formik.errors.email
                   ? "border-red-500"
-                  : "border-[#00ADEF]"
+                  : "border-[#DDC7E7]"
               }`}
             />
             {(formik.touched.email || formik.submitCount > 0) && formik.errors.email && (
@@ -133,7 +133,7 @@ const EnquiryModal = ({ isOpen, onClose, variant = "ask" }) => {
               value={formik.values.message}
               placeholder="Add description here..."
               maxLength={300}
-              className="w-full rounded-[20px] border border-[#00ADEF] p-3 bg-white focus:outline-none"
+              className="w-full rounded-[20px] border border-[#DDC7E7] p-3 bg-white focus:outline-none focus:border-[#305FC2]"
             />
              <div className="font-manrope font-medium text-[12px] text-[#3A3A3A] mt-1 text-right">
               {`You have ${Math.max(0, 300 - (formik.values.message?.length || 0))} characters remaining`}

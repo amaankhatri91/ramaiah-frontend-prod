@@ -63,9 +63,9 @@ const AskExpertModal = ({ isOpen, onClose }) => {
               onBlur={formik.handleBlur}
               value={formik.values.fullName}
               placeholder="Please enter your full name"
-              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none ${(formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName
+              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none focus:border-[#305FC2] ${(formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName
                   ? "border-red-500"
-                  : "border-[#00ADEF]"
+                  : "border-[#DDC7E7]"
                 }`}
             />
             {(formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName && (
@@ -86,7 +86,7 @@ const AskExpertModal = ({ isOpen, onClose }) => {
                 name: "phone",
                 required: true,
               }}
-              inputClass="!w-full h-[48px]"
+              inputClass="!w-full !h-[50px]"
             />
             {formik.touched.phone && formik.errors.phone && (
               <div className="text-red-500 text-xs mt-1">
@@ -106,9 +106,9 @@ const AskExpertModal = ({ isOpen, onClose }) => {
               onBlur={formik.handleBlur}
               value={formik.values.email}
               placeholder="mail@someemail.com"
-              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none ${(formik.touched.email || formik.submitCount > 0) && formik.errors.email
+              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none focus:border-[#305FC2] ${(formik.touched.email || formik.submitCount > 0) && formik.errors.email
                   ? "border-red-500"
-                  : "border-[#00ADEF]"
+                  : "border-[#DDC7E7]"
                 }`}
             />
             {(formik.touched.email || formik.submitCount > 0) && formik.errors.email && (
@@ -128,8 +128,8 @@ const AskExpertModal = ({ isOpen, onClose }) => {
                 onBlur={(e) => { setIsHospitalOpen(false); formik.handleBlur(e) }}
                 className={`w-full p-3 pr-10 rounded-[26px] border ${(formik.touched.hospital || formik.submitCount > 0) && formik.errors.hospital
                     ? "border-red-500"
-                    : "border-[#00ADEF]"
-                  } bg-[#FFFFFF] text-[#3A3A3A] focus:outline-none appearance-none`}
+                    : "border-[#DDC7E7]"
+                  } bg-[#FFFFFF] text-[#3A3A3A] focus:outline-none focus:border-[#305FC2] appearance-none`}
               >
                 {HOSPITAL_OPTIONS.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -163,10 +163,10 @@ const AskExpertModal = ({ isOpen, onClose }) => {
               onBlur={formik.handleBlur}
               value={formik.values.fullName}
               placeholder="Please enter your full name"
-              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none ${
+              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none focus:border-[#305FC2] ${
                 (formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName
                   ? "border-red-500"
-                  : "border-[#00ADEF]"
+                  : "border-[#DDC7E7]"
               }`}
             />
             {(formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName && (
@@ -186,7 +186,7 @@ const AskExpertModal = ({ isOpen, onClose }) => {
               value={formik.values.message}
               placeholder="Add description here..."
               maxLength={300}
-              className="w-full rounded-[20px] border border-[#00ADEF] p-3 bg-white focus:outline-none"
+              className="w-full rounded-[20px] border border-[#DDC7E7] p-3 bg-white focus:outline-none focus:border-[#305FC2]"
             />
              <div className="font-manrope font-medium text-[12px] text-[#3A3A3A] mt-1 text-right">
               {`You have ${Math.max(0, 300 - (formik.values.message?.length || 0))} characters remaining`}
