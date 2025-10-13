@@ -31,7 +31,7 @@ const LegacyClinical = () => {
             bg-[radial-gradient(247.77%_202.26%_at_46.45%_-32.32%,_#FFF_33.84%,_#EEF9FF_97.64%)] 
             shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-[25px]">
           <div className="flex flex-col justify-center">
-            <h2 className="min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[22px] font-bold leading-tight md:text-left text-center">
+            <h2 className="min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[28px] font-bold leading-tight md:text-left text-center">
               <span className="Text-color">{legacySection?.content_blocks[0]?.title }</span>
             </h2>
             <p className="mt-[20px] text-[#3D3D3D] min-[1200px]:text-[16px] text-[13px] font-normal leading-relaxed">
@@ -46,9 +46,9 @@ const LegacyClinical = () => {
           </div>
 
           {/* Right Column - Video */}
-          <div className="min-[1200px]:h-[620px] min-[1200px]:mt-[16px] min-[800px]:mt-[14px] mt-[12px]">
+          <div className="min-[1200px]:h-[670px] min-[800px]:h-[500px] h-[350px] min-[1200px]:mt-[16px] min-[800px]:mt-[14px] mt-[12px]">
             <video
-              className="w-full h-full object-cover rounded-[30px]"
+              className="w-full h-full object-none rounded-[30px]"
               src={legacySection?.content_blocks[2]?.media_files?.[0]?.file_url}
               autoPlay
               loop

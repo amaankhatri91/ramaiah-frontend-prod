@@ -239,7 +239,7 @@ const DoctorSpeak = () => {
         <div className="">
           {/* Header */}
           <div className="flex items-center md:justify-between justify-center min-[1200px]:mb-5 mb-4 ">
-            <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[28px] text-[22px] font-bold text-[#3D3D3D] ">
+            <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[28px] text-[28px] font-bold text-[#3D3D3D] ">
               <span className="Text-color2">Doctor </span>Speak
             </h2>
           </div>
@@ -364,7 +364,7 @@ const DoctorSpeak = () => {
         <div className="text-end">
           {/* Header */}
           <div className="flex items-center md:justify-between justify-center min-[1200px]:mb-5 mb-4">
-            <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[28px] text-[22px] font-bold text-[#3D3D3D]">
+            <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[28px] text-[28px] font-bold text-[#3D3D3D]">
               <span className="Text-color2">Patient </span>Speak
             </h2>
 

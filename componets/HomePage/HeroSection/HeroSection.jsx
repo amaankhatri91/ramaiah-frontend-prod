@@ -224,7 +224,7 @@ const HeroSection = () => {
                   {/* Left content */}
                   <div className="w-full lg:w-1/2 text-center lg:text-left">
                     <h2 
-                      className="text-[25px] min-[1080px]:text-[45px] min-[1507px]:text-[59px] font-bold text-[#3D3D3D] leading-tight"
+                      className="text-[28px] min-[1080px]:text-[45px] min-[1507px]:text-[59px] font-bold text-[#3D3D3D] leading-tight"
                       dangerouslySetInnerHTML={{ __html: slide.title }}
                     />
                     <p className="Text-color2 font-bold text-[20px] min-[1080px]:text-[40px] min-[1507px]:text-[45px] mt-4">
