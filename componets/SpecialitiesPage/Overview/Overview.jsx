@@ -4,7 +4,7 @@ import { contentBlocks } from "@/componets/ServiceData/Overview";
 
 const Overview = ({ slug }) => {
   // const block = contentBlocks.find((b) => b.slug === slug);
-  console.log("slug",slug)
+  console.log("slug>>>>>>",slug)
 
   if (!slug?.content_blocks?.length) return null;
   const advantages = [
@@ -32,7 +32,11 @@ const Overview = ({ slug }) => {
               {para}
             </p>
           ))} */}
-          {slug?.content_blocks?.[1]?.content}
+          {/* {slug?.content_blocks?.[1]?.content} */}
+          <div dangerouslySetInnerHTML={{ 
+                            __html: slug?.content_blocks[1]?.content || '' 
+                        }}
+                        />
         </div>
 
         {/* Image Content */}

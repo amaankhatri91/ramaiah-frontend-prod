@@ -46,9 +46,9 @@ const LegacyClinical = () => {
           </div>
 
           {/* Right Column - Video */}
-          <div className="min-[1200px]:h-[750px] min-[800px]:h-[650px] min-[1200px]:mt-[16px] min-[800px]:mt-[14px] mt-[12px]">
+          <div className="min-[1200px]:h-[750px] min-[600px]:h-[600px] min-[450px]:h-[290px] h-[218px] min-[1200px]:mt-[16px] min-[800px]:mt-[14px] mt-[12px]">
             <video
-              className="w-full h-full object-none rounded-[30px]"
+              className="w-full h-full md:object-none object-cover rounded-[30px]"
               src={legacySection?.content_blocks[2]?.media_files?.[0]?.file_url}
               autoPlay
               loop
