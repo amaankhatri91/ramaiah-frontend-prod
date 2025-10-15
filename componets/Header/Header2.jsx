@@ -33,8 +33,30 @@ const Header2 = () => {
     !(item.page && item.page.slug === "home")
   );
 
+  // Helper function to generate nested URL from navigation item
+  const generateNestedUrl = (item, parentPath = '') => {
+    // Special case for home menu - always return root path
+    if (item.title === "Home" || item.slug === "home" || (item.page && item.page.slug === "home")) {
+      return "/";
+    }
+    
+    let currentPath = '';
+    
+    // If item has a page object with slug, use it
+    if (item.page && item.page.slug) {
+      currentPath = item.page.slug;
+    } else if (item.slug) {
+      currentPath = item.slug;
+    }
+    
+    // Build the full path with parent path
+    const fullPath = parentPath ? `${parentPath}/${currentPath}` : currentPath;
+    
+    return fullPath ? `/${fullPath}` : '';
+  };
+
   // Helper function to generate URL from navigation item
-  const generateUrl = (item) => {
+  const generateUrl = (item, parentPath = '') => {
     // Special case for home menu - always return root path
     if (item.title === "Home" || item.slug === "home" || (item.page && item.page.slug === "home")) {
       return "/";
@@ -53,7 +75,7 @@ const Header2 = () => {
   };
 
   // Helper function to handle menu item clicks
-  const handleMenuItemClick = (item) => {
+  const handleMenuItemClick = (item, parentPath = '') => {
     if (item.children && item.children.length > 0) {
       // Toggle dropdown for items with children
       const currentState = openMenuItems[item.id];
@@ -62,8 +84,8 @@ const Header2 = () => {
         [item.id]: !currentState
       }));
     } else {
-      // Navigate to URL for items without children
-      const url = generateUrl(item);
+      // Navigate to URL for items without children using nested URL generation
+      const url = generateNestedUrl(item, parentPath);
       if (url) {
         window.location.href = url;
       }
@@ -246,7 +268,8 @@ const Header2 = () => {
                           {center.children.map((child) => (
                             <li key={child.id} className="relative" onMouseEnter={() => { if (child.children && child.children.length > 0) { setOpenChildSlug(child.id); } }}>
                               <button type="button" className="cursor-pointer w-full text-left flex items-center justify-between gap-2 px-3 py-2 rounded-[12px] hover:bg-gray-50 text-[#3D3D3D]" onClick={() => {
-                                const url = generateUrl(child);
+                                const parentPath = center.slug || center.page?.slug;
+                                const url = generateNestedUrl(child, parentPath);
                                 if (url) {
                                   window.location.href = url;
                                 }
@@ -265,7 +288,7 @@ const Header2 = () => {
                                   <ul className="space-y-1">
                                     {child.children.map((grand) => (
                                       <li key={grand.id}>
-                                        <Link href={generateUrl(grand)} className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D] flex items-center gap-2" onClick={() => { setOpenMenuItems(prev => ({ ...prev, [section.id]: false })); setOpenCenterKey(null); setOpenChildSlug(null); }}>
+                                        <Link href={generateNestedUrl(grand, `${center.slug || center.page?.slug}/${child.slug || child.page?.slug}`)} className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D] flex items-center gap-2" onClick={() => { setOpenMenuItems(prev => ({ ...prev, [section.id]: false })); setOpenCenterKey(null); setOpenChildSlug(null); }}>
                                           <Image src="/assets/ramhaiyaison.svg" alt="icon" width={14} height={14} className="w-[14px] h-[14px]" />
                                           {grand.title}
                                         </Link>
@@ -341,7 +364,8 @@ const Header2 = () => {
                                   if (child.children && child.children.length > 0) {
                                     setOpenOtherChildSlug((s) => (s === child.id ? null : child.id));
                                   } else {
-                                    const url = generateUrl(child);
+                                    const parentPath = item.slug || item.page?.slug;
+                                    const url = generateNestedUrl(child, parentPath);
                                     if (url) {
                                       window.location.href = url;
                                     }
@@ -362,7 +386,7 @@ const Header2 = () => {
                                     {child.children.map((grand) => (
                                       <li key={grand.id}>
                                         <Link
-                                          href={generateUrl(grand)}
+                                          href={generateNestedUrl(grand, `${item.slug || item.page?.slug}/${child.slug || child.page?.slug}`)}
                                           className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D] flex items-center gap-2"
                                           onClick={() => {
                                             setOpenMenuItems(prev => ({ ...prev, [section.id]: false }));
@@ -397,7 +421,8 @@ const Header2 = () => {
                                   if (child.children && child.children.length > 0) {
                                     setOpenBroadChildSlug((s) => (s === child.id ? null : child.id));
                                   } else {
-                                    const url = generateUrl(child);
+                                    const parentPath = item.slug || item.page?.slug;
+                                    const url = generateNestedUrl(child, parentPath);
                                     if (url) {
                                       window.location.href = url;
                                     }
@@ -418,7 +443,7 @@ const Header2 = () => {
                                     {child.children.map((grand) => (
                                       <li key={grand.id}>
                                         <Link
-                                          href={generateUrl(grand)}
+                                          href={generateNestedUrl(grand, `${item.slug || item.page?.slug}/${child.slug || child.page?.slug}`)}
                                           className="block px-3 py-2 rounded-[10px] hover:bg-gray-50 text-[#3D3D3D] flex items-center gap-2"
                                           onClick={() => {
                                             setOpenMenuItems(prev => ({ ...prev, [section.id]: false }));

@@ -46,7 +46,7 @@ const LegacyClinical = () => {
           </div>
 
           {/* Right Column - Video */}
-          <div className="min-[1200px]:h-[670px] min-[800px]:h-[500px] h-[350px] min-[1200px]:mt-[16px] min-[800px]:mt-[14px] mt-[12px]">
+          <div className="min-[1200px]:h-[750px] min-[800px]:h-[650px] min-[1200px]:mt-[16px] min-[800px]:mt-[14px] mt-[12px]">
             <video
               className="w-full h-full object-none rounded-[30px]"
               src={legacySection?.content_blocks[2]?.media_files?.[0]?.file_url}

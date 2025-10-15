@@ -16,7 +16,7 @@ const validationSchema = Yup.object({
 });
 
 const OurTreatment = ({ slug }) => {
-  const group = getOurTreatmentsPage(slug);
+  // const group = getOurTreatmentsPage(slug);
 
   const formik = useFormik({
     initialValues: {
@@ -32,7 +32,7 @@ const OurTreatment = ({ slug }) => {
     },
   });
 
-  if (!group) return null; 
+  if (!slug?.content_blocks?.length) return null; 
 
   return (
     <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]">
@@ -43,12 +43,12 @@ const OurTreatment = ({ slug }) => {
             <div className="md:col-span-3 flex flex-col justify-center">
               <h2 className="min-[1300px]:text-[48px] min-[800px]:text-[34px] text-[22px] font-bold min-[1200px]:mb-8 mb-4">
                 {/* Our <span className="Text-color2 ">Treatment & Procedure</span> */}
-               <span className="Text-color2 ">{group.title}</span>
+               <span className="Text-color2 ">{slug.title}</span>
               </h2>
               {/* <h2 className="min-[1300px]:text-[48px] min-[800px]:text-[34px] text-[22px] font-bold min-[1200px]:mb-8 mb-4">
                <span className="Text-color2 ">Services & Facilities</span>
               </h2> */}
-              {group.items.map((item, index) => (
+              {slug?.content_blocks[0]?.facilitySpecialties.map((item, index) => (
                 <div key={index} className="flex pb-4">
                   <Image
                     src="/assets/dots.svg"
@@ -58,7 +58,7 @@ const OurTreatment = ({ slug }) => {
                     className="min-[1200px]:h-6 mt-[2px] min-[800px]:h-5 h-4 min-[1200px]:w-6 min-[800px]:w-5 w-4"
                   />
                   <p className="ml-3 min-[1200px]:text-[18px] min-[800px]:text-[15px] text-[13px] text-[#3A3A3A]">
-                    {item}
+                    {item?.facility?.name}
                   </p>
                 </div>
               ))}
@@ -85,7 +85,7 @@ const OurTreatment = ({ slug }) => {
                     className={`w-full px-4 bg-[#FFFFFF] py-2 rounded-[26px] border ${
                       formik.touched.fullName && formik.errors.fullName
                         ? "border-red-500"
-                        : "border-[#00ADEF]"
+                        : "border-[#DDC7E7]"
                     } focus:outline-none`}
                     placeholder="Please enter your full name"
                   />
@@ -108,7 +108,7 @@ const OurTreatment = ({ slug }) => {
                       name: "phone",
                       required: true,
                     }}
-                    inputClass="!w-full"
+                    inputClass="!w-full !h-[50px]"
                   />
                   {formik.touched.phone && formik.errors.phone && (
                     <div className="text-red-500 text-xs mt-1">
@@ -129,7 +129,7 @@ const OurTreatment = ({ slug }) => {
                     className={`w-full px-4 bg-[#FFFFFF] py-2 rounded-[26px] border ${
                       formik.touched.email && formik.errors.email
                         ? "border-red-500"
-                        : "border-[#00ADEF]"
+                        : "border-[#DDC7E7]"
                     } focus:outline-none`}
                     placeholder="mail@someemail.cl"
                   />
@@ -148,7 +148,7 @@ const OurTreatment = ({ slug }) => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.message}
-                    className="w-full px-4 py-2 bg-[#FFFFFF] rounded-[26px] border border-[#00ADEF] focus:outline-none"
+                    className="w-full px-4 py-2 bg-[#FFFFFF] rounded-[26px] border border-[#DDC7E7] focus:outline-none"
                     placeholder="Add description here..."
                     rows={3}
                   />
