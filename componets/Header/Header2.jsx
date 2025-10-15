@@ -143,7 +143,7 @@ const Header2 = () => {
           </Link>
 
           {isOpen && (
-            <div className="absolute cursor-pointer min-[1410px]:left-[520px] min-[1310px]:left-[470px] left-[400px] min-[1400px]:max-h-[600px] max-h-[500px] overflow-auto transform -translate-x-1/2 top-[68px] w-[90vw] min-[1410px]:max-w-[75vw] max-w-[80vw] bg-white rounded-[20px] shadow-2xl border border-gray-200 p-6 z-50">
+            <div className="absolute cursor-pointer min-[1410px]:left-[520px] min-[1310px]:left-[470px] left-[400px] pr-0  transform -translate-x-1/2 top-[68px] w-[90vw] min-[1410px]:max-w-[75vw] max-w-[80vw] bg-white rounded-[20px] shadow-2xl border border-gray-200 p-6 z-50">
               {renderSpecialtiesMenu(item.children)}
             </div>
           )}
@@ -239,6 +239,7 @@ const Header2 = () => {
   const renderSpecialtiesMenu = (children) => {
     return (
       <>
+      <div className="overflow-auto min-[1400px]:max-h-[600px] max-h-[500px]">
         {children.map((section, index) => (
           <div key={section.id}>
             {/* Dynamic h4 heading using the section title from API */}
@@ -248,7 +249,7 @@ const Header2 = () => {
             
             {/* Render section content based on section type */}
             {section.title === "Centers of Excellence" ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch pr-2">
                 {section.children.map((center) => (
                   <div key={center.id} className="relative" onMouseEnter={() => { setOpenCenterKey(center.id); setOpenChildSlug(null); }}>
                     <Link
@@ -306,7 +307,7 @@ const Header2 = () => {
                 ))}
               </div>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 pr-2">
                 {section.children.map((item) => (
                   <div key={item.id} className="relative">
                     {item.children && item.children.length > 0 ? (
@@ -470,6 +471,7 @@ const Header2 = () => {
             )}
           </div>
         ))}
+        </div>
       </>
     );
   };

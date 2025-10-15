@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import DynamicPageRenderer from '@/components/DynamicPageRenderer';
+import DynamicPageRenderer from '@/componets/SpecialitiesDynamicPage/DynamicPageRenderer';
 
 export async function generateMetadata({ params }) {
   const { slug, child } = await params;
