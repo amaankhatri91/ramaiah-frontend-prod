@@ -20,28 +20,28 @@ export default function DoctorDetail({ doctorEntry }) {
   return (
     <div className="">
       <DoctorHeroSection doctorEntry={doctorEntry} />
-      <div className="min-[1200px]:mt-[40px] min-[800px]:mt-[30px] mt-[18px]">
+      <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[25px]">
         <DoctorOverview doctorEntry={doctorEntry} />
       </div>
-      <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]">
+      <div className="min-[1200px]:mt-[60px] min-[800px]:mt-[40px] mt-[25px]">
         <DoctorExpertice doctorEntry={doctorEntry} />
       </div>
       <div className="">
         <FacilitiesServices slug={doctorDetailSlug} />
       </div>
-      <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]">
+      <div className="min-[1200px]:mt-[60px] min-[800px]:mt-[40px] mt-[25px]">
         <DoctorFellowships doctorEntry={doctorEntry} />
       </div>
-      <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]">
+      <div className="min-[1200px]:mt-[60px] min-[800px]:mt-[40px] mt-[25px]">
         <DoctorAwardsAccomplishment doctorEntry={doctorEntry} />
       </div>
-      <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]">
+      <div className="min-[1200px]:mt-[60px] min-[800px]:mt-[40px] mt-[25px]">
         <DoctorExperience doctorEntry={doctorEntry} />
       </div>
-      <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]">
+      <div className="min-[1200px]:mt-[60px] min-[800px]:mt-[40px] mt-[25px]">
         <DoctorMembership doctorEntry={doctorEntry} />
       </div>
-      <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]">
+      <div className="min-[1200px]:mt-[60px] min-[800px]:mt-[40px] mt-[25px]">
         <DoctorExpetsblog doctorEntry={doctorEntry} />
       </div>
     </div>

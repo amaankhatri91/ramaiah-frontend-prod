@@ -8,6 +8,7 @@ import Image from "next/image";
 
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Full Name is required"),
+  hospital: Yup.string().required("Specialty is required"),
   phone: Yup.string()
     .matches(/^[0-9+\-()\s]{7,}$/i, "Enter a valid phone number")
     .required("Phone is required"),
@@ -117,6 +118,26 @@ const AskExpertModal = ({ isOpen, onClose }) => {
           </div>
           <div>
             <label className="mb-1 block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A]">
+            Specialty<span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="hospital"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.hospital}
+              placeholder="Enter your Specialty"
+              className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none focus:border-[#305FC2] ${(formik.touched.email || formik.submitCount > 0) && formik.errors.email
+                  ? "border-red-500"
+                  : "border-[#DDC7E7]"
+                }`}
+            />
+            {(formik.touched.hospital || formik.submitCount > 0) && formik.errors.hospital && (
+              <div className="mt-1 text-xs text-red-500">{formik.errors.hospital}</div>
+            )}
+          </div>
+          {/* <div>
+            <label className="mb-1 block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A]">
               Specialty<span className="text-red-500">*</span>
             </label>
             <div className="relative w-full">
@@ -132,7 +153,7 @@ const AskExpertModal = ({ isOpen, onClose }) => {
                   } bg-[#FFFFFF] text-[#3A3A3A] focus:outline-none focus:border-[#305FC2] appearance-none`}
               >
                 {HOSPITAL_OPTIONS.map((opt) => (
-                  <option key={opt.value} value={opt.value}>
+                  <option key={opt.value} value={opt.value} className="text-[#3A3A3A] p-5">
                     {opt.label}
                   </option>
                 ))}
@@ -150,7 +171,7 @@ const AskExpertModal = ({ isOpen, onClose }) => {
             {(formik.touched.hospital || formik.submitCount > 0) && formik.errors.hospital && (
               <div className="mt-1 text-xs text-red-500">{formik.errors.hospital}</div>
             )}
-          </div>
+          </div> */}
 
           <div>
             <label className="mb-1 block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A]">

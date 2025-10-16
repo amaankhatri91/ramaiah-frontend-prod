@@ -27,9 +27,8 @@ const FacilitiesServices = ({ slug }) => {
         </div>
         <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pl-[30px] pr-[30px] md:mt-[20px] mt-[10px]">
           {slug?.content_blocks[0]?.specialties.map((feature, index) => (
-          <Link href={`/ramaiah-institute-oncosciences/${feature.slug}`}>
+          <Link key={index} href={`/ramaiah-institute-oncosciences/${feature.slug}`}>
             <div
-              key={index}
               className="text-[#FFFFFF] flex justify-center md:h-[122px] h-[80px] items-center px-4 py-6 text-center rounded-[24px] cursor-pointer transition-all duration-200 transform hover:scale-[1.02] bg-[linear-gradient(267deg,_#00ADEF_-49.54%,_#D60F8C_110.23%)]"
             >
               <p className="min-[1200px]:text-[20px] min-[800px]:text-[16px] text-[13px] font-medium">

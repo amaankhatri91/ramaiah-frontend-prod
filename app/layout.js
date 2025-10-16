@@ -110,11 +110,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
+      {/* <head>
         <link rel="icon" href="/assets/favicon-ramaiah.png" type="image/png" />
         <link rel="shortcut icon" href="/assets/favicon-ramaiah.png" type="image/png" />
         <link rel="apple-touch-icon" href="/assets/favicon-ramaiah.png" />
-      </head>
+      </head> */}
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         className={manrope.variable}

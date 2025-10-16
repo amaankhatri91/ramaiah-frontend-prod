@@ -11,6 +11,9 @@ import Overview from '@/componets/SpecialitiesPage/Overview/Overview';
 import FacilitiesServices from '@/componets/SpecialitiesPage/FacilitiesServices/FacilitiesServices';
 import OurTreatment from '@/componets/SpecialitiesPage/OurTreatment/OurTreatment';
 import OurExperts from '@/componets/SpecialitiesPage/OurExperts/OurExperts';
+import { SpecialitiesServicesPart } from '../SpecialitiesPage/SpecialitiesServicesPart/SpecialitiesServicesPart';
+import InternationalPatientServices from '../InternationalPatientsPage/InternationalPatientServices/InternationalPatientServices';
+import WhyChoose from '../InternationalPatientsPage/WhyChoose/WhyChoose';
 
 const DynamicPageRenderer = ({ slug, child, grandchild }) => {
   const dispatch = useDispatch();
@@ -78,6 +81,54 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
       }
     }
   }, [navigationData, slug, child, grandchild]);
+
+    // useEffect for International Patient Care pages
+    useEffect(() => {
+      if (slug === 'international-patient-care' && navigationData?.data?.[0]?.items) {
+        const findPageData = (items, targetSlug, targetChild = null, targetGrandchild = null) => {
+          for (const item of items) {
+            // Check if this is the target slug
+            if (item.slug === targetSlug || item.page?.slug === targetSlug) {
+              if (!targetChild) {
+                return item;
+              }
+              
+              // Look for child
+              if (item.children) {
+                for (const childItem of item.children) {
+                  if (childItem.slug === targetChild || childItem.page?.slug === targetChild) {
+                    if (!targetGrandchild) {
+                      return { ...childItem, parent: item };
+                    }
+                    
+                    // Look for grandchild
+                    if (childItem.children) {
+                      for (const grandchildItem of childItem.children) {
+                        if (grandchildItem.slug === targetGrandchild || grandchildItem.page?.slug === targetGrandchild) {
+                          return { ...grandchildItem, parent: childItem, grandparent: item };
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          return null;
+        };
+  
+        // Search through main navigation items for International Patient Care
+        let data = null;
+        data = findPageData(navigationData.data[0].items, slug, child, grandchild);
+        
+        setPageData(data);
+        
+        // Make API call if pageData has page.id
+        if (data && data.page && data.page.id) {
+          fetchSectionData(data.page.id);
+        }
+      }
+    }, [navigationData, slug, child, grandchild]);
 
   // Function to fetch section data using page.id
   const fetchSectionData = async (pageId) => {
@@ -231,7 +282,7 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
         </div>
       );
     }
-
+// console.log("pageData?.page?.id",pageData.slug)
     // Handle institute pages (like ramaiah-institute-oncosciences)
     if (pageData?.page?.id) {
       return (
@@ -250,6 +301,32 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
               </div>
             ))
           }
+          {/* international patient care pages */}
+          {/* <div className='min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]'>
+                  {sectionData?.data?.map((item) => (
+               <div key={item.id}>
+                 {
+                     item.title === "International Patient Service" && (
+                         <div>
+                            <InternationalPatientServices slug={item} />
+                        </div>
+                    )
+                 }
+                
+               </div>
+             ))}
+          </div>
+          <div className='min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]'>
+            {sectionData?.data?.map((item) => (
+              <div key={item.id}>
+                {item.title === "Why Choose RMH" && (
+                  <div>
+                    <WhyChoose slug={item} />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div> */}
         <div className="">
           <div className='min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]'>
           {
@@ -259,6 +336,22 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
                     item.title === "Overview" && (
                         <div>
                            <Overview slug={item} />
+                        </div>
+                    )
+                }
+                
+              </div>
+            ))
+          }
+          </div>
+          <div className='min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]'>
+          {
+            sectionData?.data?.map((item) => (
+              <div key={item.id}>
+                {
+                    item.title === "Our Foucs Areas" && (
+                        <div>
+                           <SpecialitiesServicesPart slug={item} />
                         </div>
                     )
                 }
@@ -320,6 +413,41 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
         </div>
       );
     }
+
+    // Handle international-patient-care pages
+    // if (pageData?.slug === 'international-patient-care' && pageData?.page?.id) {
+    //   return (
+    //     <div>
+    //       {sectionData?.data?.map((item) => (
+    //           <div key={item.id}>
+    //             {
+    //                 item.title === "Hero" && (
+    //                     <div>
+    //                        {/* <SpecialitiesHeroSection slug={item} /> */}
+    //                     </div>
+    //                 )
+    //             }
+                
+    //           </div>
+    //         ))}
+    //         <div>
+    //         {sectionData?.data?.map((item) => (
+    //           <div key={item.id}>
+    //             {
+    //                 item.title === "International Patient Service" && (
+    //                     <div>
+    //                      { console.log("item>>>>>>",item)}
+    //                        <InternationalPatientServices slug={item} />
+    //                     </div>
+    //                 )
+    //             }
+                
+    //           </div>
+    //         ))}
+    //         </div>
+    //     </div>
+    //   )
+    // }
 
     // For all other routes, return not found
     return (

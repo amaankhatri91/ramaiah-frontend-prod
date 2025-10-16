@@ -4,7 +4,7 @@ import { contentBlocks } from "@/componets/ServiceData/Overview";
 
 const Overview = ({ slug }) => {
   // const block = contentBlocks.find((b) => b.slug === slug);
-  console.log("slug>>>>>>",slug)
+  // console.log("slug>>>>>>",slug)
 
   if (!slug?.content_blocks?.length) return null;
   const advantages = [
@@ -15,8 +15,8 @@ const Overview = ({ slug }) => {
   ];
 
   return (
-    <div className="container bg-[radial-gradient(247.77%_202.26%_at_46.45%_-32.32%,#FFF_33.84%,#EEF9FF_97.64%)] shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-[25px] rounded-[40px]">
-      <div className="min-[1200px]:py-[20px] min-[800px]:py-[15px] py-[10px]">
+    <div className="container bg-[radial-gradient(247.77%_202.26%_at_46.45%_-32.32%,#FFF_33.84%,#EEF9FF_97.64%)] shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-[25px] pt-[15px] rounded-[40px]">
+      <div className="pb-[10px]">
         <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[25px] text-[22px] font-bold text-[#3D3D3D]">
           {slug?.content_blocks?.[0]?.title}
         </h2>

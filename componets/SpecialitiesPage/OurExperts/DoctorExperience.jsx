@@ -22,7 +22,7 @@ const DoctorExperience = ({ doctorEntry }) => {
 
   return (
     <div className="container md:col-span-3 flex flex-col justify-center">
-      <h2 className="min-[1300px]:text-[48px] min-[800px]:text-[34px] text-[22px] font-bold min-[1200px]:mb-8 mb-4">
+      <h2 className="min-[1300px]:text-[48px] min-[800px]:text-[34px] text-[22px] font-bold min-[1200px]:mb-4 mb-4">
         <span className="Text-color2 ">Experience</span>
       </h2>
       {items.map((text, idx) => (

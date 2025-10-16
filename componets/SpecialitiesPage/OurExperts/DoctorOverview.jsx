@@ -35,8 +35,8 @@ export default function DoctorOverview({ doctorEntry }) {
     : defaultParagraphs;
 
   return (
-    <div className="container bg-[radial-gradient(247.77%_202.26%_at_46.45%_-32.32%,#FFF_33.84%,#EEF9FF_97.64%)] shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-[25px] rounded-[40px]">
-      <div className="min-[1200px]:py-[20px] min-[800px]:py-[15px] py-[10px]">
+    <div className="container bg-[radial-gradient(247.77%_202.26%_at_46.45%_-32.32%,#FFF_33.84%,#EEF9FF_97.64%)] shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-[25px] pt-[10px] rounded-[40px]">
+      <div className="pb-[10px]">
         <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[25px] text-[22px] font-bold text-[#3D3D3D]">
           Overview
         </h2>
