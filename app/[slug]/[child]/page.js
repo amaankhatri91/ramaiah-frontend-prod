@@ -1,13 +1,10 @@
 import { notFound } from 'next/navigation';
 import DynamicPageRenderer from '@/componets/SpecialitiesDynamicPage/DynamicPageRenderer';
+import { generateDynamicSEOMetadata } from '@/lib/seoUtils';
 
 export async function generateMetadata({ params }) {
   const { slug, child } = await params;
-  
-  return {
-    title: `${child.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} - ${slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} | Ramaiah Memorial Hospital`,
-    description: `Learn more about ${child.replace(/-/g, ' ')} under ${slug.replace(/-/g, ' ')} at Ramaiah Memorial Hospital`,
-  };
+  return await generateDynamicSEOMetadata(slug, child);
 }
 
 export async function generateStaticParams() {

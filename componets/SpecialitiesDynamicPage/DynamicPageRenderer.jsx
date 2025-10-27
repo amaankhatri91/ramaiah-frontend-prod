@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchNavigationMenu } from '@/lib/slices/navigationSlice';
 import { notFound } from 'next/navigation';
+import Head from 'next/head';
 
 // Import OurSpecialistPage component
 import OurSpecialistPage from '@/componets/OurSpecialist/OurSpecialistPage/OurSpecialistPage';
@@ -458,8 +459,64 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
     );
   };
 
+  // Generate structured data for SEO
+  const generateStructuredData = () => {
+    if (!pageData) return null;
+
+    const baseUrl = "https://msrmh.com";
+    let canonical = `/${slug}`;
+    if (child) canonical += `/${child}`;
+    if (grandchild) canonical += `/${grandchild}`;
+
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "name": "Ramaiah Memorial Hospital",
+      "url": `${baseUrl}${canonical}`,
+      "description": pageData.page?.description || pageData.description || `Medical services at Ramaiah Memorial Hospital`,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "India"
+      },
+      "telephone": "+91-80-2360-8888",
+      "email": "info@msrmh.com",
+      "sameAs": [
+        "https://www.facebook.com/MSRamaiahMemorialHospital",
+        "https://twitter.com/MSRMHOfficial"
+      ]
+    };
+
+    // Add specific structured data based on page type
+    if (slug === 'our-specialist') {
+      structuredData["@type"] = "MedicalSpecialty";
+      structuredData.name = pageData.title || pageData.page?.title || "Our Specialists";
+    } else if (slug === 'centers-of-excellence') {
+      structuredData["@type"] = "MedicalOrganization";
+      structuredData.name = "Centers of Excellence - Ramaiah Memorial Hospital";
+    } else if (slug === 'international-patient-care') {
+      structuredData["@type"] = "MedicalOrganization";
+      structuredData.name = "International Patient Care - Ramaiah Memorial Hospital";
+    }
+
+    return structuredData;
+  };
+
+  const structuredData = generateStructuredData();
+
   return (
     <div>
+      {structuredData && (
+        <Head>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(structuredData)
+            }}
+          />
+        </Head>
+      )}
       {renderPageContent()}
     </div>
   );
