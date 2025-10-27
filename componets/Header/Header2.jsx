@@ -251,7 +251,12 @@ const Header2 = () => {
             {section.title === "Centers of Excellence" ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 items-stretch pr-2">
                 {section.children.map((center) => (
-                  <div key={center.id} className="relative" onMouseEnter={() => { setOpenCenterKey(center.id); setOpenChildSlug(null); }}>
+                  <div 
+                    key={center.id} 
+                    className="relative" 
+                    onMouseEnter={() => { setOpenCenterKey(center.id); setOpenChildSlug(null); }}
+                    onMouseLeave={() => { setOpenCenterKey(null); setOpenChildSlug(null); }}
+                  >
                     <Link
                       href={generateUrl(center)}
                       className="cursor-pointer w-full h-full flex items-center justify-between px-3 py-[14px] text-left text-[#3D3D3D] rounded-[18px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] hover:text-[#e14b8b] text-[12px] min-[1190px]:text-[16px]  font-medium"
@@ -280,7 +285,7 @@ const Header2 = () => {
                                   <Image src="/assets/ramhaiyaison.svg" alt="icon" width={16} height={16} className="w-[16px] h-[16px]" />
                                   {child.title}
                                 </span>
-                                {child.children && (
+                                {child.children && child.children.length > 0 && (
                                   openChildSlug === child.id ? <IoIosArrowDown /> : <IoIosArrowForward />
                                 )}
                               </button>
@@ -377,9 +382,6 @@ const Header2 = () => {
                                   <Image src="/assets/ramhaiyaison.svg" alt="icon" width={16} height={16} className="w-[16px] h-[16px]" />
                                   {child.title}
                                 </span>
-                                {child.children && (
-                                  openOtherChildSlug === child.id ? <IoIosArrowDown /> : <IoIosArrowForward />
-                                )}
                               </button>
                               {child.children && openOtherChildSlug === child.id && (
                                 <div className="mt-2 ml-6 p-2">
@@ -434,9 +436,6 @@ const Header2 = () => {
                                   <Image src="/assets/ramhaiyaison.svg" alt="icon" width={16} height={16} className="w-[16px] h-[16px]" />
                                   {child.title}
                                 </span>
-                                {child.children && (
-                                  openBroadChildSlug === child.id ? <IoIosArrowDown /> : <IoIosArrowForward />
-                                )}
                               </button>
                               {child.children && openBroadChildSlug === child.id && (
                                 <div className="mt-2 ml-6 p-2">

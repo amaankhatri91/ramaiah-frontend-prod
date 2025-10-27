@@ -101,7 +101,19 @@ const ServiceGrid = () => {
                 height={64}
                 className="mx-auto mb-4 h-[64px] w-[64px]"
               />
-              <h3 className="text-[#3D3D3D] min-[800px]:text-[16px] text-[14px] font-semibold">{service.title}</h3>
+                 <h3 className="text-[#3D3D3D] min-[800px]:text-[16px] px-[16px] text-[14px] font-semibold">
+                   {service.title.includes('(') ? (
+                     <>
+                       {service.title.split('(')[0].trim()}
+                       <br />
+                       {/* ({service.title.split('(')[1]} */}
+                       <span className="text-[#777777] font-semibold">({service.title.split('(')[1]}</span>
+                     </>
+                   ) : (
+                     service.title
+                   )}
+                 </h3>
+              {/* <h3 className={`text-[#3D3D3D] min-[800px]:text-[16px] text-[14px] font-semibold ${index === 0 ? 'px-[29px]' : index === 1 ? 'px-[26px]' : ''}`}>{service.title}</h3> */}
               {service.subtitle && (
                 <p className="min-[800px]:text-[16px] text-[14px] font-semibold text-[#777] mt-1">{service.subtitle}</p>
               )}

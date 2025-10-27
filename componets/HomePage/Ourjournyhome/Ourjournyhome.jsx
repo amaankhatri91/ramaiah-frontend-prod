@@ -24,6 +24,16 @@ const Ourjournyhome = ({ slug }) => {
     const fallbackContent = "We are always indebted to Our Founder DR. M S Ramaiah, a visionary who built Institutions that redefined learning. It was his dream to impart Technical and Medical education to all, that made him establish two prestigious institutions, M S Ramaiah Institute of Technology (1962) and Ramaiah Medical College (1979). These are presently considered major hubs for education in the country. He believed that investment in education was the way forward for the development & progress of the nation. His thoughts & spirit have been the driving force for the Ramaiah Group of Institutions to uphold his values and spiritual thoughts for the future. Dr.M S Ramaiah said What we have done for ourselves alone, dies with us. What we have done for others and the world remains, and is immortal.His vision was to build numerous educational institutions which paved the way for us in building the nation. Today under the umbrella of the Ramaiah Group there are more than 30 educational institutions. One of his dream projects was to establish a hospital that delivered high-quality healthcare to all sections of society at an affordable cost in the most ethical way. In 2004, this dream transformed to the establishment of Ramaiah Memorial Hospital.";
     const fallbackImage = "/assets/sardarrahmaih.svg";
 
+
+    const processContent = (content) => {
+        if (!content) return ''
+        
+        // Add custom classes to paragraphs
+        return content
+            .replace(/<p([^>]*)>/gi, '<p$1 class="custom-paragraph">')
+            .replace(/<h([1-6])([^>]*)>/gi, '<h$1$2 class="custom-heading">')
+    }
+
     return (
         <div className="container min-[1300px]:pt-[100px] min-[800px]:pt-[50px] pt-[30px]">
             {/* <div className="min-[1200px]:py-[20px] min-[800px]:py-[15px] py-[10px]">
@@ -43,12 +53,18 @@ const Ourjournyhome = ({ slug }) => {
                     >
                         {journeySection?.content_blocks[1]?.content }
                     </p> */}
-                    <div
+                    {/* <div
                         className="text-[#414049] min-[1200px]:text-[16px] min-[800px]:text-[14px] font-medium text-[13px] space-y-4"
                         dangerouslySetInnerHTML={{ 
                             __html: journeySection?.content_blocks[1]?.content || '' 
                         }}
-                    />
+                    /> */}
+                    <div
+    className="journey-content"
+    dangerouslySetInnerHTML={{ 
+        __html: processContent(journeySection?.content_blocks[1]?.content) 
+    }}
+/>
 
                 </div>
 

@@ -141,7 +141,7 @@ export default function StoryAccreditations() {
                     alt={item.alt}
                     width={120}
                     height={120}
-                    className="w-[80px] h-[80px] md:w-[140px] md:h-[140px]"
+                    className="w-[100px] h-[100px] md:w-[160px] md:h-[160px]"
                   />
                 </div>
               ))}

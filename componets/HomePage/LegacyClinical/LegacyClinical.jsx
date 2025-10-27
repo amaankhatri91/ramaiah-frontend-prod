@@ -31,12 +31,14 @@ const LegacyClinical = () => {
             bg-[radial-gradient(247.77%_202.26%_at_46.45%_-32.32%,_#FFF_33.84%,_#EEF9FF_97.64%)] 
             shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-[25px]">
           <div className="flex flex-col justify-center">
-            <h2 className="min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[28px] font-bold leading-tight md:text-left text-center">
+            {/* <h2 className="min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[28px] font-bold leading-tight md:text-left text-center">
               <span className="Text-color">{legacySection?.content_blocks[0]?.title }</span>
-            </h2>
-            <p className="mt-[20px] text-[#3D3D3D] min-[1200px]:text-[16px] text-[13px] font-normal leading-relaxed">
+            </h2> */}
+            <h2 className="min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[28px] font-bold leading-tight md:text-left text-center text-[#3D3D3D]" dangerouslySetInnerHTML={{ __html: legacySection?.content_blocks[0]?.title }} />
+            <div className="mt-[20px] text-[#3D3D3D] min-[1200px]:text-[16px] text-[13px] font-normal leading-relaxed mb-[10px]" dangerouslySetInnerHTML={{ __html: legacySection?.content_blocks[1]?.content }} />
+            {/* <p className="mt-[20px] text-[#3D3D3D] min-[1200px]:text-[16px] text-[13px] font-normal leading-relaxed">
               {legacySection?.content_blocks[1]?.content}
-            </p>
+            </p> */}
             {/* <div className="min-[1264px]:mt-5 mt-3 min-[1200px]:mb-[24px] min-[800px]:mb-[18px] mb-[14px]">
               <button className="flex cursor-pointer items-center Background-color text-white px-6 py-2 rounded-full font-medium shadow hover:opacity-90 transition-all">
                 Book Appointment

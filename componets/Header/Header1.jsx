@@ -64,9 +64,9 @@ const Header1 = () => {
                 <p className="min-[1260px]:text-[14px] font-manrope text-[12px] text-[#3D3D3D] mr-[12px] font-bold">
                   {headerData.generalEnquiries.label}
                 </p>
-                <p className="min-[1260px]:text-[14px] text-[10px] text-[#3D3D3D] font-extrabold mr-[12px]">
+                <a href={`tel:${headerData.generalEnquiries.number.replace(/\s/g, '')}`} className="min-[1260px]:text-[14px] text-[10px] text-[#3D3D3D] font-extrabold mr-[12px]">
                   {headerData.generalEnquiries.number}
-                </p>
+                </a>
               </div>
             </div>
             <div className="xl:py-[8px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
@@ -74,9 +74,9 @@ const Header1 = () => {
                 <p className="min-[1260px]:text-[14px] text-[12px] text-[#3D3D3D] font-bold mr-[12px]">
                   {headerData.emergencyNumber.label}
                 </p>
-                <p className="min-[1260px]:text-[14px] text-[12px] text-[#3D3D3D] font-extrabold mr-[12px]">
+                <a href={`tel:${headerData.emergencyNumber.number.replace(/\s/g, '')}`} className="min-[1260px]:text-[14px] text-[12px] text-[#3D3D3D] font-extrabold mr-[12px]">
                   {headerData.emergencyNumber.number}
-                </p>
+                </a>
               </div>
             </div>
             <div className="xl:py-[8px] lg:py-[18px] md:py-[16px] py-[10px] flex items-center">
@@ -84,9 +84,9 @@ const Header1 = () => {
                 <p className="min-[1260px]:text-[14px] text-[12px] text-[#3D3D3D] font-bold">
                   {headerData.preBookAppointments.label}
                 </p>
-                <p className="min-[1260px]:text-[14px] text-[12px] text-[#3D3D3D] font-extrabold">
+                <a href={`tel:${headerData.preBookAppointments.number.replace(/\s/g, '')}`} className="min-[1260px]:text-[14px] text-[12px] text-[#3D3D3D] font-extrabold">
                   {headerData.preBookAppointments.number}
-                </p>
+                </a>
               </div>
             </div>
           </div>

@@ -303,7 +303,7 @@ const DoctorSpeak = () => {
               >
                 <video
                   ref={doctorVideoRef}
-                  src="https://www.w3schools.com/html/mov_bbb.mp4"
+                  // src="https://www.w3schools.com/html/mov_bbb.mp4"
                   muted
                   loop
                   playsInline
@@ -430,7 +430,7 @@ const DoctorSpeak = () => {
               >
                 <video
                   ref={patientVideoRef}
-                  src="https://www.w3schools.com/html/mov_bbb.mp4"
+                  // src="https://www.w3schools.com/html/mov_bbb.mp4"
                   muted
                   loop
                   playsInline

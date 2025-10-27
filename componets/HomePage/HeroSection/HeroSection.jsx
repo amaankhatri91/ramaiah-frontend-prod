@@ -227,7 +227,7 @@ const HeroSection = () => {
                       className="text-[28px] min-[1080px]:text-[45px] min-[1507px]:text-[59px] font-bold text-[#3D3D3D] leading-tight"
                       dangerouslySetInnerHTML={{ __html: slide.title }}
                     />
-                    <p className="Text-color2 font-bold text-[20px] min-[1080px]:text-[40px] min-[1507px]:text-[45px] mt-4">
+                    <p className="Text-color2 font-bold text-[20px] min-[1080px]:text-[40px] min-[1507px]:text-[55px] mt-4">
                       {slide.hashtag}
                     </p>
                     {/* <button className="mt-6 text-[#FFFFFF] Background-color cursor-pointer px-6 py-3 rounded-full min-[1024px]:text-[16px] text-[14px] font-medium shadow hover:opacity-90 transition-all">
