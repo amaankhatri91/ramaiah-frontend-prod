@@ -30,7 +30,7 @@ const WhyChoose = ({ slug }) => {
   return (
     <div className="container bg-[linear-gradient(84deg,#F2D5CF_0%,#E2EEFE_100%)] shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] min-[1024px]:p-[40px] p-[25px] rounded-[32px]">
       <div className="min-[1200px]:py-[10px] py-[6px]">
-        <h2 className="text-[#3D3D3D] min-[1200px]:text-[28px] min-[800px]:text-[22px] text-[18px] font-bold">
+        <h2 className="text-[#3D3D3D] min-[1200px]:text-[40px] min-[800px]:text-[25px] text-[18px] font-bold">
           {/* Why Choose <span className="Text-color2">RMH</span> */}
           {slug?.title}
         </h2>

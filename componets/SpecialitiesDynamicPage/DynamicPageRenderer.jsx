@@ -15,6 +15,10 @@ import OurExperts from '@/componets/SpecialitiesPage/OurExperts/OurExperts';
 import { SpecialitiesServicesPart } from '../SpecialitiesPage/SpecialitiesServicesPart/SpecialitiesServicesPart';
 import InternationalPatientServices from '../InternationalPatientsPage/InternationalPatientServices/InternationalPatientServices';
 import WhyChoose from '../InternationalPatientsPage/WhyChoose/WhyChoose';
+import ExclusiveServices from '../InternationalPatientsPage/ExclusiveServices/ExclusiveServices';
+import PreDeparture from '../InternationalPatientsPage/Pre-Departure/PreDeparture';
+import TravelAccommodation from '../InternationalPatientsPage/Travel&Accommodation/TravelAccommodation';
+import ContactDetails from '../InternationalPatientsPage/ContactDetails/ContactDetails';
 
 const DynamicPageRenderer = ({ slug, child, grandchild }) => {
   const dispatch = useDispatch();
@@ -303,7 +307,7 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
             ))
           }
           {/* international patient care pages */}
-          {/* <div className='min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]'>
+          <div className='min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]'>
                   {sectionData?.data?.map((item) => (
                <div key={item.id}>
                  {
@@ -327,7 +331,51 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
                 )}
               </div>
             ))}
-          </div> */}
+          </div>
+          <div className='min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]'>
+            {sectionData?.data?.map((item) => (
+              <div key={item.id}>
+                {item.title === "Exclusive Services For Our International Patients" && (
+                  <div>
+                    <ExclusiveServices slug={item} />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className='min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]'>
+            {sectionData?.data?.map((item) => (
+              <div key={item.id}>
+                {item.title === "Pre-Departure Services" && (
+                  <div>
+                    <PreDeparture slug={item} />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className='min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]'>
+            {sectionData?.data?.map((item) => (
+              <div key={item.id}>
+                {item.title === "Travel & Accommodation" && (
+                  <div>
+                    <TravelAccommodation slug={item} />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className='min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]'>
+            {sectionData?.data?.map((item) => (
+              <div key={item.id}>
+                {item.title === "Contact Details" && (
+                  <div>
+                    <ContactDetails slug={item} />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         <div className="">
           <div className='min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]'>
           {

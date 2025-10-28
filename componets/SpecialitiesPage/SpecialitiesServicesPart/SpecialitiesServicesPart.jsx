@@ -24,7 +24,7 @@ export const SpecialitiesServicesPart = ({ slug }) => {
            {slug?.content_blocks[0]?.statistics.map((feature, index) => (
              <div
                key={index}
-               className="bg-white text-[#3A3A3A] hover:text-white flex justify-center items-center px-4 py-6 text-center rounded-[24px] cursor-pointer transition-all duration-200 transform hover:scale-[1.02] hover:bg-gradient-to-r from-[#00ADEF] via-[#8F4FBF] to-[#D60F8C]"
+               className="bg-white text-[#3A3A3A] hover:text-white h-[122px] flex justify-center items-center px-4 py-6 text-center rounded-[24px] cursor-pointer transition-all duration-200 transform hover:scale-[1.02] hover:bg-gradient-to-r from-[#00ADEF] via-[#8F4FBF] to-[#D60F8C]"
              >
                <p className="min-[1200px]:text-[20px] min-[800px]:text-[16px] text-[13px] font-medium">
                {feature.statistic_text}

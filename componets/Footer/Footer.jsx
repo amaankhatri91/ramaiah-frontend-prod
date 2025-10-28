@@ -9,6 +9,8 @@ import { fetchFooterData } from "../../lib/slices/footerSlice";
 
 // Helper function to get content by title from a category
 const getContentByTitle = (contents, title) => {
+  // console.log("contents>>>>>>",contents)
+  // console.log("title>>>>>>",title)
   return contents?.find(content => content.title === title);
 };
 
@@ -28,6 +30,7 @@ const getSocialLinks = (contents) => {
   const socialTitles = ['facebook', 'instagram', 'linkedin', 'x social icon', 'youtube'];
   return socialTitles.map(title => {
     const content = getContentByTitle(contents, title);
+    // console.log("content>>>>>>",content)
     return content ? {
       title: title,
       url: content.url,
@@ -258,14 +261,17 @@ const Footer = () => {
             </div>
             
             {/* Social Links */}
+            {console.log("socialLinks>>>>>>",socialLinks)}
             <div className="flex gap-3 flex-wrap">
               {socialLinks.map((social, i) => (
+                
                 <Link
                   key={i}
-                  href="#"
+                  href={social.url}
                   aria-label={social.alt}
                   className="no-underline hover:no-underline"
                 >
+                  {console.log("social>>>>>>",social)}
                   <div className="h-[50px] w-[50px] bg-white rounded-full flex items-center justify-center">
                     <Image
                       src={getImageUrl(social.url)}

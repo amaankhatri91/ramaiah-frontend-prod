@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 
 const InternationalPatientServices = ({ slug }) => {
-  console.log("slug>>>>>>",slug)
+  // console.log("slug>>>>>>",slug)
   if(!slug?.content_blocks?.length) return null;
   return (
     <div className="container bg-[radial-gradient(247.77%_202.26%_at_46.45%_-32.32%,#FFF_33.84%,#EEF9FF_97.64%)] shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-[25px] rounded-[40px]">
@@ -11,10 +11,10 @@ const InternationalPatientServices = ({ slug }) => {
           Overview
         </h2>
       </div> */}
-      <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8 gap-6">
         {/* Text Content with Scroll */}
         <div className="md:col-span-7 md:order-1 order-2 h-full md:max-h-[380px] overflow-y-auto pr-4 pb-2 space-y-4">
-            <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D]">{slug?.content_blocks?.[0]?.title}</h2>
+            <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[30px] text-[22px] font-bold text-[#3D3D3D]">{slug?.title}</h2>
           <p className="text-[#414049] min-[1200px]:text-[16px] min-[800px]:text-[14px] text-[13px] font-medium">
             {slug?.content_blocks?.[0]?.content}
           </p>
