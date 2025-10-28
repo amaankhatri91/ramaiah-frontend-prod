@@ -5,12 +5,12 @@ import Image from "next/image";
 
 const Counter = ({ value, start }) => {
   const [count, setCount] = useState(0);
-  const isMillion = value.includes("M");
-  const hasPlus = value.includes("+");
-  const isStatic = value === "NABH & NABL";
+  const isMillion = value?.includes("M") || false;
+  const hasPlus = value?.includes("+") || false;
+  const isStatic = value === "NABH & NABL" || value === null || value === undefined;
 
   useEffect(() => {
-    if (!start || isStatic) return;
+    if (!start || isStatic || !value) return;
 
     const number = parseFloat(value.replace(/[^\d.]/g, ""));
     const duration = 2000;
@@ -31,18 +31,21 @@ const Counter = ({ value, start }) => {
     return () => clearInterval(interval);
   }, [start, value, isStatic]);
 
-  if (isStatic) return <span>{value}</span>;
+  if (isStatic) return <span>{value || "NABH & NABL"}</span>;
 
   return (
     <span>
-      {isMillion ? count.toFixed(1) : Math.floor(count)}
+      {isMillion ? count.toFixed(1) : count % 1 === 0 ? Math.floor(count) : count.toFixed(1)}
       {isMillion ? "M" : ""}
       {hasPlus ? "+" : ""}
     </span>
   );
 };
 
-const RamaiahMemorial = () => {
+const RamaiahMemorial = ({ slug }) => {
+  if(!slug?.content_blocks?.length) return null;
+  const content_blocks = slug?.content_blocks;
+  
   const [startCount, setStartCount] = useState(false);
   const statsRef = useRef(null);
 
@@ -88,40 +91,43 @@ const RamaiahMemorial = () => {
         }}
       >
         <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[30px] min-[580px]:text-[25px] text-[22px] font-bold text-[#3D3D3D]">
-          Ramaiah Memorial <span className="Text-color2">Hospital</span>,
-          Bengaluru
+          {/* Ramaiah Memorial <span className="Text-color2">Hospital</span>,
+          Bengaluru */}
+          {slug?.title}
         </h2>
         <p className="mt-2 text-[#414049] min-[1400px]:text-[16px] text-[14px] font-medium">
-          Has touched more than a million lives
+          {/* Has touched more than a million lives */}
+          {slug?.content_blocks[0]?.content}
         </p>
 
-        <div className="min-[1200px]:mt-10 mt-5 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {stats.map((item, idx) => (
+        <div className="min-[1200px]:mt-10 mt-5 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {content_blocks[0]?.statistics?.map((item, idx) => (
             <div
               key={idx}
               className="flex items-center border w-full py-[24px] min-[1298px]:px-[24px] px-[12px] border-purple-200 rounded-[24px] shadow-sm mx-auto bg-white hover:shadow-md transition"
             >
+              {/* {console.log("item???",item)} */}
               <div>
                 <Image
-                  src={item.icon}
-                  alt={item.label}
+                  src={item?.statistics_image}
+                  alt={item?.label}
                   height={56}
                   width={56}
-                  className="h-full w-full"
+                  className="h-[75px] w-[75px]"
                 />
               </div>
               <div className="ml-[16px]">
                 <div
                   className={`text-left font-bold text-[#3D3D3D] ${
-                    item.value === "NABH & NABL"
-                      ? "min-[1298]:text-[20px] text-[18px]"
-                      : "min-[1298]:text-[40px] text-[30px]"
-                  }`}
+                    item.statistic_text === "NABH & NABL"
+                      ? "min-[1298px]:text-[22px] min-[882px]:text-[16px] text-[16px]"
+                      : "min-[1298px]:text-[37px] min-[882px]:text-[30px] text-[25px]"
+                  } ${item.label === "Accredited" ? "mb-[10px] mt-[10px]" : ""}`}
                 >
-                  <Counter value={item.value} start={startCount} />
+                  <Counter value={item?.number} start={startCount} />
                 </div>
-                <div className="text-sm text-[#3A3A3A] font-medium text-left">
-                  {item.label}
+                <div className="min-[1298px]:text-[20px] min-[882px]:text-[16px] text-[16px] text-[#3A3A3A] font-medium text-left">
+                  {item?.label}
                 </div>
               </div>
             </div>

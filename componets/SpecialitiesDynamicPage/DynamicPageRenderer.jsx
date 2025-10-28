@@ -19,6 +19,7 @@ import ExclusiveServices from '../InternationalPatientsPage/ExclusiveServices/Ex
 import PreDeparture from '../InternationalPatientsPage/Pre-Departure/PreDeparture';
 import TravelAccommodation from '../InternationalPatientsPage/Travel&Accommodation/TravelAccommodation';
 import ContactDetails from '../InternationalPatientsPage/ContactDetails/ContactDetails';
+import RamaiahMemorial from '../HomePage/RamaiahMemorial/RamaiahMemorial';
 
 const DynamicPageRenderer = ({ slug, child, grandchild }) => {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (navigationData?.data?.[0]?.items[2]?.children) {
+    if (navigationData?.data?.[0]?.items?.[2]?.children) {
       const findPageData = (items, targetSlug, targetChild = null, targetGrandchild = null) => {
         for (const item of items) {
           // Check if this is the target slug
@@ -71,7 +72,7 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
 
       // Search through all navigation items (not just index 2)
       let data = null;
-      for (const navItem of navigationData.data[0].items[2]?.children) {
+      for (const navItem of navigationData.data[0].items[2]?.children || []) {
         if (navItem.children) {
           data = findPageData(navItem.children, slug, child, grandchild);
           if (data) break;
@@ -148,9 +149,6 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
       }
       
       const apiUrl = `${apiBaseUrl}/home/sections/${pageId}`;
-      
-      console.log('Making API call to:', apiUrl);
-      
       const response = await fetch(apiUrl, {
         method: 'GET',
         headers: {
@@ -371,6 +369,17 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
                 {item.title === "Contact Details" && (
                   <div>
                     <ContactDetails slug={item} />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className='min-[1200px]:mt-[20px] min-[800px]:mt-[10px] mt-[5px]'>
+            {sectionData?.data?.map((item) => (
+              <div key={item.id}>
+                {item.title === "Ramaiah Memorial Hospital, Bengaluru" && (
+                  <div>
+                    <RamaiahMemorial slug={item} />
                   </div>
                 )}
               </div>

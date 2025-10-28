@@ -37,7 +37,8 @@ const PreDeparture = ({ slug }) => {
     <div className="container">
       <div>
         <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[35px] text-[22px] text-[#3D3D3D] font-bold">
-          <span className="Text-color2">Pre-Departure </span> Services
+          {/* <span className="Text-color2">Pre-Departure </span> Services */}
+          {slug?.title}
         </h2>
       </div>
 

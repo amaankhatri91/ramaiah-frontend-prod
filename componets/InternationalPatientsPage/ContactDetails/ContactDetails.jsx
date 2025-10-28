@@ -55,7 +55,8 @@ const ContactDetails = ({ slug }) => {
         <div className="mb-6">
           <div className="">
             <h2 className="min-[1300px]:text-[48px] min-[800px]:text-[34px] text-[22px] font-bold min-[1200px]:mb-8 mb-4 text-[#3D3D3D]">
-              <span className="Text-color2 ">Contact</span> Details
+              {/* <span className="Text-color2 ">Contact</span> Details */}
+              {slug?.title}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 items-stretch min-[1200px]:gap-10 min-[800px]:gap-7 gap-5">

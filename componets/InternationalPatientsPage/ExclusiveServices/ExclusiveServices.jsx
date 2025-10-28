@@ -27,11 +27,12 @@ const ExclusiveServices = ({ slug }) => {
   return (
     <div className="container">
       <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[35px] text-[22px] text-[#3D3D3D] font-bold">
-        <span className="Text-color2">Exclusive Services</span> For Our{" "}
-        <span className="Text-color2">International Patients</span>
+        {/* <span className="Text-color2">Exclusive Services</span> For Our{" "}
+        <span className="Text-color2">International Patients</span> */}
+        {slug?.title}
       </h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-10 md:gap-x-16 gap-y-4 md:gap-y-6 mt-6 md:mt-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-10 gap-3.5 mt-6 md:mt-8">
         {/* Left column */}
         <div className="space-y-3 md:space-y-4">
           {leftServices.map((text, idx) => (
@@ -44,7 +45,7 @@ const ExclusiveServices = ({ slug }) => {
                 className="mt-[2px] w-3.5 h-3.5 min-[800px]:w-4 min-[800px]:h-4 min-[1200px]:w-5 min-[1200px]:h-5"
                 priority
               />
-              <p className="min-[1200px]:text-[18px] min-[800px]:text-[16px] text-[13px] text-[#3A3A3A] mb-2 font-medium leading-snug">
+              <p className="min-[1200px]:text-[18px] min-[800px]:text-[16px] text-[13px] text-[#3A3A3A] md:mb-3 mb-1 font-medium leading-snug">
                 {text.title}
               </p>
             </div>
@@ -63,7 +64,7 @@ const ExclusiveServices = ({ slug }) => {
                 className="mt-[2px] w-3.5 h-3.5 min-[800px]:w-4 min-[800px]:h-4 min-[1200px]:w-5 min-[1200px]:h-5"
                 priority
               />
-              <p className="min-[1200px]:text-[18px] min-[800px]:text-[16px] text-[14px] text-[#3A3A3A] mb-2 font-medium leading-snug">
+              <p className="min-[1200px]:text-[18px] min-[800px]:text-[16px] text-[14px] text-[#3A3A3A] md:mb-3 mb-1 font-medium leading-snug">
                 {text.title}
               </p>
             </div>
