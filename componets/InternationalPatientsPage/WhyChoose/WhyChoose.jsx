@@ -60,7 +60,7 @@ const WhyChoose = ({ slug }) => {
               </div>
             </div>
 
-            <p className="text-[#3A3A3A] min-[1200px]:text-[16px] min-[800px]:text-[14px] text-[13px] font-semibold mt-3">
+            <p className="text-[#3A3A3A] min-[1200px]:text-[18px] min-[800px]:text-[16px] text-[14px] font-semibold mt-3">
               {item.label}
             </p>
           </div>

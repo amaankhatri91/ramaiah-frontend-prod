@@ -121,7 +121,7 @@ const RamaiahMemorial = ({ slug }) => {
                   className={`text-left font-bold text-[#3D3D3D] ${
                     item.statistic_text === "NABH & NABL"
                       ? "min-[1298px]:text-[22px] min-[882px]:text-[16px] text-[16px]"
-                      : "min-[1298px]:text-[37px] min-[882px]:text-[30px] text-[25px]"
+                      : "min-[1298px]:text-[40px] min-[882px]:text-[30px] text-[25px]"
                   } ${item.label === "Accredited" ? "mb-[10px] mt-[10px]" : ""}`}
                 >
                   <Counter value={item?.number} start={startCount} />

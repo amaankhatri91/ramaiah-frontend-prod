@@ -37,7 +37,7 @@ const InternationalPatientServices = ({ slug }) => {
               src={slug?.content_blocks?.[1]?.media_files?.[0]?.media_file?.file_url}
               alt={slug?.content_blocks?.[1]?.media_files?.[0]?.media_file?.filename}
               fill
-              className="object-cover rounded-xl shadow-md"
+              className="object-cover rounded-[30px] shadow-md"
             />
           </div>
         </div>
