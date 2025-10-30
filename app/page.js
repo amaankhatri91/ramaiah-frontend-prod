@@ -6,34 +6,58 @@ import HeroSection from "@/componets/HomePage/HeroSection/HeroSection";
 import Appointment from "@/componets/HomePage/Appointment/Appointment";
 import MainPage from "@/componets/HomePage/MainPage/MainPage";
 
-export const metadata = {
-  title: 'Best Hospital in Bangalore | Ramaiah Memorial Hospital',
-  description:
-    'Experience top-notch medical care at Ramaiah Memorial Hospital, your choice for the best hospital in Bangalore. Trust in our commitment to your well-being.',
-  alternates: { canonical: 'https://msrmh.com/' },
-  openGraph: {
-    locale: 'en_US',
-    title: 'Speciality Hospital Bangalore - Ramaiah Memorial Hospital',
-    description:
-      'Experience top-tier medical services at Ramaiah Memorial Hospital, your dedicated specialty hospital Bangalore, delivering compassionate and specialized healthcare.',
-    url: 'https://msrmh.com/',
-    siteName: 'MS Ramaiah Memorial Hospital',
-    type: 'website',
-    images: [
-      { url: '/assets/Footer.png', width: 1200, height: 630, alt: 'Medical Center' }
-    ]
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Super Speciality Hospital in Bangalore - Ramaiah Memorial Hospital',
-    description:
-      'Experience the world-class medical care at Ramaiah Memorial Hospital, committed to excellence as the best super specialty hospital in Bangalore.',
-    site: '@MSRMHOfficial',
-    images: ['/assets/Footer.png']
-  },
-  other: {
-    'article:publisher': 'https://www.facebook.com/MSRamaiahMemorialHospital',
-    'article:modified_time': '2025-09-16T10:41:15+00:00'
+export async function generateMetadata() {
+  // const defaults = {
+  //   title: 'Best Hospital in Bangalore | Ramaiah Memorial Hospital',
+  //   description:
+  //     'Experience top-notch medical care at Ramaiah Memorial Hospital, your choice for the best hospital in Bangalore. Trust in our commitment to your well-being.',
+  // };
+
+  try {
+    const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const res = await fetch(`${apiBaseUrl}/home`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
+      },
+      next: { revalidate: 300 },
+    });
+    const json = await res.json();
+    const data = json?.data ?? null;
+    const title = data?.meta_title
+    const description = data?.meta_description 
+    const rawKeywords = data?.meta_keywords;
+    const keywords = rawKeywords
+    return {
+      title,
+      description,
+      ...(keywords ? { keywords } : {}),
+      alternates: { canonical: 'https://ramaiah-live.onrender.com/' },
+      openGraph: {
+        locale: 'en_US',
+        title,
+        description,
+        url: 'https://ramaiah-live.onrender.com/',
+        siteName: 'MS Ramaiah Memorial Hospital',
+        type: 'website',
+        images: [
+          { url: '/assets/Footer.png', width: 1200, height: 630, alt: 'Medical Center' }
+        ]
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description,
+        site: '@MSRMHOfficial',
+        images: ['/assets/Footer.png']
+      },
+      other: {
+        'article:publisher': 'https://www.facebook.com/MSRamaiahMemorialHospital',
+        'article:modified_time': '2025-09-16T10:41:15+00:00'
+      }
+    };
+  } catch (e) {
+    console.log("error",e)
   }
 }
 

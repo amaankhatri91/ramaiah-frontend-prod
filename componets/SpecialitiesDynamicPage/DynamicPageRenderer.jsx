@@ -294,7 +294,7 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
             sectionData?.data?.map((item) => (
               <div key={item.id}>
                 {
-                    item.title === "Hero" && (
+                    item.title.toLowerCase() === "hero" && (
                         <div>
                            <SpecialitiesHeroSection slug={item} />
                         </div>
@@ -391,7 +391,7 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
             sectionData?.data?.map((item) => (
               <div key={item.id}>
                 {
-                    item.title === "Overview" && (
+                    item.title.toLowerCase() === "overview"   && (
                         <div>
                            <Overview slug={item} />
                         </div>
