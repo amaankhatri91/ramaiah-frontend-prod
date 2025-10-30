@@ -65,7 +65,7 @@ const TravelAccommodation = ({ slug }) => {
             {content_blocks.slice(0, 4).map((item) => (
               <div
                 key={item.id}
-                className="rounded-[16px] bg-[linear-gradient(113deg,rgba(255,255,255,0.47)_0%,rgba(255,255,255,0.00)_110.84%)] backdrop-blur-[21px]  p-4 sm:p-5 text-white grid grid-rows-[76px_auto] justify-items-center gap-3 text-center"
+                className="rounded-[16px] cursor-pointer bg-[linear-gradient(113deg,rgba(255,255,255,0.47)_0%,rgba(255,255,255,0.00)_110.84%)] backdrop-blur-[21px]  p-4 sm:p-5 text-white grid grid-rows-[76px_auto] justify-items-center gap-3 text-center"
               >
                 <div className="h-[76px] w-[76px] grid place-items-center">
                   <div className="relative h-[76px] w-[76px]">
@@ -91,7 +91,7 @@ const TravelAccommodation = ({ slug }) => {
             {content_blocks.slice(4).map((item) => (
               <div
                 key={item.id}
-                className="rounded-[16px] bg-[linear-gradient(113deg,rgba(255,255,255,0.47)_0%,rgba(255,255,255,0.00)_110.84%)] backdrop-blur-[21px] p-4 sm:p-5 text-white grid grid-rows-[76px_auto] justify-items-center gap-3 text-center"
+                className="rounded-[16px] cursor-pointer bg-[linear-gradient(113deg,rgba(255,255,255,0.47)_0%,rgba(255,255,255,0.00)_110.84%)] backdrop-blur-[21px] p-4 sm:p-5 text-white grid grid-rows-[76px_auto] justify-items-center gap-3 text-center"
               >
                 <div className="h-[76px] w-[76px] grid place-items-center">
                   <div className="relative h-[76px] w-[76px]">

@@ -6,6 +6,7 @@ import React from "react";
 
 const SpecialitiesHeroSection = ({ slug }) => {
   if (!slug?.content_blocks?.length) return null;
+  // console.log("slug>>>>>",slug)
   return (
     <div className="flex flex-col gap-16">
       <div className="relative">
@@ -19,7 +20,8 @@ const SpecialitiesHeroSection = ({ slug }) => {
           <div className="relative z-10 grid md:grid-cols-2 gap-6 w-full container pb-[50px] pt-[25px]">
             <div className="flex items-center">
               <div className="min-[1200px]:p-6 rounded-lg">
-                <h2 className="min-[1480px]:text-[56px] min-[1200px]:text-[35px] min-[800px]:text-[26px] text-[22px]  min-[1200px]:leading-[44px] min-[1480px]:leading-[65px] font-bold Text-color2">
+                {/* <h2 className="min-[1480px]:text-[56px] min-[1200px]:text-[35px] min-[800px]:text-[26px] text-[22px]  min-[1200px]:leading-[44px] min-[1480px]:leading-[65px] font-bold Text-color2"> */}
+                <h2 className={`min-[1480px]:text-[56px] min-[1200px]:text-[35px] min-[800px]:text-[26px] text-[22px] ${slug?.content_blocks[0]?.title === 'Ramaiah Institute of Oncosciences' ? 'min-[1200px]:leading-[44px] min-[1480px]:leading-[65px]' : ""}  font-bold Text-color2`}>
                   {slug?.content_blocks[0]?.title}
                 </h2>
                 {/* <button className="mt-5 text-[#FFFFFF] Background-color cursor-pointer px-6 py-3 rounded-full min-[1024px]:text-[16px] text-[14px] font-medium shadow hover:opacity-90 transition-all">
