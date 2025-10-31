@@ -5,6 +5,7 @@ import { Manrope } from "next/font/google";
 import HeroSection from "@/componets/HomePage/HeroSection/HeroSection";
 import Appointment from "@/componets/HomePage/Appointment/Appointment";
 import MainPage from "@/componets/HomePage/MainPage/MainPage";
+import { RmhEvents } from "@/componets/RmhEvents/RmhEvents";
 
 export async function generateMetadata() {
   // const defaults = {
@@ -168,6 +169,7 @@ export default function Home() {
       {/* <HeroSection />
     <Appointment /> */}
       <MainPage />
+      {/* <RmhEvents /> */}
       {/* </div> */}
     </>
   );

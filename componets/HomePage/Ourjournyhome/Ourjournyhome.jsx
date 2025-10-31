@@ -43,11 +43,37 @@ const Ourjournyhome = ({ slug }) => {
             </div> */}
             <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8 gap-4">
                 {/* Text Content with Scroll */}
+
+             {   console.log("journeySection?.content_blocks[0]",journeySection?.content_blocks[0])}
                 
                 <div className="scroll-box lg:col-span-8 md:col-span-7 md:order-1 order-2  pr-4  space-y-4 Background-color2 rounded-[30px] p-[15px] md:p-[30px] w-full md:h-[634px] md:overflow-y-auto">
-                <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[25px] text-[28px] font-bold Text-color2 md:text-left text-center">
+                {/* <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[25px] text-[28px] font-bold Text-color2 md:text-left text-center">
                 {journeySection?.content_blocks[0]?.title}
-                </h2>
+                </h2> */}
+
+{(() => {
+              const fieldType = journeySection?.content_blocks[0]?.field_tag?.toLowerCase() || '';
+              const isHeadingTag = fieldType && /^h[1-6]$/.test(fieldType);
+              const tagName = isHeadingTag ? fieldType : 'h2';
+              const baseClasses = "min-[1200px]:text-[48px] min-[800px]:text-[25px] text-[28px] font-bold Text-color2 md:text-left text-center";
+              
+              // Render appropriate heading tag based on field_tag
+              if (tagName === 'h1') {
+                return <h1 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h1>;
+              } else if (tagName === 'h2') {
+                return <h2 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h2>;
+              } else if (tagName === 'h3') {
+                return <h3 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h3>;
+              } else if (tagName === 'h4') {
+                return <h4 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h4>;
+              } else if (tagName === 'h5') {
+                return <h5 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h5>;
+              } else if (tagName === 'h6') {
+                return <h6 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h6>;
+              } else {
+                return <h2 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h2>;
+              }
+            })()}
                     {/* <p
                         className="text-[#414049] min-[1200px]:text-[16px] min-[800px]:text-[14px] font-medium text-[13px]"
                     >

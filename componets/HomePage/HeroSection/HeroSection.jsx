@@ -58,6 +58,8 @@ const HeroSection = () => {
 
   // Create slides array from API data
   const videoUrl = videoFile ? videoFile.file_url : null;
+
+  // console.log("subtitleBlock",subtitleBlock.field_tag)
   
   const slides = [
     // First slider: Use first image (id: 2) as background, video file in small banner
@@ -67,6 +69,7 @@ const HeroSection = () => {
       background: sortedBannerImages[0] && isValidUrl(sortedBannerImages[0].file_url) ? sortedBannerImages[0].file_url : "https://www.w3schools.com/howto/rain.mp4",
       smallBannerImage: videoUrl && isValidUrl(videoUrl) ? videoUrl : null,
       type: "video",
+      field_type: subtitleBlock?.field_tag || null,
     },
     // Second slider: Use second image (id: 3) as background
     {
@@ -223,9 +226,30 @@ const HeroSection = () => {
                       className="text-[28px] min-[1080px]:text-[45px] min-[1507px]:text-[59px] font-bold text-[#3D3D3D] leading-tight"
                       dangerouslySetInnerHTML={{ __html: slide.title }}
                     />
-                    <p className="Text-color2 font-bold text-[20px] min-[1080px]:text-[40px] min-[1507px]:text-[55px] mt-4">
-                      {slide.hashtag}
-                    </p>
+                    {(() => {
+                      const fieldType = slide.field_type?.toLowerCase() || '';
+                      const isHeadingTag = fieldType && /^h[1-6]$/.test(fieldType);
+                      const tagName = isHeadingTag ? fieldType : 'p';
+                      
+                      const baseClasses = "Text-color2 font-bold text-[28px] min-[1080px]:text-[40px] min-[1507px]:text-[55px] mt-4";
+                      
+                      // Render appropriate heading tag based on field_type
+                      if (tagName === 'h1') {
+                        return <h1 className={baseClasses}>{slide.hashtag}</h1>;
+                      } else if (tagName === 'h2') {
+                        return <h2 className={baseClasses}>{slide.hashtag}</h2>;
+                      } else if (tagName === 'h3') {
+                        return <h3 className={baseClasses}>{slide.hashtag}</h3>;
+                      } else if (tagName === 'h4') {
+                        return <h4 className={baseClasses}>{slide.hashtag}</h4>;
+                      } else if (tagName === 'h5') {
+                        return <h5 className={baseClasses}>{slide.hashtag}</h5>;
+                      } else if (tagName === 'h6') {
+                        return <h6 className={baseClasses}>{slide.hashtag}</h6>;
+                      } else {
+                        return <p className={baseClasses}>{slide.hashtag}</p>;
+                      }
+                    })()}
                     {/* <button className="mt-6 text-[#FFFFFF] Background-color cursor-pointer px-6 py-3 rounded-full min-[1024px]:text-[16px] text-[14px] font-medium shadow hover:opacity-90 transition-all">
                       Book Appointment
                     </button> */}

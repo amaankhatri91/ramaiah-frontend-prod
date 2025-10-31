@@ -34,7 +34,31 @@ const LegacyClinical = () => {
             {/* <h2 className="min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[28px] font-bold leading-tight md:text-left text-center">
               <span className="Text-color">{legacySection?.content_blocks[0]?.title }</span>
             </h2> */}
-            <h2 className="min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[28px] font-bold leading-tight md:text-left text-center text-[#3D3D3D]" dangerouslySetInnerHTML={{ __html: legacySection?.content_blocks[0]?.title }} />
+            {(() => {
+              const textBlock = legacySection?.content_blocks?.find(block => block.block_type === "text") || legacySection?.content_blocks?.[0];
+              const fieldType = textBlock?.field_tag?.toLowerCase() || '';
+              const isHeadingTag = fieldType && /^h[1-6]$/.test(fieldType);
+              const tagName = isHeadingTag ? fieldType : 'h2';
+              const baseClasses = "min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[28px] font-bold leading-tight md:text-left text-center text-[#3D3D3D]";
+              const titleContent = textBlock?.title || legacySection?.content_blocks?.[0]?.title || '';
+              
+              // Render appropriate heading tag based on field_tag
+              if (tagName === 'h1') {
+                return <h1 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
+              } else if (tagName === 'h2') {
+                return <h2 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
+              } else if (tagName === 'h3') {
+                return <h3 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
+              } else if (tagName === 'h4') {
+                return <h4 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
+              } else if (tagName === 'h5') {
+                return <h5 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
+              } else if (tagName === 'h6') {
+                return <h6 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
+              } else {
+                return <h2 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
+              }
+            })()}
             <div className="mt-[20px] text-[#3D3D3D] min-[1200px]:text-[16px] text-[13px] font-normal leading-relaxed mb-[10px]" dangerouslySetInnerHTML={{ __html: legacySection?.content_blocks[1]?.content }} />
             {/* <p className="mt-[20px] text-[#3D3D3D] min-[1200px]:text-[16px] text-[13px] font-normal leading-relaxed">
               {legacySection?.content_blocks[1]?.content}

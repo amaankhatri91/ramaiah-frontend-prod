@@ -96,19 +96,39 @@ export default function StoryAccreditations() {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-[1200px]:gap-14 min-[800px]:gap-10 gap-6 items-start">
           {/* Left: Our Story */}
           <div className="rounded-[40px] p-6 min-[800px]:p-8 bg-[linear-gradient(84deg,rgba(242,213,207,0.5)_0%,rgba(226,238,254,0.5)_100%)]">
-            <h2 className="min-[1286px]:text-[72px] min-[800px]:text-[50px] text-[28px] font-bold text-[#3D3D3D] mb-6 md:text-left text-center">
-              {/* {ourStorySection?.name || "Our"}  */}
-              <span className="Text-color2">{textBlock?.title || "Our Story"}</span>
-            </h2>
+            {(() => {
+              const fieldType = textBlock?.field_tag?.toLowerCase() || '';
+              const isHeadingTag = fieldType && /^h[1-6]$/.test(fieldType);
+              const tagName = isHeadingTag ? fieldType : 'h2';
+              const baseClasses = "min-[1286px]:text-[72px] min-[800px]:text-[50px] text-[28px] font-bold text-[#3D3D3D] mb-6 md:text-left text-center";
+              
+              // Render appropriate heading tag based on field_tag
+              if (tagName === 'h1') {
+                return <h1 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h1>;
+              } else if (tagName === 'h2') {
+                return <h2 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h2>;
+              } else if (tagName === 'h3') {
+                return <h3 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h3>;
+              } else if (tagName === 'h4') {
+                return <h4 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h4>;
+              } else if (tagName === 'h5') {
+                return <h5 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h5>;
+              } else if (tagName === 'h6') {
+                return <h6 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h6>;
+              } else {
+                return <h2 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h2>;
+              }
+            })()}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {displayStats.map((item, index) => (
                 <div
                   key={index}
                   className="flex items-center gap-3 bg-white rounded-[24px] p-4 BoxShadow"
                 >
+                  {/* {console.log("item",item)} */}
                   <Image
                     src={item.icon}
-                    alt={item.altText || item.label}
+                    alt={item.altText}
                     width={40}
                     height={40}
                     className="min-[800px]:w-[50px] w-[50px] min-[800px]:h-[50px] h-[50px]"
@@ -128,10 +148,29 @@ export default function StoryAccreditations() {
 
           {/* Right: Accreditations & Certifications */}
           <div>
-            <h2 className="min-[1286px]:text-[72px] min-[1200px]:leading-[80px] min-[800px]:text-[50px] text-[28px] font-bold text-[#3D3D3D] min-[1560px]:w-[82%] min-[1200px]:w-[100%] min-[1460px]:w-[88%] w-full mb-6 md:text-left text-center">
-              {/* {accreditationsSection?.title }  */}
-              <span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span>
-            </h2>
+            {(() => {
+              const fieldType = accreditationsTextBlock?.field_tag?.toLowerCase() || '';
+              const isHeadingTag = fieldType && /^h[1-6]$/.test(fieldType);
+              const tagName = isHeadingTag ? fieldType : 'h2';
+              const baseClasses = "min-[1286px]:text-[72px] min-[1200px]:leading-[80px] min-[800px]:text-[50px] text-[28px] font-bold text-[#3D3D3D] min-[1560px]:w-[82%] min-[1200px]:w-[100%] min-[1460px]:w-[88%] w-full mb-6 md:text-left text-center";
+              
+              // Render appropriate heading tag based on field_tag
+              if (tagName === 'h1') {
+                return <h1 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h1>;
+              } else if (tagName === 'h2') {
+                return <h2 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h2>;
+              } else if (tagName === 'h3') {
+                return <h3 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h3>;
+              } else if (tagName === 'h4') {
+                return <h4 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h4>;
+              } else if (tagName === 'h5') {
+                return <h5 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h5>;
+              } else if (tagName === 'h6') {
+                return <h6 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h6>;
+              } else {
+                return <h2 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h2>;
+              }
+            })()}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:gap-10 gap-5 justify-items-center items-start min-[1200px]:mt-[40px] ">
               {displayAccreditations.map((item, index) => (
                 <div key={index} className="flex items-center">

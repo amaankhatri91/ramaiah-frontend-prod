@@ -32,18 +32,6 @@ export const metadata = {
   description:
     "Explore our comprehensive range of medical departments and specialties. Expert healthcare professionals dedicated to your well-being. Book appointments online.",
   keywords: [
-    "medical center",
-    "healthcare",
-    "hospital",
-    "medical departments",
-    "specialists",
-    "doctors",
-    "appointments",
-    "emergency care",
-    "surgery",
-    "cardiology",
-    "neurology",
-    "orthopedics",
   ],
   authors: [{ name: "Medical Center Team" }],
   creator: "Medical Center",

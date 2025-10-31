@@ -93,10 +93,11 @@ const ServiceGrid = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
         {displayServices.map((service, index) => (
           <Link href={service.link} key={index} className="h-full" onClick={(e) => handleServiceClick(service.title, e)}>
+            {console.log("service",service)}
             <div className="bg-white rounded-[32px] shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-4 text-center hover:shadow-md transition cursor-pointer h-full">
               <Image
                 src={service.icon}
-                alt={service.altText || service.title}
+                alt={service.altText}
                 width={64}
                 height={64}
                 className="mx-auto mb-4 h-[64px] w-[64px]"
