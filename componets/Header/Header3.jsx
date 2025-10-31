@@ -86,10 +86,10 @@ const Header3 = () => {
   // Debug logging for troubleshooting (after all variables are declared)
   useEffect(() => {
     if (isClient && siteSettings) {
-      console.log('Header3 - siteSettings:', siteSettings);
-      console.log('Header3 - headerData:', headerData);
-      console.log('Header3 - safeLogoUrl:', safeLogoUrl);
-      console.log('Header3 - accreditations:', accreditations);
+      // console.log('Header3 - siteSettings:', siteSettings);
+      // console.log('Header3 - headerData:', headerData);
+      // console.log('Header3 - safeLogoUrl:', safeLogoUrl);
+      // console.log('Header3 - accreditations:', accreditations);
     }
   }, [isClient, siteSettings, headerData, safeLogoUrl, accreditations]);
 

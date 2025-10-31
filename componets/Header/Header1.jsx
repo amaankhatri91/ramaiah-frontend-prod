@@ -45,7 +45,6 @@ const Header1 = () => {
 
   
   
-  console.log(headerData.affiliationImage ,"imageUrlnew");
   
 
   return (

@@ -13,7 +13,6 @@ import DoctorExpetsblog from "./DoctorExpetsblog";
 
 export default function DoctorDetail({ doctorEntry }) {
   if (!doctorEntry) return null;
-  console.log("doctorEntry", doctorEntry);
   const doctorDetailSlug = doctorEntry?.doctor?.id
     ? `doctor-detail`
     : (doctorEntry?.doctor?.slug || doctorEntry?.deptSlug);

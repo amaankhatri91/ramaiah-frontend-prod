@@ -3,8 +3,6 @@ import Image from "next/image";
 import { contentBlocks } from "@/componets/ServiceData/Overview";
 
 const Overview = ({ slug }) => {
-  // const block = contentBlocks.find((b) => b.slug === slug);
-  // console.log("slug>>>>>>",slug)
 
   if (!slug?.content_blocks?.length) return null;
   const advantages = [

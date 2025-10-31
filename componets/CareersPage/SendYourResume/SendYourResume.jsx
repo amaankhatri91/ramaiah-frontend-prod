@@ -36,17 +36,7 @@ const SendYourResume = () => {
     },
     validationSchema,
     onSubmit: (values, { resetForm }) => {
-      // Log all form values to console
-      console.log("Form submitted with values:", {
-        fullName: values.fullName,
-        phone: values.phone,
-        email: values.email,
-        currentCity: values.currentCity,
-        qualification: values.qualification,
-        resume: values.resume,
-        fileName: fileName,
-        message: values.message,
-      });
+      
 
     //   alert("Form submitted successfully! Check console for values.");
       resetForm();

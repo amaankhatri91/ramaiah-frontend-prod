@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 
 const TravelAccommodation = ({ slug }) => {
-  // console.log("slug???",slug)
   if(!slug?.content_blocks?.length) return null;
   const content_blocks = slug?.content_blocks;
   const BgImage = "/assets/TravelAccommodation-bg.png";

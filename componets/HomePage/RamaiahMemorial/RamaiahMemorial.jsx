@@ -106,7 +106,6 @@ const RamaiahMemorial = ({ slug }) => {
               key={idx}
               className="flex items-center border w-full py-[24px] min-[1298px]:px-[24px] px-[12px] border-purple-200 rounded-[24px] shadow-sm mx-auto bg-white hover:shadow-md transition"
             >
-              {/* {console.log("item???",item)} */}
               <div>
                 <Image
                   src={item?.statistics_image}

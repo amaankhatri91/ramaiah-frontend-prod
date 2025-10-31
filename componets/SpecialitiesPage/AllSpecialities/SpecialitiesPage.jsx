@@ -110,7 +110,6 @@ export default async function SpecialitiesPage({ params }) {
     const { slug } = await params;
   const specialities = getSpecialitiesBySlug(slug);
   // const specialities = getSpecialitiesBySlug(params.slug);
-  // console.log("specialities", specialities);
 
   if (!specialities) {
     notFound();

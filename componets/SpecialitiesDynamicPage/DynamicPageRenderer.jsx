@@ -25,12 +25,9 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
   const dispatch = useDispatch();
   const { data: navigationData, loading, error } = useSelector((state) => state.navigation);
   const [pageData, setPageData] = useState(null);
-  console.log("pageData",pageData)
   const [sectionData, setSectionData] = useState(null);
-  console.log("sectionData",sectionData)
   const [apiLoading, setApiLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
-  console.log("navigationData?.data?.[0]?.items",navigationData?.data?.[0]?.items[2]?.children)
 
   useEffect(() => {
     dispatch(fetchNavigationMenu());
@@ -162,7 +159,6 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
       
       const data = await response.json();
       setSectionData(data);
-      console.log('API response data:', data);
     } catch (error) {
       console.error('Error fetching section data:', error);
       setApiError(error.message);
@@ -285,7 +281,6 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
         </div>
       );
     }
-// console.log("pageData?.page?.id",pageData.slug)
     // Handle institute pages (like ramaiah-institute-oncosciences)
     if (pageData?.page?.id) {
       return (
@@ -494,7 +489,6 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
     //             {
     //                 item.title === "International Patient Service" && (
     //                     <div>
-    //                      { console.log("item>>>>>>",item)}
     //                        <InternationalPatientServices slug={item} />
     //                     </div>
     //                 )

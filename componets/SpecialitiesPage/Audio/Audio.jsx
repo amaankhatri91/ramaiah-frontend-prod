@@ -19,7 +19,6 @@ const Audio = ({ slug }) => {
     setIsPlaying(!isPlaying);
   };
 
-  // console.log("audioTrack",audioTrack)
 
   return (
     <div className="min-[1200px]:pt-[47px] min-[800px]:pt-[35px] pt-[20px] shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] pb-[20px] rounded-bl-[40px] rounded-br-[40px]">

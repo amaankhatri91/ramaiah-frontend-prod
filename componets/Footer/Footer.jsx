@@ -261,7 +261,6 @@ const Footer = () => {
             </div>
             
             {/* Social Links */}
-            {console.log("socialLinks>>>>>>",socialLinks)}
             <div className="flex gap-3 flex-wrap">
               {socialLinks.map((social, i) => (
                 
@@ -271,7 +270,6 @@ const Footer = () => {
                   aria-label={social.alt}
                   className="no-underline hover:no-underline"
                 >
-                  {console.log("social>>>>>>",social)}
                   <div className="h-[50px] w-[50px] bg-white rounded-full flex items-center justify-center">
                     <Image
                       src={getImageUrl(social.url)}

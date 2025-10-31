@@ -6,7 +6,6 @@ import React from "react";
 
 const SpecialitiesHeroSection = ({ slug }) => {
   if (!slug?.content_blocks?.length) return null;
-  // console.log("slug>>>>>",slug)
   return (
     <div className="flex flex-col gap-16">
       <div className="relative">

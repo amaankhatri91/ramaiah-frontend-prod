@@ -25,8 +25,6 @@ const chunkArray = (array, size) => {
 };
 
 const OurExperts = ({ slug  }) => {
-  // const experts = OurExpertsData.find((b) => b.slug === slug);
-  // console.log(experts,"experts");
 
   if (
     !slug ||

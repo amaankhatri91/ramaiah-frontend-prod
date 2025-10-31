@@ -20,7 +20,6 @@ const HeroSection = () => {
     dispatch(fetchHomePage());
   }, [dispatch]);
 
-  console.log("Home page data:", data);
 
   // Extract hero section data from API response
   const heroSection = data?.data?.sections?.find(section => section.section_type === "hero");
@@ -38,12 +37,10 @@ const HeroSection = () => {
   const videoBlock = contentBlocks.find(block => block.block_type === "video");
   const videoFile = videoBlock?.media_files?.[0];
   
-  console.log("Video block:", videoBlock);
-  console.log("Video file:", videoFile);
+
 
   // Sort banner images by display_order (create new array to avoid mutating Redux state)
   const sortedBannerImages = [...bannerImages].sort((a, b) => a.display_order - b.display_order);
-  console.log("Sorted banner images:", sortedBannerImages);
 
   // URL validation function
   const isValidUrl = (url) => {
@@ -61,7 +58,6 @@ const HeroSection = () => {
 
   // Create slides array from API data
   const videoUrl = videoFile ? videoFile.file_url : null;
-  console.log("Constructed video URL:", videoUrl);
   
   const slides = [
     // First slider: Use first image (id: 2) as background, video file in small banner
@@ -236,7 +232,6 @@ const HeroSection = () => {
                   </div>
 
                   {/* Right video preview */}
-                  {console.log("slide.smallBannerImage:", slide.smallBannerImage)}
                   
                   <div className="w-full lg:w-1/2 mt-0 lg:mt-8 flex justify-end mb-[30px]">
                     {slide.smallBannerImage ? (

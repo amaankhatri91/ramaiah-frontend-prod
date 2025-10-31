@@ -48,7 +48,6 @@ const BookAppointmentModal = ({ isOpen, onClose }) => {
     validationSchema,
     onSubmit: (values) => {
       // eslint-disable-next-line no-console
-      console.log("Book Appointment submit:", values);
       onClose?.();
     },
   });

@@ -40,7 +40,6 @@ const BookHomeSampleCollectionModal = ({ isOpen, onClose }) => {
     validationSchema,
     onSubmit: (values) => {
       // eslint-disable-next-line no-console
-      console.log("Book Home Sample Collection submit:", values);
       onClose?.();
     },
   });

@@ -46,7 +46,6 @@ const DoctorSpeak = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log("values", values);
       //   alert(JSON.stringify(values, null, 2));
     },
   });

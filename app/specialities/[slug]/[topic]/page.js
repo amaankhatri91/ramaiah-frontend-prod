@@ -9,10 +9,7 @@ import { getTextWithImageBlock } from "@/componets/ServiceData/TextWithImage";
 
 export default async function TopicPage({ params }) {
   const { slug, topic } = await params;
-  console.log("slug", slug);
-  console.log("topic", topic);
   const firstchildtopic = `${slug}/${topic}`;
-  console.log("firstchildtopic", firstchildtopic);
 
   // const showHero =
   //   slug === "ramaiah-institute-oncosciences" &&

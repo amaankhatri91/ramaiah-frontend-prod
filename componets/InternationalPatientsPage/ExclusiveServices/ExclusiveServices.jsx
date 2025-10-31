@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 const ExclusiveServices = ({ slug }) => {
-  console.log("slug???",slug)
   if(!slug?.content_blocks?.length) return null;
   const content_blocks = slug?.content_blocks;
   // const services = [

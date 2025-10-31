@@ -90,7 +90,6 @@ export default function StoryAccreditations() {
 
   // Use fallback accreditations if no API data is available
   const displayAccreditations = accreditations.length > 0 ? accreditations : fallbackAccreditations;
-  console.log("displayAccreditations", accreditations);
   return (
     <section className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[25px]">
       <div className="container">

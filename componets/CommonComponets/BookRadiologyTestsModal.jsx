@@ -50,7 +50,6 @@ const BookRadiologyTestsModal = ({ isOpen, onClose }) => {
     validationSchema,
     onSubmit: (values) => {
       // eslint-disable-next-line no-console
-      console.log("Book Radiology Tests submit:", values);
       onClose?.();
     },
   });

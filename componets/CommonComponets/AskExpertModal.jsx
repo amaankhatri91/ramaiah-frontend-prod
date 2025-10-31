@@ -24,7 +24,6 @@ const AskExpertModal = ({ isOpen, onClose }) => {
     onSubmit: (values) => {
       // Replace with submit handler
       // eslint-disable-next-line no-console
-      console.log("Ask Expert Submit:", values);
       onClose?.();
     },
   });

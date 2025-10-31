@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 const InternationalPatientServices = ({ slug }) => {
-  // console.log("slug>>>>>>",slug)
   if(!slug?.content_blocks?.length) return null;
   return (
     <div className="container bg-[radial-gradient(247.77%_202.26%_at_46.45%_-32.32%,#FFF_33.84%,#EEF9FF_97.64%)] shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-[25px] rounded-[40px]">

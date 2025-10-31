@@ -34,7 +34,6 @@ const EnquiryModal = ({ isOpen, onClose, variant = "ask" }) => {
     onSubmit: (values) => {
       // Replace with submit handler
       // eslint-disable-next-line no-console
-      console.log(`${variant} submit:`, values);
       onClose?.();
     },
   });

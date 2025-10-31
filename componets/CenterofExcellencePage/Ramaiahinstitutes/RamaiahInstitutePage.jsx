@@ -34,8 +34,6 @@ function DefaultRamaiahInstitute({ center }) {
 export default async function RamaiahInstitutePage({ params }) {
   const { slug } =  params;
   const center = getCenterBySlug(slug);
-  console.log("slug", slug);
-  console.log("center", center);
 
   if (!center) {
     notFound();
