@@ -47,11 +47,11 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: "/assets/favicon-ramaiah.png", sizes: "32x32", type: "image/png" },
-      { url: "/assets/favicon-ramaiah.png", sizes: "16x16", type: "image/png" },
+      { url: "favicon-ramaiah.png", sizes: "32x32", type: "image/png" },
+      { url: "favicon-ramaiah.png", sizes: "16x16", type: "image/png" },
     ],
-    shortcut: "/assets/favicon-ramaiah.png",
-    apple: "/assets/favicon-ramaiah.png",
+    shortcut: "favicon-ramaiah.png",
+    apple: "favicon-ramaiah.png",
   },
   openGraph: {
     type: "website",
@@ -99,9 +99,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       {/* <head>
-        <link rel="icon" href="/assets/favicon-ramaiah.png" type="image/png" />
-        <link rel="shortcut icon" href="/assets/favicon-ramaiah.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/assets/favicon-ramaiah.png" />
+        <link rel="icon" href="favicon-ramaiah.png" type="image/png" />
+        <link rel="shortcut icon" href="favicon-ramaiah.png" type="image/png" />
+        <link rel="apple-touch-icon" href="favicon-ramaiah.png" />
       </head> */}
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
