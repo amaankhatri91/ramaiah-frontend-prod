@@ -35,8 +35,8 @@ export default async function TopicPage({ params }) {
 
       {/* Text with Image common section (e.g., surgical oncology explanatory block) */}
 
-
-      {firstchildtopic === "ramaiah-institute-oncosciences/surgical-oncology" && (
+      {firstchildtopic ===
+        "ramaiah-institute-oncosciences/surgical-oncology" && (
         <FacilitiesServices slug={firstchildtopic} />
       )}
 
@@ -65,5 +65,3 @@ export default async function TopicPage({ params }) {
     </>
   );
 }
-
-

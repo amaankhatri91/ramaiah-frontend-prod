@@ -31,8 +31,7 @@ export const metadata = {
   },
   description:
     "Explore our comprehensive range of medical departments and specialties. Expert healthcare professionals dedicated to your well-being. Book appointments online.",
-  keywords: [
-  ],
+  keywords: [],
   authors: [{ name: "Medical Center Team" }],
   creator: "Medical Center",
   publisher: "Medical Center",
@@ -98,11 +97,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* <head>
-        <link rel="icon" href="favicon-ramaiah.png" type="image/png" />
-        <link rel="shortcut icon" href="favicon-ramaiah.png" type="image/png" />
-        <link rel="apple-touch-icon" href="favicon-ramaiah.png" />
-      </head> */}
+      <head>
+        <link rel="icon" href="/favicon-ramaiah.png" type="image/png" />
+        <link
+          rel="shortcut icon"
+          href="/favicon-ramaiah.png"
+          type="image/png"
+        />
+        <link rel="apple-touch-icon" href="/favicon-ramaiah.png" />
+      </head>
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         className={manrope.variable}
