@@ -7,6 +7,7 @@ import Image from "next/image";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { getOurTreatmentsPage } from "@/componets/ServiceData/OurTreatment";
+import { sizeMap, validTags } from "@/lib/utils";
 
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Full Name is required"),
@@ -17,6 +18,8 @@ const validationSchema = Yup.object({
 
 const OurTreatment = ({ slug }) => {
   // const group = getOurTreatmentsPage(slug);
+
+  console.log(slug, "Here how to change over here");
 
   const formik = useFormik({
     initialValues: {
@@ -32,36 +35,55 @@ const OurTreatment = ({ slug }) => {
     },
   });
 
-  if (!slug?.content_blocks?.length) return null; 
+  if (!slug?.content_blocks?.length) return null;
 
   return (
     <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]">
       <div className="container ">
         <div className="mb-6">
           <div className="grid grid-cols-1 md:grid-cols-5 min-[1200px]:gap-10 min-[800px]:gap-7 gap-5">
-            {/* Treatment List - 60% */}
             <div className="md:col-span-3 flex flex-col justify-center">
-              <h2 className="min-[1300px]:text-[48px] min-[800px]:text-[34px] text-[22px] font-bold min-[1200px]:mb-8 mb-4">
-                {/* Our <span className="Text-color2 ">Treatment & Procedure</span> */}
-               <span className="Text-color2 ">{slug.title}</span>
-              </h2>
-              {/* <h2 className="min-[1300px]:text-[48px] min-[800px]:text-[34px] text-[22px] font-bold min-[1200px]:mb-8 mb-4">
-               <span className="Text-color2 ">Services & Facilities</span>
-              </h2> */}
-              {slug?.content_blocks[0]?.facilitySpecialties.map((item, index) => (
-                <div key={index} className="flex pb-4">
-                  <Image
-                    src="/assets/dots.svg"
-                    alt=""
-                    width={24}
-                    height={24}
-                    className="min-[1200px]:h-6 mt-[2px] min-[800px]:h-5 h-4 min-[1200px]:w-6 min-[800px]:w-5 w-4"
-                  />
-                  <p className="ml-3 min-[1200px]:text-[18px] min-[800px]:text-[15px] text-[13px] text-[#3A3A3A]">
-                    {item?.facility?.name}
-                  </p>
-                </div>
-              ))}
+              {(() => {
+                const rawTag = (slug?.field_tag || "h3")
+                  .toString()
+                  .toLowerCase()
+                  .trim();
+                const Tag = validTags?.includes(rawTag) ? rawTag : "h3";
+                const sizeClasses = sizeMap[Tag] || sizeMap.h3;
+                const baseClasses =
+                  "font-bold min-[1200px]:mb-8 mb-4 text-[#3D3D3D] text-center md:text-left";
+                const title = slug?.title || "";
+                return (
+                  <Tag className={`${sizeClasses} ${baseClasses}`}>
+                    <span className="Text-color2">{title}</span>
+                  </Tag>
+                );
+              })()}
+              {slug?.content_blocks?.[0]?.facilitySpecialties?.map(
+                (item, index) => {
+                  const rawTag =
+                    slug?.content_blocks?.[0]?.field_tag
+                      ?.toString()
+                      ?.toLowerCase()
+                      ?.trim() || "span";
+                  const Tag = validTags?.includes(rawTag) ? rawTag : "span";
+                  const sizeClasses = sizeMap[Tag] || sizeMap.span;
+                  return (
+                    <div key={index} className="flex pb-4">
+                      <Image
+                        src="/assets/dots.svg"
+                        alt="dot"
+                        width={24}
+                        height={24}
+                        className="min-[1200px]:h-6 mt-[2px] min-[800px]:h-5 h-4 min-[1200px]:w-6 min-[800px]:w-5 w-4"
+                      />
+                      <Tag className={`ml-3 ${sizeClasses} text-[#3A3A3A]`}>
+                        {item?.facility?.name || ""}
+                      </Tag>
+                    </div>
+                  );
+                }
+              )}
             </div>
             {/* Enquiry Form - 40% */}
             <div className="md:col-span-2 flex flex-col justify-center">

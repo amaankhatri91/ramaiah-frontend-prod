@@ -17,9 +17,13 @@ import Accreditations from "../Accreditations/Accreditations";
 import Ourjournyhome from "../Ourjournyhome/Ourjournyhome";
 import { useHomePage } from "@/lib/hooks";
 import { fetchHomePage } from "@/lib/slices/homePageSlice";
+import { useSelector } from "react-redux";
 
 const MainPage = () => {
   const { dispatch } = useHomePage();
+  const { data } = useSelector((state) => state.homePage?.data);
+
+  console.log(data, "c");
 
   useEffect(() => {
     // Fetch home page data when component mounts

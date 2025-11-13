@@ -2,64 +2,87 @@
 import React from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { useHomePage } from "@/lib/hooks";
+import { sizeMap, validTags } from "@/lib/utils";
 
 const LegacyClinical = () => {
   const { data } = useHomePage();
 
   // Extract Legacy section data from API response
-  const legacySection = data?.data?.sections?.find(section => section.section_type === "legacy");
+  const legacySection = data?.data?.sections?.find(
+    (section) => section.section_type === "legacy"
+  );
   const contentBlocks = legacySection?.content_blocks || [];
-  
+
   // Sort content blocks by display_order
-  const sortedContentBlocks = [...contentBlocks].sort((a, b) => a.display_order - b.display_order);
-  
+  const sortedContentBlocks = [...contentBlocks].sort(
+    (a, b) => a.display_order - b.display_order
+  );
+
   // Get the main content block
-  const mainContentBlock = sortedContentBlocks.find(block => block.block_type === "text");
-  
+  const mainContentBlock = sortedContentBlocks.find(
+    (block) => block.block_type === "text"
+  );
+
+  console.log(mainContentBlock, "Can We Check Main Block");
+
   // Get media files for video
   const videoFile = mainContentBlock?.media_files?.[0];
 
   // Fallback content
   // const fallbackTitle = "Our 20+ Years of Legacy & Clinical Excellence";
-  const fallbackContent = "Ramaiah Memorial Hospital is a multi-superspecialty quaternary care hospital, located in Bangalore, Karnataka, India. The state-of-the-art, 500+ bed private hospital is equipped with all the modern facilities, including cutting-edge medical technologies, Modular Operation Theatres, advanced ICUs, spacious ward rooms, etc. Which all come together to offer comprehensive medical services in more than 30 specialties.";
+  const fallbackContent =
+    "Ramaiah Memorial Hospital is a multi-superspecialty quaternary care hospital, located in Bangalore, Karnataka, India. The state-of-the-art, 500+ bed private hospital is equipped with all the modern facilities, including cutting-edge medical technologies, Modular Operation Theatres, advanced ICUs, spacious ward rooms, etc. Which all come together to offer comprehensive medical services in more than 30 specialties.";
   const fallbackVideo = "https://www.w3schools.com/html/mov_bbb.mp4";
 
   return (
     <div className="min-[1300px]:pt-[100px] min-[800px]:pt-[50px] pt-[30px]">
       <div className="flex items-center justify-center container">
-        <div className="w-full rounded-[40px] 
+        <div
+          className="w-full rounded-[40px] 
             bg-[radial-gradient(247.77%_202.26%_at_46.45%_-32.32%,_#FFF_33.84%,_#EEF9FF_97.64%)] 
-            shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-[25px]">
+            shadow-[3.987px_11.962px_27.911px_0_rgba(0,0,0,0.06)] p-[25px]"
+        >
           <div className="flex flex-col justify-center">
             {/* <h2 className="min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[28px] font-bold leading-tight md:text-left text-center">
               <span className="Text-color">{legacySection?.content_blocks[0]?.title }</span>
             </h2> */}
             {(() => {
-              const textBlock = legacySection?.content_blocks?.find(block => block.block_type === "text") || legacySection?.content_blocks?.[0];
-              const fieldType = textBlock?.field_tag?.toLowerCase() || '';
-              const isHeadingTag = fieldType && /^h[1-6]$/.test(fieldType);
-              const tagName = isHeadingTag ? fieldType : 'h2';
-              const baseClasses = "min-[1264px]:text-[48px] min-[946px]:text-[35px] text-[28px] font-bold leading-tight md:text-left text-center text-[#3D3D3D]";
-              const titleContent = textBlock?.title || legacySection?.content_blocks?.[0]?.title || '';
-              
-              // Render appropriate heading tag based on field_tag
-              if (tagName === 'h1') {
-                return <h1 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
-              } else if (tagName === 'h2') {
-                return <h2 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
-              } else if (tagName === 'h3') {
-                return <h3 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
-              } else if (tagName === 'h4') {
-                return <h4 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
-              } else if (tagName === 'h5') {
-                return <h5 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
-              } else if (tagName === 'h6') {
-                return <h6 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
-              } else {
-                return <h2 className={baseClasses} dangerouslySetInnerHTML={{ __html: titleContent }} />;
-              }
+              const textBlock =
+                legacySection?.content_blocks?.find(
+                  (block) => block.block_type === "text"
+                ) || legacySection?.content_blocks?.[0];
+
+              const titleContent =
+                textBlock?.title ||
+                legacySection?.content_blocks?.[0]?.title ||
+                "";
+
+              // normalize & validate tag (allow h1-h6, p, span) — fallback to h2
+              const rawTag = (textBlock?.field_tag || "")
+                .toString()
+                .toLowerCase()
+                .trim();
+
+              const Tag = validTags.includes(rawTag) ? rawTag : "h2";
+              // layout / non-size classes
+              const baseClasses =
+                "font-bold leading-tight md:text-left text-center text-[#3D3D3D] mb-6";
+              // sizeMap must be imported / available in this file
+              const sizeClasses = sizeMap[Tag] || sizeMap.h2;
+              const DynamicTag = Tag;
+              return (
+                <DynamicTag
+                  className={`${sizeClasses} ${baseClasses}`}
+                  dangerouslySetInnerHTML={{ __html: titleContent }}
+                />
+              );
             })()}
-            <div className="mt-[20px] text-[#3D3D3D] min-[1200px]:text-[16px] text-[13px] font-normal leading-relaxed mb-[10px]" dangerouslySetInnerHTML={{ __html: legacySection?.content_blocks[1]?.content }} />
+            <div
+              className="mt-[20px] text-[#3D3D3D] min-[1200px]:text-[16px] text-[13px] font-normal leading-relaxed mb-[10px]"
+              dangerouslySetInnerHTML={{
+                __html: legacySection?.content_blocks[1]?.content,
+              }}
+            />
             {/* <p className="mt-[20px] text-[#3D3D3D] min-[1200px]:text-[16px] text-[13px] font-normal leading-relaxed">
               {legacySection?.content_blocks[1]?.content}
             </p> */}
@@ -80,7 +103,10 @@ const LegacyClinical = () => {
               loop
               muted
               playsInline
-              aria-label={legacySection?.content_blocks[2]?.media_files?.[0]?.alt_text || "Legacy & Clinical Excellence video"}
+              aria-label={
+                legacySection?.content_blocks[2]?.media_files?.[0]?.alt_text ||
+                "Legacy & Clinical Excellence video"
+              }
             />
           </div>
         </div>

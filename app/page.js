@@ -6,6 +6,7 @@ import HeroSection from "@/componets/HomePage/HeroSection/HeroSection";
 import Appointment from "@/componets/HomePage/Appointment/Appointment";
 import MainPage from "@/componets/HomePage/MainPage/MainPage";
 import { RmhEvents } from "@/componets/RmhEvents/RmhEvents";
+import { useSelector } from "react-redux";
 
 export async function generateMetadata() {
   // const defaults = {
@@ -18,47 +19,53 @@ export async function generateMetadata() {
     const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
     const res = await fetch(`${apiBaseUrl}/home`, {
       headers: {
-        'Content-Type': 'application/json',
-        'ngrok-skip-browser-warning': 'true',
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": "true",
       },
       next: { revalidate: 300 },
     });
     const json = await res.json();
     const data = json?.data ?? null;
-    const title = data?.meta_title
-    const description = data?.meta_description 
-    const rawKeywords = data?.meta_keywords;
-    const keywords = rawKeywords
+    console.log(data, "Can we check title over here and will you let me know");
+    const title = data?.meta_title;
+    const description = data?.meta_description;
+    const keywords = data?.meta_keywords;
     return {
       title,
       description,
       ...(keywords ? { keywords } : {}),
-      alternates: { canonical: 'https://ramaiah-live.onrender.com/' },
+      alternates: { canonical: "https://ramaiah-live.onrender.com/" },
       openGraph: {
-        locale: 'en_US',
+        locale: "en_US",
         title,
         description,
-        url: 'https://ramaiah-live.onrender.com/',
-        siteName: 'MS Ramaiah Memorial Hospital',
-        type: 'website',
+        url: "https://ramaiah-live.onrender.com/",
+        siteName: "MS Ramaiah Memorial Hospital",
+        type: "website",
         images: [
-          { url: '/assets/Footer.png', width: 1200, height: 630, alt: 'Medical Center' }
-        ]
+          {
+            url: "/assets/Footer.png",
+            width: 1200,
+            height: 630,
+            alt: "Medical Center",
+          },
+        ],
       },
       twitter: {
-        card: 'summary_large_image',
+        card: "summary_large_image",
         title,
         description,
-        site: '@MSRMHOfficial',
-        images: ['/assets/Footer.png']
+        site: "@MSRMHOfficial",
+        images: ["/assets/Footer.png"],
       },
       other: {
-        'article:publisher': 'https://www.facebook.com/MSRamaiahMemorialHospital',
-        'article:modified_time': '2025-09-16T10:41:15+00:00'
-      }
+        "article:publisher":
+          "https://www.facebook.com/MSRamaiahMemorialHospital",
+        "article:modified_time": "2025-09-16T10:41:15+00:00",
+      },
     };
   } catch (e) {
-    console.log("error",e)
+    console.log("error", e);
   }
 }
 

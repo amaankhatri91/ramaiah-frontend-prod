@@ -2,116 +2,122 @@ import React from "react";
 import Image from "next/image";
 import { contentBlocks } from "@/componets/ServiceData/Overview";
 import { useHomePage } from "@/lib/hooks";
+import { sizeMap, validTags } from "@/lib/utils";
 
 const Ourjournyhome = ({ slug }) => {
-    const { data } = useHomePage();
+  const { data } = useHomePage();
 
-    // Extract Journey section data from API response
-    const journeySection = data?.data?.sections?.find(section => section.section_type === "journey");
-    const contentBlocks = journeySection?.content_blocks || [];
-    
-    // Sort content blocks by display_order
-    const sortedContentBlocks = [...contentBlocks].sort((a, b) => a.display_order - b.display_order);
-    
-    // Get the main content block
-    const mainContentBlock = sortedContentBlocks.find(block => block.block_type === "text");
-    
-    // Get media files for image
-    const imageFile = mainContentBlock?.media_files?.[0];
+  // Extract Journey section data from API response
+  const journeySection = data?.data?.sections?.find(
+    (section) => section.section_type === "journey"
+  );
+  const contentBlocks = journeySection?.content_blocks || [];
 
-    // Fallback content
-    const fallbackTitle = "Our Journey";
-    const fallbackContent = "We are always indebted to Our Founder DR. M S Ramaiah, a visionary who built Institutions that redefined learning. It was his dream to impart Technical and Medical education to all, that made him establish two prestigious institutions, M S Ramaiah Institute of Technology (1962) and Ramaiah Medical College (1979). These are presently considered major hubs for education in the country. He believed that investment in education was the way forward for the development & progress of the nation. His thoughts & spirit have been the driving force for the Ramaiah Group of Institutions to uphold his values and spiritual thoughts for the future. Dr.M S Ramaiah said What we have done for ourselves alone, dies with us. What we have done for others and the world remains, and is immortal.His vision was to build numerous educational institutions which paved the way for us in building the nation. Today under the umbrella of the Ramaiah Group there are more than 30 educational institutions. One of his dream projects was to establish a hospital that delivered high-quality healthcare to all sections of society at an affordable cost in the most ethical way. In 2004, this dream transformed to the establishment of Ramaiah Memorial Hospital.";
-    const fallbackImage = "/assets/sardarrahmaih.svg";
+  // Sort content blocks by display_order
+  const sortedContentBlocks = [...contentBlocks].sort(
+    (a, b) => a.display_order - b.display_order
+  );
 
+  // Get the main content block
+  const mainContentBlock = sortedContentBlocks.find(
+    (block) => block.block_type === "text"
+  );
 
-    const processContent = (content) => {
-        if (!content) return ''
-        
-        // Add custom classes to paragraphs
-        return content
-            .replace(/<p([^>]*)>/gi, '<p$1 class="custom-paragraph">')
-            .replace(/<h([1-6])([^>]*)>/gi, '<h$1$2 class="custom-heading">')
-    }
+  // Get media files for image
+  const imageFile = mainContentBlock?.media_files?.[0];
 
-    return (
-        <div className="container min-[1300px]:pt-[100px] min-[800px]:pt-[50px] pt-[30px]">
-            {/* <div className="min-[1200px]:py-[20px] min-[800px]:py-[15px] py-[10px]">
+  // Fallback content
+  const fallbackTitle = "Our Journey";
+  const fallbackContent =
+    "We are always indebted to Our Founder DR. M S Ramaiah, a visionary who built Institutions that redefined learning. It was his dream to impart Technical and Medical education to all, that made him establish two prestigious institutions, M S Ramaiah Institute of Technology (1962) and Ramaiah Medical College (1979). These are presently considered major hubs for education in the country. He believed that investment in education was the way forward for the development & progress of the nation. His thoughts & spirit have been the driving force for the Ramaiah Group of Institutions to uphold his values and spiritual thoughts for the future. Dr.M S Ramaiah said What we have done for ourselves alone, dies with us. What we have done for others and the world remains, and is immortal.His vision was to build numerous educational institutions which paved the way for us in building the nation. Today under the umbrella of the Ramaiah Group there are more than 30 educational institutions. One of his dream projects was to establish a hospital that delivered high-quality healthcare to all sections of society at an affordable cost in the most ethical way. In 2004, this dream transformed to the establishment of Ramaiah Memorial Hospital.";
+  const fallbackImage = "/assets/sardarrahmaih.svg";
+
+  const processContent = (content) => {
+    if (!content) return "";
+
+    // Add custom classes to paragraphs
+    return content
+      .replace(/<p([^>]*)>/gi, '<p$1 class="custom-paragraph">')
+      .replace(/<h([1-6])([^>]*)>/gi, '<h$1$2 class="custom-heading">');
+  };
+
+  return (
+    <div className="container min-[1300px]:pt-[100px] min-[800px]:pt-[50px] pt-[30px]">
+      {/* <div className="min-[1200px]:py-[20px] min-[800px]:py-[15px] py-[10px]">
                 <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[25px] text-[22px] font-bold text-[#3D3D3D]">
                 {journeySection?.content_blocks[0]?.title}
                 </h2>
             </div> */}
-            <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8 gap-4">
-                {/* Text Content with Scroll */}
+      <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8 gap-4">
+        {/* Text Content with Scroll */}
 
-             {   console.log("journeySection?.content_blocks[0]",journeySection?.content_blocks[0])}
-                
-                <div className="scroll-box lg:col-span-8 md:col-span-7 md:order-1 order-2  pr-4  space-y-4 Background-color2 rounded-[30px] p-[15px] md:p-[30px] w-full md:h-[634px] md:overflow-y-auto">
-                {/* <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[25px] text-[28px] font-bold Text-color2 md:text-left text-center">
+        {console.log(
+          "journeySection?.content_blocks[0]",
+          journeySection?.content_blocks[0]
+        )}
+
+        <div className="scroll-box lg:col-span-8 md:col-span-7 md:order-1 order-2  pr-4  space-y-4 Background-color2 rounded-[30px] p-[15px] md:p-[30px] w-full md:h-[634px] md:overflow-y-auto">
+          {/* <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[25px] text-[28px] font-bold Text-color2 md:text-left text-center">
                 {journeySection?.content_blocks[0]?.title}
                 </h2> */}
+          {(() => {
+            const textBlock = journeySection?.content_blocks?.[0];
+            const rawTag = textBlock?.field_tag?.toLowerCase() || "h2";
+            const Tag = validTags.includes(rawTag) ? rawTag : "h2";
+            const titleContent = textBlock?.title || "";
+            const baseClasses =
+              "font-bold Text-color2 md:text-left text-center";
+            const sizeClasses = sizeMap[Tag] || sizeMap.h2;
 
-{(() => {
-              const fieldType = journeySection?.content_blocks[0]?.field_tag?.toLowerCase() || '';
-              const isHeadingTag = fieldType && /^h[1-6]$/.test(fieldType);
-              const tagName = isHeadingTag ? fieldType : 'h2';
-              const baseClasses = "min-[1200px]:text-[48px] min-[800px]:text-[25px] text-[28px] font-bold Text-color2 md:text-left text-center";
-              
-              // Render appropriate heading tag based on field_tag
-              if (tagName === 'h1') {
-                return <h1 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h1>;
-              } else if (tagName === 'h2') {
-                return <h2 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h2>;
-              } else if (tagName === 'h3') {
-                return <h3 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h3>;
-              } else if (tagName === 'h4') {
-                return <h4 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h4>;
-              } else if (tagName === 'h5') {
-                return <h5 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h5>;
-              } else if (tagName === 'h6') {
-                return <h6 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h6>;
-              } else {
-                return <h2 className={baseClasses}><span className="Text-color2">{journeySection?.content_blocks[0]?.title }</span></h2>;
-              }
-            })()}
-                    {/* <p
+            return (
+              <Tag className={`${sizeClasses} ${baseClasses}`}>
+                <span className="Text-color2">{titleContent}</span>
+              </Tag>
+            );
+          })()}
+          {/* <p
                         className="text-[#414049] min-[1200px]:text-[16px] min-[800px]:text-[14px] font-medium text-[13px]"
                     >
                         {journeySection?.content_blocks[1]?.content }
                     </p> */}
-                    {/* <div
+          {/* <div
                         className="text-[#414049] min-[1200px]:text-[16px] min-[800px]:text-[14px] font-medium text-[13px] space-y-4"
                         dangerouslySetInnerHTML={{ 
                             __html: journeySection?.content_blocks[1]?.content || '' 
                         }}
                     /> */}
-                    <div
-    className="journey-content"
-    dangerouslySetInnerHTML={{ 
-        __html: processContent(journeySection?.content_blocks[1]?.content) 
-    }}
-/>
-
-                </div>
-
-                {/* Image Content */}
-                <div className="lg:col-span-4 md:col-span-5 md:order-2 order-1 w-full">
-                    <div className="relative w-full h-[450px] sm:h-[450px] md:h-[634px]">
-                        <Image
-                            src={journeySection?.content_blocks[2]?.media_files?.[0]?.file_url ? 
-                                journeySection.content_blocks[2].media_files[0].file_url : 
-                                fallbackImage
-                            }
-                            // src={fallbackImage}
-                            alt={journeySection?.content_blocks[2]?.media_files?.[0]?.alt_text || "Our journey home"}
-                            fill
-                            className="object-cover rounded-[40px] shadow-md"
-                        />
-                    </div>
-                </div>
-            </div>
+          <div
+            className="journey-content"
+            dangerouslySetInnerHTML={{
+              __html: processContent(
+                journeySection?.content_blocks[1]?.content
+              ),
+            }}
+          />
         </div>
-    );
+
+        {/* Image Content */}
+        <div className="lg:col-span-4 md:col-span-5 md:order-2 order-1 w-full">
+          <div className="relative w-full h-[450px] sm:h-[450px] md:h-[634px]">
+            <Image
+              src={
+                journeySection?.content_blocks[2]?.media_files?.[0]?.file_url
+                  ? journeySection.content_blocks[2].media_files[0].file_url
+                  : fallbackImage
+              }
+              // src={fallbackImage}
+              alt={
+                journeySection?.content_blocks[2]?.media_files?.[0]?.alt_text ||
+                "Our journey home"
+              }
+              fill
+              className="object-cover rounded-[40px] shadow-md"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Ourjournyhome;

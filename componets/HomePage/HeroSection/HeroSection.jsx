@@ -10,6 +10,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useHomePage } from "@/lib/hooks";
 import { fetchHomePage } from "@/lib/slices/homePageSlice";
+import { sizeMap } from "@/lib/utils";
 
 const HeroSection = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -20,34 +21,45 @@ const HeroSection = () => {
     dispatch(fetchHomePage());
   }, [dispatch]);
 
-
   // Extract hero section data from API response
-  const heroSection = data?.data?.sections?.find(section => section.section_type === "hero");
+  const heroSection = data?.data?.sections?.find(
+    (section) => section.section_type === "hero"
+  );
   const contentBlocks = heroSection?.content_blocks || [];
-  
-  // Get text content blocks
-  const headlineBlock = contentBlocks.find(block => block.block_type === "text" && block.display_order === 1);
-  const subtitleBlock = contentBlocks.find(block => block.block_type === "text" && block.display_order === 2);
-  
-  // Get image content block (banner images)
-  const imageBlock = contentBlocks.find(block => block.block_type === "image");
-  const bannerImages = imageBlock?.media_files || [];
-  
-  // Get video content block (small banner)
-  const videoBlock = contentBlocks.find(block => block.block_type === "video");
-  const videoFile = videoBlock?.media_files?.[0];
-  
 
+  // Get text content blocks
+  const headlineBlock = contentBlocks.find(
+    (block) => block.block_type === "text" && block.display_order === 1
+  );
+  const subtitleBlock = contentBlocks.find(
+    (block) => block.block_type === "text" && block.display_order === 2
+  );
+
+  console.log(subtitleBlock, headlineBlock, "Verify Subtitle");
+
+  // Get image content block (banner images)
+  const imageBlock = contentBlocks.find(
+    (block) => block.block_type === "image"
+  );
+  const bannerImages = imageBlock?.media_files || [];
+
+  // Get video content block (small banner)
+  const videoBlock = contentBlocks.find(
+    (block) => block.block_type === "video"
+  );
+  const videoFile = videoBlock?.media_files?.[0];
 
   // Sort banner images by display_order (create new array to avoid mutating Redux state)
-  const sortedBannerImages = [...bannerImages].sort((a, b) => a.display_order - b.display_order);
+  const sortedBannerImages = [...bannerImages].sort(
+    (a, b) => a.display_order - b.display_order
+  );
 
   // URL validation function
   const isValidUrl = (url) => {
-    if (!url || typeof url !== 'string') return false;
+    if (!url || typeof url !== "string") return false;
     try {
       // For relative URLs (starting with /), they are valid
-      if (url.startsWith('/')) return true;
+      if (url.startsWith("/")) return true;
       // For absolute URLs, validate them
       new URL(url);
       return true;
@@ -60,29 +72,47 @@ const HeroSection = () => {
   const videoUrl = videoFile ? videoFile.file_url : null;
 
   // console.log("subtitleBlock",subtitleBlock.field_tag)
-  
+
   const slides = [
     // First slider: Use first image (id: 2) as background, video file in small banner
     {
-      title: headlineBlock?.content || "Our Decades Of Legacy & Clinical Excellence Has Touched Millions Of Lives To Ensure",
+      title:
+        headlineBlock?.content ||
+        "Our Decades Of Legacy & Clinical Excellence Has Touched Millions Of Lives To Ensure",
       hashtag: subtitleBlock?.content || "#LifeGetsBetter",
-      background: sortedBannerImages[0] && isValidUrl(sortedBannerImages[0].file_url) ? sortedBannerImages[0].file_url : "https://www.w3schools.com/howto/rain.mp4",
+      background:
+        sortedBannerImages[0] && isValidUrl(sortedBannerImages[0].file_url)
+          ? sortedBannerImages[0].file_url
+          : "https://www.w3schools.com/howto/rain.mp4",
       smallBannerImage: videoUrl && isValidUrl(videoUrl) ? videoUrl : null,
       type: "video",
-      field_type: subtitleBlock?.field_tag || null,
+      title_field_type: headlineBlock?.field_tag || null,
+      hashtag_field_type: subtitleBlock?.field_tag || null,
     },
     // Second slider: Use second image (id: 3) as background
     {
-      image: sortedBannerImages[1] && isValidUrl(sortedBannerImages[1].file_url) ? sortedBannerImages[1].file_url : "/assets/CLIP1.png",
-      image2: sortedBannerImages[1] && isValidUrl(sortedBannerImages[1].file_url) ? sortedBannerImages[1].file_url : "/assets/1440pxCLIP1.png",
+      image:
+        sortedBannerImages[1] && isValidUrl(sortedBannerImages[1].file_url)
+          ? sortedBannerImages[1].file_url
+          : "/assets/CLIP1.png",
+      image2:
+        sortedBannerImages[1] && isValidUrl(sortedBannerImages[1].file_url)
+          ? sortedBannerImages[1].file_url
+          : "/assets/1440pxCLIP1.png",
       type: "image",
     },
     // Third slider: Use third image (id: 4) as background
     {
-      image: sortedBannerImages[2] && isValidUrl(sortedBannerImages[2].file_url) ? sortedBannerImages[2].file_url : "/assets/CLIP2.png",
-      image2: sortedBannerImages[2] && isValidUrl(sortedBannerImages[2].file_url) ? sortedBannerImages[2].file_url : "/assets/1440pxCLIP2.png",
+      image:
+        sortedBannerImages[2] && isValidUrl(sortedBannerImages[2].file_url)
+          ? sortedBannerImages[2].file_url
+          : "/assets/CLIP2.png",
+      image2:
+        sortedBannerImages[2] && isValidUrl(sortedBannerImages[2].file_url)
+          ? sortedBannerImages[2].file_url
+          : "/assets/1440pxCLIP2.png",
       type: "image",
-    }
+    },
   ];
 
   useEffect(() => {
@@ -129,7 +159,7 @@ const HeroSection = () => {
           isHorizontal = dx > dy;
         }
         if (isHorizontal) {
-          e.preventDefault(); 
+          e.preventDefault();
         }
       }
     };
@@ -192,7 +222,9 @@ const HeroSection = () => {
                 loop
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover z-0"
-                aria-label={sortedBannerImages[0]?.alt_text || "Hero background video"}
+                aria-label={
+                  sortedBannerImages[0]?.alt_text || "Hero background video"
+                }
               >
                 <source src={slide.background} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -200,7 +232,9 @@ const HeroSection = () => {
             ) : (
               <Image
                 src={isMobile ? slide.image2 : slide.image}
-                alt={sortedBannerImages[index]?.alt_text || `Slide ${index + 1}`}
+                alt={
+                  sortedBannerImages[index]?.alt_text || `Slide ${index + 1}`
+                }
                 width={1440}
                 height={600}
                 //   layout="fill"
@@ -208,7 +242,12 @@ const HeroSection = () => {
                 className="z-0 w-full h-full"
                 priority
                 onError={(e) => {
-                  console.error(`Failed to load image: ${isMobile ? slide.image2 : slide.image}`, e);
+                  console.error(
+                    `Failed to load image: ${
+                      isMobile ? slide.image2 : slide.image
+                    }`,
+                    e
+                  );
                   // Fallback to default image on error
                   e.target.src = "/assets/CLIP1.png";
                 }}
@@ -219,58 +258,60 @@ const HeroSection = () => {
             {slide.type === "video" && (
               <>
                 <div className="absolute inset-0 bg-[linear-gradient(84deg,#F2D5CF_0%,#E2EEFE_100%)] opacity-75 z-0"></div>
-                <div className="relative z-10 flex flex-col lg:flex-row items-center  justify-between container h-auto pt-[38px] gap-10 ">
+                <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between container h-auto pt-[38px] gap-10">
                   {/* Left content */}
                   <div className="w-full lg:w-1/2 text-center lg:text-left">
-                    <h2 
-                      className="text-[28px] min-[1080px]:text-[45px] min-[1507px]:text-[59px] font-bold text-[#3D3D3D] leading-tight"
-                      dangerouslySetInnerHTML={{ __html: slide.title }}
-                    />
+                    {/* Render title dynamically */}
                     {(() => {
-                      const fieldType = slide.field_type?.toLowerCase() || '';
-                      const isHeadingTag = fieldType && /^h[1-6]$/.test(fieldType);
-                      const tagName = isHeadingTag ? fieldType : 'p';
-                      
-                      const baseClasses = "Text-color2 font-bold text-[28px] min-[1080px]:text-[40px] min-[1507px]:text-[55px] mt-4";
-                      
-                      // Render appropriate heading tag based on field_type
-                      if (tagName === 'h1') {
-                        return <h1 className={baseClasses}>{slide.hashtag}</h1>;
-                      } else if (tagName === 'h2') {
-                        return <h2 className={baseClasses}>{slide.hashtag}</h2>;
-                      } else if (tagName === 'h3') {
-                        return <h3 className={baseClasses}>{slide.hashtag}</h3>;
-                      } else if (tagName === 'h4') {
-                        return <h4 className={baseClasses}>{slide.hashtag}</h4>;
-                      } else if (tagName === 'h5') {
-                        return <h5 className={baseClasses}>{slide.hashtag}</h5>;
-                      } else if (tagName === 'h6') {
-                        return <h6 className={baseClasses}>{slide.hashtag}</h6>;
-                      } else {
-                        return <p className={baseClasses}>{slide.hashtag}</p>;
-                      }
+                      const Tag =
+                        /^h[1-6]$/i.test(slide.title_field_type) ||
+                        slide.title_field_type?.toLowerCase() === "p" ||
+                        slide.title_field_type?.toLowerCase() === "span"
+                          ? slide.title_field_type.toLowerCase()
+                          : "p";
+                      const titleClass = `${
+                        sizeMap[Tag] || sizeMap.p
+                      } font-bold text-[#3D3D3D] leading-tight`;
+                      const DynamicTag = Tag;
+                      return (
+                        <DynamicTag
+                          className={titleClass}
+                          dangerouslySetInnerHTML={{ __html: slide.title }}
+                        />
+                      );
                     })()}
-                    {/* <button className="mt-6 text-[#FFFFFF] Background-color cursor-pointer px-6 py-3 rounded-full min-[1024px]:text-[16px] text-[14px] font-medium shadow hover:opacity-90 transition-all">
-                      Book Appointment
-                    </button> */}
+                    {(() => {
+                      const Tag =
+                        /^h[1-6]$/i.test(slide.hashtag_field_type) ||
+                        slide.hashtag_field_type?.toLowerCase() === "p" ||
+                        slide.hashtag_field_type?.toLowerCase() === "span"
+                          ? slide.hashtag_field_type.toLowerCase()
+                          : "p";
+                      const subClass = `${
+                        sizeMap[Tag] || sizeMap.p
+                      } Text-color2 font-bold mt-4`;
+                      const DynamicTag = Tag;
+                      return (
+                        <DynamicTag className={subClass}>
+                          {slide.hashtag}
+                        </DynamicTag>
+                      );
+                    })()}
                   </div>
-
                   {/* Right video preview */}
-                  
                   <div className="w-full lg:w-1/2 mt-0 lg:mt-8 flex justify-end mb-[30px]">
                     {slide.smallBannerImage ? (
-                        <video
-                          autoPlay
-                          muted
-                          loop
-                          playsInline
+                      <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
                         className="lg:w-[562px] w-full h-auto lg:h-[550px] object-cover rounded-[32px] border-[14px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] border-[#ffffff]"
-                          aria-label={videoFile?.alt_text || "Small banner video"}
-                          // controls={false}
-                        >
-                          <source src={slide.smallBannerImage} type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
+                        aria-label={videoFile?.alt_text || "Small banner video"}
+                      >
+                        <source src={slide.smallBannerImage} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
                     ) : (
                       <div className="w-full h-auto lg:h-[550px] rounded-[32px] border-[14px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] border-[#ffffff] flex items-center justify-center">
                         <p className="text-gray-500">No video available</p>

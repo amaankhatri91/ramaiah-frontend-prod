@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { useHomePage } from "@/lib/hooks";
+import { sizeMap, validTags } from "@/lib/utils";
 
 // Fallback stats in case API data is not available
 const fallbackStats = [
@@ -11,15 +12,25 @@ const fallbackStats = [
   { icon: "/assets/nursing-staff.svg", value: "600+", label: "Nursing Staff" },
   { icon: "/assets/patients.svg", value: "2.5M", label: "Patients Treated" },
   { icon: "/assets/procedures.svg", value: "1.5M", label: "Procedures" },
-  { icon: "/assets/Simplificationhomeison.svg", value: "5", label: "Of Excellence" },
+  {
+    icon: "/assets/Simplificationhomeison.svg",
+    value: "5",
+    label: "Of Excellence",
+  },
   { icon: "/assets/specialities.svg", value: "30+", label: "Specialities" },
 ];
 
 // Fallback accreditations in case API data is not available
 const fallbackAccreditations = [
   { img: "/assets/joint-comission.svg", alt: "Joint Commission International" },
-  { img: "/assets/AmericanHeartAssociation.svg", alt: "American Heart Association" },
-  { img: "/assets/AmericanHeartAssociation.svg", alt: "American Stroke Association" },
+  {
+    img: "/assets/AmericanHeartAssociation.svg",
+    alt: "American Heart Association",
+  },
+  {
+    img: "/assets/AmericanHeartAssociation.svg",
+    alt: "American Stroke Association",
+  },
   { img: "/assets/NABH.svg", alt: "NABH" },
   { img: "/assets/rahiyaccordiongreen.svg", alt: "NABH" },
   { img: "/assets/mcseventwo.svg", alt: "NABH" },
@@ -29,57 +40,81 @@ export default function StoryAccreditations() {
   const { data } = useHomePage();
 
   // Extract Our Story section data from API response
-  const ourStorySection = data?.data?.sections?.find(section => section.section_type === "statistics");
+  const ourStorySection = data?.data?.sections?.find(
+    (section) => section.section_type === "statistics"
+  );
   const storyContentBlocks = ourStorySection?.content_blocks || [];
-  
+
   // Sort content blocks by display_order
-  const sortedStoryContentBlocks = [...storyContentBlocks].sort((a, b) => a.display_order - b.display_order);
-  
+  const sortedStoryContentBlocks = [...storyContentBlocks].sort(
+    (a, b) => a.display_order - b.display_order
+  );
+
   // Find text block for title (block_type: "text")
-  const textBlock = sortedStoryContentBlocks.find(block => block.block_type === "text");
-  
+  const textBlock = sortedStoryContentBlocks.find(
+    (block) => block.block_type === "text"
+  );
+
   // Filter only statistic blocks for the grid (block_type: "statistic")
-  const statisticBlocks = sortedStoryContentBlocks.filter(block => block.block_type === "statistic");
-  
+  const statisticBlocks = sortedStoryContentBlocks.filter(
+    (block) => block.block_type === "statistic"
+  );
+
+  console.log(statisticBlocks, "Check Block Content");
+
   // Create stats array from API data (only statistic blocks)
   const stats = statisticBlocks.map((block, index) => {
     const mediaFile = block.media_files?.[0];
     const fallbackStat = fallbackStats[index] || fallbackStats[0];
-    
+
     // Get statistic_text from the statistics array
     const statisticData = block.statistics?.[0];
-    const statisticText = statisticData?.statistic_text || block.title || fallbackStat.label;
-    
+    const statisticText =
+      statisticData?.statistic_text || block.title || fallbackStat.label;
+
     return {
       title: block.title || fallbackStat.label,
       value: block.content || fallbackStat.value,
       icon: mediaFile ? mediaFile.file_url : fallbackStat.icon,
       label: statisticText,
       altText: mediaFile?.alt_text || statisticText || fallbackStat.label,
+      field_tag: block?.field_tag || "span",
     };
   });
 
   // Use fallback stats if no API data is available
   const displayStats = stats.length > 0 ? stats : fallbackStats;
 
+  console.log(displayStats, "Can we check display stats");
+
   // Extract Accreditations section data from API response
-  const accreditationsSection = data?.data?.sections?.find(section => section.section_type === "accreditations");
-  const accreditationsContentBlocks = accreditationsSection?.content_blocks || [];
-  
+  const accreditationsSection = data?.data?.sections?.find(
+    (section) => section.section_type === "accreditations"
+  );
+  const accreditationsContentBlocks =
+    accreditationsSection?.content_blocks || [];
+
   // Sort accreditations content blocks by display_order
-  const sortedAccreditationsContentBlocks = [...accreditationsContentBlocks].sort((a, b) => a.display_order - b.display_order);
-  
+  const sortedAccreditationsContentBlocks = [
+    ...accreditationsContentBlocks,
+  ].sort((a, b) => a.display_order - b.display_order);
+
   // Find text block for title (block_type: "text")
-  const accreditationsTextBlock = sortedAccreditationsContentBlocks.find(block => block.block_type === "text");
-  
+  const accreditationsTextBlock = sortedAccreditationsContentBlocks.find(
+    (block) => block.block_type === "text"
+  );
+
   // Filter only image blocks for the grid (block_type: "image")
-  const imageBlocks = sortedAccreditationsContentBlocks.filter(block => block.block_type === "image");
-  
+  const imageBlocks = sortedAccreditationsContentBlocks.filter(
+    (block) => block.block_type === "image"
+  );
+
   // Create accreditations array from API data (only image blocks)
   const accreditations = imageBlocks.map((block, index) => {
     const mediaFile = block.media_files?.[0];
-    const fallbackAccreditation = fallbackAccreditations[index] || fallbackAccreditations[0];
-    
+    const fallbackAccreditation =
+      fallbackAccreditations[index] || fallbackAccreditations[0];
+
     return {
       title: block.title || fallbackAccreditation.alt,
       content: block.content || "",
@@ -88,8 +123,15 @@ export default function StoryAccreditations() {
     };
   });
 
+  const getTag = (tag, fallback = "p") => {
+    if (!tag) return fallback;
+    const t = String(tag).toLowerCase().trim();
+    return /^h[1-6]$/.test(t) || t === "p" || t === "span" ? t : fallback;
+  };
+
   // Use fallback accreditations if no API data is available
-  const displayAccreditations = accreditations.length > 0 ? accreditations : fallbackAccreditations;
+  const displayAccreditations =
+    accreditations.length > 0 ? accreditations : fallbackAccreditations;
   return (
     <section className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[25px]">
       <div className="container">
@@ -97,80 +139,79 @@ export default function StoryAccreditations() {
           {/* Left: Our Story */}
           <div className="rounded-[40px] p-6 min-[800px]:p-8 bg-[linear-gradient(84deg,rgba(242,213,207,0.5)_0%,rgba(226,238,254,0.5)_100%)]">
             {(() => {
-              const fieldType = textBlock?.field_tag?.toLowerCase() || '';
-              const isHeadingTag = fieldType && /^h[1-6]$/.test(fieldType);
-              const tagName = isHeadingTag ? fieldType : 'h2';
-              const baseClasses = "min-[1286px]:text-[72px] min-[800px]:text-[50px] text-[28px] font-bold text-[#3D3D3D] mb-6 md:text-left text-center";
-              
-              // Render appropriate heading tag based on field_tag
-              if (tagName === 'h1') {
-                return <h1 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h1>;
-              } else if (tagName === 'h2') {
-                return <h2 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h2>;
-              } else if (tagName === 'h3') {
-                return <h3 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h3>;
-              } else if (tagName === 'h4') {
-                return <h4 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h4>;
-              } else if (tagName === 'h5') {
-                return <h5 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h5>;
-              } else if (tagName === 'h6') {
-                return <h6 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h6>;
-              } else {
-                return <h2 className={baseClasses}><span className="Text-color2">{textBlock?.title || "Our Story"}</span></h2>;
-              }
+              const fieldType = textBlock?.field_tag?.toLowerCase() || "h2";
+              const Tag = validTags?.includes(fieldType) ? fieldType : "h2";
+              const baseClasses =
+                "font-bold text-[#3D3D3D] mb-6 md:text-left text-center Text-color2";
+              const responsiveSize = sizeMap[Tag] || sizeMap.h2;
+              return (
+                <Tag className={`${responsiveSize} ${baseClasses}`}>
+                  {textBlock?.title || "Our Story"}
+                </Tag>
+              );
             })()}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {displayStats.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 bg-white rounded-[24px] p-4 BoxShadow"
-                >
-                  {/* {console.log("item",item)} */}
-                  <Image
-                    src={item.icon}
-                    alt={item.altText}
-                    width={40}
-                    height={40}
-                    className="min-[800px]:w-[50px] w-[50px] min-[800px]:h-[50px] h-[50px]"
-                  />
-                  <div>
-                    <div className="min-[1200px]:text-[30px] min-[800px]:text-[25px] text-[25px] font-bold text-[#3D3D3D] leading-[1.2]">
-                      {item.value} {item.label === "Of Excellence" ?  <span className="font-medium text-[16px] md:text-[18px]">Centers</span> : ""}
-                    </div>
-                    <div className="min-[1200px]:text-[18px] min-[800px]:text-[16px] text-[15px] text-[#616161] font-medium">
-                      {item.label}
+              {displayStats.map((item, index) => {
+                const ValueTag = getTag(item.field_tag, "span");
+                const valueClass = `${
+                  sizeMap[ValueTag] || sizeMap.p
+                } font-bold text-[#3D3D3D] leading-[1.2]`;
+                return (
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 bg-white rounded-[24px] p-4 BoxShadow"
+                  >
+                    {console.log("item", item)}
+                    <Image
+                      src={item.icon}
+                      alt={item.altText}
+                      width={40}
+                      height={40}
+                      className="min-[800px]:w-[50px] w-[50px] min-[800px]:h-[50px] h-[50px]"
+                    />
+                    <div>
+                      <ValueTag className={valueClass}>
+                        {item.value}{" "}
+                        {item.label === "Of Excellence" ? (
+                          <span className="font-medium text-[16px] md:text-[18px]">
+                            Centers
+                          </span>
+                        ) : (
+                          ""
+                        )}
+                      </ValueTag>
+                      <div className="min-[1200px]:text-[18px] min-[800px]:text-[16px] text-[15px] text-[#616161] font-medium">
+                        {item.label}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
           {/* Right: Accreditations & Certifications */}
           <div>
             {(() => {
-              const fieldType = accreditationsTextBlock?.field_tag?.toLowerCase() || '';
-              const isHeadingTag = fieldType && /^h[1-6]$/.test(fieldType);
-              const tagName = isHeadingTag ? fieldType : 'h2';
-              const baseClasses = "min-[1286px]:text-[72px] min-[1200px]:leading-[80px] min-[800px]:text-[50px] text-[28px] font-bold text-[#3D3D3D] min-[1560px]:w-[82%] min-[1200px]:w-[100%] min-[1460px]:w-[88%] w-full mb-6 md:text-left text-center";
-              
-              // Render appropriate heading tag based on field_tag
-              if (tagName === 'h1') {
-                return <h1 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h1>;
-              } else if (tagName === 'h2') {
-                return <h2 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h2>;
-              } else if (tagName === 'h3') {
-                return <h3 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h3>;
-              } else if (tagName === 'h4') {
-                return <h4 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h4>;
-              } else if (tagName === 'h5') {
-                return <h5 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h5>;
-              } else if (tagName === 'h6') {
-                return <h6 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h6>;
-              } else {
-                return <h2 className={baseClasses}><span className="Text-color2">{accreditationsTextBlock?.title || "Accreditations & Certifications"}</span></h2>;
-              }
+              // Determine tag type
+              const rawTag =
+                accreditationsTextBlock?.field_tag?.toLowerCase() || "h2";
+              const Tag = validTags.includes(rawTag) ? rawTag : "h2";
+              // Use Tailwind font sizes from sizeMap only
+              const responsiveSize = sizeMap[Tag] || sizeMap.h2;
+              const content =
+                accreditationsTextBlock?.title ||
+                "Accreditations & Certifications";
+              // Keep layout + typography-related classes (not text size)
+              const baseClasses =
+                "font-bold text-[#3D3D3D] leading-tight min-[1200px]:leading-[80px] min-[1560px]:w-[82%] min-[1200px]:w-[100%] min-[1460px]:w-[88%] w-full mb-6 md:text-left text-center";
+              return (
+                <Tag className={`${responsiveSize} ${baseClasses}`}>
+                  <span className="Text-color2">{content}</span>
+                </Tag>
+              );
             })()}
+
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:gap-10 gap-5 justify-items-center items-start min-[1200px]:mt-[40px] ">
               {displayAccreditations.map((item, index) => (
                 <div key={index} className="flex items-center">
@@ -190,5 +231,3 @@ export default function StoryAccreditations() {
     </section>
   );
 }
-
-
