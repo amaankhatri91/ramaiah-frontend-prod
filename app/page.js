@@ -26,7 +26,6 @@ export async function generateMetadata() {
     });
     const json = await res.json();
     const data = json?.data ?? null;
-    console.log(data, "Can we check title over here and will you let me know");
     const title = data?.meta_title;
     const description = data?.meta_description;
     const keywords = data?.meta_keywords;
