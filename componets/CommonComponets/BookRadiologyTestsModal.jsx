@@ -9,7 +9,7 @@ import Image from "next/image";
 const validationSchema = Yup.object({
   testName: Yup.string().required("Please select a test"),
   date: Yup.string().required("Please select a date"),
-  time: Yup.string().required("Please select a time"),
+  time: Yup.string().required("Please select a slote"),
   fullName: Yup.string().required("Full Name is required"),
   phone: Yup.string()
     .matches(/^[0-9+\-()\s]{7,}$/i, "Enter a valid phone number")
@@ -59,7 +59,7 @@ const BookRadiologyTestsModal = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">
       <div className="absolute inset-0 bg-black/60" onClick={onClose}></div>
-      <div className="relative mx-4 w-full max-w-[560px] rounded-[20px] bg-white p-6 md:p-8 shadow-xl">
+      <div className="relative w-full max-w-[560px] max-h-[90vh] overflow-y-auto scrollbar-hide rounded-[40px] bg-[linear-gradient(95deg,_#FBFDFF_0.79%,_#E9F6FF_98.08%)] p-6 md:p-8 shadow-xl">
         <button
           type="button"
           aria-label="Close"
@@ -138,7 +138,7 @@ const BookRadiologyTestsModal = ({ isOpen, onClose }) => {
 
             <div>
               <label className="mb-1 block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A]">
-                Available Time<span className="text-red-500">*</span>
+                Available Slote<span className="text-red-500">*</span>
               </label>
               <div className="relative w-full">
                 <select

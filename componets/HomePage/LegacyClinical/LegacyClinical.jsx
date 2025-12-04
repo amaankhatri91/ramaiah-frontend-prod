@@ -35,7 +35,7 @@ const LegacyClinical = () => {
   const fallbackVideo = "https://www.w3schools.com/html/mov_bbb.mp4";
 
   return (
-    <div className="min-[1300px]:pt-[100px] min-[800px]:pt-[50px] pt-[30px]">
+    <div className="min-[800px]:pt-[50px] pt-[30px]">
       <div className="flex items-center justify-center container">
         <div
           className="w-full rounded-[40px] 

@@ -142,11 +142,11 @@ export default function StoryAccreditations() {
               const fieldType = textBlock?.field_tag?.toLowerCase() || "h2";
               const Tag = validTags?.includes(fieldType) ? fieldType : "h2";
               const baseClasses =
-                "font-bold text-[#3D3D3D] mb-6 md:text-left text-center Text-color2";
+                "!font-bold text-[#3D3D3D] mb-6 md:text-left text-center Text-color2";
               const responsiveSize = sizeMap[Tag] || sizeMap.h2;
               return (
-                <Tag className={`${responsiveSize} ${baseClasses}`}>
-                  {textBlock?.title || "Our Story"}
+                <Tag className={`text-[40px] min-[1080px]:text-[52px] min-[1507px]:text-[64px]} ${baseClasses}`}>
+                    {textBlock?.title || "Our Story"}
                 </Tag>
               );
             })()}
@@ -191,7 +191,7 @@ export default function StoryAccreditations() {
           </div>
 
           {/* Right: Accreditations & Certifications */}
-          <div>
+          <div className="pt-5">
             {(() => {
               // Determine tag type
               const rawTag =
@@ -204,7 +204,7 @@ export default function StoryAccreditations() {
                 "Accreditations & Certifications";
               // Keep layout + typography-related classes (not text size)
               const baseClasses =
-                "font-bold text-[#3D3D3D] leading-tight min-[1200px]:leading-[80px] min-[1560px]:w-[82%] min-[1200px]:w-[100%] min-[1460px]:w-[88%] w-full mb-6 md:text-left text-center";
+                "font-bold text-[#3D3D3D] min-[1560px]:w-[82%] min-[1200px]:w-[100%] min-[1460px]:w-[88%] w-full mb-6 md:text-left text-center";
               return (
                 <Tag className={`${responsiveSize} ${baseClasses}`}>
                   <span className="Text-color2">{content}</span>
