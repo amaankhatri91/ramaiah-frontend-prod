@@ -142,20 +142,30 @@ export default function StoryAccreditations() {
               const fieldType = textBlock?.field_tag?.toLowerCase() || "h2";
               const Tag = validTags?.includes(fieldType) ? fieldType : "h2";
               const baseClasses =
-                "!font-bold text-[#3D3D3D] mb-6 md:text-left text-center Text-color2";
+                "!font-bold text-[#3D3D3D] mb-6 md:text-left text-center";
+
               const responsiveSize = sizeMap[Tag] || sizeMap.h2;
+
+              const title = textBlock?.title || "Our Story";
+              const [firstWord, ...rest] = title.split(" ");
+              const secondPart = rest.join(" ");
+
               return (
-                <Tag className={`text-[40px] min-[1080px]:text-[52px] min-[1507px]:text-[64px]} ${baseClasses}`}>
-                    {textBlock?.title || "Our Story"}
+                <Tag
+                  className={`text-[40px] min-[1080px]:text-[48px] min-[1507px]:text-[48px] ${baseClasses}`}
+                >
+                  <span className="Text-colorOther">{firstWord}</span>{" "}
+                  <span className="Text-color2">{secondPart}</span>
                 </Tag>
               );
             })()}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {displayStats.map((item, index) => {
                 const ValueTag = getTag(item.field_tag, "span");
                 const valueClass = `${
                   sizeMap[ValueTag] || sizeMap.p
-                } font-bold text-[#3D3D3D] leading-[1.2]`;
+                } font-bold text-[#3D3D3D] leading-[1.2] text-[20px]`;
                 return (
                   <div
                     key={index}
