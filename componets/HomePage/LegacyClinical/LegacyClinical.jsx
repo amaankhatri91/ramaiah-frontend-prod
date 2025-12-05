@@ -83,7 +83,7 @@ const LegacyClinical = () => {
               );
             })()}
             <div
-              className="mt-[20px] text-[#3D3D3D] min-[1200px]:text-[16px] text-[13px] font-normal leading-relaxed mb-[10px]"
+              className="Text-colorOther mt-[20px] min-[1200px]:text-[16px] text-[13px] font-medium leading-relaxed mb-[10px]"
               dangerouslySetInnerHTML={{
                 __html: legacySection?.content_blocks[1]?.content,
               }}

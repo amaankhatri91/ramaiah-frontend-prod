@@ -503,7 +503,7 @@ const DynamicPageRenderer = ({ slug, child, grandchild }) => {
             <div className="min-[1200px]:mt-[80px] min-[800px]:mt-[50px] mt-[30px]">
               {sectionData?.data?.map((item) => (
                 <div key={item.id}>
-                  {item.title === "Service & Facilities" || item.title === "Our Treatment & Procedure" && (
+                  {item.title === "Service & Facilities" && (
                     <div>
                       <OurTreatment slug={item} />
                     </div>
