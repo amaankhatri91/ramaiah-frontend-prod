@@ -18,16 +18,24 @@ const DoctorSpeak = () => {
   const { data } = useHomePage();
 
   // Extract Testimonials section data from API response
-  const testimonialsSection = data?.data?.sections?.find(section => section.section_type === "testimonials");
+  const testimonialsSection = data?.data?.sections?.find(
+    (section) => section.section_type === "testimonials"
+  );
   const contentBlocks = testimonialsSection?.content_blocks || [];
-  
+
   // Sort content blocks by display_order
-  const sortedContentBlocks = [...contentBlocks].sort((a, b) => a.display_order - b.display_order);
-  
+  const sortedContentBlocks = [...contentBlocks].sort(
+    (a, b) => a.display_order - b.display_order
+  );
+
   // Get Doctor Speak and Patient Speak data
-  const doctorSpeakBlock = sortedContentBlocks.find(block => block.title === "Doctor Speak");
-  const patientSpeakBlock = sortedContentBlocks.find(block => block.title === "Patient Speak");
-  
+  const doctorSpeakBlock = sortedContentBlocks.find(
+    (block) => block.title === "Doctor Speak"
+  );
+  const patientSpeakBlock = sortedContentBlocks.find(
+    (block) => block.title === "Patient Speak"
+  );
+
   // Get media files
   const doctorSpeakVideo = doctorSpeakBlock?.media_files?.[0];
   const patientSpeakVideo = patientSpeakBlock?.media_files?.[0];
@@ -245,8 +253,8 @@ const DoctorSpeak = () => {
           {/* Video or Image Preview */}
           <div className="text-end relative">
             {doctorSpeakVideo ? (
-              <div 
-                className="relative"
+              <div
+                className="relative overflow-hidden rounded-[30px] lg:h-[434px] md:h-[450px] sm:h-[420px] bg-black"
                 onMouseEnter={() => setIsDoctorVideoHovered(true)}
                 onMouseLeave={() => setIsDoctorVideoHovered(false)}
               >
@@ -256,7 +264,7 @@ const DoctorSpeak = () => {
                   muted
                   loop
                   playsInline
-                  className="w-full lg:h-[434px] md:h-[450px] sm:h-[420px] object-cover rounded-[30px]"
+                  className="w-full h-full object-contain"
                   aria-label={doctorSpeakVideo.alt_text || "Doctor Speak video"}
                 />
                 {!isDoctorVideoPlaying && (
@@ -295,8 +303,8 @@ const DoctorSpeak = () => {
                 )}
               </div>
             ) : (
-              <div 
-                className="relative"
+              <div
+                className="relative overflow-hidden rounded-[30px] lg:h-[434px] md:h-[450px] sm:h-[420px] bg-black"
                 onMouseEnter={() => setIsDoctorVideoHovered(true)}
                 onMouseLeave={() => setIsDoctorVideoHovered(false)}
               >
@@ -306,7 +314,7 @@ const DoctorSpeak = () => {
                   muted
                   loop
                   playsInline
-                  className="w-full lg:h-[434px] md:h-[450px] sm:h-[420px] object-cover rounded-[30px]"
+                  className="w-full h-full object-contain"
                   aria-label="Doctor Speak video"
                 />
                 {!isDoctorVideoPlaying && (
@@ -347,7 +355,7 @@ const DoctorSpeak = () => {
             )}
             <Link
               href="#"
-              className="inline-flex underline items-center gap-2 w-max mt-3 px-4 py-2 rounded-full text-[#3d3d3d] font-bold min-[800px]:text-[18px] text-[16px]"
+              className="inline-flex underline items-center gap-2 w-max mt-3 px-2 py-2 rounded-full text-[#3d3d3d] font-bold min-[800px]:text-[18px] text-[16px]"
             >
               <span>View More</span>
               <Image
@@ -366,14 +374,13 @@ const DoctorSpeak = () => {
             <h2 className="min-[1200px]:text-[40px] min-[800px]:text-[28px] text-[28px] font-bold text-[#3D3D3D]">
               <span className="Text-color2">Patient </span>Speak
             </h2>
-
           </div>
 
           {/* Video or Image Preview */}
-          <div className="relative">
+          <div className="text-end relative">
             {patientSpeakVideo ? (
-              <div 
-                className="relative"
+              <div
+                className="relative overflow-hidden rounded-[30px] lg:h-[434px] md:h-[450px] sm:h-[420px] bg-black"
                 onMouseEnter={() => setIsPatientVideoHovered(true)}
                 onMouseLeave={() => setIsPatientVideoHovered(false)}
               >
@@ -383,8 +390,10 @@ const DoctorSpeak = () => {
                   muted
                   loop
                   playsInline
-                  className="w-full lg:h-[434px] md:h-[450px] sm:h-[420px] object-cover rounded-[30px]"
-                  aria-label={patientSpeakVideo.alt_text || "Patient Speak video"}
+                  className="w-full h-full object-contain"
+                  aria-label={
+                    patientSpeakVideo.alt_text || "Patient Speak video"
+                  }
                 />
                 {!isPatientVideoPlaying && (
                   <button
@@ -422,8 +431,8 @@ const DoctorSpeak = () => {
                 )}
               </div>
             ) : (
-              <div 
-                className="relative"
+              <div
+                className="relative overflow-hidden rounded-[30px] lg:h-[434px] md:h-[450px] sm:h-[420px] bg-black"
                 onMouseEnter={() => setIsPatientVideoHovered(true)}
                 onMouseLeave={() => setIsPatientVideoHovered(false)}
               >
@@ -433,7 +442,7 @@ const DoctorSpeak = () => {
                   muted
                   loop
                   playsInline
-                  className="w-full lg:h-[434px] md:h-[450px] sm:h-[420px] object-cover rounded-[30px]"
+                  className="w-full h-full object-contain"
                   aria-label="Patient Speak video"
                 />
                 {!isPatientVideoPlaying && (
