@@ -35,7 +35,7 @@ const LegacyClinical = () => {
   const fallbackVideo = "https://www.w3schools.com/html/mov_bbb.mp4";
 
   return (
-    <div className="min-[1300px]:pt-[100px] min-[800px]:pt-[50px] pt-[30px]">
+    <div className="min-[800px]:pt-[50px] pt-[30px]">
       <div className="flex items-center justify-center container">
         <div
           className="w-full rounded-[40px] 
@@ -69,12 +69,17 @@ const LegacyClinical = () => {
                 "font-bold leading-tight md:text-left text-center text-[#3D3D3D] mb-6";
               // sizeMap must be imported / available in this file
               const sizeClasses = sizeMap[Tag] || sizeMap.h2;
-              const DynamicTag = Tag;
+              const words = titleContent.split(" ");
+              const firstPart = words.slice(0, 3).join(" ");
+              const secondPart = words.slice(3).join(" ");
+
               return (
-                <DynamicTag
-                  className={`${sizeClasses} ${baseClasses}`}
-                  dangerouslySetInnerHTML={{ __html: titleContent }}
-                />
+                <Tag className={`${sizeClasses} ${baseClasses}`}>
+                  <span className="Text-color2">{firstPart}</span>
+                  {secondPart && (
+                    <span className="Text-colorOther"> {secondPart}</span>
+                  )}
+                </Tag>
               );
             })()}
             <div

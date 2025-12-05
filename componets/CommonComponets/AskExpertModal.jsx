@@ -14,12 +14,13 @@ const validationSchema = Yup.object({
     .required("Phone is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
   message: Yup.string().max(300, "Max 300 characters"),
+  expertName: Yup.string().required("Expert name is required"),
 });
 
 const AskExpertModal = ({ isOpen, onClose }) => {
   const [isHospitalOpen, setIsHospitalOpen] = useState(false)
   const formik = useFormik({
-    initialValues: { fullName: "", phone: "", email: "", message: "" },
+    initialValues: { fullName: "", phone: "", email: "", message: "", expertName: "" },
     validationSchema,
     onSubmit: (values) => {
       // Replace with submit handler
@@ -117,7 +118,7 @@ const AskExpertModal = ({ isOpen, onClose }) => {
           </div>
           <div>
             <label className="mb-1 block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A]">
-            Specialty<span className="text-red-500">*</span>
+            Speciality<span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -178,25 +179,25 @@ const AskExpertModal = ({ isOpen, onClose }) => {
             </label>
             <input
               type="text"
-              name="fullName"
+              name="expertName"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
-              value={formik.values.fullName}
-              placeholder="Please enter your full name"
+              value={formik.values.expertName}
+              placeholder="Please enter Expert name"
               className={`w-full rounded-[26px] border p-3 bg-white focus:outline-none focus:border-[#305FC2] ${
-                (formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName
+                (formik.touched.expertName || formik.submitCount > 0) && formik.errors.expertName
                   ? "border-red-500"
                   : "border-[#DDC7E7]"
               }`}
             />
-            {(formik.touched.fullName || formik.submitCount > 0) && formik.errors.fullName && (
-              <div className="mt-1 text-xs text-red-500">{formik.errors.fullName}</div>
+            {(formik.touched.expertName || formik.submitCount > 0) && formik.errors.expertName && (
+              <div className="mt-1 text-xs text-red-500">{formik.errors.expertName}</div>
             )}
           </div>
 
           <div>
             <label className="mb-1 block min-[1200px]:text-[16px] text-[14px] font-medium text-[#3A3A3A]">
-              Message
+              Message<span className="text-red-500">*</span>
             </label>
             <textarea
               name="message"
