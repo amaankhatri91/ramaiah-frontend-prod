@@ -50,7 +50,7 @@ const OurExperts = ({ slug }) => {
 
   return (
     <div className="container bg-white select-none pt-[10px]">
-      <div className="mb-6">
+      <div className="mb-2">
         {(() => {
           const textBlock =
             slug?.content_blocks?.find((b) => b?.block_type === "text") ||
@@ -88,22 +88,11 @@ const OurExperts = ({ slug }) => {
           return (
             <div key={sectionIndex} className="mb-10">
               <div className="mb-4">
-                {(() => {
-                  const rawTag =
-                    section?.specialty?.field_tag
-                      ?.toString()
-                      ?.toLowerCase()
-                      ?.trim() || "span";
-                  const Tag = validTags?.includes(rawTag) ? rawTag : "span";
-                  const sizeClasses = sizeMap[Tag] || sizeMap.span;
-                  const baseClasses = "font-bold text-[#3D3D3D]";
-                  const title = section?.specialty?.name || "";
-                  return (
-                    <Tag className={`${sizeClasses} ${baseClasses}`}>
-                      {title}
-                    </Tag>
-                  );
-                })()}
+                <div>
+                  We believe in a holistic approach, and our goal is to create a
+                  haven that spreads compassion, warmth, congeniality & care not
+                  merely treat ailments.
+                </div>
               </div>
               <Swiper
                 modules={[Pagination, A11y]}
