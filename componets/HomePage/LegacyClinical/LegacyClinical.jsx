@@ -66,7 +66,7 @@ const LegacyClinical = () => {
               const Tag = validTags.includes(rawTag) ? rawTag : "h2";
               // layout / non-size classes
               const baseClasses =
-                "font-bold leading-tight md:text-left text-center text-[#3D3D3D] mb-6";
+                "font-bold leading-tight md:text-left text-center text-[#3D3D3D]";
               // sizeMap must be imported / available in this file
               const sizeClasses = sizeMap[Tag] || sizeMap.h2;
               const words = titleContent.split(" ");

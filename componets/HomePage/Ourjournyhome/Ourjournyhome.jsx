@@ -56,7 +56,7 @@ const Ourjournyhome = ({ slug }) => {
           journeySection?.content_blocks[0]
         )}
 
-        <div className="scroll-box lg:col-span-8 md:col-span-7 md:order-1 order-2  pr-4  space-y-4 Background-color2 rounded-[30px] p-[15px] md:p-[30px] w-full md:h-[634px] md:overflow-y-auto">
+        <div className="scroll-box lg:col-span-8 md:col-span-7 md:order-1 order-2  pr-4  space-y-4 Background-color2 rounded-[30px] p-[15px] md:p-[30px] w-full md:h-[550px] md:overflow-y-auto">
           {/* <h2 className="min-[1200px]:text-[48px] min-[800px]:text-[25px] text-[28px] font-bold Text-color2 md:text-left text-center">
                 {journeySection?.content_blocks[0]?.title}
                 </h2> */}
@@ -98,7 +98,7 @@ const Ourjournyhome = ({ slug }) => {
 
         {/* Image Content */}
         <div className="lg:col-span-4 md:col-span-5 md:order-2 order-1 w-full">
-          <div className="relative w-full h-[450px] sm:h-[450px] md:h-[634px]">
+          <div className="relative w-full h-[450px] sm:h-[450px] md:h-[550px]">
             <Image
               src={
                 journeySection?.content_blocks[2]?.media_files?.[0]?.file_url
