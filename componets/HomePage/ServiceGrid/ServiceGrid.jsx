@@ -40,7 +40,7 @@ const fallbackServices = [
     link: "/",
   },
   {
-    title: "Book Health Check",
+    title: "Book Preventive Health Check-Up",
     subtitle: "",
     icon: "/assets/Book-Home-Physiotherapy.svg",
     link: "/contact",
@@ -113,7 +113,7 @@ const ServiceGrid = () => {
           const SubTag = getTag(service.subtitle_field_tag, "span");
           const titleClass = `${
             sizeMap[TitleTag] || sizeMap.h3
-          } text-[#3D3D3D] px-[16px] font-semibold`;
+          } text-[#3D3D3D] px-[16px] font-medium`;
           const subClass = `${
             sizeMap[SubTag] || sizeMap.p
           } font-semibold text-[#777] mt-1`;
@@ -138,8 +138,8 @@ const ServiceGrid = () => {
                     <>
                       {service.title.split("(")[0].trim()}
                       <br />
-                      <span className="text-[#777777] font-semibold">
-                        ({service.title.split("(")[1]}
+                      <span className="text-[#777777] font-normal">
+                        {`(${service.title.split("(")[1]}`}
                       </span>
                     </>
                   ) : (

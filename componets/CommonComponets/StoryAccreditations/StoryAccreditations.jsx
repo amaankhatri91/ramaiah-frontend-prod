@@ -151,9 +151,7 @@ export default function StoryAccreditations() {
               const secondPart = rest.join(" ");
 
               return (
-                <Tag
-                  className={`text-[40px] min-[1080px]:text-[48px] min-[1507px]:text-[48px] ${baseClasses}`}
-                >
+                <Tag className={`${responsiveSize} ${baseClasses}`}>
                   <span className="Text-colorOther">{firstWord}</span>{" "}
                   <span className="Text-color2">{secondPart}</span>
                 </Tag>
@@ -165,7 +163,7 @@ export default function StoryAccreditations() {
                 const ValueTag = getTag(item.field_tag, "span");
                 const valueClass = `${
                   sizeMap[ValueTag] || sizeMap.p
-                } font-bold text-[#3D3D3D] leading-[1.2] text-[20px]`;
+                } font-bold text-[#3D3D3D] leading-[1.2] text-[30px]`;
                 return (
                   <div
                     key={index}
@@ -216,7 +214,9 @@ export default function StoryAccreditations() {
               const baseClasses =
                 "font-bold text-[#3D3D3D] min-[1560px]:w-[82%] min-[1200px]:w-[100%] min-[1460px]:w-[88%] w-full mb-6 md:text-left text-center";
               return (
-                <Tag className={`${responsiveSize} ${baseClasses}`}>
+                <Tag
+                  className={`${responsiveSize} ${baseClasses} leading-[4.5rem]`}
+                >
                   <span className="Text-color2">{content}</span>
                 </Tag>
               );

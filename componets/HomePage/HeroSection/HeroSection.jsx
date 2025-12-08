@@ -194,8 +194,42 @@ const HeroSection = () => {
     );
   }
 
+  const firstSlide = slides.find((slide) => slide.type === "video");
+
   return (
     <div className="w-full bg-white select-none">
+      {firstSlide && (
+        <div
+          className="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0"
+          aria-hidden="false"
+        >
+          {(() => {
+            const Tag =
+              /^h[1-6]$/i.test(firstSlide.title_field_type) ||
+              firstSlide.title_field_type?.toLowerCase() === "p" ||
+              firstSlide.title_field_type?.toLowerCase() === "span"
+                ? firstSlide.title_field_type.toLowerCase()
+                : "h1";
+            const DynamicTag = Tag === "p" ? "h1" : Tag;
+            return (
+              <DynamicTag
+                dangerouslySetInnerHTML={{ __html: firstSlide.title }}
+              />
+            );
+          })()}
+          {(() => {
+            const Tag =
+              /^h[1-6]$/i.test(firstSlide.hashtag_field_type) ||
+              firstSlide.hashtag_field_type?.toLowerCase() === "p" ||
+              firstSlide.hashtag_field_type?.toLowerCase() === "span"
+                ? firstSlide.hashtag_field_type.toLowerCase()
+                : "p";
+            const DynamicTag = Tag;
+            return <DynamicTag>{firstSlide.hashtag}</DynamicTag>;
+          })()}
+        </div>
+      )}
+
       <Carousel
         className="hero-carousel-touch"
         preventMovementUntilSwipeScrollTolerance={true}
@@ -212,8 +246,10 @@ const HeroSection = () => {
         stopOnHover={false}
       >
         {slides.map((slide, index) => (
-          // <SwiperSlide key={index}>
-          <div className="relative w-full h-full min-[1024px]:h-[765px] overflow-hidden cursor-pointer">
+          <div
+            key={`hero-slide-${index}-${slide.type}`}
+            className="relative w-full h-full min-[1024px]:h-[765px] overflow-hidden cursor-pointer"
+          >
             {/* Background Media */}
             {slide.type === "video" ? (
               <video
@@ -240,7 +276,7 @@ const HeroSection = () => {
                 //   layout="fill"
                 //   objectFit="cover"
                 className="z-0 w-full h-full"
-                priority
+                priority={index === 0}
                 onError={(e) => {
                   console.error(
                     `Failed to load image: ${
@@ -271,12 +307,12 @@ const HeroSection = () => {
                           : "p";
                       const titleClass = `${
                         sizeMap[Tag] || sizeMap.p
-                      } font-bold text-[#3D3D3D] leading-tight`;
-                      const DynamicTag = Tag;
+                      } font-bold text-[#3D3D3D] leading-tight !text-[48px]`;
                       return (
-                        <DynamicTag
+                        <div
                           className={titleClass}
                           dangerouslySetInnerHTML={{ __html: slide.title }}
+                          role="presentation"
                         />
                       );
                     })()}
@@ -290,11 +326,10 @@ const HeroSection = () => {
                       const subClass = `${
                         sizeMap[Tag] || sizeMap.p
                       } Text-color2 font-bold mt-4`;
-                      const DynamicTag = Tag;
                       return (
-                        <DynamicTag className={subClass}>
+                        <div className={subClass} role="presentation">
                           {slide.hashtag}
-                        </DynamicTag>
+                        </div>
                       );
                     })()}
                   </div>
@@ -322,7 +357,6 @@ const HeroSection = () => {
               </>
             )}
           </div>
-          // </SwiperSlide>
         ))}
       </Carousel>
     </div>
