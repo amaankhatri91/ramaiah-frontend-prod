@@ -113,7 +113,7 @@ const ServiceGrid = () => {
           const SubTag = getTag(service.subtitle_field_tag, "span");
           const titleClass = `${
             sizeMap[TitleTag] || sizeMap.h3
-          } text-[#3D3D3D] px-[16px] font-medium`;
+          } text-[#3D3D3D] px-[16px] font-semibold`;
           const subClass = `${
             sizeMap[SubTag] || sizeMap.p
           } font-semibold text-[#777] mt-1`;

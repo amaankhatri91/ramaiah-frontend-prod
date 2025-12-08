@@ -49,7 +49,7 @@ const Overview = ({ slug }) => {
         <TitleTag className={titleClasses}>{titleBlock?.title || ""}</TitleTag>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-12 md:gap-8 gap-4">
-        <div className="md:col-span-7 md:order-1 order-2 h-full md:max-h-[440px] overflow-y-auto pr-4 pb-2 space-y-4">
+        <div className="md:col-span-7 md:order-1 order-2 h-full md:max-h-[490px] overflow-y-auto pr-4 pb-2 space-y-4">
           <div
             className={contentClasses}
             dangerouslySetInnerHTML={{ __html: rawHtml }}
@@ -69,10 +69,10 @@ const Overview = ({ slug }) => {
           </div>
         </div>
       </div>
-      {slug === "ramaiah-institute-oncosciences/radiation-oncology" && (
+      {slug.page_id === 22 && (
         <div>
           <span className="min-[1200px]:text-[27px] min-[800px]:text-[22px] text-[17px] font-bold text-[#3D3D3D]">
-            "Advantages of IORT"
+            Advantages of IORT
           </span>
           {advantages?.map((text, idx) => (
             <div
